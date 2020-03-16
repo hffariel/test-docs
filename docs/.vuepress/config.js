@@ -41,7 +41,7 @@ module.exports = {
     lastUpdated: "Last Updated",
     editLinks: true,
     docsDir: "docs",
-    docsBranch:"",
+    docsBranch: "",
     locales: {
       "/en/": {
         selectText: "Languages",
