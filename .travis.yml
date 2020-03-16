@@ -18,7 +18,7 @@ before_script:
   - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo `curl -s $PR | jq -r .head.ref`; fi)
   - echo $BRANCH
   - sed -i 's/base:.*,/base:\"\/'$BRANCH'\/\",/g' .vuepress/config.js 
-  - sed -i 's/docsBranch:.*,/docsBranch:\"$BRANCH\",/g' .vuepress/config.js 
+  - sed -i 's/docsBranch:.*,/docsBranch:\"'$BRANCH'\",/g' .vuepress/config.js 
   
 script:
   - npm run build
