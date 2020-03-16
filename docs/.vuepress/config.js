@@ -12,6 +12,13 @@ function convertSidebar(list, path) {
   return list
 }
 
+const fs = require("fs")
+const versionsPath = ".vuepress/versions.js" // got from asf-site
+let versions = {}
+if (fs.existsSync(versionsPath)) {
+  versions = require(versionsPath)
+}
+
 module.exports = {
   base: "",
   locales: {
@@ -62,7 +69,7 @@ module.exports = {
           {
             text: "Apache", link: "https://www.apache.org/", target: "_blank"
           }
-        ],
+        ].concat(versions['en'] || []),
         sidebar: convertSidebar(require("./sidebar/en.js"), "/en/")
       },
       "/zh-CN/": {
@@ -82,7 +89,7 @@ module.exports = {
           {
             text: "Apache", link: "https://www.apache.org/", target: "_blank"
           }
-        ],
+        ].concat(versions['zh-CN'] || []),
         algolia: {},
         sidebar: {
           "/zh-CN/": convertSidebar(require("./sidebar/zh-CN.js"), "/zh-CN/")
