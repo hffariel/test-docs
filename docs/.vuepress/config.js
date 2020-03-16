@@ -16,7 +16,7 @@ const fs = require("fs")
 const versionsPath = ".vuepress/versions.js" // got from asf-site
 let versions = {}
 if (fs.existsSync(versionsPath)) {
-  versions = require("versions.js")
+  versions = require("./versions.js")
 }
 
 module.exports = {
