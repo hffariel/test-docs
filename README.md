@@ -1,6 +1,6 @@
 # Doris Document
 
-* We are using ![Vuepress]{<https://github.com/vuejs/vuepress.git}> as our document site generator. Configurations are in './docs/.vuepress' folder.
+[Vuepress](https://github.com/vuejs/vuepress.git}) is used as our document site generator, configurations are in './docs/.vuepress' folder.
 
 ## Getting Start
 
@@ -9,11 +9,11 @@ cd docs && npm install
 npm run dev
 ```
 
-Open your browser and navigate to localhost:8080/en/ or localhost:8080/zh-CN/, pages will be auto refreshed during your writing.
+Open the browser and navigate to `localhost:8080/en/` or `localhost:8080/zh-CN/`.
 
 ## Start Writing
 
-1. Write markdown files in their own language folders like `./en/` and `./zh-CN/`, and keep them with the same name like:
+1. Write markdown files in different languages and put them in folders `./en/` and `./zh-CN/`. **Keep them with the same name.**
 
     ```bash
     .
@@ -46,7 +46,7 @@ Open your browser and navigate to localhost:8080/en/ or localhost:8080/zh-CN/, p
 
 4. Remember to update the sidebar configurations in `.vuepress/sidebar/` every time you add a new file or a folder.
 
-5. Run `npm run lint` before you start a PR.
+5. Run `npm run lint` before startting a PR.
 
 ## Deployment
 
@@ -54,7 +54,7 @@ Just start a PR, and all the things will be done automatically.
 
 ## What Travis Does
 
-Once a PR is accepted, travis ci will be triggerd to build and deploy the whole docs folder on its own branch. Here is what `.travis.yml` do:
+Once a PR accepted, travis ci will be triggerd to build and deploy the whole website within its own branch. Here is what `.travis.yml` do:
 
 1. Prepare nodejs and vuepress enviorment.
 
@@ -65,3 +65,5 @@ Once a PR is accepted, travis ci will be triggerd to build and deploy the whole 
 4. Fetch asf-site repo to local directory, and copy `.vupress/dist/` into `{BRANCH}/`.
 
 5. Push the new site to asf-site repo with `GitHub Token`(which is preset in Travis console as a variable used in .travis.yml).
+
+
