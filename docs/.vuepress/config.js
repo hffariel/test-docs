@@ -28,7 +28,7 @@ module.exports = {
   title: "Apache Doris",
   description: "Apache Doris",
   themeConfig: {
-    // base: '/master/',
+    base:"",
     title: "Doris",
     logo: "/images/logo.jpeg",
     search: true,
@@ -41,7 +41,7 @@ module.exports = {
     lastUpdated: "Last Updated",
     editLinks: true,
     docsDir: "docs",
-    docsBranch: "master",
+    docsBranch: "",
     locales: {
       "/en/": {
         selectText: "Languages",
