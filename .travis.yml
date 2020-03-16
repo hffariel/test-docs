@@ -23,7 +23,7 @@ before_script:
   - git config user.name "${GIT_NAME}"
   - git config user.email "${GIT_EMAIL}"
   - git clone https://${SITE_REPO} site-repo
-  - cp versions.js 
+  - cp site-repo/versions.js .vuepress/
   
 script:
   - npm run build
