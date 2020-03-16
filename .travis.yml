@@ -16,7 +16,7 @@ install:
 before_script:
   - export PR=https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST
   - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo `curl -s $PR | jq -r .head.ref`; fi)
-  - echo "current branch is: "$BRANCH
+  - echo $BRANCH
   - sed -i '' 's/base:.*,/base:\"\/${BRANCH}\/\",/g' .vuepress/config.js 
   - sed -i '' 's/docsBranch:.*,/docsBranch:\"${BRANCH}\",/g' .vuepress/config.js 
 # 无其他依赖项所以执行npm run build 构建就行了
