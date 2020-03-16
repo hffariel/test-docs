@@ -13,6 +13,7 @@ function convertSidebar(list, path) {
 }
 
 module.exports = {
+  base: "",
   locales: {
     "/en/": {
       lang: "en",
@@ -28,7 +29,6 @@ module.exports = {
   title: "Apache Doris",
   description: "Apache Doris",
   themeConfig: {
-    base: "",
     title: "Doris",
     logo: "/images/logo.jpeg",
     search: true,
