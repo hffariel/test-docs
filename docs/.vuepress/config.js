@@ -54,10 +54,10 @@ module.exports = {
             text: "Home", link: "/en/"
           },
           {
-            text: "Docs", link: "/en/installing/compilation_EN"
+            text: "Docs", link: "/en/installing/compilation"
           },
           {
-            text: "Download", link: "/en/downloads/downloads_EN"
+            text: "Download", link: "/en/downloads/downloads"
           },
           {
             text: "Apache", link: "https://www.apache.org/", target: "_blank"
