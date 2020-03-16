@@ -19,7 +19,7 @@ before_script:
   - echo $BRANCH
   - sed -i 's/base:.*,/base:\"\/'$BRANCH'\/\",/g' .vuepress/config.js 
   - sed -i 's/docsBranch:.*,/docsBranch:\"$BRANCH\",/g' .vuepress/config.js 
-# 无其他依赖项所以执行npm run build 构建就行了
+  
 script:
   - npm run build
 
@@ -35,7 +35,6 @@ after_script:
   - git commit -am "Auto Build"
   - git push --force --quiet "https://${SITE_PUSH_TOKEN}@${SITE_REPO}" ${SITE_BRANCH}:${SITE_BRANCH}
 
-#指定分支，只有指定的分支提交时才会运行脚本
 branches:
   only:
     - master
