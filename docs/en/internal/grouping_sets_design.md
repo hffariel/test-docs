@@ -23,6 +23,7 @@ KIND, either express or implied.  See the License for the
 specific language governing permissions and limitations
 under the License.
 -->
+
 # GROUPING SETS DESIGN
 
 ## 1. GROUPING SETS Background
@@ -39,7 +40,6 @@ The three `GROUPING` functions help you identify the group each row belongs to a
 ```
 SELECT k1, k2, SUM( k3 ) FROM t GROUP BY GROUPING SETS ( (k1, k2), (k1), (k2), ( ) );
 ```
-
 
 This statement is equivalent to:
 
@@ -134,7 +134,7 @@ GROUPING SETS (
 
 ### 1.4 GROUPING and GROUPING_ID Function
 
-Indicates whether a specified column expression in a `GROUP BY` list is aggregated or not. `GROUPING `returns 1 for aggregated or 0 for not aggregated in the result set. `GROUPING` can be used only in the `SELECT` list, `HAVING`, and `ORDER BY` clauses when `GROUP BY` is specified.
+Indicates whether a specified column expression in a `GROUP BY` list is aggregated or not. `GROUPING`returns 1 for aggregated or 0 for not aggregated in the result set. `GROUPING` can be used only in the `SELECT` list, `HAVING`, and `ORDER BY` clauses when `GROUP BY` is specified.
 
 `GROUPING_ID` describes which of a list of expressions are grouped in a row produced by a `GROUP BY` query. The `GROUPING_ID` function simply returns the decimal equivalent of the binary value formed as a result of the concatenation of the values returned by the `GROUPING` functions.
 
@@ -210,6 +210,7 @@ mysql> SELECT k1, k2, grouping(k1), grouping(k2), GROUPING_ID(k1,k2), SUM(k4) FR
 9 rows in set (0.02 sec)
 
 ```
+
 ### 1.5 Composition and nesting of GROUPING SETS
 
 First of all, a GROUP BY clause is essentially a special case of GROUPING SETS, for example:
@@ -226,7 +227,7 @@ is equivalent to:
 
 Similarly, CUBE and ROLLUP can be expanded into GROUPING SETS, so the various combinations and nesting of GROUP BY, CUBE, ROLLUP, GROUPING SETS are essentially the combination and nesting of GROUPING SETS.
 
-For GROUPING SETS nesting, it is semantically equivalent to writing the statements inside the nest directly outside. (ref:<https://www.brytlyt.com/documentation/data-manipulation-dml/grouping-sets-rollup-cube/>) mentions: 
+For GROUPING SETS nesting, it is semantically equivalent to writing the statements inside the nest directly outside. (ref:<https://www.brytlyt.com/documentation/data-manipulation-dml/grouping-sets-rollup-cube/>) mentions:
 
 ```
 The CUBE and ROLLUP constructs can be used either directly in the GROUP BY clause, or nested inside a GROUPING SETS clause. If one GROUPING SETS clause is nested inside another, the effect is the same as if all the elements of the inner clause had been written directly in the outer clause.
@@ -260,7 +261,7 @@ Presto supports composition, but not nesting.
 
 ## 2. Object
 
-Support `GROUPING SETS`， `ROLLUP` and `CUBE ` syntax，impliments 1.1, 1.2, 1.3 1.4, 1.5, not support the combination
+Support `GROUPING SETS`， `ROLLUP` and `CUBE` syntax，impliments 1.1, 1.2, 1.3 1.4, 1.5, not support the combination
  and nesting of GROUPING SETS at current version.
 
 ### 2.1 GROUPING SETS Syntax
@@ -469,7 +470,7 @@ select NULL, NULL, sum(k3) from t;
 9 rows in set (0.06 sec)
 ```
 
-### 3.3 FE 
+### 3.3 FE
 
 #### 3.3.1 Tasks
 
@@ -486,7 +487,6 @@ select NULL, NULL, sum(k3) from t;
 In order to add GROUPING_ID to groupingExprs in GroupByClause, need to create virtual SlotRef, also, need tot create a tuple for this slot, named GROUPING\_\_ID Tuple.
 
 For the plannode RepeatNode, it's input is all the  tuple of it's children, It's output tuple is the repeat data and GROUPING_ID.
-
 
 #### 3.3.3 Expression and Function Substitution
 

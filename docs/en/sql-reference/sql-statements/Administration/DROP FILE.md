@@ -25,6 +25,7 @@ under the License.
 -->
 
 # DROP FILE
+
 ## Description
 
 This statement is used to delete an uploaded file.
@@ -48,4 +49,5 @@ Catalog: Yes. Classification of documents.
 DROP FILE "ca.pem" properties("catalog" = "kafka");
 
 ## keyword
+
 DROP,FILE

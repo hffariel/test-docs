@@ -49,28 +49,27 @@ For instructions on each import mode, please refer to the operation manual for a
 
 * Broker load
 
-	Access and read external data sources (such as HDFS) through the Broker process and import them into Doris. The user submits the import job through Mysql protocol and executes it asynchronously. View the import results through the `SHOW LOAD` command.
+ Access and read external data sources (such as HDFS) through the Broker process and import them into Doris. The user submits the import job through Mysql protocol and executes it asynchronously. View the import results through the `SHOW LOAD` command.
 
 * Stream load
 
-	Users submit requests through HTTP protocol and create imports with raw data. It is mainly used to quickly import data from local files or data streams into Doris. The Import command returns the import result synchronously.
+ Users submit requests through HTTP protocol and create imports with raw data. It is mainly used to quickly import data from local files or data streams into Doris. The Import command returns the import result synchronously.
 
 * Insert
 
-	Similar to the Insert statement in MySQL, Doris provides `INSERT INTO tbl SELECT ...;`reading data from Doris's table and importing it into another table. Or by `INSERT INTO tbl VALUES (...);` Insert a single piece of data.
+ Similar to the Insert statement in MySQL, Doris provides `INSERT INTO tbl SELECT ...;`reading data from Doris's table and importing it into another table. Or by `INSERT INTO tbl VALUES (...);` Insert a single piece of data.
 
 * Multi load
 
-	Users submit multiple import jobs through HTTP protocol. Multi Load guarantees the atomic validity of multiple import jobs.
+ Users submit multiple import jobs through HTTP protocol. Multi Load guarantees the atomic validity of multiple import jobs.
 
 * Routine load
 
-	Users submit routine import jobs through MySQL protocol, generate a resident thread, read and import data from data sources (such as Kafka) uninterruptedly into Doris.
+ Users submit routine import jobs through MySQL protocol, generate a resident thread, read and import data from data sources (such as Kafka) uninterruptedly into Doris.
 
 ## Basic Principles
 
 ### Import execution process
-
 
 ```
 +---------+      +---------+      +----------+      +-----------+
@@ -111,7 +110,6 @@ At the same time, each import job has a Label designated by the user or automati
 
 Users can use Label mechanism to ensure that the data corresponding to Label can be imported at most once, at the level of At-Most-One semantics.
 
-
 ## Synchronization and asynchronization
 
 Doris's current import methods fall into two categories, synchronous and asynchronous. If an external program accesses Doris's import function, it is necessary to determine which type of import mode is used and then determine the access logic.
@@ -131,6 +129,7 @@ Operation steps:
 *Note: If the user returns the import synchronously and the amount of data imported is too large, it may take a long time to create the import request to return the result.*
 
 ### Asynchronism
+
 Asynchronous import means that after the user creates the import task, Doris directly returns to the successful creation. **Successful creation does not mean that data has been imported into**. The import task will be executed asynchronously. After successful creation, users need to send a polling command to check the status of the import job. If the creation fails, you can judge whether it needs to be created again based on the failure information.
 
 The ways to import asynchronous types are: **Broker load**, **Multi load**.
@@ -143,6 +142,7 @@ Operation steps:
 4. The user (external system) polls to see the import task until the status changes to FINISHED or CANCELLED.
 
 ### Notes
+
 Neither asynchronous nor synchronous import types should be retried endlessly after Doris returns an import failure or an import creation failure. **After a limited number of retries and failures, the external system retains the failure information. Most of the retries fail because of the problem of using method or data itself.**
 
 ## Memory Limit
@@ -176,17 +176,17 @@ The following configuration belongs to the system configuration of FE, which can
 
 + max\_load\_timeout\_second and min\_load\_timeout\_second
 
-	The two configurations mean the maximum import timeout time and the minimum import timeout time in seconds. The default maximum timeout time is 3 days and the default minimum timeout time is 1 second. User-defined import timeouts should not exceed this range. This parameter is applicable to all import modes.
+ The two configurations mean the maximum import timeout time and the minimum import timeout time in seconds. The default maximum timeout time is 3 days and the default minimum timeout time is 1 second. User-defined import timeouts should not exceed this range. This parameter is applicable to all import modes.
 
 + desired\_max\_waiting\_jobs
 
-	The maximum number of imported tasks in the waiting queue is 100 by default. New import requests are rejected when the number of imports in the PENDING state (i.e. waiting for execution) in FE exceeds that value.
+ The maximum number of imported tasks in the waiting queue is 100 by default. New import requests are rejected when the number of imports in the PENDING state (i.e. waiting for execution) in FE exceeds that value.
 
-	This configuration is only valid for asynchronous execution of imports. When the number of import waiting for asynchronous execution exceeds the default value, subsequent creation of import requests will be rejected.
+ This configuration is only valid for asynchronous execution of imports. When the number of import waiting for asynchronous execution exceeds the default value, subsequent creation of import requests will be rejected.
 
 + max\_running\_txn\_num\_per\_db
 
-	The implication of this configuration is that the maximum number of imports running in each database (no distinction between import types, uniform counting). When the current database is running more than the maximum number of imports, subsequent imports will not be executed. If the job is imported synchronously, the import will be rejected. If it is an asynchronous import job. The job will wait in the queue.
+ The implication of this configuration is that the maximum number of imports running in each database (no distinction between import types, uniform counting). When the current database is running more than the maximum number of imports, subsequent imports will not be executed. If the job is imported synchronously, the import will be rejected. If it is an asynchronous import job. The job will wait in the queue.
 
 ### BE configuration
 
@@ -194,26 +194,26 @@ The following configuration belongs to the BE system configuration, which can be
 
 + push\_write\_mbytes\_per\_sec
 
-	Writing speed limit for a single Tablet on BE. The default is 10, or 10MB/s. Usually the maximum write speed of BE to a single Tablet is between 10 and 30 MB/s, depending on Schema and the system. This parameter can be adjusted appropriately to control the import speed.
+ Writing speed limit for a single Tablet on BE. The default is 10, or 10MB/s. Usually the maximum write speed of BE to a single Tablet is between 10 and 30 MB/s, depending on Schema and the system. This parameter can be adjusted appropriately to control the import speed.
 
 + write\_buffer\_size
 
-	The imported data will be written to a memtable on BE, and the memtable will not be written back to disk until it reaches the threshold. The default size is 100MB. Too small threshold may result in a large number of small files on BE. This threshold can be increased appropriately to reduce the number of files. However, excessive thresholds can lead to RPC timeouts, as shown in the configuration instructions below.
+ The imported data will be written to a memtable on BE, and the memtable will not be written back to disk until it reaches the threshold. The default size is 100MB. Too small threshold may result in a large number of small files on BE. This threshold can be increased appropriately to reduce the number of files. However, excessive thresholds can lead to RPC timeouts, as shown in the configuration instructions below.
 
 + tablet\_writer\_rpc\_timeout\_sec
 
-	During the import process, a Batch (1024 rows) RPC timeout is sent. Default 600 seconds. Because the RPC may involve multiple memtable writes, it may cause RPC timeouts, which can be adjusted appropriately to reduce timeout errors (such as `send batch fail`). At the same time, if the `write_buffer_size` configuration is increased, this parameter needs to be adjusted appropriately.
+ During the import process, a Batch (1024 rows) RPC timeout is sent. Default 600 seconds. Because the RPC may involve multiple memtable writes, it may cause RPC timeouts, which can be adjusted appropriately to reduce timeout errors (such as `send batch fail`). At the same time, if the `write_buffer_size` configuration is increased, this parameter needs to be adjusted appropriately.
 
 + streaming\_load\_rpc\_max\_alive\_time\_sec
 
-	During the import process, Doris opens a Writer for each Tablet to receive and write data. This parameter specifies Writer's waiting timeout time. If Writer does not receive any data at this time, Writer will be destroyed automatically. When the system processing speed is slow, Writer may not receive the next batch of data for a long time, resulting in import error: `Tablet Writer add batch with unknown id`. This configuration can be increased appropriately at this time. The default is 600 seconds.
+ During the import process, Doris opens a Writer for each Tablet to receive and write data. This parameter specifies Writer's waiting timeout time. If Writer does not receive any data at this time, Writer will be destroyed automatically. When the system processing speed is slow, Writer may not receive the next batch of data for a long time, resulting in import error: `Tablet Writer add batch with unknown id`. This configuration can be increased appropriately at this time. The default is 600 seconds.
 
 + load\_process\_max\_memory\_limit\_bytes and load\_process\_max\_memory\_limit\_percent
 
-    These two parameters limit the upper memory limit that can be used to load tasks on a single Backend. The maximum memory and maximum memory percentage are respectively. `load_process_max_memory_limit_percent` defaults to 80%, which is 80% of the `mem_limit` configuration. That is, if the physical memory is M, the default load memory limit is M * 80% * 80%.
+    These two parameters limit the upper memory limit that can be used to load tasks on a single Backend. The maximum memory and maximum memory percentage are respectively. `load_process_max_memory_limit_percent` defaults to 80%, which is 80% of the `mem_limit` configuration. That is, if the physical memory is M, the default load memory limit is M *80%* 80%.
 
      `load_process_max_memory_limit_bytes` defaults to 100GB. The system takes the smaller of the two parameters as the final Backend load memory usage limit.
 
 + label\_keep\_max\_second
 
-  The retention time of load job which is FINISHED or CANCELLED. The record of load job will be kept in Doris system for a period of time which is determined by this parameter. The default time of this parameter is 3 days. This parameter is common to all types of load job. 
+  The retention time of load job which is FINISHED or CANCELLED. The record of load job will be kept in Doris system for a period of time which is determined by this parameter. The default time of this parameter is 3 days. This parameter is common to all types of load job.

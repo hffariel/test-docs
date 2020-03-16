@@ -25,6 +25,7 @@ under the License.
 -->
 
 # SET PASSWORD
+
 ## description
 
 Syntax:
@@ -42,15 +43,15 @@ Syntax:
 ## example
 
 1. 修改当前用户的密码
-      
+
     SET PASSWORD = PASSWORD('123456')
     SET PASSWORD = '*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9'
 
 2. 修改指定用户密码
-   
+
     SET PASSWORD FOR 'jack'@'192.%' = PASSWORD('123456')
     SET PASSWORD FOR 'jack'@['domain'] = '*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9'
 
 ## keyword
-    SET, PASSWORD
 
+    SET, PASSWORD

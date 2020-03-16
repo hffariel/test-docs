@@ -54,8 +54,8 @@ Beginning with version 0.9.0, Doris introduced an optimized replica management s
 
 
 ```
-The figure above is a simplified workflow.
 
+The figure above is a simplified workflow.
 
 ## Duplicate status
 
@@ -65,53 +65,53 @@ Multiple copies of a Tablet may cause state inconsistencies due to certain circu
 
 1. BAD
 
-	That is, the copy is damaged. Includes, but is not limited to, the irrecoverable damaged status of copies caused by disk failures, BUGs, etc.
+ That is, the copy is damaged. Includes, but is not limited to, the irrecoverable damaged status of copies caused by disk failures, BUGs, etc.
 
 2. VERSION\_MISSING
 
-	Version missing. Each batch of imports in Doris corresponds to a data version. A copy of the data consists of several consecutive versions. However, due to import errors, delays and other reasons, the data version of some copies may be incomplete.
+ Version missing. Each batch of imports in Doris corresponds to a data version. A copy of the data consists of several consecutive versions. However, due to import errors, delays and other reasons, the data version of some copies may be incomplete.
 
 3. HEALTHY
 
-	Health copy. That is, a copy of the normal data, and the BE node where the copy is located is in a normal state (heartbeat is normal and not in the offline process).
+ Health copy. That is, a copy of the normal data, and the BE node where the copy is located is in a normal state (heartbeat is normal and not in the offline process).
 
 **The health status of a Tablet is determined by the status of all its copies. There are the following categories:**
 
 1. REPLICA\_MISSING
 
-	The copy is missing. That is, the number of surviving copies is less than the expected number of copies.
+ The copy is missing. That is, the number of surviving copies is less than the expected number of copies.
 
 2. VERSION\_INCOMPLETE
 
-	The number of surviving copies is greater than or equal to the number of expected copies, but the number of healthy copies is less than the number of expected copies.
+ The number of surviving copies is greater than or equal to the number of expected copies, but the number of healthy copies is less than the number of expected copies.
 
 3. REPLICA\_RELOCATING
 
-	Have a full number of live copies of the replication num version, but the BE nodes where some copies are located are in unavailable state (such as decommission)
+ Have a full number of live copies of the replication num version, but the BE nodes where some copies are located are in unavailable state (such as decommission)
 
 4. REPLICA\_MISSING\_IN\_CLUSTER
 
-	When using multi-cluster, the number of healthy replicas is greater than or equal to the expected number of replicas, but the number of replicas in the corresponding cluster is less than the expected number of replicas.
+ When using multi-cluster, the number of healthy replicas is greater than or equal to the expected number of replicas, but the number of replicas in the corresponding cluster is less than the expected number of replicas.
 
 5. REDUNDANT
 
-	Duplicate redundancy. Healthy replicas are in the corresponding cluster, but the number of replicas is larger than the expected number. Or there's a spare copy of unavailable.
+ Duplicate redundancy. Healthy replicas are in the corresponding cluster, but the number of replicas is larger than the expected number. Or there's a spare copy of unavailable.
 
 6. FORCE\_REDUNDANT
 
-	This is a special state. It only occurs when the number of expected replicas is greater than or equal to the number of available nodes, and when the Tablet is in the state of replica missing. In this case, you need to delete a copy first to ensure that there are available nodes for creating a new copy.
+ This is a special state. It only occurs when the number of expected replicas is greater than or equal to the number of available nodes, and when the Tablet is in the state of replica missing. In this case, you need to delete a copy first to ensure that there are available nodes for creating a new copy.
 
 7. COLOCATE\_MISMATCH
 
-	Fragmentation status of tables for Collocation attributes. Represents that the distribution of fragmented copies is inconsistent with the specified distribution of Colocation Group.
+ Fragmentation status of tables for Collocation attributes. Represents that the distribution of fragmented copies is inconsistent with the specified distribution of Colocation Group.
 
 8. COLOCATE\_REDUNDANT
 
-	Fragmentation status of tables for Collocation attributes. Represents the fragmented copy redundancy of the Colocation table.
+ Fragmentation status of tables for Collocation attributes. Represents the fragmented copy redundancy of the Colocation table.
 
 8. HEALTHY
 
-	Healthy fragmentation, that is, conditions [1-5] are not satisfied.
+ Healthy fragmentation, that is, conditions [1-5] are not satisfied.
 
 ## Replica Repair
 
@@ -125,41 +125,42 @@ For different states, we adopt different repair methods:
 
 1. REPLICA\_MISSING/REPLICA\_RELOCATING
 
-	Select a low-load, available BE node as the destination. Choose a healthy copy as the source. Clone tasks copy a complete copy from the source to the destination. For replica completion, we will directly select an available BE node, regardless of the storage medium.
+ Select a low-load, available BE node as the destination. Choose a healthy copy as the source. Clone tasks copy a complete copy from the source to the destination. For replica completion, we will directly select an available BE node, regardless of the storage medium.
 
 2. VERSION\_INCOMPLETE
 
-	Select a relatively complete copy as the destination. Choose a healthy copy as the source. The clone task attempts to copy the missing version from the source to the destination.
+ Select a relatively complete copy as the destination. Choose a healthy copy as the source. The clone task attempts to copy the missing version from the source to the destination.
 
 3. REPLICA\_MISSING\_IN\_CLUSTER
 
-	This state processing method is the same as REPLICAMISSING.
+ This state processing method is the same as REPLICAMISSING.
 
 4. REDUNDANT
 
-	Usually, after repair, there will be redundant copies in fragmentation. We select a redundant copy to delete it. The selection of redundant copies follows the following priorities:
-	1. The BE where the copy is located has been offline.
-	2. The copy is damaged
-	3. The copy is lost in BE or offline
-	4. The replica is in the CLONE state (which is an intermediate state during clone task execution)
-	5. The copy has version missing
-	6. The cluster where the copy is located is incorrect
-	7. The BE node where the replica is located has a high load
+ Usually, after repair, there will be redundant copies in fragmentation. We select a redundant copy to delete it. The selection of redundant copies follows the following priorities:
 
-5. FORCE\_REDUNDANT
+ 1. The BE where the copy is located has been offline.
+ 2. The copy is damaged
+ 3. The copy is lost in BE or offline
+ 4. The replica is in the CLONE state (which is an intermediate state during clone task execution)
+ 5. The copy has version missing
+ 6. The cluster where the copy is located is incorrect
+ 7. The BE node where the replica is located has a high load
 
-	Unlike REDUNDANT, because at this point Tablet has a copy missing, because there are no additional available nodes for creating new copies. So at this point, a copy must be deleted to free up a available node for creating a new copy.
-	The order of deleting copies is the same as REDUNDANT.
+ 5. FORCE\_REDUNDANT
+
+ Unlike REDUNDANT, because at this point Tablet has a copy missing, because there are no additional available nodes for creating new copies. So at this point, a copy must be deleted to free up a available node for creating a new copy.
+ The order of deleting copies is the same as REDUNDANT.
 
 6. COLOCATE\_MISMATCH
 
-	Select one of the replica distribution BE nodes specified in Colocation Group as the destination node for replica completion.
+ Select one of the replica distribution BE nodes specified in Colocation Group as the destination node for replica completion.
 
 7. COLOCATE\_REDUNDANT
 
-	Delete a copy on a BE node that is distributed by a copy specified in a non-Colocation Group.
+ Delete a copy on a BE node that is distributed by a copy specified in a non-Colocation Group.
 
-	Doris does not deploy a copy of the same Tablet on a different BE of the same host when selecting a replica node. It ensures that even if all BEs on the same host are deactivated, all copies will not be lost.
+ Doris does not deploy a copy of the same Tablet on a different BE of the same host when selecting a replica node. It ensures that even if all BEs on the same host are deactivated, all copies will not be lost.
 
 ### Scheduling priority
 
@@ -167,26 +168,26 @@ Waiting for the scheduled fragments in Tablet Scheduler gives different prioriti
 
 1. VERY\_HIGH
 
-	* REDUNDANT. For slices with duplicate redundancy, we give priority to them. Logically, duplicate redundancy is the least urgent, but because it is the fastest to handle and can quickly release resources (such as disk space, etc.), we give priority to it.
-	* FORCE\_REDUNDANT. Ditto.
+* REDUNDANT. For slices with duplicate redundancy, we give priority to them. Logically, duplicate redundancy is the least urgent, but because it is the fastest to handle and can quickly release resources (such as disk space, etc.), we give priority to it.
+* FORCE\_REDUNDANT. Ditto.
 
 2. HIGH
 
-	* REPLICA\_MISSING and most copies are missing (for example, 2 copies are missing in 3 copies)
-	* VERSION\_INCOMPLETE and most copies are missing
-	* COLOCATE\_MISMATCH We hope that the fragmentation related to the Collocation table can be repaired as soon as possible.
-	* COLOCATE\_REDUNDANT
+* REPLICA\_MISSING and most copies are missing (for example, 2 copies are missing in 3 copies)
+* VERSION\_INCOMPLETE and most copies are missing
+* COLOCATE\_MISMATCH We hope that the fragmentation related to the Collocation table can be repaired as soon as possible.
+* COLOCATE\_REDUNDANT
 
 3. NORMAL
 
-	* REPLICA\_MISSING, but most survive (for example, three copies lost one)
-	* VERSION\_INCOMPLETE, but most copies are complete
-	* REPLICA\_RELOCATING and relocate is required for most replicas (e.g. 3 replicas with 2 replicas)
+* REPLICA\_MISSING, but most survive (for example, three copies lost one)
+* VERSION\_INCOMPLETE, but most copies are complete
+* REPLICA\_RELOCATING and relocate is required for most replicas (e.g. 3 replicas with 2 replicas)
 
 4. LOW
 
-	* REPLICA\_MISSING\_IN\_CLUSTER
-	* REPLICA\_RELOCATING most copies stable
+* REPLICA\_MISSING\_IN\_CLUSTER
+* REPLICA\_RELOCATING most copies stable
 
 ### Manual priority
 
@@ -248,131 +249,131 @@ Duplicate status view mainly looks at the status of the duplicate, as well as th
 
 1. Global state checking
 
-	Through `SHOW PROC'/ statistic'; `commands can view the replica status of the entire cluster.
+ Through `SHOW PROC'/ statistic';`commands can view the replica status of the entire cluster.
 
     ```
-	+----------+-----------------------------+----------+--------------+----------+-----------+------------+--------------------+-----------------------+
-	| DbId     | DbName                      | TableNum | PartitionNum | IndexNum | TabletNum | ReplicaNum | UnhealthyTabletNum | InconsistentTabletNum |
-	+----------+-----------------------------+----------+--------------+----------+-----------+------------+--------------------+-----------------------+
-	| 35153636 | default_cluster:DF_Newrisk  | 3        | 3            | 3        | 96        | 288        | 0                  | 0                     |
-	| 48297972 | default_cluster:PaperData   | 0        | 0            | 0        | 0         | 0          | 0                  | 0                     |
-	| 5909381  | default_cluster:UM_TEST     | 7        | 7            | 10       | 320       | 960        | 1                  | 0                     |
-	| Total    | 240                         | 10       | 10           | 13       | 416       | 1248       | 1                  | 0                     |
-	+----------+-----------------------------+----------+--------------+----------+-----------+------------+--------------------+-----------------------+
+ +----------+-----------------------------+----------+--------------+----------+-----------+------------+--------------------+-----------------------+
+ | DbId     | DbName                      | TableNum | PartitionNum | IndexNum | TabletNum | ReplicaNum | UnhealthyTabletNum | InconsistentTabletNum |
+ +----------+-----------------------------+----------+--------------+----------+-----------+------------+--------------------+-----------------------+
+ | 35153636 | default_cluster:DF_Newrisk  | 3        | 3            | 3        | 96        | 288        | 0                  | 0                     |
+ | 48297972 | default_cluster:PaperData   | 0        | 0            | 0        | 0         | 0          | 0                  | 0                     |
+ | 5909381  | default_cluster:UM_TEST     | 7        | 7            | 10       | 320       | 960        | 1                  | 0                     |
+ | Total    | 240                         | 10       | 10           | 13       | 416       | 1248       | 1                  | 0                     |
+ +----------+-----------------------------+----------+--------------+----------+-----------+------------+--------------------+-----------------------+
     ```
 
-	The `UnhealthyTabletNum` column shows how many Tablets are in an unhealthy state in the corresponding database. `The Inconsistent Tablet Num` column shows how many Tablets are in an inconsistent replica state in the corresponding database. The last `Total` line counts the entire cluster. Normally `Unhealth Tablet Num` and `Inconsistent Tablet Num` should be 0. If it's not zero, you can further see which Tablets are there. As shown in the figure above, one table in the UM_TEST database is not healthy, you can use the following command to see which one is.
+ The `UnhealthyTabletNum` column shows how many Tablets are in an unhealthy state in the corresponding database. `The Inconsistent Tablet Num` column shows how many Tablets are in an inconsistent replica state in the corresponding database. The last `Total` line counts the entire cluster. Normally `Unhealth Tablet Num` and `Inconsistent Tablet Num` should be 0. If it's not zero, you can further see which Tablets are there. As shown in the figure above, one table in the UM_TEST database is not healthy, you can use the following command to see which one is.
 
-	`SHOW PROC '/statistic/5909381';`
+ `SHOW PROC '/statistic/5909381';`
 
-	Among them `5909381'is the corresponding DbId.
+ Among them `5909381'is the corresponding DbId.
 
     ```
-	+------------------+---------------------+
-	| UnhealthyTablets | InconsistentTablets |
-	+------------------+---------------------+
-	| [40467980]       | []                  |
-	+------------------+---------------------+
+ +------------------+---------------------+
+ | UnhealthyTablets | InconsistentTablets |
+ +------------------+---------------------+
+ | [40467980]       | []                  |
+ +------------------+---------------------+
     ```
 
-	The figure above shows the specific unhealthy Tablet ID (40467980). Later we'll show you how to view the status of each copy of a specific Tablet.
+ The figure above shows the specific unhealthy Tablet ID (40467980). Later we'll show you how to view the status of each copy of a specific Tablet.
 
 2. Table (partition) level status checking
 
-	Users can view the status of a copy of a specified table or partition through the following commands and filter the status through a WHERE statement. If you look at table tbl1, the state on partitions P1 and P2 is a copy of NORMAL:
+ Users can view the status of a copy of a specified table or partition through the following commands and filter the status through a WHERE statement. If you look at table tbl1, the state on partitions P1 and P2 is a copy of NORMAL:
 
-	`ADMIN SHOW REPLICA STATUS FROM tbl1 PARTITION (p1, p2) WHERE STATUS = "NORMAL";`
+ `ADMIN SHOW REPLICA STATUS FROM tbl1 PARTITION (p1, p2) WHERE STATUS = "NORMAL";`
 
-	```
-	+----------+-----------+-----------+---------+-------------------+--------------------+------------------+------------+------------+-------+--------+--------+
-	| TabletId | ReplicaId | BackendId | Version | LastFailedVersion | LastSuccessVersion | CommittedVersion | SchemaHash | VersionNum | IsBad | State  | Status |
-	+----------+-----------+-----------+---------+-------------------+--------------------+------------------+------------+------------+-------+--------+--------+
-	| 29502429 | 29502432  | 10006     | 2       | -1                | 2                  | 1                | -1         | 2          | false | NORMAL | OK     |
-	| 29502429 | 36885996  | 10002     | 2       | -1                | -1                 | 1                | -1         | 2          | false | NORMAL | OK     |
-	| 29502429 | 48100551  | 10007     | 2       | -1                | -1                 | 1                | -1         | 2          | false | NORMAL | OK     |
-	| 29502433 | 29502434  | 10001     | 2       | -1                | 2                  | 1                | -1         | 2          | false | NORMAL | OK     |
-	| 29502433 | 44900737  | 10004     | 2       | -1                | -1                 | 1                | -1         | 2          | false | NORMAL | OK     |
-	| 29502433 | 48369135  | 10006     | 2       | -1                | -1                 | 1                | -1         | 2          | false | NORMAL | OK     |
-	+----------+-----------+-----------+---------+-------------------+--------------------+------------------+------------+------------+-------+--------+--------+
+ ```
+ +----------+-----------+-----------+---------+-------------------+--------------------+------------------+------------+------------+-------+--------+--------+
+ | TabletId | ReplicaId | BackendId | Version | LastFailedVersion | LastSuccessVersion | CommittedVersion | SchemaHash | VersionNum | IsBad | State  | Status |
+ +----------+-----------+-----------+---------+-------------------+--------------------+------------------+------------+------------+-------+--------+--------+
+ | 29502429 | 29502432  | 10006     | 2       | -1                | 2                  | 1                | -1         | 2          | false | NORMAL | OK     |
+ | 29502429 | 36885996  | 10002     | 2       | -1                | -1                 | 1                | -1         | 2          | false | NORMAL | OK     |
+ | 29502429 | 48100551  | 10007     | 2       | -1                | -1                 | 1                | -1         | 2          | false | NORMAL | OK     |
+ | 29502433 | 29502434  | 10001     | 2       | -1                | 2                  | 1                | -1         | 2          | false | NORMAL | OK     |
+ | 29502433 | 44900737  | 10004     | 2       | -1                | -1                 | 1                | -1         | 2          | false | NORMAL | OK     |
+ | 29502433 | 48369135  | 10006     | 2       | -1                | -1                 | 1                | -1         | 2          | false | NORMAL | OK     |
+ +----------+-----------+-----------+---------+-------------------+--------------------+------------------+------------+------------+-------+--------+--------+
     ```
 
-	The status of all copies is shown here. Where `IsBad` is listed as `true`, the copy is damaged. The `Status` column displays other states. Specific status description, you can see help through `HELP ADMIN SHOW REPLICA STATUS`.
+ The status of all copies is shown here. Where `IsBad` is listed as `true`, the copy is damaged. The `Status` column displays other states. Specific status description, you can see help through `HELP ADMIN SHOW REPLICA STATUS`.
 
-	` The ADMIN SHOW REPLICA STATUS `command is mainly used to view the health status of copies. Users can also view additional information about copies of a specified table by using the following commands:
+ `The ADMIN SHOW REPLICA STATUS`command is mainly used to view the health status of copies. Users can also view additional information about copies of a specified table by using the following commands:
 
-	`SHOW TABLET FROM tbl1;`
-
-    ```
-	+----------+-----------+-----------+---------+-------------+-------------------+-----------------------+------------------+----------------------+---------------+----------+----------+--------+-------------------------+--------------+-----------------	-+--------------+----------------------+
-	| TabletId | ReplicaId | BackendId | Version | VersionHash | LstSuccessVersion | LstSuccessVersionHash | LstFailedVersion | LstFailedVersionHash | LstFailedTime | DataSize | RowCount | State  | LstConsistencyCheckTime | CheckVersion | 	CheckVersionHash | VersionCount | PathHash             |
-	+----------+-----------+-----------+---------+-------------+-------------------+-----------------------+------------------+----------------------+---------------+----------+----------+--------+-------------------------+--------------+-----------------	-+--------------+----------------------+
-	| 29502429 | 29502432  | 10006     | 2       | 0           | 2                 | 0                     | -1               | 0                    | N/A           | 784      | 0        | NORMAL | N/A                     | -1           | 	-1               | 2            | -5822326203532286804 |
-	| 29502429 | 36885996  | 10002     | 2       | 0           | -1                | 0                     | -1               | 0                    | N/A           | 784      | 0        | NORMAL | N/A                     | -1           | 	-1               | 2            | -1441285706148429853 |
-	| 29502429 | 48100551  | 10007     | 2       | 0           | -1                | 0                     | -1               | 0                    | N/A           | 784      | 0        | NORMAL | N/A                     | -1           | 	-1               | 2            | -4784691547051455525 |
-	+----------+-----------+-----------+---------+-------------+-------------------+-----------------------+------------------+----------------------+---------------+----------+----------+--------+-------------------------+--------------+-----------------	-+--------------+----------------------+  
-    ```
-    
-	The figure above shows some additional information, including copy size, number of rows, number of versions, where the data path is located.
-
-	> Note: The contents of the `State'column shown here do not represent the health status of the replica, but the status of the replica under certain tasks, such as CLONE, SCHEMA CHANGE, ROLLUP, etc.
-
-	In addition, users can check the distribution of replicas in a specified table or partition by following commands.
-
-	`ADMIN SHOW REPLICA DISTRIBUTION FROM tbl1;`
+ `SHOW TABLET FROM tbl1;`
 
     ```
-	+-----------+------------+-------+---------+
-	| BackendId | ReplicaNum | Graph | Percent |
-	+-----------+------------+-------+---------+
-	| 10000     | 7          |       | 7.29 %  |
-	| 10001     | 9          |       | 9.38 %  |
-	| 10002     | 7          |       | 7.29 %  |
-	| 10003     | 7          |       | 7.29 %  |
-	| 10004     | 9          |       | 9.38 %  |
-	| 10005     | 11         | >     | 11.46 % |
-	| 10006     | 18         | >     | 18.75 % |
-	| 10007     | 15         | >     | 15.62 % |
-	| 10008     | 13         | >     | 13.54 % |
-	+-----------+------------+-------+---------+
+ +----------+-----------+-----------+---------+-------------+-------------------+-----------------------+------------------+----------------------+---------------+----------+----------+--------+-------------------------+--------------+----------------- -+--------------+----------------------+
+ | TabletId | ReplicaId | BackendId | Version | VersionHash | LstSuccessVersion | LstSuccessVersionHash | LstFailedVersion | LstFailedVersionHash | LstFailedTime | DataSize | RowCount | State  | LstConsistencyCheckTime | CheckVersion |  CheckVersionHash | VersionCount | PathHash             |
+ +----------+-----------+-----------+---------+-------------+-------------------+-----------------------+------------------+----------------------+---------------+----------+----------+--------+-------------------------+--------------+----------------- -+--------------+----------------------+
+ | 29502429 | 29502432  | 10006     | 2       | 0           | 2                 | 0                     | -1               | 0                    | N/A           | 784      | 0        | NORMAL | N/A                     | -1           |  -1               | 2            | -5822326203532286804 |
+ | 29502429 | 36885996  | 10002     | 2       | 0           | -1                | 0                     | -1               | 0                    | N/A           | 784      | 0        | NORMAL | N/A                     | -1           |  -1               | 2            | -1441285706148429853 |
+ | 29502429 | 48100551  | 10007     | 2       | 0           | -1                | 0                     | -1               | 0                    | N/A           | 784      | 0        | NORMAL | N/A                     | -1           |  -1               | 2            | -4784691547051455525 |
+ +----------+-----------+-----------+---------+-------------+-------------------+-----------------------+------------------+----------------------+---------------+----------+----------+--------+-------------------------+--------------+----------------- -+--------------+----------------------+  
     ```
 
-	Here we show the number and percentage of replicas of table tbl1 on each BE node, as well as a simple graphical display.
+ The figure above shows some additional information, including copy size, number of rows, number of versions, where the data path is located.
+
+ > Note: The contents of the `State'column shown here do not represent the health status of the replica, but the status of the replica under certain tasks, such as CLONE, SCHEMA CHANGE, ROLLUP, etc.
+
+ In addition, users can check the distribution of replicas in a specified table or partition by following commands.
+
+ `ADMIN SHOW REPLICA DISTRIBUTION FROM tbl1;`
+
+    ```
+ +-----------+------------+-------+---------+
+ | BackendId | ReplicaNum | Graph | Percent |
+ +-----------+------------+-------+---------+
+ | 10000     | 7          |       | 7.29 %  |
+ | 10001     | 9          |       | 9.38 %  |
+ | 10002     | 7          |       | 7.29 %  |
+ | 10003     | 7          |       | 7.29 %  |
+ | 10004     | 9          |       | 9.38 %  |
+ | 10005     | 11         | >     | 11.46 % |
+ | 10006     | 18         | >     | 18.75 % |
+ | 10007     | 15         | >     | 15.62 % |
+ | 10008     | 13         | >     | 13.54 % |
+ +-----------+------------+-------+---------+
+    ```
+
+ Here we show the number and percentage of replicas of table tbl1 on each BE node, as well as a simple graphical display.
 
 4. Tablet level status checking
 
-	When we want to locate a specific Tablet, we can use the following command to view the status of a specific Tablet. For example, check the tablet with ID 2950253:
+ When we want to locate a specific Tablet, we can use the following command to view the status of a specific Tablet. For example, check the tablet with ID 2950253:
 
-	`SHOW TABLET 29502553;`
-
-    ```
-	+------------------------+-----------+---------------+-----------+----------+----------+-------------+----------+--------+---------------------------------------------------------------------------+
-	| DbName                 | TableName | PartitionName | IndexName | DbId     | TableId  | PartitionId | IndexId  | IsSync | DetailCmd                                                                 |
-	+------------------------+-----------+---------------+-----------+----------+----------+-------------+----------+--------+---------------------------------------------------------------------------+
-	| default_cluster:test   | test      | test          | test      | 29502391 | 29502428 | 29502427    | 29502428 | true   | SHOW PROC '/dbs/29502391/29502428/partitions/29502427/29502428/29502553'; |
-	+------------------------+-----------+---------------+-----------+----------+----------+-------------+----------+--------+---------------------------------------------------------------------------+
-    ```
-
-	The figure above shows the database, tables, partitions, roll-up tables and other information corresponding to this tablet. The user can copy the command in the `DetailCmd` command to continue executing:
-
-	`Show Proc'/DBS/29502391/29502428/Partitions/29502427/29502428/29502553;`
+ `SHOW TABLET 29502553;`
 
     ```
-	+-----------+-----------+---------+-------------+-------------------+-----------------------+------------------+----------------------+---------------+------------+----------+----------+--------+-------+--------------+----------------------+
-	| ReplicaId | BackendId | Version | VersionHash | LstSuccessVersion | LstSuccessVersionHash | LstFailedVersion | LstFailedVersionHash | LstFailedTime | SchemaHash | DataSize | RowCount | State  | IsBad | VersionCount | PathHash             |
-	+-----------+-----------+---------+-------------+-------------------+-----------------------+------------------+----------------------+---------------+------------+----------+----------+--------+-------+--------------+----------------------+
-	| 43734060  | 10004     | 2       | 0           | -1                | 0                     | -1               | 0                    | N/A           | -1         | 784      | 0        | NORMAL | false | 2            | -8566523878520798656 |
-	| 29502555  | 10002     | 2       | 0           | 2                 | 0                     | -1               | 0                    | N/A           | -1         | 784      | 0        | NORMAL | false | 2            | 1885826196444191611  |
-	| 39279319  | 10007     | 2       | 0           | -1                | 0                     | -1               | 0                    | N/A           | -1         | 784      | 0        | NORMAL | false | 2            | 1656508631294397870  |
-	+-----------+-----------+---------+-------------+-------------------+-----------------------+------------------+----------------------+---------------+------------+----------+----------+--------+-------+--------------+----------------------+
+ +------------------------+-----------+---------------+-----------+----------+----------+-------------+----------+--------+---------------------------------------------------------------------------+
+ | DbName                 | TableName | PartitionName | IndexName | DbId     | TableId  | PartitionId | IndexId  | IsSync | DetailCmd                                                                 |
+ +------------------------+-----------+---------------+-----------+----------+----------+-------------+----------+--------+---------------------------------------------------------------------------+
+ | default_cluster:test   | test      | test          | test      | 29502391 | 29502428 | 29502427    | 29502428 | true   | SHOW PROC '/dbs/29502391/29502428/partitions/29502427/29502428/29502553'; |
+ +------------------------+-----------+---------------+-----------+----------+----------+-------------+----------+--------+---------------------------------------------------------------------------+
     ```
-    
-	The figure above shows all replicas of the corresponding Tablet. The content shown here is the same as `SHOW TABLET FROM tbl1;`. But here you can clearly see the status of all copies of a specific Tablet.
+
+ The figure above shows the database, tables, partitions, roll-up tables and other information corresponding to this tablet. The user can copy the command in the `DetailCmd` command to continue executing:
+
+ `Show Proc'/DBS/29502391/29502428/Partitions/29502427/29502428/29502553;`
+
+    ```
+ +-----------+-----------+---------+-------------+-------------------+-----------------------+------------------+----------------------+---------------+------------+----------+----------+--------+-------+--------------+----------------------+
+ | ReplicaId | BackendId | Version | VersionHash | LstSuccessVersion | LstSuccessVersionHash | LstFailedVersion | LstFailedVersionHash | LstFailedTime | SchemaHash | DataSize | RowCount | State  | IsBad | VersionCount | PathHash             |
+ +-----------+-----------+---------+-------------+-------------------+-----------------------+------------------+----------------------+---------------+------------+----------+----------+--------+-------+--------------+----------------------+
+ | 43734060  | 10004     | 2       | 0           | -1                | 0                     | -1               | 0                    | N/A           | -1         | 784      | 0        | NORMAL | false | 2            | -8566523878520798656 |
+ | 29502555  | 10002     | 2       | 0           | 2                 | 0                     | -1               | 0                    | N/A           | -1         | 784      | 0        | NORMAL | false | 2            | 1885826196444191611  |
+ | 39279319  | 10007     | 2       | 0           | -1                | 0                     | -1               | 0                    | N/A           | -1         | 784      | 0        | NORMAL | false | 2            | 1656508631294397870  |
+ +-----------+-----------+---------+-------------+-------------------+-----------------------+------------------+----------------------+---------------+------------+----------+----------+--------+-------+--------------+----------------------+
+    ```
+
+ The figure above shows all replicas of the corresponding Tablet. The content shown here is the same as `SHOW TABLET FROM tbl1;`. But here you can clearly see the status of all copies of a specific Tablet.
 
 ### Duplicate Scheduling Task
 
 1. View tasks waiting to be scheduled
 
-	`SHOW PROC '/cluster_balance/pending_tablets';`
+ `SHOW PROC '/cluster_balance/pending_tablets';`
 
     ```
     +----------+--------+-----------------+---------+----------+----------+-------+---------+--------+----------+---------+---------------------+---------------------+---------------------+----------+------+-------------+---------------+---------------------+------------+---------------------+--------+---------------------+-------------------------------+
@@ -381,52 +382,52 @@ Duplicate status view mainly looks at the status of the duplicate, as well as th
     | 4203036  | REPAIR | REPLICA_MISSING | PENDING | HIGH     | LOW      | -1    | -1      | -1     | -1       | 0       | 2019-02-21 15:00:20 | 2019-02-24 11:18:41 | 2019-02-24 11:18:41 | N/A      | N/A  | 2           | 0             | 2019-02-21 15:00:43 | 1          | 0                   | 2      | 0                   | unable to find source replica |
     +----------+--------+-----------------+---------+----------+----------+-------+---------+--------+----------+---------+---------------------+---------------------+---------------------+----------+------+-------------+---------------+---------------------+------------+---------------------+--------+---------------------+-------------------------------+
     ```
-    
-	The specific meanings of each column are as follows:
 
-	* TabletId: The ID of the Tablet waiting to be scheduled. A scheduling task is for only one Tablet
-	* Type: Task type, which can be REPAIR (repair) or BALANCE (balance)
-	* Status: The current status of the Tablet, such as REPLICAMISSING (copy missing)
-	* State: The status of the scheduling task may be PENDING/RUNNING/FINISHED/CANCELLED/TIMEOUT/UNEXPECTED
-	* OrigPrio: Initial Priority
-	* DynmPrio: Current dynamically adjusted priority
-	* SrcBe: ID of the BE node at the source end
-	* SrcPath: hash value of the path of the BE node at the source end
-	* DestBe: ID of destination BE node
-	* DestPath: hash value of the path of the destination BE node
-	* Timeout: When the task is scheduled successfully, the timeout time of the task is displayed here in units of seconds.
-	* Create: The time when the task was created
-	* LstSched: The last time a task was scheduled
-	* LstVisit: The last time a task was accessed. Here "accessed" refers to the processing time points associated with the task, including scheduling, task execution reporting, and so on.
-	* Finished: Task End Time
-	* Rate: Clone Task Data Copy Rate
-	* Failed Sched: Number of Task Scheduling Failures
-	* Failed Running: Number of task execution failures
-	* LstAdjPrio: Time of last priority adjustment
-	* CmtVer/CmtVerHash/VisibleVer/VisibleVerHash: version information for clone tasks
-	* ErrMsg: Error messages that occur when tasks are scheduled and run
+ The specific meanings of each column are as follows:
+
+ * TabletId: The ID of the Tablet waiting to be scheduled. A scheduling task is for only one Tablet
+ * Type: Task type, which can be REPAIR (repair) or BALANCE (balance)
+ * Status: The current status of the Tablet, such as REPLICAMISSING (copy missing)
+ * State: The status of the scheduling task may be PENDING/RUNNING/FINISHED/CANCELLED/TIMEOUT/UNEXPECTED
+ * OrigPrio: Initial Priority
+ * DynmPrio: Current dynamically adjusted priority
+ * SrcBe: ID of the BE node at the source end
+ * SrcPath: hash value of the path of the BE node at the source end
+ * DestBe: ID of destination BE node
+ * DestPath: hash value of the path of the destination BE node
+ * Timeout: When the task is scheduled successfully, the timeout time of the task is displayed here in units of seconds.
+ * Create: The time when the task was created
+ * LstSched: The last time a task was scheduled
+ * LstVisit: The last time a task was accessed. Here "accessed" refers to the processing time points associated with the task, including scheduling, task execution reporting, and so on.
+ * Finished: Task End Time
+ * Rate: Clone Task Data Copy Rate
+ * Failed Sched: Number of Task Scheduling Failures
+ * Failed Running: Number of task execution failures
+ * LstAdjPrio: Time of last priority adjustment
+ * CmtVer/CmtVerHash/VisibleVer/VisibleVerHash: version information for clone tasks
+ * ErrMsg: Error messages that occur when tasks are scheduled and run
 
 2. View running tasks
 
-	`SHOW PROC '/cluster_balance/running_tablets';`
+ `SHOW PROC '/cluster_balance/running_tablets';`
 
-	The columns in the result have the same meaning as `pending_tablets`.
+ The columns in the result have the same meaning as `pending_tablets`.
 
 3. View completed tasks
 
-	`SHOW PROC '/cluster_balance/history_tablets';`
+ `SHOW PROC '/cluster_balance/history_tablets';`
 
-	By default, we reserve only the last 1,000 completed tasks. The columns in the result have the same meaning as `pending_tablets`. If `State` is listed as `FINISHED`, the task is normally completed. For others, you can see the specific reason based on the error information in the `ErrMsg` column.
+ By default, we reserve only the last 1,000 completed tasks. The columns in the result have the same meaning as `pending_tablets`. If `State` is listed as `FINISHED`, the task is normally completed. For others, you can see the specific reason based on the error information in the `ErrMsg` column.
 
 ## Viewing Cluster Load and Scheduling Resources
 
 1. Cluster load
 
-	You can view the current load of the cluster by following commands:
+ You can view the current load of the cluster by following commands:
 
-	`SHOW PROC '/cluster_balance/cluster_load_stat';`
+ `SHOW PROC '/cluster_balance/cluster_load_stat';`
 
-	First of all, we can see the division of different storage media:
+ First of all, we can see the division of different storage media:
 
     ```
     +---------------+
@@ -437,59 +438,61 @@ Duplicate status view mainly looks at the status of the duplicate, as well as th
     +---------------+
     ```
 
-	Click on a storage medium to see the equilibrium state of the BE node that contains the storage medium:
+ Click on a storage medium to see the equilibrium state of the BE node that contains the storage medium:
 
-	`SHOW PROC '/cluster_balance/cluster_load_stat/HDD';`
+ `SHOW PROC '/cluster_balance/cluster_load_stat/HDD';`
 
-	```
-	+----------+-----------------+-----------+---------------+----------------+-------------+------------+----------+-----------+--------------------+-------+
-	| BeId     | Cluster         | Available | UsedCapacity  | Capacity       | UsedPercent | ReplicaNum | CapCoeff | ReplCoeff | Score              | Class |
-	+----------+-----------------+-----------+---------------+----------------+-------------+------------+----------+-----------+--------------------+-------+
-	| 10003    | default_cluster | true      | 3477875259079 | 19377459077121 | 17.948      | 493477     | 0.5      | 0.5       | 0.9284678149967587 | MID   |
-	| 10002    | default_cluster | true      | 3607326225443 | 19377459077121 | 18.616      | 496928     | 0.5      | 0.5       | 0.948660871419998  | MID   |
-	| 10005    | default_cluster | true      | 3523518578241 | 19377459077121 | 18.184      | 545331     | 0.5      | 0.5       | 0.9843539990641831 | MID   |
-	| 10001    | default_cluster | true      | 3535547090016 | 19377459077121 | 18.246      | 558067     | 0.5      | 0.5       | 0.9981869446537612 | MID   |
-	| 10006    | default_cluster | true      | 3636050364835 | 19377459077121 | 18.764      | 547543     | 0.5      | 0.5       | 1.0011489897614072 | MID   |
-	| 10004    | default_cluster | true      | 3506558163744 | 15501967261697 | 22.620      | 468957     | 0.5      | 0.5       | 1.0228319835582569 | MID   |
-	| 10007    | default_cluster | true      | 4036460478905 | 19377459077121 | 20.831      | 551645     | 0.5      | 0.5       | 1.057279369420761  | MID   |
-	| 10000    | default_cluster | true      | 4369719923760 | 19377459077121 | 22.551      | 547175     | 0.5      | 0.5       | 1.0964036415787461 | MID   |
-	+----------+-----------------+-----------+---------------+----------------+-------------+------------+----------+-----------+--------------------+-------+
-	```
+ ```
 
-	Some of these columns have the following meanings:
+ +----------+-----------------+-----------+---------------+----------------+-------------+------------+----------+-----------+--------------------+-------+
+ | BeId     | Cluster         | Available | UsedCapacity  | Capacity       | UsedPercent | ReplicaNum | CapCoeff | ReplCoeff | Score              | Class |
+ +----------+-----------------+-----------+---------------+----------------+-------------+------------+----------+-----------+--------------------+-------+
+ | 10003    | default_cluster | true      | 3477875259079 | 19377459077121 | 17.948      | 493477     | 0.5      | 0.5       | 0.9284678149967587 | MID   |
+ | 10002    | default_cluster | true      | 3607326225443 | 19377459077121 | 18.616      | 496928     | 0.5      | 0.5       | 0.948660871419998  | MID   |
+ | 10005    | default_cluster | true      | 3523518578241 | 19377459077121 | 18.184      | 545331     | 0.5      | 0.5       | 0.9843539990641831 | MID   |
+ | 10001    | default_cluster | true      | 3535547090016 | 19377459077121 | 18.246      | 558067     | 0.5      | 0.5       | 0.9981869446537612 | MID   |
+ | 10006    | default_cluster | true      | 3636050364835 | 19377459077121 | 18.764      | 547543     | 0.5      | 0.5       | 1.0011489897614072 | MID   |
+ | 10004    | default_cluster | true      | 3506558163744 | 15501967261697 | 22.620      | 468957     | 0.5      | 0.5       | 1.0228319835582569 | MID   |
+ | 10007    | default_cluster | true      | 4036460478905 | 19377459077121 | 20.831      | 551645     | 0.5      | 0.5       | 1.057279369420761  | MID   |
+ | 10000    | default_cluster | true      | 4369719923760 | 19377459077121 | 22.551      | 547175     | 0.5      | 0.5       | 1.0964036415787461 | MID   |
+ +----------+-----------------+-----------+---------------+----------------+-------------+------------+----------+-----------+--------------------+-------+
 
-	* Available: True means that BE heartbeat is normal and not offline.
-	* UsedCapacity: Bytes, the size of disk space used on BE
-	* Capacity: Bytes, the total disk space size on BE
-	* UsedPercent: Percentage, disk space utilization on BE
-	* ReplicaNum: Number of copies on BE
-	* CapCoeff/ReplCoeff: Weight Coefficient of Disk Space and Copy Number
-	* Score: Load score. The higher the score, the heavier the load.
-	* Class: Classified by load, LOW/MID/HIGH. Balanced scheduling moves copies from high-load nodes to low-load nodes
+ ```
 
-	Users can further view the utilization of each path on a BE, such as the BE with ID 10001:
+ Some of these columns have the following meanings:
 
-	`SHOW PROC '/cluster_balance/cluster_load_stat/HDD/10001';`
+ * Available: True means that BE heartbeat is normal and not offline.
+ * UsedCapacity: Bytes, the size of disk space used on BE
+ * Capacity: Bytes, the total disk space size on BE
+ * UsedPercent: Percentage, disk space utilization on BE
+ * ReplicaNum: Number of copies on BE
+ * CapCoeff/ReplCoeff: Weight Coefficient of Disk Space and Copy Number
+ * Score: Load score. The higher the score, the heavier the load.
+ * Class: Classified by load, LOW/MID/HIGH. Balanced scheduling moves copies from high-load nodes to low-load nodes
+
+ Users can further view the utilization of each path on a BE, such as the BE with ID 10001:
+
+ `SHOW PROC '/cluster_balance/cluster_load_stat/HDD/10001';`
 
     ```
-	+------------------+------------------+---------------+---------------+---------+--------+----------------------+
-	| RootPath         | DataUsedCapacity | AvailCapacity | TotalCapacity | UsedPct | State  | PathHash             |
-	+------------------+------------------+---------------+---------------+---------+--------+----------------------+
-	| /home/disk4/palo | 498.757 GB       | 3.033 TB      | 3.525 TB      | 13.94 % | ONLINE | 4883406271918338267  |
-	| /home/disk3/palo | 704.200 GB       | 2.832 TB      | 3.525 TB      | 19.65 % | ONLINE | -5467083960906519443 |
-	| /home/disk1/palo | 512.833 GB       | 3.007 TB      | 3.525 TB      | 14.69 % | ONLINE | -7733211489989964053 |
-	| /home/disk2/palo | 881.955 GB       | 2.656 TB      | 3.525 TB      | 24.65 % | ONLINE | 4870995507205544622  |
-	| /home/disk5/palo | 694.992 GB       | 2.842 TB      | 3.525 TB      | 19.36 % | ONLINE | 1916696897889786739  |
-	+------------------+------------------+---------------+---------------+---------+--------+----------------------+
-	```
+ +------------------+------------------+---------------+---------------+---------+--------+----------------------+
+ | RootPath         | DataUsedCapacity | AvailCapacity | TotalCapacity | UsedPct | State  | PathHash             |
+ +------------------+------------------+---------------+---------------+---------+--------+----------------------+
+ | /home/disk4/palo | 498.757 GB       | 3.033 TB      | 3.525 TB      | 13.94 % | ONLINE | 4883406271918338267  |
+ | /home/disk3/palo | 704.200 GB       | 2.832 TB      | 3.525 TB      | 19.65 % | ONLINE | -5467083960906519443 |
+ | /home/disk1/palo | 512.833 GB       | 3.007 TB      | 3.525 TB      | 14.69 % | ONLINE | -7733211489989964053 |
+ | /home/disk2/palo | 881.955 GB       | 2.656 TB      | 3.525 TB      | 24.65 % | ONLINE | 4870995507205544622  |
+ | /home/disk5/palo | 694.992 GB       | 2.842 TB      | 3.525 TB      | 19.36 % | ONLINE | 1916696897889786739  |
+ +------------------+------------------+---------------+---------------+---------+--------+----------------------+
+ ```
 
-	The disk usage of each data path on the specified BE is shown here.
+ The disk usage of each data path on the specified BE is shown here.
 
 2. Scheduling resources
 
-	Users can view the current slot usage of each node through the following commands:
+ Users can view the current slot usage of each node through the following commands:
 
-	`SHOW PROC '/cluster_balance/working_slots';`
+ `SHOW PROC '/cluster_balance/working_slots';`
 
     ```
     +----------+----------------------+------------+------------+-------------+----------------------+
@@ -504,15 +507,15 @@ Duplicate status view mainly looks at the status of the duplicate, as well as th
     +----------+----------------------+------------+------------+-------------+----------------------+
     ```
 
-	In this paper, data path is used as granularity to show the current use of slot. Among them, `AvgRate'is the copy rate of clone task in bytes/seconds on the path of historical statistics.
+ In this paper, data path is used as granularity to show the current use of slot. Among them, `AvgRate'is the copy rate of clone task in bytes/seconds on the path of historical statistics.
 
 3. Priority repair view
 
-	The following command allows you to view the priority repaired tables or partitions set by the `ADMIN REPAIR TABLE'command.
+ The following command allows you to view the priority repaired tables or partitions set by the `ADMIN REPAIR TABLE'command.
 
-	`SHOW PROC '/cluster_balance/priority_repair'`;
+ `SHOW PROC '/cluster_balance/priority_repair'`;
 
-	Among them, `Remaining TimeMs'indicates that these priority fixes will be automatically removed from the priority fix queue after this time. In order to prevent resources from being occupied due to the failure of priority repair.
+ Among them, `Remaining TimeMs'indicates that these priority fixes will be automatically removed from the priority fix queue after this time. In order to prevent resources from being occupied due to the failure of priority repair.
 
 ### Scheduler Statistical Status View
 
@@ -571,7 +574,7 @@ The meanings of each line are as follows:
 * num of clone task timeout：clone 任务超时的数量
 * num of replica missing error: the number of tablets whose status is checked is the missing copy
 * num of replica version missing error：检查的状态为版本缺失的 tablet 的数量（该统计值包括了 num of replica relocating 和 num of replica missing in cluster error）
-*num of replica relocation *29366;* 24577;*replica relocation tablet *
+*num of replica relocation *29366;* 24577**replica relocation tablet*
 * num of replica redundant error: Number of tablets whose checked status is replica redundant
 * num of replica missing in cluster error：检查的状态为不在对应 cluster 的 tablet 的数量
 * num of balance scheduled：均衡调度的次数
@@ -586,39 +589,39 @@ The following adjustable parameters are all configurable parameters in fe.conf.
 
 * use\_new\_tablet\_scheduler
 
-	* Description: Whether to enable the new replica scheduling mode. The new replica scheduling method is the replica scheduling method introduced in this document. If turned on, `disable_colocate_join` must be `true`. Because the new scheduling strategy does not support data fragmentation scheduling of co-locotion tables for the time being.
-	* Default value:true
-	* Importance: High
+  * Description: Whether to enable the new replica scheduling mode. The new replica scheduling method is the replica scheduling method introduced in this document. If turned on, `disable_colocate_join` must be `true`. Because the new scheduling strategy does not support data fragmentation scheduling of co-locotion tables for the time being.
+  * Default value:true
+  * Importance: High
 
 * tablet\_repair\_delay\_factor\_second
 
-	* Note: For different scheduling priorities, we will delay different time to start repairing. In order to prevent a large number of unnecessary replica repair tasks from occurring in the process of routine restart and upgrade. This parameter is a reference coefficient. For HIGH priority, the delay is the reference coefficient * 1; for NORMAL priority, the delay is the reference coefficient * 2; for LOW priority, the delay is the reference coefficient * 3. That is, the lower the priority, the longer the delay waiting time. If the user wants to repair the copy as soon as possible, this parameter can be reduced appropriately.
-	* Default value: 60 seconds
-	* Importance: High
+  * Note: For different scheduling priorities, we will delay different time to start repairing. In order to prevent a large number of unnecessary replica repair tasks from occurring in the process of routine restart and upgrade. This parameter is a reference coefficient. For HIGH priority, the delay is the reference coefficient *1; for NORMAL priority, the delay is the reference coefficient * 2; for LOW priority, the delay is the reference coefficient* 3. That is, the lower the priority, the longer the delay waiting time. If the user wants to repair the copy as soon as possible, this parameter can be reduced appropriately.
+  * Default value: 60 seconds
+  * Importance: High
 
 * schedule\_slot\_num\_per\_path
 
-	* Note: The default number of slots allocated to each disk for replica repair. This number represents the number of replica repair tasks that a disk can run simultaneously. If you want to repair the copy faster, you can adjust this parameter appropriately. The higher the single value, the greater the impact on IO.
-	* Default value: 2
-	* Importance: High
+  * Note: The default number of slots allocated to each disk for replica repair. This number represents the number of replica repair tasks that a disk can run simultaneously. If you want to repair the copy faster, you can adjust this parameter appropriately. The higher the single value, the greater the impact on IO.
+  * Default value: 2
+  * Importance: High
 
 * balance\_load\_score\_threshold
 
-	* Description: Threshold of Cluster Equilibrium. The default is 0.1, or 10%. When the load core of a BE node is not higher than or less than 10% of the average load core, we think that the node is balanced. If you want to make the cluster load more even, you can adjust this parameter appropriately.
-	* Default value: 0.1
-	* Importance:
+  * Description: Threshold of Cluster Equilibrium. The default is 0.1, or 10%. When the load core of a BE node is not higher than or less than 10% of the average load core, we think that the node is balanced. If you want to make the cluster load more even, you can adjust this parameter appropriately.
+  * Default value: 0.1
+  * Importance:
 
 * storage\_high\_watermark\_usage\_percent 和 storage\_min\_left\_capacity\_bytes
 
-	* Description: These two parameters represent the upper limit of the maximum space utilization of a disk and the lower limit of the minimum space remaining, respectively. When the space utilization of a disk is greater than the upper limit or the remaining space is less than the lower limit, the disk will no longer be used as the destination address for balanced scheduling.
-	* Default values: 0.85 and 1048576000 (1GB)
-	* Importance:
+  * Description: These two parameters represent the upper limit of the maximum space utilization of a disk and the lower limit of the minimum space remaining, respectively. When the space utilization of a disk is greater than the upper limit or the remaining space is less than the lower limit, the disk will no longer be used as the destination address for balanced scheduling.
+  * Default values: 0.85 and 1048576000 (1GB)
+  * Importance:
 
 * disable\_balance
 
-	* Description: Control whether to turn off the balancing function. When replicas are in equilibrium, some functions, such as ALTER TABLE, will be banned. Equilibrium can last for a long time. Therefore, if the user wants to do the prohibited operation as soon as possible. This parameter can be set to true to turn off balanced scheduling.
-	* Default value:true
-	* Importance:
+  * Description: Control whether to turn off the balancing function. When replicas are in equilibrium, some functions, such as ALTER TABLE, will be banned. Equilibrium can last for a long time. Therefore, if the user wants to do the prohibited operation as soon as possible. This parameter can be set to true to turn off balanced scheduling.
+  * Default value:true
+  * Importance:
 
 ### Unadjustable parameters
 
@@ -626,39 +629,39 @@ The following parameters do not support modification for the time being, just fo
 
 * Tablet Checker scheduling interval
 
-	Tablet Checker schedules checks every 20 seconds.
+ Tablet Checker schedules checks every 20 seconds.
 
 * Tablet Scheduler scheduling interval
 
-	Tablet Scheduler schedules every five seconds
+ Tablet Scheduler schedules every five seconds
 
 * Number of Tablet Scheduler Schedules per Batch
 
-	Tablet Scheduler schedules up to 50 tablets at a time.
+ Tablet Scheduler schedules up to 50 tablets at a time.
 
 * Tablet Scheduler Maximum Waiting Schedule and Number of Tasks in Operation
 
-	The maximum number of waiting tasks and running tasks is 2000. When over 2000, Tablet Checker will no longer generate new scheduling tasks to Tablet Scheduler.
+ The maximum number of waiting tasks and running tasks is 2000. When over 2000, Tablet Checker will no longer generate new scheduling tasks to Tablet Scheduler.
 
 * Tablet Scheduler Maximum Balanced Task Number
 
-	The maximum number of balanced tasks is 500. When more than 500, there will be no new balancing tasks.
+ The maximum number of balanced tasks is 500. When more than 500, there will be no new balancing tasks.
 
 * Number of slots per disk for balancing tasks
 
-	The number of slots per disk for balancing tasks is 2. This slot is independent of the slot used for replica repair.
+ The number of slots per disk for balancing tasks is 2. This slot is independent of the slot used for replica repair.
 
 * Update interval of cluster equilibrium
 
-	Tablet Scheduler recalculates the load score of the cluster every 20 seconds.
+ Tablet Scheduler recalculates the load score of the cluster every 20 seconds.
 
 * Minimum and Maximum Timeout for Clone Tasks
 
-	A clone task timeout time range is 3 minutes to 2 hours. The specific timeout is calculated by the size of the tablet. The formula is (tablet size)/ (5MB/s). When a clone task fails three times, the task terminates.
+ A clone task timeout time range is 3 minutes to 2 hours. The specific timeout is calculated by the size of the tablet. The formula is (tablet size)/ (5MB/s). When a clone task fails three times, the task terminates.
 
 * Dynamic Priority Adjustment Strategy
 
-	The minimum priority adjustment interval is 5 minutes. When a tablet schedule fails five times, priority is lowered. When a tablet is not scheduled for 30 minutes, priority is raised.
+ The minimum priority adjustment interval is 5 minutes. When a tablet schedule fails five times, priority is lowered. When a tablet is not scheduled for 30 minutes, priority is raised.
 
 ## Relevant issues
 

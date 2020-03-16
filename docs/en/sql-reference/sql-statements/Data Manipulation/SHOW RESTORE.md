@@ -25,12 +25,15 @@ under the License.
 -->
 
 # SHOW RESTORE
+
 ## Description
+
 This statement is used to view RESTORE tasks
 Grammar:
 SHOW RESTORE [FROM db_name]
 
 Explain:
+
 1. Palo -20165;- 20445;- 233844;-36817;- 27425RESTORE -21153s;
 2. Each column has the following meanings:
 JobId: Unique job ID
@@ -59,9 +62,10 @@ Status: Display failure information if the job fails
 Timeout: Job timeout, per second
 
 ## example
+
 1. Check the last RESTORE task under example_db.
 SHOW RESTORE FROM example_db;
 
 ## keyword
-SHOW, RESTORE
 
+SHOW, RESTORE

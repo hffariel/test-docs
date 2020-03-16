@@ -25,10 +25,12 @@ under the License.
 -->
 
 # ALTER SYSTEM
+
 ## Description
 
 This statement is used to operate on nodes in a system. (Administrator only!)
 Grammar:
+
 1) Adding nodes (without multi-tenant functionality, add in this way)
 ALTER SYSTEM ADD BACKEND "host:heartbeat_port"[,"host:heartbeat_port"...];
 2) Adding idle nodes (that is, adding BACKEND that does not belong to any cluster)
@@ -49,6 +51,7 @@ ALTER SYSTEM DROP ALL BROKER broker_name
 ALTER SYSTEM SET LOAD ERRORS HUB PROPERTIES ("key" = "value"[, ...]);
 
 Explain:
+
 1) Host can be hostname or IP address
 2) heartbeat_port is the heartbeat port of the node
 3) Adding and deleting nodes are synchronous operations. These two operations do not take into account the existing data on the node, the node is directly deleted from the metadata, please use cautiously.
@@ -106,7 +109,7 @@ ALTER SYSTEM SET LOAD ERRORS HUB PROPERTIES
 ("type"= "broker",
 "Name" = BOS,
 "path" = "bos://backup-cmy/logs",
-"bosu endpoint" ="http://gz.bcebos.com",
+"bosu endpoint" ="<http://gz.bcebos.com",>
 "bos_accesskey" = "069fc278xxxxxx24ddb522",
 "bos_secret_accesskey"="700adb0c6xxxxxx74d59eaa980a"
 );
@@ -116,4 +119,5 @@ ALTER SYSTEM SET LOAD ERRORS HUB PROPERTIES
 ("type"= "null");
 
 ## keyword
+
 AGE,SYSTEM,BACKGROUND,BROKER,FREE

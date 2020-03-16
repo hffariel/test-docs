@@ -25,6 +25,7 @@ under the License.
 -->
 
 # REVOKE
+
 ## Description
 
 The REVOKE command is used to revoke the rights specified by the specified user or role.

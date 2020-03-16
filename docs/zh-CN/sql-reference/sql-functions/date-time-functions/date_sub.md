@@ -25,11 +25,12 @@ under the License.
 -->
 
 # date_sub
+
 ## description
+
 ### Syntax
 
 `INT DATE_SUB(DATETIME date,INTERVAL expr type)`
-
 
 从日期减去指定的时间间隔
 
@@ -50,6 +51,6 @@ mysql> select date_sub('2010-11-30 23:59:59', INTERVAL 2 DAY);
 +-------------------------------------------------+
 ```
 
-##keyword
+## keyword
 
     DATE_SUB,DATE,SUB

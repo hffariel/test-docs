@@ -25,6 +25,7 @@ under the License.
 -->
 
 # SHOW FILE
+
 ## description
 
     该语句用于展示一个 database 内创建的文件
@@ -41,7 +42,7 @@ under the License.
         FileName:   文件名
         FileSize:   文件大小，单位字节
         MD5:        文件的 MD5
-        
+
 ## example
 
     1. 查看数据库 my_database 中已上传的文件
@@ -49,5 +50,5 @@ under the License.
         SHOW FILE FROM my_database;
 
 ## keyword
-    SHOW,FILE
 
+    SHOW,FILE

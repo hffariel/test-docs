@@ -25,7 +25,9 @@ under the License.
 -->
 
 # bitmap_hash
+
 ## description
+
 ### Syntax
 
 `BITMAP BITMAP_HASH(expr)`

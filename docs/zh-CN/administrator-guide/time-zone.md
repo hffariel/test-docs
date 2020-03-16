@@ -39,7 +39,7 @@ Doris 内部存在多个时区相关参数
 
 * system_time_zone :
     当服务器启动时，会根据机器设置时区自动设置，设置后不可修改。
-    
+
 * time_zone :
     服务器当前时区，区分session级别和global级别
 
@@ -48,15 +48,15 @@ Doris 内部存在多个时区相关参数
 1. show variables like '%time_zone%'
 
     查看当前时区相关配置
-    
+
 2. SET time_zone = 'Asia/Shanghai'
 
     该命令可以设置session级别的时区，连接断开后失效
-    
+
 3. SET global time_zone = 'Asia/Shanghai'
 
     该命令可以设置global级别的时区参数，fe会将参数持久化，连接断开后不失效
-    
+
 ### 时区的影响
 
 时区设置会影响对时区敏感的时间值的显示和存储。
@@ -88,4 +88,3 @@ Doris 内部存在多个时区相关参数
 ## 时区格式列表
 
 [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
-

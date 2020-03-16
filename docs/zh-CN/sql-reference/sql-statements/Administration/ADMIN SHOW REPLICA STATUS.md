@@ -25,6 +25,7 @@ under the License.
 -->
 
 # ADMIN SHOW REPLICA STATUS
+
 ## description
 
     该语句用于展示一个表或分区的副本状态信息
@@ -59,7 +60,7 @@ under the License.
 
         ADMIN SHOW REPLICA STATUS FROM tbl1
         WHERE STATUS != "OK";
-        
-## keyword
-    ADMIN,SHOW,REPLICA,STATUS
 
+## keyword
+
+    ADMIN,SHOW,REPLICA,STATUS

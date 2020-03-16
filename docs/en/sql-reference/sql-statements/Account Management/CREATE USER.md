@@ -25,7 +25,8 @@ under the License.
 -->
 
 # CREATE USER
-##Description
+
+## Description
 
 Syntax:
 
@@ -71,4 +72,5 @@ CREATE USER 'jack'@['example_domain'] IDENTIFIED BY '12345';
 CREATE USER 'jack'@'%' IDENTIFIED BY '12345' DEFAULT ROLE 'my_role';
 
 ## keyword
+
 CREATE, USER

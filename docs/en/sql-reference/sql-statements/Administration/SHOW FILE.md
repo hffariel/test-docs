@@ -25,6 +25,7 @@ under the License.
 -->
 
 # SHOW FILE
+
 ## Description
 
 This statement is used to show a file created in a database
@@ -49,4 +50,5 @@ MD5: Document MD5
 SHOW FILE FROM my_database;
 
 ## keyword
+
 SHOW,FILE

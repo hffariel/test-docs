@@ -25,11 +25,12 @@ under the License.
 -->
 
 # timediff
+
 ## Description
+
 ### Syntax
 
 'TIME TIMEDIFF (DATETIME expr1, DATETIME expr2)'
-
 
 TIMEDIFF returns the difference between two DATETIMEs
 
@@ -61,5 +62,7 @@ mysql> SELECT TIMEDIFF('2019-01-01 00:00:00', NULL);
 | NULL                                  |
 +---------------------------------------+
 ```
-##keyword
+
+## keyword
+
 TIMEDIFF

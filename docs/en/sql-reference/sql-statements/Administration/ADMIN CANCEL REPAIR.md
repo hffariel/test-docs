@@ -25,6 +25,7 @@ under the License.
 -->
 
 # ADMIN CANCEL REPAIR
+
 ## Description
 
 This statement is used to cancel repairing a specified table or partition with high priority
@@ -44,4 +45,5 @@ Explain:
 ADMIN CANCEL REPAIR TABLE tbl PARTITION(p1);
 
 ## keyword
+
 ADMIN,CANCEL,REPAIR

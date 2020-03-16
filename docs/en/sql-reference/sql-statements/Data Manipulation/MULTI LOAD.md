@@ -25,14 +25,15 @@ under the License.
 -->
 
 # MULTI LOAD
+
 ## Description
 
 Syntax:
-curl --location-trusted -u user:passwd -XPOST http://host:port/api/{db}/_multi_start?label=xxx
+curl --location-trusted -u user:passwd -XPOST <http://host:port/api/{db}/_multi_start?label=xxx>
 curl --location-trusted -u user:passwd -T data.file http://host:port/api/{db}/{table1}/_load?label=xxx\&sub_label=yyy
 curl --location-trusted -u user:passwd -T data.file http://host:port/api/{db}/{table2}/_load?label=xxx\&sub_label=zzz
-curl --location-trusted -u user:passwd -XPOST http://host:port/api/{db}/_multi_commit?label=xxx
-curl --location-trusted -u user:passwd -XPOST http://host:port/api/{db}/_multi_desc?label=xxx
+curl --location-trusted -u user:passwd -XPOST <http://host:port/api/{db}/_multi_commit?label=xxx>
+curl --location-trusted -u user:passwd -XPOST <http://host:port/api/{db}/_multi_desc?label=xxx>
 
 'MULTI LOAD'can support users to import multiple tables at the same time on the basis of'MINI LOAD'. The specific commands are shown above.
 '/api/{db}/_multi_start'starts a multi-table import task
@@ -75,10 +76,11 @@ Custom specification should be as follows:'max_filter_ratio = 0.2', meaning that
 Pass in effect at'_multi_start'
 
 NOTE:
+
 1. This method of importing is currently completed on a single machine, so it is not suitable to import a large amount of data.
 It is recommended that the amount of data imported should not exceed 1GB
 
-2. Currently, it is not possible to submit multiple files in the form of `curl-T', `{file1, file2}', because curl splits them into multiple files.
+2. Currently, it is not possible to submit multiple files in the form of `curl-T',`{file1, file2}', because curl splits them into multiple files.
 Request sent, multiple requests can not share a label number, so it can not be used
 
 3. Supports streaming-like ways to use curl to import data into Doris, but Doris will have to wait until the streaming is over
@@ -88,20 +90,21 @@ Real import behavior will occur, and the amount of data in this way can not be t
 
 1. Import the data from the local file'testData1'into the table of'testTbl1' in the database'testDb', and
 Import the data from'testData2'into the table'testTbl2' in'testDb'(the user is in defalut_cluster)
-curl --location-trusted -u root -XPOST http://host:port/api/testDb/_multi_start?label=123
+curl --location-trusted -u root -XPOST <http://host:port/api/testDb/_multi_start?label=123>
 curl --location-trusted -u root -T testData1 http://host:port/api/testDb/testTbl1/_load?label=123\&sub_label=1
 curl --location-trusted -u root -T testData2 http://host:port/api/testDb/testTbl2/_load?label=123\&sub_label=2
-curl --location-trusted -u root -XPOST http://host:port/api/testDb/_multi_commit?label=123
+curl --location-trusted -u root -XPOST <http://host:port/api/testDb/_multi_commit?label=123>
 
 2. Multi-table Import Midway Abandon (User in defalut_cluster)
-curl --location-trusted -u root -XPOST http://host:port/api/testDb/_multi_start?label=123
+curl --location-trusted -u root -XPOST <http://host:port/api/testDb/_multi_start?label=123>
 curl --location-trusted -u root -T testData1 http://host:port/api/testDb/testTbl1/_load?label=123\&sub_label=1
-curl --location-trusted -u root -XPOST http://host:port/api/testDb/_multi_abort?label=123
+curl --location-trusted -u root -XPOST <http://host:port/api/testDb/_multi_abort?label=123>
 
 3. Multi-table import to see how much content has been submitted (user is in defalut_cluster)
-curl --location-trusted -u root -XPOST http://host:port/api/testDb/_multi_start?label=123
+curl --location-trusted -u root -XPOST <http://host:port/api/testDb/_multi_start?label=123>
 curl --location-trusted -u root -T testData1 http://host:port/api/testDb/testTbl1/_load?label=123\&sub_label=1
-curl --location-trusted -u root -XPOST http://host:port/api/testDb/_multi_desc?label=123
+curl --location-trusted -u root -XPOST <http://host:port/api/testDb/_multi_desc?label=123>
 
 ## keyword
+
 MULTI, MINI, LOAD

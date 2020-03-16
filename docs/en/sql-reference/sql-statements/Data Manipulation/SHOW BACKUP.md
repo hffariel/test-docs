@@ -25,12 +25,15 @@ under the License.
 -->
 
 # SHOW BACKUP
+
 ## Description
+
 This statement is used to view BACKUP tasks
 Grammar:
 SHOW BACKUP [FROM db_name]
 
 Explain:
+
 1. Only the last BACKUP task is saved in Palo.
 2. Each column has the following meanings:
 JobId: Unique job ID
@@ -55,8 +58,10 @@ Status: Display failure information if the job fails
 Timeout: Job timeout, per second
 
 ## example
+
 1. See the last BACKUP task under example_db.
 SHOW BACKUP FROM example_db;
 
 ## keyword
+
 SHOW, BACKUP

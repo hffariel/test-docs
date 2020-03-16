@@ -25,11 +25,12 @@ under the License.
 -->
 
 # to_days
+
 ## Description
+
 ### Syntax
 
 'INT TO DAYS'
-
 
 Days of returning date distance 0000-01-01
 
@@ -46,5 +47,6 @@ mysql> select to_days('2007-10-07');
 +-----------------------+
 ```
 
-##keyword
+## keyword
+
 TO_DAYS,TO,DAYS

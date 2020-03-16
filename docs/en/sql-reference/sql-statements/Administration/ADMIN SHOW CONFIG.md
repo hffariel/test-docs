@@ -25,6 +25,7 @@ under the License.
 -->
 
 # ADMIN SHOW CONFIG
+
 ## Description
 
 This statement is used to show the configuration of the current cluster (currently only supporting the display of FE configuration items)
@@ -36,6 +37,7 @@ ADMIN SHOW FRONTEND CONFIG;
 Explain:
 
 The implications of the results are as follows:
+
 1. Key: Configuration item name
 2. Value: Configuration item value
 3. Type: Configuration item type
@@ -50,4 +52,5 @@ The implications of the results are as follows:
 ADMIN SHOW FRONTEND CONFIG;
 
 ## keyword
+
 ADMIN,SHOW,CONFIG

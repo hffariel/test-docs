@@ -96,11 +96,11 @@ RollupIndexName: r1
 * RollupId：Rollup 的唯一 ID。
 * TransactionId：转换历史数据的分水岭 transaction ID。
 * State：作业所在阶段。
-    * PENDING：作业在队列中等待被调度。
-    * WAITING_TXN：等待分水岭 transaction ID 之前的导入任务完成。
-    * RUNNING：历史数据转换中。
-    * FINISHED：作业成功。
-    * CANCELLED：作业失败。
+  * PENDING：作业在队列中等待被调度。
+  * WAITING_TXN：等待分水岭 transaction ID 之前的导入任务完成。
+  * RUNNING：历史数据转换中。
+  * FINISHED：作业成功。
+  * CANCELLED：作业失败。
 * Msg：如果作业失败，这里会显示失败信息。
 * Progress：作业进度。只有在 RUNNING 状态才会显示进度。进度是以 M/N 的形式显示。其中 N 为 Rollup 的总副本数。M 为已完成历史数据转换的副本数。
 * Timeout：作业超时时间。单位秒。
@@ -128,20 +128,20 @@ RollupIndexName: r1
 * 如果 Rollup 中包含 REPLACE 聚合类型的列，则该 Rollup 必须包含所有 Key 列。
 
     假设 Base 表结构如下：
-    
+
     ```(k1 INT, k2 INT, v1 INT REPLACE, v2 INT SUM)```
-    
+
     如果需要创建的 Rollup 包含 `v1` 列，则必须包含 `k1`, `k2` 列。否则系统无法决定 `v1` 列在 Rollup 中的取值。
-    
+
     注意，Unique 数据模型表中的所有 Value 列都是 REPLACE 聚合类型。
-    
+
 * DUPLICATE 数据模型表的 Rollup，可以指定 Rollup 的 DUPLICATE KEY。
 
     DUPLICATE 数据模型表中的 DUPLICATE KEY 其实就是排序列。Rollup 可以指定自己的排序列，但排序列必须是 Rollup 列顺序的前缀。如果不指定，则系统会检查 Rollup 是否包含了 Base 表的所有排序列，如果没有包含，则会报错。举例：
-    
+
     Base 表结构：`(k1 INT, k2 INT, k3 INT) DUPLICATE KEY(k1, k2)`
-    
-    则 Rollup 可以为：`(k2 INT, k1 INT) DUPLICATE KEY(k2)` 
+
+    则 Rollup 可以为：`(k2 INT, k1 INT) DUPLICATE KEY(k2)`
 
 * Rollup 不需要包含 Base 表的分区列或分桶列。
 
@@ -150,7 +150,7 @@ RollupIndexName: r1
 * 一个表可以创建多少 Rollup
 
     一个表能够创建的 Rollup 个数理论上没有限制，但是过多的 Rollup 会影响导入性能。因为导入时，会同时给所有 Rollup 产生数据。同时 Rollup 会占用物理存储空间。通常一个表的 Rollup 数量在 10 个以内比较合适。
-    
+
 * Rollup 创建的速度
 
     目前 Rollup 创建速度按照最差效率估计约为 10MB/s。保守起见，用户可以根据这个速率来设置作业的超时时间。
@@ -158,23 +158,23 @@ RollupIndexName: r1
 * 提交作业报错 `Table xxx is not stable. ...`
 
     Rollup 只有在表数据完整且非均衡状态下才可以开始。如果表的某些数据分片副本不完整，或者某些副本正在进行均衡操作，则提交会被拒绝。
-    
+
     数据分片副本是否完整，可以通过以下命令查看：
-    
+
     ```ADMIN SHOW REPLICA STATUS FROM tbl WHERE STATUS != "OK";```
-    
+
     如果有返回结果，则说明有副本有问题。通常系统会自动修复这些问题，用户也可以通过以下命令优先修复这个表：
-    
+
     ```ADMIN REPAIR TABLE tbl1;```
-    
+
     用户可以通过以下命令查看是否有正在运行的均衡任务：
-    
+
     ```SHOW PROC "/cluster_balance/pending_tablets";```
-    
+
     可以等待均衡任务完成，或者通过以下命令临时禁止均衡操作：
-    
+
     ```ADMIN SET FRONTEND CONFIG ("disable_balance" = "true");```
-    
+
 ## 相关配置
 
 ### FE 配置
@@ -184,11 +184,3 @@ RollupIndexName: r1
 ### BE 配置
 
 * `alter_tablet_worker_count`：在 BE 端用于执行历史数据转换的线程数。默认为 3。如果希望加快 Rollup 作业的速度，可以适当调大这个参数后重启 BE。但过多的转换线程可能会导致 IO 压力增加，影响其他操作。该线程和 Schema Change 作业共用。
-    
-    
-    
-    
-    
-     
-
-

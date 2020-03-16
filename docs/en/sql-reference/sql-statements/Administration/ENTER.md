@@ -25,6 +25,7 @@ under the License.
 -->
 
 # ENTER
+
 ## Description
 
 This statement is used to enter a logical cluster. All users and databases created need to be executed in a logical cluster. After creation, they belong to the logic.
@@ -40,5 +41,5 @@ ENTER cluster name
 ENTER test cluster;
 
 ## keyword
-ENTER
 
+ENTER

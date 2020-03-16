@@ -93,7 +93,7 @@ The detailed syntax for creating a routine load task can be connected to Doris a
 
 * columns_mapping
 
-    `columns_mapping` is mainly used to specify the column structure of the table structure and message, as well as the conversion of some columns. If not specified, Doris will default to the columns in the message and the columns of the table structure in a one-to-one correspondence. Although under normal circumstances, if the source data is exactly one-to-one, normal data load can be performed without specifying. However, we still strongly recommend that users ** explicitly specify column mappings**. This way, when the table structure changes (such as adding a nullable column), or the source file changes (such as adding a column), the load task can continue. Otherwise, after the above changes occur, the load will report an error because the column mapping relationship is no longer one-to-one.
+    `columns_mapping` is mainly used to specify the column structure of the table structure and message, as well as the conversion of some columns. If not specified, Doris will default to the columns in the message and the columns of the table structure in a one-to-one correspondence. Although under normal circumstances, if the source data is exactly one-to-one, normal data load can be performed without specifying. However, we still strongly recommend that users **explicitly specify column mappings**. This way, when the table structure changes (such as adding a nullable column), or the source file changes (such as adding a column), the load task can continue. Otherwise, after the above changes occur, the load will report an error because the column mapping relationship is no longer one-to-one.
 
     In `columns_mapping` we can also use some built-in functions for column conversion. But you need to pay attention to the actual column type corresponding to the function parameters. for example:
 
@@ -181,7 +181,7 @@ Here is an example of a column type of TinyInt.
 |not null    | 1                   | 1               | true or false      | correct data|
 
 Here the column type is Decimal(1,0)
- 
+
 > Note: When a column in a table allows a null value to be loaded
 
 |source data | source data example | string to int   | strict_mode        | result|
@@ -203,6 +203,7 @@ Accessing the SSL-certified Kafka cluster requires the user to provide a certifi
     CREATE FILE "ca.pem" PROPERTIES("url" = "https://example_url/kafka-key/ca.pem", "catalog" = "kafka");
     CREATE FILE "client.key" PROPERTIES("url" = "https://example_urlkafka-key/client.key", "catalog" = "kafka");
     CREATE FILE "client.pem" PROPERTIES("url" = "https://example_url/kafka-key/client.pem", "catalog" = "kafka");
+
 ```
 
 2. Create a routine load job

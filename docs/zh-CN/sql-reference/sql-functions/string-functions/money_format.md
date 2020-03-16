@@ -25,11 +25,12 @@ under the License.
 -->
 
 # money_format
+
 ## description
+
 ### Syntax
 
 VARCHAR money_format(Number)
-
 
 将数字按照货币格式输出，整数部分每隔3位用逗号分隔，小数部分保留2位
 
@@ -57,5 +58,7 @@ mysql> select money_format(1123.4);
 | 1,123.40             |
 +----------------------+
 ```
-##keyword
+
+## keyword
+
 MONEY_FORMAT,MONEY,FORMAT

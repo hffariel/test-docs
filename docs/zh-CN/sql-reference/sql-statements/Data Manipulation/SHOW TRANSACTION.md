@@ -25,18 +25,19 @@ under the License.
 -->
 
 # SHOW TRANSACTION
+
 ## description
 
 该语法用于查看指定 transaction id 的事务详情。
 
 语法：
-    
+
 ```
 SHOW TRANSACTION
 [FROM db_name]
 WHERE id = transaction_id;
 ```
-        
+
 返回结果示例：
 
 ```
@@ -58,10 +59,10 @@ ErrorReplicasCount: 0
 * Label：导入任务对应的 label
 * Coordinator：负责事务协调的节点
 * TransactionStatus：事务状态
-    * PREPARE：准备阶段
-    * COMMITTED：事务成功，但数据不可见
-    * VISIBLE：事务成功且数据可见
-    * ABORTED：事务失败
+  * PREPARE：准备阶段
+  * COMMITTED：事务成功，但数据不可见
+  * VISIBLE：事务成功且数据可见
+  * ABORTED：事务失败
 * LoadJobSourceType：导入任务的类型。
 * PrepareTime：事务开始时间
 * CommitTime：事务提交成功的时间
@@ -84,4 +85,3 @@ ErrorReplicasCount: 0
 ## keyword
 
     SHOW, TRANSACTION
-    

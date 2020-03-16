@@ -25,6 +25,7 @@ under the License.
 -->
 
 # ROUTINE LOAD
+
 ## description
 
     例行导入（Routine Load）功能，支持用户提交一个常驻的导入任务，通过不断的从指定的数据源读取数据，将数据导入到 Doris 中。
@@ -241,6 +242,7 @@ under the License.
         NULL值：\N
 
 ## example
+
     1. 为 example_db 的 example_tbl 创建一个名为 test1 的 Kafka 例行导入任务。指定group.id和client.id，并且自动默认消费所有分区，且从末尾（OFFSET_END）开始订阅
 
         CREATE ROUTINE LOAD example_db.test1 ON example_tbl
@@ -311,4 +313,3 @@ under the License.
 ## keyword
 
     CREATE,ROUTINE,LOAD
-

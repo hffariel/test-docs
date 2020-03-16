@@ -27,7 +27,7 @@ under the License.
 # Rollup
 
 Users can speed up queries by creating rollup tables. For the concept and usage of Rollup, please refer to [Data
- Model, ROLLUP and Prefix Index](../../getting-started/data-model-rollup_EN.md) and 
+ Model, ROLLUP and Prefix Index](../../getting-started/data-model-rollup_EN.md) and
  [Rollup and query](../../getting-started/hit-the-rollup_EN.md).
 
 This document focuses on how to create a Rollup job, as well as some considerations and frequently asked questions about creating a Rollup.
@@ -130,19 +130,19 @@ In the case that the job status is not FINISHED or CANCELLED, you can cancel the
 * If a rollup contains columns of the REPLACE aggregation type, the rollup must contain all the key columns.
 
     Assume the structure of the Base table is as follows:
-    
+
     `` `(k1 INT, k2 INT, v1 INT REPLACE, v2 INT SUM)` ``
-    
-    If you need to create a Rollup that contains `v1` columns, you must include the` k1`, `k2` columns. Otherwise, the system cannot determine the value of `v1` listed in Rollup.
-    
+
+    If you need to create a Rollup that contains `v1` columns, you must include the`k1`, `k2` columns. Otherwise, the system cannot determine the value of `v1` listed in Rollup.
+
     Note that all Value columns in the Unique data model table are of the REPLACE aggregation type.
-    
+
 * Rollup of the DUPLICATE data model table, you can specify the DUPLICATE KEY of the rollup.
 
     The DUPLICATE KEY in the DUPLICATE data model table is actually sorted. Rollup can specify its own sort order, but the sort order must be a prefix of the Rollup column order. If not specified, the system will check if the Rollup contains all sort columns of the Base table, and if it does not, it will report an error. For example:
-    
+
     Base table structure: `(k1 INT, k2 INT, k3 INT) DUPLICATE KEY (k1, k2)`
-    
+
     Rollup can be: `(k2 INT, k1 INT) DUPLICATE KEY (k2)`
 
 * Rollup does not need to include partitioned or bucket columns for the Base table.
@@ -152,7 +152,7 @@ In the case that the job status is not FINISHED or CANCELLED, you can cancel the
 * How many rollups can a table create
 
     There is theoretically no limit to the number of rollups a table can create, but too many rollups can affect import performance. Because when importing, data will be generated for all rollups at the same time. At the same time, Rollup will take up physical storage space. Usually the number of rollups for a table is less than 10.
-    
+
 * Rollup creation speed
 
     Rollup creation speed is currently estimated at about 10MB / s based on the worst efficiency. To be conservative, users can set the timeout for jobs based on this rate.
@@ -160,23 +160,23 @@ In the case that the job status is not FINISHED or CANCELLED, you can cancel the
 * Submitting job error `Table xxx is not stable. ...`
 
     Rollup can start only when the table data is complete and unbalanced. If some data shard copies of the table are incomplete, or if some copies are undergoing an equalization operation, the submission is rejected.
-    
+
     Whether the data shard copy is complete can be checked with the following command:
-    
+
     ```ADMIN SHOW REPLICA STATUS FROM tbl WHERE STATUS! =" OK ";```
-    
+
     If a result is returned, there is a problem with the copy. These problems are usually fixed automatically by the system. You can also use the following commands to repair this table first:
-    
-    ```ADMIN REPAIR TABLE tbl1; ```
-    
+
+    ```ADMIN REPAIR TABLE tbl1;```
+
     You can check if there are running balancing tasks with the following command:
-    
+
     ```SHOW PROC" / cluster_balance / pending_tablets ";```
-    
+
     You can wait for the balancing task to complete, or temporarily disable the balancing operation with the following command:
-    
+
     ```ADMIN SET FRONTEND CONFIG ("disable_balance" = "true");```
-    
+
 ## Configurations
 
 ### FE Configurations

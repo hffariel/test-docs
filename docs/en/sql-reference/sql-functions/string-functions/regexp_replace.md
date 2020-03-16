@@ -25,11 +25,12 @@ under the License.
 -->
 
 # regexp_replace
+
 ## description
+
 ### Syntax
 
 `VARCHAR regexp_replace(VARCHAR str, VARCHAR pattern, VARCHAR repl)
-
 
 Regular matching of STR strings, replacing the part hitting pattern with repl
 
@@ -50,5 +51,7 @@ mysql> SELECT regexp_replace('a b c','(b)','<\\1>');
 | a <b> c                                |
 +----------------------------------------+
 ```
-##keyword
+
+## keyword
+
 REGEXP_REPLACE,REGEXP,REPLACE

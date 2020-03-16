@@ -56,23 +56,23 @@ under the License.
 1. bdb 目录
 
     我们将 [bdbje](https://www.oracle.com/technetwork/database/berkeleydb/overview/index-093405.html) 作为一个分布式的 kv 系统，存放元数据的 journal。这个 bdb 目录相当于 bdbje 的 “数据目录”。
-    
+
     其中 `.jdb` 后缀的是 bdbje 的数据文件。这些数据文件会随着元数据 journal 的不断增多而越来越多。当 Doris 定期做完 image 后，旧的日志就会被删除。所以正常情况下，这些数据文件的总大小从几 MB 到几 GB 不等（取决于使用 Doris 的方式，如导入频率等）。当数据文件的总大小大于 10GB，则可能需要怀疑是否是因为 image 没有成功，或者分发 image 失败导致的历史 journal 一直无法删除。
-    
+
     `je.info.0` 是 bdbje 的运行日志。这个日志中的时间是 UTC+0 时区的。我们可能在后面的某个版本中修复这个问题。通过这个日志，也可以查看一些 bdbje 的运行情况。
 
 2. image 目录
 
     image 目录用于存放 Doris 定期生成的元数据镜像文件。通常情况下，你会看到有一个 `image.xxxxx` 的镜像文件。其中 `xxxxx` 是一个数字。这个数字表示该镜像包含 `xxxxx` 号之前的所有元数据 journal。而这个文件的生成时间（通过 `ls -al` 查看即可）通常就是镜像的生成时间。
-    
+
     你也可能会看到一个 `image.ckpt` 文件。这是一个正在生成的元数据镜像。通过 `du -sh` 命令应该可以看到这个文件大小在不断变大，说明镜像内容正在写入这个文件。当镜像写完后，会自动重名为一个新的 `image.xxxxx` 并替换旧的 image 文件。
-    
+
     只有角色为 Master 的 FE 才会主动定期生成 image 文件。每次生成完后，都会推送给其他非 Master 角色的 FE。当确认其他所有 FE 都收到这个 image 后，Master FE 会删除 bdbje 中旧的元数据 journal。所以，如果 image 生成失败，或者 image 推送给其他 FE 失败时，都会导致 bdbje 中的数据不断累积。
-    
+
     `ROLE` 文件记录了 FE 的类型（FOLLOWER 或 OBSERVER），是一个文本文件。
-    
+
     `VERSION` 文件记录了这个 Doris 集群的 cluster id，以及用于各个节点之间访问认证的 token，也是一个文本文件。
-    
+
     `ROLE` 文件和 `VERSION` 文件只可能同时存在，或同时不存在（如第一次启动时）。
 
 ## 基本操作
@@ -87,7 +87,7 @@ under the License.
     2. 确保 `/path/to/palo-meta` 已存在，权限正确，且目录为空。
     3. 直接通过 `sh bin/start_fe.sh` 即可启动。
     4. 启动后，你应该可以在 fe.log 中看到如下日志：
-    
+
         * Palo FE starting...
         * image does not exist: /path/to/palo-meta/image/image.0
         * transfer from INIT to UNKNOWN
@@ -111,7 +111,7 @@ under the License.
         * finished to get cluster id: xxxx, role: FOLLOWER and node name: xxxx
         * 如果重启前还没有 image 产生，则会看到：
             * image does not exist: /path/to/palo-meta/image/image.0
-            
+
         * 如果重启前有 image 产生，则会看到：
             * start load image from /path/to/palo-meta/image/image.xxx. is ckpt: false
             * finished load image in xxx ms
@@ -122,14 +122,14 @@ under the License.
         * finish replay in xxx msec
         * master finish replay journal, can write now.
         * begin to generate new image: image.xxxx
-        *  start save image to /path/to/palo-meta/image/image.ckpt. is ckpt: true
-        *  finished save image /path/to/palo-meta/image/image.ckpt in xxx ms. checksum is xxxx
-        *  push image.xxx to other nodes. totally xx nodes, push successed xx nodes
+        * start save image to /path/to/palo-meta/image/image.ckpt. is ckpt: true
+        * finished save image /path/to/palo-meta/image/image.ckpt in xxx ms. checksum is xxxx
+        * push image.xxx to other nodes. totally xx nodes, push successed xx nodes
         * QE service start
         * thrift server started
 
         以上日志不一定严格按照这个顺序，但基本类似。
-        
+
 3. 常见问题
 
     对于单节点 FE 的部署，启停通常不会遇到什么问题。如果有问题，请先参照相关 wiki，仔细核对你的操作步骤。
@@ -150,18 +150,17 @@ under the License.
 2. 常见问题
 
     1. this node is DETACHED
-    
+
         当第一次启动一个待添加的 FE 时，如果 Master FE 上的 palo-meta/bdb 中的数据很大，则可能在待添加的 FE 日志中看到 `this node is DETACHED.` 字样。这时，bdbje 正在复制数据，你可以看到待添加的 FE 的 `bdb/` 目录正在变大。这个过程通常会在数分钟不等（取决于 bdbje 中的数据量）。之后，fe.log 中可能会有一些 bdbje 相关的错误堆栈信息。如果最终日志中显示 `QE service start` 和 `thrift server started`，则通常表示启动成功。可以通过 mysql-client 连接这个 FE 尝试操作。如果没有出现这些字样，则可能是 bdbje 复制日志超时等问题。这时，直接再次重启这个 FE，通常即可解决问题。
-        
+
     2. 各种原因导致添加失败
 
         * 如果添加的是 OBSERVER，因为 OBSERVER 类型的 FE 不参与元数据的多数写，理论上可以随意启停。因此，对于添加 OBSERVER 失败的情况。可以直接杀死 OBSERVER FE 的进程，清空 OBSERVER 的元数据目录后，重新进行一遍添加流程。
 
         * 如果添加的是 FOLLOWER，因为 FOLLOWER 是参与元数据多数写的。所以有可能FOLLOWER 已经加入 bdbje 选举组内。如果这时只有两个 FOLLOWER 节点（包括 MASTER），那么停掉一个 FE，可能导致另一个 FE 也因无法进行多数写而退出。此时，我们应该先通过 `ALTER SYSTEM DROP FOLLOWER` 命令，从元数据中删除新添加的 FOLLOWER 节点，然后再杀死 FOLLOWER 进程，清空元数据，重新进行一遍添加流程。
 
-    
 ### 删除 FE
-    
+
 通过 `ALTER SYSTEM DROP FOLLOWER/OBSERVER` 命令即可删除对应类型的 FE。以下有几点注意事项：
 
 * 对于 OBSERVER 类型的 FE，直接 DROP 即可，无风险。
@@ -197,16 +196,13 @@ FE 有可能因为某些原因出现无法启动 bdbje、FE 之间无法同步�
     6. 如果成功，通过 `show frontends;` 命令，应该可以看到之前所添加的所有 FE，并且当前 FE 是 master。
     7. 将 fe.conf 中的 `metadata_failure_recovery=true` 配置项删除，或者设置为 `false`，然后重启这个 FE（**重要**）。
 
-
     > 如果你是从一个 OBSERVER 节点的元数据进行恢复的，那么完成如上步骤后，通过 `show frontends;` 语句你会发现，当前这个 FE 的角色为 OBSERVER，但是 `IsMaster` 显示为 `true`。这是因为，这里看到的 “OBSERVER” 是记录在 Doris 的元数据中的，而是否是 master，是记录在 bdbje 的元数据中的。因为我们是从一个 OBSERVER 节点恢复的，所以这里出现了不一致。请按如下步骤修复这个问题（这个问题我们会在之后的某个版本修复）：
-    
     > 1. 先把除了这个 “OBSERVER” 以外的所有 FE 节点 DROP 掉。
     > 2. 通过 `ADD FOLLOWER` 命令，添加一个新的 FOLLOWER FE，假设在 hostA 上。
     > 3. 在 hostA 上启动一个全新的 FE，通过 `-helper` 的方式加入集群。
     > 4. 启动成功后，通过 `show frontends;` 语句，你应该能看到两个 FE，一个是之前的  OBSERVER，一个是新添加的 FOLLOWER，并且 OBSERVER 是 master。
     > 5. 确认这个新的 FOLLOWER 是可以正常工作之后，用这个新的 FOLLOWER 的元数据，重新执行一遍故障恢复操作。
     > 6. 以上这些步骤的目的，其实就是人为的制造出一个 FOLLOWER 节点的元数据，然后用这个元数据，重新开始故障恢复。这样就避免了从 OBSERVER 恢复元数据所遇到的不一致的问题。
-
     > `metadata_failure_recovery=true` 的含义是，清空 "bdbje" 的元数据。这样 bdbje 就不会再联系之前的其他 FE 了，而作为一个独立的 FE 启动。这个参数只有在恢复启动时才需要设置为 true。恢复完成后，一定要设置为 false，否则一旦重启，bdbje 的元数据又会被清空，导致其他 FE 无法正常工作。
 
 4. 第3步执行成功后，我们再通过 `ALTER SYSTEM DROP FOLLOWER/OBSERVER` 命令，将之前的其他的 FE 从元数据删除后，按加入新 FE 的方式，重新把这些 FE 添加一遍。
@@ -224,15 +220,15 @@ FE 有可能因为某些原因出现无法启动 bdbje、FE 之间无法同步�
 1. 非 MASTER 节点的 FOLLOWER，或者 OBSERVER 迁移
 
     直接添加新的 FOLLOWER/OBSERVER 成功后，删除旧的 FOLLOWER/OBSERVER 即可。
-    
+
 2. 单节点 MASTER 迁移
 
     当只有一个 FE 时，参考 `故障恢复` 一节。将 FE 的 palo-meta 目录拷贝到新节点上，按照 `故障恢复` 一节中，步骤3的方式启动新的 MASTER
-    
+
 3. 一组 FOLLOWER 从一组节点迁移到另一组新的节点
 
     在新的节点上部署 FE，通过添加 FOLLOWER 的方式先加入新节点。再逐台 DROP 掉旧节点即可。在逐台 DROP 的过程中，MASTER 会自动选择在新的 FOLLOWER 节点上。
-    
+
 ### 更换 FE 端口
 
 FE 目前有以下几个端口
@@ -245,28 +241,30 @@ FE 目前有以下几个端口
 1. edit_log_port
 
     如果需要更换这个端口，则需要参照 `故障恢复` 一节中的操作，进行恢复。因为该端口已经被持久化到 bdbje 自己的元数据中（同时也记录在 Doris 自己的元数据中），需要通过设置 `metadata_failure_recovery=true` 来清空 bdbje 的元数据。
-    
+
 2. http_port
 
     所有 FE 的 http_port 必须保持一致。所以如果要修改这个端口，则所有 FE 都需要修改并重启。修改这个端口，在多 FOLLOWER 部署的情况下会比较复杂（涉及到鸡生蛋蛋生鸡的问题...），所以不建议有这种操作。如果必须，直接按照 `故障恢复` 一节中的操作吧。
-    
+
 3. rpc_port
 
     修改配置后，直接重启 FE 即可。Master FE 会通过心跳将新的端口告知 BE。只有 Master FE 的这个端口会被使用。但仍然建议所有 FE 的端口保持一致。
-    
+
 4. query_port
 
     修改配置后，直接重启 FE 即可。这个只影响到 mysql 的连接目标。
 
-
 ### 从 FE 内存中恢复元数据
 
 在某些极端情况下，磁盘上 image 文件可能会损坏，但是内存中的元数据是完好的，此时我们可以先从内存中 dump 出元数据，再替换掉磁盘上的 image 文件，来恢复元数据，整个**不停查询服务**的操作步骤如下：
+
 1. 集群停止所有 Load,Create,Alter 操作
 2. 执行以下命令，从 Master FE 内存中 dump 出元数据：(下面称为 image_mem)
+
 ```
 curl -u $root_user:$password http://$master_hostname:8030/dump
 ```
+
 3. 用 image_mem 文件替换掉 OBSERVER FE 节点上`meta_dir/image`目录下的 image 文件，重启 OBSERVER FE 节点，
 验证 image_mem 文件的完整性和正确性（可以在 FE Web 页面查看 DB 和 Table 的元数据是否正常，查看fe.log 是否有异常，是否在正常 replayed journal）
 4. 依次用 image_mem 文件替换掉 FOLLOWER FE 节点上`meta_dir/image`目录下的 image 文件，重启 FOLLOWER FE 节点，
@@ -293,20 +291,18 @@ FE 的部署推荐，在 [安装与部署文档](../../installing/install-deploy
 1. fe.log 中一直滚动 `meta out of date. current time: xxx, synchronized time: xxx, has log: xxx, fe type: xxx`
 
     这个通常是因为 FE 无法选举出 Master。比如配置了 3 个 FOLLOWER，但是只启动了一个 FOLLOWER，则这个 FOLLOWER 会出现这个问题。通常，只要把剩余的 FOLLOWER 启动起来就可以了。如果启动起来后，仍然没有解决问题，那么可能需要按照 `故障恢复` 一节中的方式，手动进行恢复。
-    
+
 2. `Clock delta: xxxx ms. between Feeder: xxxx and this Replica exceeds max permissible delta: xxxx ms.`
 
     bdbje 要求各个节点之间的时钟误差不能超过一定阈值。如果超过，节点会异常退出。我们默认设置的阈值为 5000 ms，由 FE 的参数 `max_bdbje_clock_delta_ms` 控制，可以酌情修改。但我们建议使用 ntp 等时钟同步方式保证 Doris 集群各主机的时钟同步。
-    
-    
+
 3. `image/` 目录下的镜像文件很久没有更新
 
     Master FE 会默认每 50000 条元数据 journal，生成一个镜像文件。在一个频繁使用的集群中，通常每隔半天到几天的时间，就会生成一个新的 image 文件。如果你发现 image 文件已经很久没有更新了（比如超过一个星期），则可以顺序的按照如下方法，查看具体原因：
-    
+
     1. 在 Master FE 的 fe.log 中搜索 `memory is not enough to do checkpoint. Committed memroy xxxx Bytes, used memory xxxx Bytes.` 字样。如果找到，则说明当前 FE 的 JVM 内存不足以用于生成镜像（通常我们需要预留一半的 FE 内存用于 image 的生成）。那么需要增加 JVM 的内存并重启 FE 后，再观察。每次 Master FE 重启后，都会直接生成一个新的 image。也可用这种重启方式，主动地生成新的 image。注意，如果是多 FOLLOWER 部署，那么当你重启当前 Master FE 后，另一个 FOLLOWER FE 会变成 MASTER，则后续的 image 生成会由新的 Master 负责。因此，你可能需要修改所有 FOLLOWER FE 的 JVM 内存配置。
 
     2. 在 Master FE 的 fe.log 中搜索 `begin to generate new image: image.xxxx`。如果找到，则说明开始生成 image 了。检查这个线程的后续日志，如果出现 `checkpoint finished save image.xxxx`，则说明 image 写入成功。如果出现 `Exception when generate new image file`，则生成失败，需要查看具体的错误信息。
-
 
 4. `bdb/` 目录的大小非常大，达到几个G或更多
 

@@ -24,7 +24,7 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-# Tablet 元数据管理工具 
+# Tablet 元数据管理工具
 
 ## 背景
 
@@ -52,17 +52,16 @@ api：
 
 `http://{host}:{port}/api/meta/header/{tablet_id}/{schema_hash}`
 
-
 > host: BE 的 hostname
-> 
+>
 > port: BE 的 http 端口
-> 
+>
 > tablet_id: tablet id
-> 
+>
 > schema_hash: tablet 的 schema hash
 
 举例：
-    
+
 `http://be_host:8040/api/meta/header/14156/2458238340`
 
 最终查询成功的话，会将 Tablet Meta 以 json 形式返回。
@@ -110,5 +109,3 @@ api：
 ```
 ./lib/meta_tool --operation=show_meta --root_path=/path/to/root_path --pb_header_path=path
 ```
-
-

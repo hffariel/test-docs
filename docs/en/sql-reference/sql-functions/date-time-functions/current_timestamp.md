@@ -25,11 +25,12 @@ under the License.
 -->
 
 # current_timestamp
+
 ## Description
+
 ### Syntax
 
 `DATETIME CURRENT_TIMESTAMP()`
-
 
 Get the current time and return it in Datetime type
 
@@ -43,5 +44,7 @@ mysql> select current_timestamp();
 | 2019-05-27 15:59:33 |
 +---------------------+
 ```
-##keyword
+
+## keyword
+
 CURRENT_TIMESTAMP,CURRENT,TIMESTAMP

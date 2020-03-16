@@ -25,11 +25,12 @@ under the License.
 -->
 
 # split_part
+
 ## Description
+
 ### Syntax
 
 'VARCHAR split party (VARCHAR content, VARCHAR delimiter, INT field)'
-
 
 Returns the specified partition (counting from the beginning) by splitting the string according to the partitioner.
 
@@ -65,5 +66,7 @@ mysql> select split_part("abca", "a", 1);
 |                            |
 +----------------------------+
 ```
-##keyword
+
+## keyword
+
 SPLIT_PART,SPLIT,PART

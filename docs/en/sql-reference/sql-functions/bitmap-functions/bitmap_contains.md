@@ -25,7 +25,9 @@ under the License.
 -->
 
 # bitmap_contains
+
 ## description
+
 ### Syntax
 
 `B00LEAN BITMAP_CONTAINS(BITMAP bitmap, BIGINT input)`

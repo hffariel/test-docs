@@ -25,11 +25,12 @@ under the License.
 -->
 
 # concat
+
 ## Description
+
 ### Syntax
 
 `VARCHAR concat (VARCHAR,...)`
-
 
 Connect multiple strings and return NULL if any of the parameters is NULL
 
@@ -57,5 +58,7 @@ mysql> select concat("a", null, "c");
 | NULL                   |
 +------------------------+
 ```
-##keyword
+
+## keyword
+
 CONCAT

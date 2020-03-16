@@ -25,7 +25,9 @@ under the License.
 -->
 
 # CREATE FUNCTION
+
 ## description
+
 ### Syntax
 
 ```
@@ -43,13 +45,13 @@ CREATE [AGGREGATE] FUNCTION function_name
 > `function_name`: 要创建函数的名字, 可以包含数据库的名字。比如：`db1.my_func`。
 >
 > `arg_type`: 函数的参数类型，与建表时定义的类型一致。变长参数时可以使用`, ...`来表示，如果是变长类型，那么变长部分参数的类型与最后一个非变长参数类型一致。
-> 
+>
 > `ret_type`: 函数返回类型。
-> 
+>
 > `inter_type`: 用于表示聚合函数中间阶段的数据类型。
-> 
+>
 > `properties`: 用于设定此函数相关属性，能够设置的属性包括
->       
+>
 >           "object_file": 自定义函数动态库的URL路径，当前只支持 HTTP/HTTPS 协议，此路径需要在函数整个生命周期内保持有效。此选项为必选项
 >
 >           "symbol": 标量函数的函数签名，用于从动态库里面找到函数入口。此选项对于标量函数是必选项
@@ -70,7 +72,6 @@ CREATE [AGGREGATE] FUNCTION function_name
 > 
 >           "close_fn": 自定义函数的close函数的函数签名，用于从动态库里面找到close函数入口。此选项对于自定义函数是可选项
 
-
 此语句创建一个自定义函数。执行此命令需要用户拥有 `ADMIN` 权限。
 
 如果 `function_name` 中包含了数据库名字，那么这个自定义函数会创建在对应的数据库中，否则这个函数将会创建在当前会话所在的数据库。新函数的名字与参数不能够与当前命名空间中已存在的函数相同，否则会创建失败。但是只有名字相同，参数不同是能够创建成功的。
@@ -79,35 +80,35 @@ CREATE [AGGREGATE] FUNCTION function_name
 
 1. 创建一个自定义标量函数
 
-	```
-	CREATE FUNCTION my_add(INT, INT) RETURNS INT PROPERTIES (
-   		"symbol" = 	"_ZN9doris_udf6AddUdfEPNS_15FunctionContextERKNS_6IntValES4_",
-    	"object_file" = "http://host:port/libmyadd.so"
-	);
-	```
-	
+ ```
+ CREATE FUNCTION my_add(INT, INT) RETURNS INT PROPERTIES (
+     "symbol" =  "_ZN9doris_udf6AddUdfEPNS_15FunctionContextERKNS_6IntValES4_",
+     "object_file" = "http://host:port/libmyadd.so"
+ );
+ ```
+
 2. 创建一个有prepare/close函数的自定义标量函数
 
-	```
-	CREATE FUNCTION my_add(INT, INT) RETURNS INT PROPERTIES (
-   		"symbol" = 	"_ZN9doris_udf6AddUdfEPNS_15FunctionContextERKNS_6IntValES4_",
-   		"prepare_fn" = "_ZN9doris_udf14AddUdf_prepareEPNS_15FunctionContextENS0_18FunctionStateScopeE",
-   		"close_fn" = "_ZN9doris_udf12AddUdf_closeEPNS_15FunctionContextENS0_18FunctionStateScopeE",
-    	"object_file" = "http://host:port/libmyadd.so"
-	);
-	```
+ ```
+ CREATE FUNCTION my_add(INT, INT) RETURNS INT PROPERTIES (
+     "symbol" =  "_ZN9doris_udf6AddUdfEPNS_15FunctionContextERKNS_6IntValES4_",
+     "prepare_fn" = "_ZN9doris_udf14AddUdf_prepareEPNS_15FunctionContextENS0_18FunctionStateScopeE",
+     "close_fn" = "_ZN9doris_udf12AddUdf_closeEPNS_15FunctionContextENS0_18FunctionStateScopeE",
+     "object_file" = "http://host:port/libmyadd.so"
+ );
+ ```
 
 2. 创建一个自定义聚合函数
 
-	```
-	CREATE AGGREGATE FUNCTION my_count (BIGINT) RETURNS BIGINT PROPERTIES (
-	    "init_fn"="_ZN9doris_udf9CountInitEPNS_15FunctionContextEPNS_9BigIntValE",
-	    "update_fn"="_ZN9doris_udf11CountUpdateEPNS_15FunctionContextERKNS_6IntValEPNS_9BigIntValE",
-	    "merge_fn"="_ZN9doris_udf10CountMergeEPNS_15FunctionContextERKNS_9BigIntValEPS2_",
-	    "finalize_fn"="_ZN9doris_udf13CountFinalizeEPNS_15FunctionContextERKNS_9BigIntValE",
-	    "object_file"="http://host:port/libudasample.so"
-	);
-	```
+ ```
+ CREATE AGGREGATE FUNCTION my_count (BIGINT) RETURNS BIGINT PROPERTIES (
+     "init_fn"="_ZN9doris_udf9CountInitEPNS_15FunctionContextEPNS_9BigIntValE",
+     "update_fn"="_ZN9doris_udf11CountUpdateEPNS_15FunctionContextERKNS_6IntValEPNS_9BigIntValE",
+     "merge_fn"="_ZN9doris_udf10CountMergeEPNS_15FunctionContextERKNS_9BigIntValEPS2_",
+     "finalize_fn"="_ZN9doris_udf13CountFinalizeEPNS_15FunctionContextERKNS_9BigIntValE",
+     "object_file"="http://host:port/libudasample.so"
+ );
+ ```
 
 ## keyword
 

@@ -43,7 +43,6 @@ This document mainly introduces the realization principle and usage of this func
 * MasterNode: The Master node of ES, which manages metadata, nodes, data distribution, etc.
 * scroll: The built-in data set cursor feature of ES for streaming scanning and filtering of data.
 
-
 ## How to use it
 
 ### Create appearance
@@ -88,6 +87,7 @@ select * from es_table where k1 > 1000 and k3 ='term' or k4 like 'fu*z_'
 ```
 
 #### Extended esquery SQL grammar
+
 The first column name parameter of `esquery` is used to associate `index`, the second parameter is the JSON expression of the basic `Query DSL`, and the curly bracket `{}` is used to include `root` of json. There is and can only be one key of json, such as mat. Ch, geo_shape, bool, etc.
 
 Match query:
@@ -99,6 +99,7 @@ select * from es_table where esquery(k4, '{
         }
     }');
 ```
+
 Geo related queries:
 
 ```
@@ -150,11 +151,9 @@ select * from es_table where esquery(k4, ' {
       }');
 ```
 
-
-
 ## Principle
 
-```              
+```
 +----------------------------------------------+
 |                                              |
 | Doris      +------------------+              |
@@ -202,11 +201,12 @@ select * from es_table where esquery(k4, ' {
 4. After calculating the result, return it to client
 
 ## Push-Down operations
+
 An important function of `Doris On Elastic` search is to push down filtering conditions: push ES under filtering conditions, so that only data that really meets the conditions can be returned, which can significantly improve query performance and reduce the CPU, memory and IO utilization of Doris and Elastic search.
 
 The following operators are optimized to push down filters as follows:
 
-| SQL syntax  | ES 5.x+ syntax | 
+| SQL syntax  | ES 5.x+ syntax |
 |-------|:---:|
 | =   | term query|
 | in  | terms query   |
@@ -217,17 +217,16 @@ The following operators are optimized to push down filters as follows:
 | not in  | bool.must_not + terms  |
 | esquery  | ES Query DSL   |
 
-
 ## Other notes
 
 1. ES Version Requirements
 
-	The main version of ES is larger than 5. The scanning mode of ES data before 2. X and after 5. x is different. At present, the scanning mode of ES data after 5. x is supported.
+ The main version of ES is larger than 5. The scanning mode of ES data before 2. X and after 5. x is different. At present, the scanning mode of ES data after 5. x is supported.
 
 2. Does ES Cluster Support X-Pack Authentication
 
-	Support all ES clusters using HTTP Basic authentication
+ Support all ES clusters using HTTP Basic authentication
 
 3. Some queries are much slower than requesting ES
 
-	Yes, for example, query related to _count, etc., the ES internal will directly read the number of documents that meet the requirements of the relevant metadata, without the need to filter the real data.
+ Yes, for example, query related to _count, etc., the ES internal will directly read the number of documents that meet the requirements of the relevant metadata, without the need to filter the real data.

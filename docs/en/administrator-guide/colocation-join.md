@@ -28,7 +28,7 @@ under the License.
 
 Colocation Join is a new feature introduced in Doris 0.9. The purpose of this paper is to provide local optimization for some Join queries to reduce data transmission time between nodes and speed up queries.
 
-The original design, implementation and effect can be referred to [ISSUE 245] (https://github.com/apache/incubator-doris/issues/245).
+The original design, implementation and effect can be referred to [ISSUE 245] (<https://github.com/apache/incubator-doris/issues/245).>
 
 The Colocation Join function has undergone a revision, and its design and use are slightly different from the original design. This document mainly introduces Colocation Join's principle, implementation, usage and precautions.
 
@@ -43,21 +43,21 @@ The Colocation Join function has undergone a revision, and its design and use ar
 
 The Colocation Join function is to make a CG of a set of tables with the same CGS. Ensure that the corresponding data fragments of these tables will fall on the same BE node. When tables in CG perform Join operations on bucket columns, local data Join can be directly performed to reduce data transmission time between nodes.
 
-The data of a table will eventually fall into a barrel according to the barrel column value Hash and the number of barrels modeled. Assuming that the number of buckets in a table is 8, there are eight buckets `[0, 1, 2, 3, 4, 5, 6, 7] `Buckets'. We call such a sequence a `Buckets Sequence`. Each Bucket has one or more Tablets. When a table is a single partitioned table, there is only one Tablet in a Bucket. If it is a multi-partition table, there will be more than one.
+The data of a table will eventually fall into a barrel according to the barrel column value Hash and the number of barrels modeled. Assuming that the number of buckets in a table is 8, there are eight buckets `[0, 1, 2, 3, 4, 5, 6, 7]`Buckets'. We call such a sequence a `Buckets Sequence`. Each Bucket has one or more Tablets. When a table is a single partitioned table, there is only one Tablet in a Bucket. If it is a multi-partition table, there will be more than one.
 
 In order for a table to have the same data distribution, the table in the same CG must ensure the following attributes are the same:
 
 1. Barrel row and number of barrels
 
-	Bucket column, that is, the column specified in `DISTRIBUTED BY HASH (col1, col2,...)'in the table building statement. Bucket columns determine which column values are used to Hash data from a table into different Tablets. Tables in the same CG must ensure that the type and number of barrel columns are identical, and the number of barrels is identical, so that the data fragmentation of multiple tables can be controlled one by one.
+ Bucket column, that is, the column specified in `DISTRIBUTED BY HASH (col1, col2,...)'in the table building statement. Bucket columns determine which column values are used to Hash data from a table into different Tablets. Tables in the same CG must ensure that the type and number of barrel columns are identical, and the number of barrels is identical, so that the data fragmentation of multiple tables can be controlled one by one.
 
 2. Number of copies
 
-	The number of copies of all partitions of all tables in the same CG must be the same. If inconsistent, there may be a copy of a Tablet, and there is no corresponding copy of other table fragments on the same BE.
+ The number of copies of all partitions of all tables in the same CG must be the same. If inconsistent, there may be a copy of a Tablet, and there is no corresponding copy of other table fragments on the same BE.
 
 Tables in the same CG do not require consistency in the number, scope, and type of partition columns.
 
-After fixing the number of bucket columns and buckets, the tables in the same CG will have the same Buckets Sequnce. The number of replicas determines the number of replicas of Tablets in each bucket, which BE they are stored on. Suppose that Buckets Sequnce is `[0, 1, 2, 3, 4, 5, 6, 7] `, and that BE nodes have `[A, B, C, D] `4. A possible distribution of data is as follows:
+After fixing the number of bucket columns and buckets, the tables in the same CG will have the same Buckets Sequnce. The number of replicas determines the number of replicas of Tablets in each bucket, which BE they are stored on. Suppose that Buckets Sequnce is `[0, 1, 2, 3, 4, 5, 6, 7]`, and that BE nodes have `[A, B, C, D]`4. A possible distribution of data is as follows:
 
 ```
 +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+
@@ -86,7 +86,7 @@ CREATE TABLE tbl (k1 int, v1 int sum)
 DISTRIBUTED BY HASH(k1)
 BUCKETS 8
 PROPERTIES(
-	"colocate_with" = "group1"
+ "colocate_with" = "group1"
 );
 ```
 
@@ -116,7 +116,7 @@ SHOW PROC '/colocation_group';
 * Tablet Ids: The group contains a list of Tables'ID.
 * Buckets Num: Number of barrels.
 * Replication Num: Number of copies.
-* DistCols: Distribution columns, 
+* DistCols: Distribution columns,
 * IsStable: Is the group stable (for the definition of stability, see section `Collocation replica balancing and repair').
 
 You can further view the data distribution of a group by following commands:
@@ -322,7 +322,6 @@ If not, the query plan is as follows:
 
 The HASH JOIN node displays the corresponding reason: `colocate: false, reason: group is not stable`. At the same time, an EXCHANGE node will be generated.
 
-
 ## Advanced Operations
 
 ### FE Configuration Item
@@ -345,7 +344,7 @@ Whether to turn off the Colocation Join function or not. In 0.10 and previous ve
 
 In 0.10 and previous versions, the new replica scheduling logic is incompatible with the Colocation Join function, so in 0.10 and previous versions, if `disable_colocate_join = false`, you need to set `use_new_tablet_scheduler = false`, that is, close the new replica scheduler. In later versions, `use_new_tablet_scheduler` will be equal to true.
 
-###HTTP Restful API
+### HTTP Restful API
 
 Doris provides several HTTP Restful APIs related to Colocation Join for viewing and modifying Colocation Group.
 
@@ -355,94 +354,95 @@ The API is implemented on the FE side and accessed using `fe_host: fe_http_port`
 
     ```
     GET /api/colocate
-    
+
     Return the internal Colocation info in JSON format:
-    
+
     {
-    	"colocate_meta": {
-    		"groupName2Id": {
-    			"g1": {
-    				"dbId": 10005,
-    				"grpId": 10008
-    			}
-    		},
-    		"group2Tables": {},
-    		"table2Group": {
-    			"10007": {
-    				"dbId": 10005,
-    				"grpId": 10008
-    			},
-    			"10040": {
-    				"dbId": 10005,
-    				"grpId": 10008
-    			}
-    		},
-    		"group2Schema": {
-    			"10005.10008": {
-    				"groupId": {
-    					"dbId": 10005,
-    					"grpId": 10008
-    				},
-    				"distributionColTypes": [{
-    					"type": "INT",
-    					"len": -1,
-    					"isAssignedStrLenInColDefinition": false,
-    					"precision": 0,
-    					"scale": 0
-    				}],
-    				"bucketsNum": 10,
-    				"replicationNum": 2
-    			}
-    		},
-    		"group2BackendsPerBucketSeq": {
-    			"10005.10008": [
-    				[10004, 10002],
-    				[10003, 10002],
-    				[10002, 10004],
-    				[10003, 10002],
-    				[10002, 10004],
-    				[10003, 10002],
-    				[10003, 10004],
-    				[10003, 10004],
-    				[10003, 10004],
-    				[10002, 10004]
-    			]
-    		},
-    		"unstableGroups": []
-    	},
-    	"status": "OK"
+     "colocate_meta": {
+      "groupName2Id": {
+       "g1": {
+        "dbId": 10005,
+        "grpId": 10008
+       }
+      },
+      "group2Tables": {},
+      "table2Group": {
+       "10007": {
+        "dbId": 10005,
+        "grpId": 10008
+       },
+       "10040": {
+        "dbId": 10005,
+        "grpId": 10008
+       }
+      },
+      "group2Schema": {
+       "10005.10008": {
+        "groupId": {
+         "dbId": 10005,
+         "grpId": 10008
+        },
+        "distributionColTypes": [{
+         "type": "INT",
+         "len": -1,
+         "isAssignedStrLenInColDefinition": false,
+         "precision": 0,
+         "scale": 0
+        }],
+        "bucketsNum": 10,
+        "replicationNum": 2
+       }
+      },
+      "group2BackendsPerBucketSeq": {
+       "10005.10008": [
+        [10004, 10002],
+        [10003, 10002],
+        [10002, 10004],
+        [10003, 10002],
+        [10002, 10004],
+        [10003, 10002],
+        [10003, 10004],
+        [10003, 10004],
+        [10003, 10004],
+        [10002, 10004]
+       ]
+      },
+      "unstableGroups": []
+     },
+     "status": "OK"
     }
     ```
+
 2. Mark Group as Stable or Unstable
 
-	* Mark as Stable
+* Mark as Stable
 
         ```
         POST /api/colocate/group_stable?db_id=10005&group_id=10008
-        
+
         Returns: 200
         ```
 
-	* Mark as Unstable
+* Mark as Unstable
 
         ```
         DELETE /api/colocate/group_stable?db_id=10005&group_id=10008
-        
+
         Returns: 200
         ```
 
 3. Setting Data Distribution for Group
 
-	The interface can force the number distribution of a group.
+ The interface can force the number distribution of a group.
 
     ```
     POST /api/colocate/bucketseq?db_id=10005&group_id= 10008
-    
+
     Body:
     [[10004,10002],[10003,10002],[10002,10004],[10003,10002],[10002,10004],[10003,10002],[10003,10004],[10003,10004],[10003,10004],[10002,10004]]
-    
+
     Returns: 200
     ```
-	Body is a Buckets Sequence represented by a nested array and the ID of the BE where the fragments are distributed in each Bucket.
+ Body is a Buckets Sequence represented by a nested array and the ID of the BE where the fragments are distributed in each Bucket.
 
-	Note that using this command, you may need to set the FE configuration `disable_colocate_relocate` and `disable_colocate_balance` to true. That is to shut down the system for automatic Colocation replica repair and balancing. Otherwise, it may be automatically reset by the system after modification.
+ Note that using this command, you may need to set the FE configuration `disable_colocate_relocate` and `disable_colocate_balance` to true. That is to shut down the system for automatic Colocation replica repair and balancing. Otherwise, it may be automatically reset by the system after modification.

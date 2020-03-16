@@ -25,7 +25,9 @@ under the License.
 -->
 
 # null_or_empty
+
 ## description
+
 ### Syntax
 
 `BOOLEAN NULL_OR_EMPTY (VARCHAR str)`
@@ -56,5 +58,7 @@ MySQL [(none)]> select null_or_empty("a");
 |                  0 |
 +--------------------+
 ```
-##keyword
+
+## keyword
+
 NULL_OR_EMPTY

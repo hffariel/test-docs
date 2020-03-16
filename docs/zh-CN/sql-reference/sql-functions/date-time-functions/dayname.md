@@ -25,11 +25,12 @@ under the License.
 -->
 
 # dayname
+
 ## description
+
 ### Syntax
 
 `VARCHAR DAYNAME(DATE)`
-
 
 返回日期对应的日期名字
 
@@ -46,5 +47,6 @@ mysql> select dayname('2007-02-03 00:00:00');
 +--------------------------------+
 ```
 
-##keyword
+## keyword
+
     DAYNAME

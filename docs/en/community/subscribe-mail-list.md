@@ -54,13 +54,11 @@ Every subject is acceptable.
 
 ![step3](/images/subscribe-mail-list-step3.png)
 
-
 ## 4. Receiving Welcome Emails
 
 After completing the third step, you will receive a welcome email entitled **WELCOME to dev@doris.apache.org**. So far, the work of subscribing to mailing lists has been completed, and community dynamics will be notified by mail.
 
 ![step4](/images/subscribe-mail-list-step4.png)
-
 
 ## 5. Initiate e-mail discussion (optional)
 

@@ -24,10 +24,9 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-
 # CAST
-##Description
 
+## Description
 
 ```
 cast (input as type)
@@ -37,11 +36,9 @@ cast (input as type)
 
 ### Syntax (BIGINT)
 
-``` cast (input as BIGINT) ```
-
+```cast (input as BIGINT)```
 
 Converts input to the specified type
-
 
 Converting the current column input to BIGINT type
 
@@ -79,5 +76,7 @@ mysql> select cast(cast ("11.2" as double) as bigint);
 +----------------------------------------+
 1 row in set (0.00 sec)
 ```
-##keyword
+
+## keyword
+
 CAST

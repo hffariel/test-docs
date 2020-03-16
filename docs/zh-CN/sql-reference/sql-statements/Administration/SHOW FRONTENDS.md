@@ -25,7 +25,9 @@ under the License.
 -->
 
 # SHOW FRONTENDS
+
 ## description
+
     该语句用于查看 FE 节点
     语法：
         SHOW FRONTENDS;
@@ -38,7 +40,7 @@ under the License.
         5. LastHeartbeat 是最近一次心跳。
         6. IsHelper 表示该节点是否是 bdbje 中的 helper 节点。
         7. ErrMsg 用于显示心跳失败时的错误信息。
-        
-## keyword
-    SHOW, FRONTENDS
 
+## keyword
+
+    SHOW, FRONTENDS

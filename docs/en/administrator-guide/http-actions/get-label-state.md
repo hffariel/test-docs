@@ -25,7 +25,9 @@ under the License.
 -->
 
 # GET LABEL STATE
+
 ## description
+
     NAME:
         get_label_state: get label's state
         
@@ -46,14 +48,13 @@ under the License.
            UNKNOWN/PREPARE/COMMITTED/VISIBLE/ABORTED
         
     ERRORS
-    
+
 ## example
 
     1. Get status of label "testLabel" on database "testDb"
 
         curl -u root http://host:port/api/testDb/testLabel/_state
- 
+
 ## keyword
 
     GET, LABEL, STATE
-

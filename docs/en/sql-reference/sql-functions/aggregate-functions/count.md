@@ -25,11 +25,12 @@ under the License.
 -->
 
 # COUNT
+
 ## Description
+
 ### Syntax
 
 `COUNT([DISTINCT] expr)`
-
 
 Number of rows used to return the required rows
 
@@ -57,5 +58,7 @@ MySQL > select count(distinct datetime) from log_statis group by datetime;
 |                       71045   |
 +-------------------------------+
 ```
-##keyword
+
+## keyword
+
 COUNT

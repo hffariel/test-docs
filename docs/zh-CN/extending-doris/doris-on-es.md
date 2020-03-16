@@ -27,7 +27,7 @@ under the License.
 # Doris On ES
 
 Doris-On-ES将Doris的分布式查询规划能力和ES(Elasticsearch)的全文检索能力相结合，提供更完善的OLAP分析场景解决方案：
- 
+
  1. ES中的多index分布式Join查询
  2. Doris和ES中的表联合查询，更复杂的全文检索过滤
  3. ES keyword类型字段的聚合查询：适用于index 频繁发生变化、单个分片文档数量千万级以上且该字段基数(cardinality)非常大
@@ -42,7 +42,6 @@ Doris-On-ES将Doris的分布式查询规划能力和ES(Elasticsearch)的全文�
 * DataNode：ES的数据存储与计算节点。
 * MasterNode：ES的Master节点，管理元数据、节点、数据分布等。
 * scroll：ES内置的数据集游标特性，用来对数据进行流式扫描和过滤。
-
 
 ## 如何使用
 
@@ -88,6 +87,7 @@ select * from es_table where k1 > 1000 and k3 ='term' or k4 like 'fu*z_'
 ```
 
 #### 扩展的esquery sql语法
+
 通过`esquery`函数将一些无法用sql表述的ES query如match、geoshape等下推给ES进行过滤处理，`esquery`的第一个列名参数用于关联`index`，第二个参数是ES的基本`Query DSL`的json表述，使用花括号`{}`包含，json的`root key`有且只能有一个，如match、geo_shape、bool等
 
 match查询：
@@ -99,6 +99,7 @@ select * from es_table where esquery(k4, '{
         }
     }');
 ```
+
 geo相关查询：
 
 ```
@@ -150,11 +151,9 @@ select * from es_table where esquery(k4, ' {
       }');
 ```
 
-
-
 ## 原理
 
-```              
+```
 +----------------------------------------------+
 |                                              |
 | Doris      +------------------+              |
@@ -202,11 +201,12 @@ select * from es_table where esquery(k4, ' {
 4. 计算完结果后，返回给client端
 
 ## Push-Down operations
+
 `Doris On Elasticsearch`一个重要的功能就是过滤条件的下推: 过滤条件下推给ES，这样只有真正满足条件的数据才会被返回，能够显著的提高查询性能和降低Doris和Elasticsearch的CPU、memory、IO利用率
 
 下面的操作符(Operators)会被优化成如下下推filters:
 
-| SQL syntax  | ES 5.x+ syntax | 
+| SQL syntax  | ES 5.x+ syntax |
 |-------|:---:|
 | =   | term query|
 | in  | terms query   |
@@ -216,7 +216,6 @@ select * from es_table where esquery(k4, ' {
 | not  | bool.must_not   |
 | not in  | bool.must_not + terms  |
 | esquery  | ES Query DSL   |
-
 
 ## 其他说明
 

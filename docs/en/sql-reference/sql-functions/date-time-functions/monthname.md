@@ -25,11 +25,12 @@ under the License.
 -->
 
 # Monthname
+
 ## Description
+
 ### Syntax
 
 'VARCHAR MONTHNAME (DATE)'
-
 
 Month name corresponding to return date
 
@@ -45,5 +46,7 @@ mysql> select monthname('2008-02-03 00:00:00');
 | February                         |
 +----------------------------------+
 ```
-##keyword
+
+## keyword
+
 MONTHNAME

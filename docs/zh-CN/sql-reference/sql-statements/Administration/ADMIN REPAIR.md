@@ -25,6 +25,7 @@ under the License.
 -->
 
 # ADMIN REPAIR
+
 ## description
 
     该语句用于尝试优先修复指定的表或分区
@@ -47,7 +48,7 @@ under the License.
     2. 尝试修复指定分区
 
         ADMIN REPAIR TABLE tbl1 PARTITION (p1, p2);
-        
-## keyword
-    ADMIN,REPAIR
 
+## keyword
+
+    ADMIN,REPAIR

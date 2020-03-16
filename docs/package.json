@@ -19,15 +19,14 @@
   "scripts": {
     "build": "vuepress build . --temp .temp",
     "dev": "vuepress dev . --temp .temp",
-    "lint-md": "yarn lint-md:style && yarn lint-md:wording",
-    "lint-md:style": "remark --quiet --frail .",
-    "lint-md:wording": "textlint ./docs/**/*.md"
+    "lint": "markdownlint '**/*.md' -f"
   },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.3.1",
     "@vuepress/plugin-medium-zoom": "^1.3.1",
     "@vuepress/theme-vue": "^1.3.1",
     "markdownlint": "^0.19.0",
+    "markdownlint-cli": "^0.22.0",
     "vue-toasted": "^1.1.25",
     "vuepress": "^1.3.1"
   }

@@ -24,12 +24,12 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-
 # Cluster upgrade
 
 Doris can upgrade smoothly by rolling upgrades. The following steps are recommended for security upgrade.
 
 > Note:
+>
 > 1. The following approaches are based on highly available deployments. That is, data 3 replicas, FE high availability.
 
 ## Test the correctness of BE upgrade

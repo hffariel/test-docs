@@ -25,6 +25,7 @@ under the License.
 -->
 
 # CREATE FILE
+
 ## description
 
     该语句用于创建并上传一个文件到 Doris 集群。
@@ -71,7 +72,7 @@ under the License.
             "catalog" = "my_catalog",
             "md5" = "b5bb901bf10f99205b39a46ac3557dd9"
         );
-        
-## keyword
-    CREATE,FILE
 
+## keyword
+
+    CREATE,FILE

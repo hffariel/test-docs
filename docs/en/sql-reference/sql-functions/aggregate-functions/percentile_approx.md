@@ -25,7 +25,9 @@ under the License.
 -->
 
 # PERCENTILE_APPROX
+
 ## Description
+
 ### Syntax
 
 `PERCENTILE_APPROX(expr, DOUBLE p[, DOUBLE compression])`
@@ -37,6 +39,7 @@ Compression param is optional and can be setted to a value in the range of [2048
 This function uses fixed size memory, so less memory can be used for columns with high cardinality, and can be used to calculate statistics such as tp99.
 
 ## example
+
 ```
 MySQL > select `table`, percentile_approx(cost_time,0.99) from log_statis group by `table`;
 +---------------------+---------------------------+
@@ -52,5 +55,7 @@ MySQL > select `table`, percentile_approx(cost_time,0.99, 4096) from log_statis 
 | test     |                                54.21 |
 +----------+--------------------------------------+
 ```
-##keyword
+
+## keyword
+
 PERCENTILE_APPROX,PERCENTILE,APPROX

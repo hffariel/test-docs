@@ -25,11 +25,12 @@ under the License.
 -->
 
 # get_json_double
+
 ## description
+
 ### Syntax
 
 `DOUBLE get_json_double(VARCHAR json_str, VARCHAR json_path)
-
 
 解析并获取 json 字符串内指定路径的浮点型内容。
 其中 json_path 必须以 $ 符号作为开头，使用 . 作为路径分割符。如果路径中包含 . ，则可以使用双引号包围。
@@ -62,6 +63,7 @@ mysql> SELECT get_json_double('{"k1":"v1", "my.key":[1.1, 2.2, 3.3]}', '$."my.ke
 ```
 
 3. 获取二级路径为 k1.key -> k2 的数组中，第一个元素
+
 ```
 mysql> SELECT get_json_double('{"k1.key":{"k2":[1.1, 2.2]}}', '$."k1.key".k2[0]');
 +---------------------------------------------------------------------+
@@ -70,5 +72,7 @@ mysql> SELECT get_json_double('{"k1.key":{"k2":[1.1, 2.2]}}', '$."k1.key".k2[0]'
 |                                                                 1.1 |
 +---------------------------------------------------------------------+
 ```
-##keyword
+
+## keyword
+
 GET_JSON_DOUBLE,GET,JSON,DOUBLE

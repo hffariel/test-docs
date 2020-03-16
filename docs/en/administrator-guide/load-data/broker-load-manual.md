@@ -90,7 +90,7 @@ Broker load create a data load job
 Grammar:
 
 ```
-LOAD LABEL db_name.label_name 
+LOAD LABEL db_name.label_name
 (data_desc, ...)
 WITH BROKER broker_name broker_properties
 [PROPERTIES (key1=value1, ... )]
@@ -106,10 +106,11 @@ WITH BROKER broker_name broker_properties
     [SET (k1=f1(xx), k2=f2(xx))]
     [WHERE predicate]
 
-* broker_properties: 
+* broker_properties:
 
     (key1=value1, ...)
 ```
+
 Examples:
 
 ```
@@ -142,7 +143,7 @@ PROPERTIES
 
 ```
 
-Create the imported detailed grammar execution ``HELP BROKER LOAD `` View grammar help. This paper mainly introduces the parametric meaning and points for attention in Broker load's creation import grammar.
+Create the imported detailed grammar execution ``HELP BROKER LOAD`` View grammar help. This paper mainly introduces the parametric meaning and points for attention in Broker load's creation import grammar.
 
 #### Label
 
@@ -160,15 +161,15 @@ The following is a detailed explanation of some parameters of the data descripti
 
 + Multi-table import
 
-	Broker load supports a single import task involving multiple tables, and each Broker load import task can implement multiple tables import by declaring multiple tables in multiple ``data_desc``. Each individual ```data_desc``` can also specify the data source address belonging to the table. Broker load guarantees atomic success or failure between multiple tables imported at a single time.
+ Broker load supports a single import task involving multiple tables, and each Broker load import task can implement multiple tables import by declaring multiple tables in multiple ``data_desc``. Each individual ```data_desc``` can also specify the data source address belonging to the table. Broker load guarantees atomic success or failure between multiple tables imported at a single time.
 
 + negative
 
-	```data_desc``` can also set up data fetching and anti-importing. This function is mainly used when aggregated columns in data tables are of SUM type. If you want to revoke a batch of imported data. The `negative'parameter can be used as a batch of data. Doris automatically retrieves this batch of data on aggregated columns to eliminate the same batch of data.
+ ```data_desc``` can also set up data fetching and anti-importing. This function is mainly used when aggregated columns in data tables are of SUM type. If you want to revoke a batch of imported data. The `negative'parameter can be used as a batch of data. Doris automatically retrieves this batch of data on aggregated columns to eliminate the same batch of data.
 
 + partition
 
-	In `data_desc`, you can specify the partition information of the table to be imported, but it will not be imported if the data to be imported does not belong to the specified partition. At the same time, data that does not specify a Partition is considered error data.
+ In `data_desc`, you can specify the partition information of the table to be imported, but it will not be imported if the data to be imported does not belong to the specified partition. At the same time, data that does not specify a Partition is considered error data.
 
 + where predicate
 
@@ -182,51 +183,49 @@ The following is a detailed explanation of some parameters of the import operati
 
 + time out
 
-	The time-out of the import job (in seconds) allows the user to set the time-out of each import by himself in ``opt_properties``. If the import task is not completed within the set timeout time, it will be cancelled by the system and become CANCELLED. The default import timeout for Broker load is 4 hours.
+ The time-out of the import job (in seconds) allows the user to set the time-out of each import by himself in ``opt_properties``. If the import task is not completed within the set timeout time, it will be cancelled by the system and become CANCELLED. The default import timeout for Broker load is 4 hours.
 
-	Usually, the user does not need to manually set the timeout of the import task. When the import cannot be completed within the default timeout time, the task timeout can be set manually.
+ Usually, the user does not need to manually set the timeout of the import task. When the import cannot be completed within the default timeout time, the task timeout can be set manually.
 
-	> Recommended timeout
-	>
-	> Total File Size (MB) / Slowest Import Speed (MB/s) > timeout 	>((MB) * Number of tables to be imported and related Roll up tables) / (10 * Number of concurrent imports)
+ > Recommended timeout
+ >
+ > Total File Size (MB) / Slowest Import Speed (MB/s) > timeout  >((MB) *Number of tables to be imported and related Roll up tables) / (10* Number of concurrent imports)
+ > The concurrency of imports can be seen in the final configuration of the import system in the document. The current import speed limit is 10MB/s in 10 of the formulas.
+ > For example, a 1G data to be imported contains three Rollup tables, and the current concurrency of imports is 3. The minimum value of timeout is ```(1 * 1024 * 3) / (10 * 3) = 102 seconds.```
 
-	> The concurrency of imports can be seen in the final configuration of the import system in the document. The current import speed limit is 10MB/s in 10 of the formulas.
-
-	> For example, a 1G data to be imported contains three Rollup tables, and the current concurrency of imports is 3. The minimum value of timeout is ```(1 * 1024 * 3) / (10 * 3) = 102 seconds.```
-
-	Because the machine environment of each Doris cluster is different and the concurrent query tasks of the cluster are different, the slowest import speed of the user Doris cluster requires the user to guess the import task speed according to the history.
+ Because the machine environment of each Doris cluster is different and the concurrent query tasks of the cluster are different, the slowest import speed of the user Doris cluster requires the user to guess the import task speed according to the history.
 
 + max\_filter\_ratio
 
-	The maximum tolerance rate of the import task is 0 by default, and the range of values is 0-1. When the import error rate exceeds this value, the import fails.
+ The maximum tolerance rate of the import task is 0 by default, and the range of values is 0-1. When the import error rate exceeds this value, the import fails.
 
-	If the user wishes to ignore the wrong row, the import can be successful by setting this parameter greater than 0.
+ If the user wishes to ignore the wrong row, the import can be successful by setting this parameter greater than 0.
 
-	The calculation formula is as follows:
+ The calculation formula is as follows:
 
-	``` (dpp.abnorm.ALL / (dpp.abnorm.ALL + dpp.norm.ALL ) ) > max_filter_ratio ```
+ ```(dpp.abnorm.ALL / (dpp.abnorm.ALL + dpp.norm.ALL ) ) > max_filter_ratio```
 
-	``` dpp.abnorm.ALL``` denotes the number of rows whose data quality is not up to standard. Such as type mismatch, column mismatch, length mismatch and so on.
+ ```dpp.abnorm.ALL``` denotes the number of rows whose data quality is not up to standard. Such as type mismatch, column mismatch, length mismatch and so on.
 
-	``` dpp.norm.ALL ``` refers to the number of correct data in the import process. The correct amount of data for the import task can be queried by the ``SHOW LOAD`` command.
+ ```dpp.norm.ALL``` refers to the number of correct data in the import process. The correct amount of data for the import task can be queried by the ``SHOW LOAD`` command.
 
-	The number of rows in the original file = `dpp.abnorm.ALL + dpp.norm.ALL`
+ The number of rows in the original file = `dpp.abnorm.ALL + dpp.norm.ALL`
 
 * exec\_mem\_limit
 
-	Memory limit. Default is 2GB. Unit is Bytes.
+ Memory limit. Default is 2GB. Unit is Bytes.
 
 + strict\_mode
 
-	Broker load can use `strict mode`. Use ```properties ("strict_mode" = "true")```  to enable `strict mode`, default is false
+ Broker load can use `strict mode`. Use ```properties ("strict_mode" = "true")```  to enable `strict mode`, default is false
 
-	The strict mode means that the column type conversion in the import process is strictly filtered. The strategy of strict filtering is as follows:
+ The strict mode means that the column type conversion in the import process is strictly filtered. The strategy of strict filtering is as follows:
 
-	1. For column type conversion, if strict mode is true, the wrong data will be filtered. Error data here refers to the kind of data that the original data is not null and the result is null after participating in column type conversion.
+ 1. For column type conversion, if strict mode is true, the wrong data will be filtered. Error data here refers to the kind of data that the original data is not null and the result is null after participating in column type conversion.
 
-	2. Strict mode does not affect the imported column when it is generated by a function transformation.
+ 2. Strict mode does not affect the imported column when it is generated by a function transformation.
 
-	3. For a column type imported that contains scope restrictions, strict mode does not affect it if the original data can normally pass type conversion, but can not pass scope restrictions. For example, if the type is decimal (1,0) and the original data is 10, it falls within the scope of type conversion but not column declaration. This data strict has no effect on it.
+ 3. For a column type imported that contains scope restrictions, strict mode does not affect it if the original data can normally pass type conversion, but can not pass scope restrictions. For example, if the type is decimal (1,0) and the original data is 10, it falls within the scope of type conversion but not column declaration. This data strict has no effect on it.
 
 #### Import Relation between strict mode source data
 
@@ -284,46 +283,47 @@ The following is mainly about the significance of viewing the parameters in the 
 
 + JobId
 
-	The unique ID of the import task is different for each import task, which is automatically generated by the system. Unlike Label, JobId will never be the same, while Label can be reused after the import task fails.
+ The unique ID of the import task is different for each import task, which is automatically generated by the system. Unlike Label, JobId will never be the same, while Label can be reused after the import task fails.
 
 + Label
 
-	Identity of import task.
+ Identity of import task.
 
 + State
 
-	Import the current phase of the task. In the Broker load import process, PENDING and LOADING are the two main import states. If the Broker load is in the PENDING state, it indicates that the current import task is waiting to be executed; the LOADING state indicates that it is executing.
+ Import the current phase of the task. In the Broker load import process, PENDING and LOADING are the two main import states. If the Broker load is in the PENDING state, it indicates that the current import task is waiting to be executed; the LOADING state indicates that it is executing.
 
-	There are two final stages of the import task: CANCELLED and FINISHED. When Load job is in these two stages, the import is completed. CANCELLED is the import failure, FINISHED is the import success.
+ There are two final stages of the import task: CANCELLED and FINISHED. When Load job is in these two stages, the import is completed. CANCELLED is the import failure, FINISHED is the import success.
 
 + Progress
 
-	Import the progress description of the task. There are two kinds of progress: ETL and LOAD, which correspond to the two stages of the import process, ETL and LOADING. At present, Broker load only has the LOADING stage, so ETL will always be displayed as `N/A`.
+ Import the progress description of the task. There are two kinds of progress: ETL and LOAD, which correspond to the two stages of the import process, ETL and LOADING. At present, Broker load only has the LOADING stage, so ETL will always be displayed as `N/A`.
 
-	The progress range of LOAD is 0-100%.
+ The progress range of LOAD is 0-100%.
 
-	``` LOAD Progress = Number of tables currently completed / Number of tables designed for this import task * 100%```
+ ```LOAD Progress = Number of tables currently completed / Number of tables designed for this import task * 100%```
 
-	**If all import tables complete the import, then the progress of LOAD is 99%** import enters the final effective stage, and the progress of LOAD will only be changed to 100% after the entire import is completed.
+ **If all import tables complete the import, then the progress of LOAD is 99%** import enters the final effective stage, and the progress of LOAD will only be changed to 100% after the entire import is completed.
 
-	Import progress is not linear. So if there is no change in progress over a period of time, it does not mean that the import is not being implemented.
+ Import progress is not linear. So if there is no change in progress over a period of time, it does not mean that the import is not being implemented.
 
 + Type
 
-	Types of import tasks. The type value of Broker load is only BROKER.
+ Types of import tasks. The type value of Broker load is only BROKER.
+
 + Etlinfo
 
-	It mainly shows the imported data quantity indicators `unselected.rows`, `dpp.norm.ALL` and `dpp.abnorm.ALL`. The first value shows the rows which has been filtered by where predicate. Users can verify that the error rate of the current import task exceeds max\_filter\_ratio based on these two indicators.
+ It mainly shows the imported data quantity indicators `unselected.rows`, `dpp.norm.ALL` and `dpp.abnorm.ALL`. The first value shows the rows which has been filtered by where predicate. Users can verify that the error rate of the current import task exceeds max\_filter\_ratio based on these two indicators.
 
 + TaskInfo
 
-	It mainly shows the current import task parameters, that is, the user-specified import task parameters when creating the Broker load import task, including `cluster`, `timeout`, and `max_filter_ratio`.
+ It mainly shows the current import task parameters, that is, the user-specified import task parameters when creating the Broker load import task, including `cluster`, `timeout`, and `max_filter_ratio`.
 
 + ErrorMsg
 
-	When the import task status is CANCELLED, the reason for the failure is displayed in two parts: type and msg. If the import task succeeds, the `N/A` is displayed.
+ When the import task status is CANCELLED, the reason for the failure is displayed in two parts: type and msg. If the import task succeeds, the `N/A` is displayed.
 
-	The value meaning of type:
+ The value meaning of type:
 
     ```
     USER_CANCEL: User Canceled Tasks
@@ -336,11 +336,11 @@ The following is mainly about the significance of viewing the parameters in the 
 
 + CreateTime /EtlStartTime /EtlFinishTime /LoadStartTime /LoadFinishTime
 
-	These values represent the creation time of the import, the beginning time of the ETL phase, the completion time of the ETL phase, the beginning time of the Loading phase and the completion time of the entire import task, respectively.
+ These values represent the creation time of the import, the beginning time of the ETL phase, the completion time of the ETL phase, the beginning time of the Loading phase and the completion time of the entire import task, respectively.
 
-	Broker load import has no ETL stage, so its EtlStartTime, EtlFinishTime, LoadStartTime are set to the same value.
+ Broker load import has no ETL stage, so its EtlStartTime, EtlFinishTime, LoadStartTime are set to the same value.
 
-	Import tasks stay in CreateTime for a long time, while LoadStartTime is N/A, which indicates that import tasks are heavily stacked at present. Users can reduce the frequency of import submissions.
+ Import tasks stay in CreateTime for a long time, while LoadStartTime is N/A, which indicates that import tasks are heavily stacked at present. Users can reduce the frequency of import submissions.
 
     ```
     LoadFinishTime - CreateTime = Time consumed by the entire import task
@@ -349,7 +349,7 @@ The following is mainly about the significance of viewing the parameters in the 
 
 + URL
 
-	The error data sample of the import task can be obtained by accessing the URL address. When there is no error data in this import, the URL field is N/A.
+ The error data sample of the import task can be obtained by accessing the URL address. When there is no error data in this import, the URL field is N/A.
 
 ### Cancel load
 
@@ -363,22 +363,22 @@ The following configurations belong to the Broker load system-level configuratio
 
 + min\_bytes\_per\_broker\_scanner/max\_bytes\_per\_broker\_scanner/max\_broker\_concurrency
 
-	The first two configurations limit the minimum and maximum amount of data processed by a single BE. The third configuration limits the maximum number of concurrent imports for a job. The minimum amount of data processed, the maximum number of concurrencies, the size of source files and the number of BEs in the current cluster **together determine the concurrency of this import**.
+ The first two configurations limit the minimum and maximum amount of data processed by a single BE. The third configuration limits the maximum number of concurrent imports for a job. The minimum amount of data processed, the maximum number of concurrencies, the size of source files and the number of BEs in the current cluster **together determine the concurrency of this import**.
 
-	```
-	The number of concurrent imports = Math. min (source file size / minimum throughput, maximum concurrency, current number of BE nodes)
-	Processing capacity of this import of a single BE = source file size / concurrency of this import
-	```
+ ```
+ The number of concurrent imports = Math. min (source file size / minimum throughput, maximum concurrency, current number of BE nodes)
+ Processing capacity of this import of a single BE = source file size / concurrency of this import
+ ```
 
-	Usually the maximum amount of data supported by an import job is `max_bytes_per_broker_scanner * number of BE nodes`. If you need to import a larger amount of data, you need to adjust the size of the `max_bytes_per_broker_scanner` parameter appropriately.
+ Usually the maximum amount of data supported by an import job is `max_bytes_per_broker_scanner * number of BE nodes`. If you need to import a larger amount of data, you need to adjust the size of the `max_bytes_per_broker_scanner` parameter appropriately.
 
 Default configuration:
 
-	```
-	Parameter name: min_bytes_per_broker_scanner, default 64MB, unit bytes.
-	Parameter name: max_broker_concurrency, default 10.
-	Parameter name: max_bytes_per_broker_scanner, default 3G, unit bytes.
-	```
+ ```
+ Parameter name: min_bytes_per_broker_scanner, default 64MB, unit bytes.
+ Parameter name: max_broker_concurrency, default 10.
+ Parameter name: max_bytes_per_broker_scanner, default 3G, unit bytes.
+ ```
 
 ## Best Practices
 
@@ -392,55 +392,55 @@ We will only discuss the case of a single BE. If the user cluster has more than 
 
 + Below 3G (including)
 
-	Users can submit Broker load to create import requests directly.
+ Users can submit Broker load to create import requests directly.
 
 + Over 3G
 
-	Since the maximum processing capacity of a single imported BE is 3G, the imported files over 3G need to be imported by adjusting the import parameters of Broker load to achieve the import of large files.
+ Since the maximum processing capacity of a single imported BE is 3G, the imported files over 3G need to be imported by adjusting the import parameters of Broker load to achieve the import of large files.
 
-	1. Modify the maximum number of scans and concurrency of a single BE according to the current number of BEs and the size of the original file.
+ 1. Modify the maximum number of scans and concurrency of a single BE according to the current number of BEs and the size of the original file.
 
-		```
-		Modify the configuration in fe.conf
-		
-		max_broker_concurrency = BE number
-		The amount of data processed by a single BE for the current import task = the original file size / max_broker_concurrency
-		Max_bytes_per_broker_scanner >= the amount of data processed by a single BE of the current import task
-		
-		For example, a 100G file with 10 BEs in the cluster
-		max_broker_concurrency = 10
-		Max================
-		
-		```
+  ```
+  Modify the configuration in fe.conf
+  
+  max_broker_concurrency = BE number
+  The amount of data processed by a single BE for the current import task = the original file size / max_broker_concurrency
+  Max_bytes_per_broker_scanner >= the amount of data processed by a single BE of the current import task
+  
+  For example, a 100G file with 10 BEs in the cluster
+  max_broker_concurrency = 10
+  Max================
+  
+  ```
 
-		After modification, all BEs process import tasks concurrently, and each BE processes part of the original file.
+  After modification, all BEs process import tasks concurrently, and each BE processes part of the original file.
 
-		*Note: The configurations in both FEs are system configurations, that is to say, their modifications work on all Broker load tasks.*
+  *Note: The configurations in both FEs are system configurations, that is to say, their modifications work on all Broker load tasks.*
 
-	2. Customize the timeout time of the current import task when creating the import
+ 2. Customize the timeout time of the current import task when creating the import
 
-		```
-		Current import task single BE processing data volume / user Doris cluster slowest import speed (MB/s) >= current import task timeout time >= current import task single BE processing data volume / 10M/s
-		
-		For example, a 100G file with 10 BEs in the cluster
-		Timeout > 1000s = 10G / 10M /s
-		
-		```
+  ```
+  Current import task single BE processing data volume / user Doris cluster slowest import speed (MB/s) >= current import task timeout time >= current import task single BE processing data volume / 10M/s
+  
+  For example, a 100G file with 10 BEs in the cluster
+  Timeout > 1000s = 10G / 10M /s
+  
+  ```
 
-	3. When the user finds that the timeout time calculated in the second step exceeds the default maximum time-out time for importing the system by 4 hours.
+ 3. When the user finds that the timeout time calculated in the second step exceeds the default maximum time-out time for importing the system by 4 hours.
 
-		At this time, it is not recommended that users directly increase the maximum time-out to solve the problem. If the single import time exceeds the default maximum import timeout of 4 hours, it is better to solve the problem by splitting the file to be imported and importing it several times. The main reason is that if a single import exceeds 4 hours, the time cost of retry after import failure is very high.
+  At this time, it is not recommended that users directly increase the maximum time-out to solve the problem. If the single import time exceeds the default maximum import timeout of 4 hours, it is better to solve the problem by splitting the file to be imported and importing it several times. The main reason is that if a single import exceeds 4 hours, the time cost of retry after import failure is very high.
 
-		The maximum amount of imported file data expected by the Doris cluster can be calculated by the following formula:
+  The maximum amount of imported file data expected by the Doris cluster can be calculated by the following formula:
 
-		```
-		Expected maximum imported file data = 14400s * 10M / s * BE number
-		For example, the BE number of clusters is 10.
-		Expected maximum imported file data volume = 14400 * 10M / s * 10 = 1440000M 1440G
-		
-		Note: The average user's environment may not reach the speed of 10M/s, so it is recommended that more than 500G files be split and imported.
-		
-		```
+  ```
+  Expected maximum imported file data = 14400s * 10M / s * BE number
+  For example, the BE number of clusters is 10.
+  Expected maximum imported file data volume = 14400 * 10M / s * 10 = 1440000M 1440G
+  
+  Note: The average user's environment may not reach the speed of 10M/s, so it is recommended that more than 500G files be split and imported.
+  
+  ```
 
 ### Complete examples
 
@@ -450,10 +450,10 @@ Cluster situation: The number of BEs in the cluster is about 3, and the Broker n
 
 + Step 1: After the calculation of the above method, the single BE import quantity is 10G, then the configuration of FE needs to be modified first, and the maximum amount of single BE import is changed to:
 
-	```
-	max_bytes_per_broker_scanner = 10737418240
-	
-	```
+ ```
+ max_bytes_per_broker_scanner = 10737418240
+
+ ```
 
 + Step 2: Calculated, the import time is about 1000s, which does not exceed the default timeout time. No custom timeout time for import can be configured.
 
@@ -473,14 +473,14 @@ Cluster situation: The number of BEs in the cluster is about 3, and the Broker n
 
 * failed with : `Scan bytes per broker scanner exceed limit:xxx`
 
-	Refer to the Best Practices section of the document to modify the FE configuration items `max_bytes_per_broker_scanner` and `max_broker_concurrency'.`
+ Refer to the Best Practices section of the document to modify the FE configuration items `max_bytes_per_broker_scanner` and `max_broker_concurrency'.`
 
-*  failed with ：`failed to send batch` or `TabletWriter add batch with unknown id`
+* failed with ：`failed to send batch` or `TabletWriter add batch with unknown id`
 
-	Refer to **General System Configuration** in **BE Configuration** in the Import Manual (./load-manual.md), and modify `tablet_writer_rpc_timeout_sec` and `streaming_load_rpc_max_alive_time_sec` appropriately.
-	
-*  failed with : `LOAD_RUN_FAIL; msg: Invalid Column Name: xxx`
-    
+ Refer to **General System Configuration** in **BE Configuration** in the Import Manual (./load-manual.md), and modify `tablet_writer_rpc_timeout_sec` and `streaming_load_rpc_max_alive_time_sec` appropriately.
+
+* failed with : `LOAD_RUN_FAIL; msg: Invalid Column Name: xxx`
+
      If it is PARQUET or ORC format data, you need to keep the column names in the file header consistent with the column names in the doris table, such as:
      `` `
      (tmp_c1, tmp_c2)
@@ -489,7 +489,7 @@ Cluster situation: The number of BEs in the cluster is about 3, and the Broker n
          id = tmp_c2,
          name = tmp_c1
      )
-     `` `
+`` `
      Represents getting the column with (tmp_c1, tmp_c2) as the column name in parquet or orc, which is mapped to the (id, name) column in the doris table. If set is not set, the column names in the column are used as the mapping relationship.
 
      Note: If the orc file directly generated by some hive versions is used, the table header in the orc file is not the column name in the hive meta, but (_col0, _col1, _col2, ...), which may cause the Invalid Column Name error, then You need to use set for mapping.

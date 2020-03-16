@@ -25,7 +25,9 @@ under the License.
 -->
 
 # unix_timestamp
+
 ## description
+
 ### Syntax
 
 `INT UNIX_TIMESTAMP(), UNIX_TIMESTAMP(DATETIME date), UNIX_TIMESTAMP(DATETIME date, STRING fmt),`
@@ -81,6 +83,6 @@ mysql> select unix_timestamp('1969-01-01 00:00:00');
 +---------------------------------------+
 ```
 
-##keyword
+## keyword
 
     UNIX_TIMESTAMP,UNIX,TIMESTAMP

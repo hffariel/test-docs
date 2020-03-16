@@ -25,6 +25,7 @@ under the License.
 -->
 
 # ALTER SYSTEM
+
 ## description
 
     该语句用于操作一个系统内的节点。（仅管理员使用！）
@@ -72,7 +73,7 @@ under the License.
                     broker: broker 的名称
                     path: 远端存储路径
                     other properties: 其他访问远端存储所必须的信息，比如认证信息等。
-        
+
 ## example
 
     1. 增加一个节点
@@ -114,7 +115,7 @@ under the License.
     8. 删除当前的 load error hub
         ALTER SYSTEM SET LOAD ERRORS HUB PROPERTIES
         ("type"= "null");
-        
-## keyword
-    ALTER,SYSTEM,BACKEND,BROKER,FREE
 
+## keyword
+
+    ALTER,SYSTEM,BACKEND,BROKER,FREE

@@ -25,6 +25,7 @@ under the License.
 -->
 
 # LINK DATABASE
+
 ## Description
 
 This statement allows users to link a database of one logical cluster to another logical cluster. A database is only allowed to be linked once at the same time and the linked database is deleted.
@@ -46,4 +47,5 @@ LINK DATABASE test_clusterA.test_db test_clusterB.link_test_db;
 DROP DATABASE link_test_db;
 
 ## keyword
+
 LINK,DATABASE

@@ -93,11 +93,12 @@ under the License.
 通过上述的步骤后，你可以得到一个动态库。你需要将这个动态库放到一个能够通过HTTP协议访问到的位置。然后执行创建UDF函数在Doris系统内部创建一个UDF，你需要拥有AMDIN权限才能够完成这个操作。
 
 ```
-CREATE [AGGREGATE] FUNCTION 
-	name ([argtype][,...])
-	[RETURNS] rettype
-	PROPERTIES (["key"="value"][,...])
+CREATE [AGGREGATE] FUNCTION
+ name ([argtype][,...])
+ [RETURNS] rettype
+ PROPERTIES (["key"="value"][,...])
 ```
+
 说明：
 
 1. PROPERTIES中`symbol`表示的是，执行入口函数的对应symbol，这个参数是必须设定。你可以通过`nm`命令来获得对应的symbol，比如`nm libudfsample.so | grep AddUdf`获得到的`_ZN9doris_udf6AddUdfEPNS_15FunctionContextERKNS_6IntValES4_`就是对应的symbol。
@@ -112,8 +113,6 @@ CREATE [AGGREGATE] FUNCTION
 
 UDF的使用与普通的函数方式一致，唯一的区别在于，内置函数的作用域是全局的，而UDF的作用域是DB内部。当链接session位于数据内部时，直接使用UDF名字会在当前DB内部查找对应的UDF。否则用户需要显示的指定UDF的数据库名字，例如`dbName`.`funcName`。
 
-
 ## 删除UDF函数
 
 当你不再需要UDF函数时，你可以通过下述命令来删除一个UDF函数, 可以参考 `DROP FUNCTION`。
-

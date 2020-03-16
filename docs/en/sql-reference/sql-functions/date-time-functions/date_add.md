@@ -25,11 +25,12 @@ under the License.
 -->
 
 # date_add
+
 ## Description
+
 ### Syntax
 
 `INT DATE_ADD(DATETIME date,INTERVAL expr type)`
-
 
 Adds a specified time interval to the date.
 
@@ -49,5 +50,7 @@ mysql> select date_add('2010-11-30 23:59:59', INTERVAL 2 DAY);
 | 2010-12-02 23:59:59                             |
 +-------------------------------------------------+
 ```
-##keyword
+
+## keyword
+
 DATE_ADD,DATE,ADD

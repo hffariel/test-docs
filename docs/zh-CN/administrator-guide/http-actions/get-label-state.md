@@ -25,7 +25,9 @@ under the License.
 -->
 
 # GET LABEL STATE
+
 ## description
+
     NAME:
         get_label_state: get label's state
         
@@ -48,12 +50,12 @@ under the License.
            ABORTED: 事务已经被ROLLBACK，导入已经失败。
         
     ERRORS
-    
+
 ## example
 
     1. 获得testDb, testLabel的状态
         curl -u root http://host:port/api/testDb/testLabel/_state
- 
-## keyword
-    GET, LABEL, STATE
 
+## keyword
+
+    GET, LABEL, STATE

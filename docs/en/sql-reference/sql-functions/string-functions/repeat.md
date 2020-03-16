@@ -25,11 +25,12 @@ under the License.
 -->
 
 # repeat
+
 ## Description
+
 ### Syntax
 
 'VARCHAR repeat (VARCHAR str, INT count)
-
 
 Repeat the str of the string count times, return empty string when count is less than 1, return NULL when str, count is any NULL
 
@@ -50,5 +51,7 @@ mysql> SELECT repeat("a", -1);
 |                 |
 +-----------------+
 ```
-##keyword
+
+## keyword
+
 REPEAT,

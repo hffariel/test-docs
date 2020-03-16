@@ -48,6 +48,7 @@ sql mode用一个64位的Long型存储在SessionVariables中，这个地址的�
 set global sql_mode = "DEFAULT"
 set session sql_mode = "DEFAULT"
 ```
+
 >目前Doris的默认sql mode是DEFAULT（但马上会在后续修改中会改变）。
 >设置global sql mode需要Admin权限，并会影响所有在此后连接的客户端。
 >设置session sql mode只会影响当前对话客户端，默认为session方式。
@@ -58,6 +59,7 @@ set session sql_mode = "DEFAULT"
 select @@global.sql_mode
 select @@session.sql_mode
 ```
+
 >除了这种方式，你还可以通过下面方式返回所有session variables来查看当前sql mode
 
 ```
@@ -69,7 +71,7 @@ show session variables
 
 1. `PIPES_AS_CONCAT`
 
-	在此模式下，'||'符号是一种字符串连接符号（同CONCAT()函数），而不是'OR'符号的同义词。(e.g., `'a'||'b' = 'ab'`, `1||0 = '10'`)
+ 在此模式下，'||'符号是一种字符串连接符号（同CONCAT()函数），而不是'OR'符号的同义词。(e.g., `'a'||'b' = 'ab'`, `1||0 = '10'`)
 
 ## 复合mode
 

@@ -58,37 +58,40 @@ Doris中现有的导入方式中，针对百G级别以上的数据的批量导�
 
 实现Spark导入主要需要考虑以下几点：
 
-##### 语法	
-	这块主要考虑用户习惯，导入语句格式上尽量保持跟broker导入语句相似。下面是一个方案：
+##### 语法
+
+ 这块主要考虑用户习惯，导入语句格式上尽量保持跟broker导入语句相似。下面是一个方案：
 
 ```
-		LOAD LABEL example_db.label1
+  LOAD LABEL example_db.label1
         (
         DATA INFILE("hdfs://hdfs_host:hdfs_port/user/palo/data/input/file")
-		NEGATIVE
+  NEGATIVE
         INTO TABLE `my_table`
-		PARTITION (p1, p2)
-		COLUMNS TERMINATED BY ","
-		columns(k1,k2,k3,v1,v2)
-		set (
-			v3 = v1 + v2,
-			k4 = hll_hash(k2)
-		)
-		where k1 > 20
+  PARTITION (p1, p2)
+  COLUMNS TERMINATED BY ","
+  columns(k1,k2,k3,v1,v2)
+  set (
+   v3 = v1 + v2,
+   k4 = hll_hash(k2)
+  )
+  where k1 > 20
         )
-		with spark.cluster_name
+  with spark.cluster_name
         PROPERTIES
         (
         "spark.master" = "yarn",
-		"spark.executor.cores" = "5",
-		"spark.executor.memory" = "10g",
-		"yarn.resourcemanager.address" = "xxx.tc:8032",
+  "spark.executor.cores" = "5",
+  "spark.executor.memory" = "10g",
+  "yarn.resourcemanager.address" = "xxx.tc:8032",
         "max_filter_ratio" = "0.1",
         );
 ```
+
 其中spark.cluster_name为用户导入使用的Spark集群名，可以通过SET PROPERTY来设置，可参考原来Hadoop集群的设置。
 property中的Spark集群设置会覆盖spark.cluster_name中对应的内容。
 各个property的含义如下:
+
 - spark.master是表示spark集群部署模式，支持包括yarn/standalone/local/k8s，预计先实现yarn的支持，并且使用yarn-cluster模式（yarn-client模式一般用于交互式的场景）。
 - spark.executor.cores: executor的cpu个数
 - spark.executor.memory: executor的内存大小
@@ -104,79 +107,86 @@ SparkLoadJob:
          +-------+-------+
          |    PENDING    |-----------------|
          +-------+-------+                 |
-				 | SparkLoadPendingTask    |
+     | SparkLoadPendingTask    |
                  v                         |
          +-------+-------+                 |
          |    LOADING    |-----------------|
          +-------+-------+                 |
-				 | LoadLoadingTask         |
+     | LoadLoadingTask         |
                  v                         |
          +-------+-------+                 |
          |  COMMITTED    |-----------------|
          +-------+-------+                 |
-				 |                         |
+     |                         |
                  v                         v  
-         +-------+-------+         +-------+-------+     
+         +-------+-------+         +-------+-------+
          |   FINISHED    |         |   CANCELLED   |
          +-------+-------+         +-------+-------+
-				 |                         Λ
+     |                         Λ
                  +-------------------------+
 ```
+
 上图为SparkLoadJob的执行流程。
 
 ##### SparkLoadPendingTask
+
 SparkLoadPendingTask主要用来提交spark etl作业到spark集群中。由于spark支持不同部署模型（localhost, standalone, yarn, k8s），所以需要抽象一个通用的接口SparkEtlJob，实现SparkEtl的功能，主要接口包括：
+
 - 提交spark etl任务
 - 取消spark etl的任务
 - 获取spark etl任务状态的接口
 
 大体接口如下：
+
 ```
 class SparkEtlJob {
-	// 提交spark etl作业
-	// 返回JobId
-	String submitJob(TBrokerScanRangeParams params);
+ // 提交spark etl作业
+ // 返回JobId
+ String submitJob(TBrokerScanRangeParams params);
 
-	// 取消作业，用于支持用户cancel导入作业
-	bool cancelJob(String jobId);
+ // 取消作业，用于支持用户cancel导入作业
+ bool cancelJob(String jobId);
 
-	// 获取作业状态，用于判断是否已经完成
-	JobStatus getJobStatus(String jobId);
+ // 获取作业状态，用于判断是否已经完成
+ JobStatus getJobStatus(String jobId);
 private:
-	std::list<DataDescription> data_descriptions;
+ std::list<DataDescription> data_descriptions;
 };
 ```
+
 可以实现不同的子类，来实现对不同集群部署模式的支持。可以实现SparkEtlJobForYarn用于支持yarn集群的spark导入作业。具体来说上述接口中JobId就是Yarn集群的appid，如何获取appid？一个方案是通过spark-submit客户端提交spark job，然后分析标准错误中的输出，通过文本匹配获取appid。
 
 这里需要参考hadoop dpp作业的经验，就是需要考虑任务运行可能因为数据量、集群队列等原因，会达到并发导入作业个数限制，导致后续任务提交失败，这块需要考虑一下任务堆积的问题。一个方案是可以单独设置spark load job并发数限制，并且针对每个用户提供一个并发数的限制，这样各个用户之间的作业可以不用相互干扰，提升用户体验。
 
 spark任务执行的事情，包括以下几个关键点：
+
 1. 类型转化（extraction/Transformation）
 
-	将源文件字段转成具体列类型（判断字段是否合法，进行函数计算等等）
+ 将源文件字段转成具体列类型（判断字段是否合法，进行函数计算等等）
 2. 函数计算（Transformation），包括negative计算
-	
-	完成用户指定的列函数的计算。函数列表："strftime","time_format","alignment_timestamp","default_value","md5sum","replace_value","now","hll_hash","substitute"
+
+ 完成用户指定的列函数的计算。函数列表："strftime","time_format","alignment_timestamp","default_value","md5sum","replace_value","now","hll_hash","substitute"
 3. Columns from path的提取
 4. 进行where条件的过滤
 5. 进行分区和分桶
 6. 排序和预聚合
 
-	因为在OlapTableSink过程中会进行排序和聚合，逻辑上可以不需要进行排序和聚合，但是因为排序和预聚合可以提升在BE端执行导入的效率。**如果在spark etl作业中进行排序和聚合，那么在BE执行导入的时候可以省略这个步骤。**这块可以依据后续测试的情况进行调整。目前看，可以先在etl作业中进行排序。
-	还有一个需要考虑的就是如何支持bitmap类型中的全局字典，string类型的bitmap列需要依赖全局字典。
-	为了告诉下游etl作业是否已经完成已经完成排序和聚合，可以在作业完成的时候生成一个job.json的描述文件，里面包含如下属性：
+ 因为在OlapTableSink过程中会进行排序和聚合，逻辑上可以不需要进行排序和聚合，但是因为排序和预聚合可以提升在BE端执行导入的效率。**如果在spark etl作业中进行排序和聚合，那么在BE执行导入的时候可以省略这个步骤。**这块可以依据后续测试的情况进行调整。目前看，可以先在etl作业中进行排序。
+ 还有一个需要考虑的就是如何支持bitmap类型中的全局字典，string类型的bitmap列需要依赖全局字典。
+ 为了告诉下游etl作业是否已经完成已经完成排序和聚合，可以在作业完成的时候生成一个job.json的描述文件，里面包含如下属性：
 
-	```
-	{
-		"is_segment_file" : "false",
-		"is_sort" : "true",
-		"is_agg" : "true",
-	}
-	```
-	其中：
-		is_sort表示是否排序
-		is_agg表示是否聚合
-		is_segment_file表示是否生成的是segment文件
+ ```
+ {
+  "is_segment_file" : "false",
+  "is_sort" : "true",
+  "is_agg" : "true",
+ }
+ ```
+
+ 其中：
+  is_sort表示是否排序
+  is_agg表示是否聚合
+  is_segment_file表示是否生成的是segment文件
 
 7. 现在rollup数据的计算都是基于base表，需要考虑能够根据index之间的层级关系，优化rollup数据的生成。
 
@@ -185,7 +195,7 @@ spark任务执行的事情，包括以下几个关键点：
 最后，spark load作业完成之后，产出的文件存储格式可以支持csv、parquet、orc，从存储效率上来说，建议默认为parquet。
 
 ##### LoadLoadingTask
-	
+
 LoadLoadingTask可以复现现在的逻辑，但是，有一个地方跟BrokerLoadJob不一样的地址就是，经过SparkEtlTask处理过后的数据文件已经完成列映射、函数计算、负导入、过滤、聚合等操作，这个时候LoadLoadingTask就不用进行这些操作，只需要进行简单的列映射和类型转化。
 
 ##### BE导入任务执行

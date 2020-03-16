@@ -25,7 +25,9 @@ under the License.
 -->
 
 # CANCEL ALTER
+
 ## description
+
     该语句用于撤销一个 ALTER 操作。
     1. 撤销 ALTER TABLE COLUMN 操作
     语法：
@@ -47,8 +49,8 @@ under the License.
     语法：
         （待实现...）
 
-        
 ## example
+
     [CANCEL ALTER TABLE COLUMN]
     1. 撤销针对 my_table 的 ALTER COLUMN 操作。
         CANCEL ALTER TABLE COLUMN
@@ -65,5 +67,5 @@ under the License.
          FROM example_db.my_table (12801,12802);
 
 ## keyword
+
     CANCEL,ALTER,TABLE,COLUMN,ROLLUP
-    

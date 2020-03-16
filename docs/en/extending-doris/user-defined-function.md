@@ -41,7 +41,7 @@ Create the corresponding header file, CPP file, and implement the logic you need
 #### Non-variable parameters
 
 For UDF with non-variable parameters, the corresponding relationship between them is very direct.
-For example, `INT MyADD'(INT, INT) ` UDF corresponds to `IntVal AddUdf(FunctionContext* context, const IntVal & arg1, const IntVal & arg2)`.
+For example, `INT MyADD'(INT, INT)` UDF corresponds to `IntVal AddUdf(FunctionContext* context, const IntVal & arg1, const IntVal & arg2)`.
 
 1. `AddUdf` can be any name, as long as it is specified when UDF is created.
 2. The first parameter in the implementation function is always `FunctionContext*`. The implementer can obtain some query-related content and apply for some memory to be used through this structure. Specific interfaces can be defined in `udf/udf.h`.
@@ -93,11 +93,12 @@ Create a `build` directory under this directory and execute `cmake ../` generate
 Through the above steps, you can get a dynamic library. You need to put this dynamic library in a location that can be accessed through the HTTP protocol. Then execute the create UDF function to create a UDF inside the Doris system. You need AMDIN privileges to do this.
 
 ```
-CREATE [AGGREGATE] FUNCTION 
-	name ([argtype][,...])
-	[RETURNS] rettype
-	PROPERTIES (["key"="value"][,...])
+CREATE [AGGREGATE] FUNCTION
+ name ([argtype][,...])
+ [RETURNS] rettype
+ PROPERTIES (["key"="value"][,...])
 ```
+
 Explain:
 
 1. In PROPERTIES, `symbol` denotes the corresponding symbol for the execution of the entry function, which must be set. You can get the corresponding symbol by the `nm` command, such as `nm libudfsample.so`, `grep AddUdf`, `ZN9doris_udf6AddUdfEPNS_15FunctionContextERKNS_6IntValES4`.
@@ -111,7 +112,6 @@ For more details, see `CREATE FUNCTION`.
 Users using UDF/UDAF must have `SELECT` privileges for the corresponding database.
 
 UDF is used in the same way as normal functions. The only difference is that the scope of built-in functions is global, while the scope of UDF is internal to DB. When the link session is inside the data, using the UDF name directly will find the corresponding UDF within the current DB. Otherwise, the user needs to display the database name of the specified UDF, such as `dbName`. `funcName`.
-
 
 ## Delete UDF functions
 

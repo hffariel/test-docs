@@ -25,11 +25,12 @@ under the License.
 -->
 
 # to_days
+
 ## description
+
 ### Syntax
 
 `INT TO_DAYS(DATETIME date)`
-
 
 返回date距离0000-01-01的天数
 
@@ -46,6 +47,6 @@ mysql> select to_days('2007-10-07');
 +-----------------------+
 ```
 
-##keyword
+## keyword
 
     TO_DAYS,TO,DAYS

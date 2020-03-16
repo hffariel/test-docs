@@ -25,11 +25,12 @@ under the License.
 -->
 
 # split_part
+
 ## description
+
 ### Syntax
 
 `VARCHAR split_part(VARCHAR content, VARCHAR delimiter, INT field)`
-
 
 根据分割符拆分字符串, 返回指定的分割部分(从一开始计数)。
 
@@ -65,5 +66,7 @@ mysql> select split_part("abca", "a", 1);
 |                            |
 +----------------------------+
 ```
-##keyword
+
+## keyword
+
 SPLIT_PART,SPLIT,PART

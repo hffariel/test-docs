@@ -25,6 +25,7 @@ under the License.
 -->
 
 # SET PROPERTY
+
 ## Description
 
 Syntax:
@@ -78,5 +79,5 @@ SET PROPERTY FOR 'jack' 'default_load_cluster' = '{cluster_name}';
 SET PROPERTY FOR 'jack' 'load_cluster.{cluster_name}.priority' = 'HIGH';
 
 ## keyword
-SET, PROPERTY
 
+SET, PROPERTY

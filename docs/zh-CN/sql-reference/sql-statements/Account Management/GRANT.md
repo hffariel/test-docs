@@ -25,6 +25,7 @@ under the License.
 -->
 
 # GRANT
+
 ## description
 
 GRANT 命令用于赋予指定用户或角色指定的权限。
@@ -32,7 +33,6 @@ GRANT 命令用于赋予指定用户或角色指定的权限。
 Syntax:
 
     GRANT privilege_list ON db_name[.tbl_name] TO user_identity [ROLE role_name]
-
 
 privilege_list 是需要赋予的权限列表，以逗号分隔。当前 Doris 支持如下权限：
 
@@ -79,4 +79,3 @@ user_identity：
 ## keyword
 
     GRANT
-   

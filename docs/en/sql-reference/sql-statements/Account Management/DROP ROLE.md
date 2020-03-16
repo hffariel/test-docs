@@ -25,7 +25,9 @@ under the License.
 -->
 
 # DROP ROLE
+
 ## Description
+
 The statement user deletes a role
 
 Grammar:
@@ -40,4 +42,5 @@ Deleting a role does not affect the permissions of users who previously belonged
 DROP ROLE role1;
 
 ## keyword
+
 DROP, ROLE

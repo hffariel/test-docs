@@ -25,7 +25,9 @@ under the License.
 -->
 
 # CANCEL LABEL
+
 ## description
+
     NAME:
         cancel_label: cancel a transaction with label
         
@@ -43,17 +45,12 @@ under the License.
         Message: 具体的失败信息
            
     ERRORS
-    
+
 ## example
 
     1. cancel testDb, testLabel的作业
         curl -u root -XPOST http://host:port/api/testDb/testLabel/_cancel
- 
+
 ## keyword
+
     CANCEL，LABEL
-
-
-
-
-
-

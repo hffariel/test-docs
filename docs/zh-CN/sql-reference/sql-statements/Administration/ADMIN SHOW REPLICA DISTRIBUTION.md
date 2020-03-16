@@ -25,6 +25,7 @@ under the License.
 -->
 
 # ADMIN SHOW REPLICA DISTRIBUTION
+
 ## description
 
     该语句用于展示一个表或分区副本分布状态
@@ -36,7 +37,7 @@ under the License.
     说明：
 
         结果中的 Graph 列以图形的形式展示副本分布比例
-        
+
 ## example
 
     1. 查看表的副本分布
@@ -48,5 +49,5 @@ under the License.
         ADMIN SHOW REPLICA DISTRIBUTION FROM db1.tbl1 PARTITION(p1, p2);
 
 ## keyword
-    ADMIN,SHOW,REPLICA,DISTRIBUTION
 
+    ADMIN,SHOW,REPLICA,DISTRIBUTION

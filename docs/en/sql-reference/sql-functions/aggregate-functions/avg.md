@@ -24,13 +24,13 @@ specific language governing permissions and limitations
 under the License.
 -->
 
+# AVG
 
-#AVG
 ## Description
+
 ### Syntax
 
 `AVG([DISTINCT] expr)`
-
 
 Used to return the average value of the selected field
 
@@ -54,5 +54,7 @@ mysql> SELECT datetime, AVG(distinct cost_time) FROM log_statis group by datetim
 +---------------------+---------------------------+
 
 ```
-##keyword
+
+## keyword
+
 AVG

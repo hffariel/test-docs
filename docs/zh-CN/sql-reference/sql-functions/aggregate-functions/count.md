@@ -25,11 +25,12 @@ under the License.
 -->
 
 # COUNT
+
 ## description
+
 ### Syntax
 
 `COUNT([DISTINCT] expr)`
-
 
 用于返回满足要求的行的数目
 
@@ -57,5 +58,7 @@ MySQL > select count(distinct datetime) from log_statis group by datetime;
 |                       71045   |
 +-------------------------------+
 ```
-##keyword
+
+## keyword
+
 COUNT

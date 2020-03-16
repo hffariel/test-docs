@@ -24,12 +24,12 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-
 # BITMAP
 
 ## Create table
 
 The aggregation model needs to be used when creating the table. The data type is bitmap and the aggregation function is bitmap_union.
+
 ```
 CREATE TABLE `pv_bitmap` (
   `dt` int (11) NULL COMMENT" ",
@@ -72,35 +72,38 @@ cat data | curl --location-trusted -u user: passwd -T--H "columns: dt, page, use
 ### Insert Into
 
 id2's column type is bitmap
+
 ```
 insert into bitmap_table1 select id, id2 from bitmap_table2;
 ```
 
 id2's column type is bitmap
+
 ```
 INSERT INTO bitmap_table1 (id, id2) VALUES (1001, to_bitmap (1000)), (1001, to_bitmap (2000));
 ```
 
 id2's column type is bitmap
+
 ```
 insert into bitmap_table1 select id, bitmap_union (id2) from bitmap_table2 group by id;
 ```
 
 id2's column type is int
+
 ```
 insert into bitmap_table1 select id, to_bitmap (id2) from table;
 ```
 
 id2's column type is String
+
 ```
 insert into bitmap_table1 select id, bitmap_hash (id_string) from table;
 ```
 
-
 ## Data Query
 
 ### Syntax
-
 
 `BITMAP_UNION (expr)`: Calculate the union of two Bitmaps. The return value is the new Bitmap value.
 
@@ -139,7 +142,6 @@ intersect_count (user_id, page, 'meituan', 'waimai') as retention // Number of u
 from pv_bitmap
 where page in ('meituan', 'waimai');
 ```
-
 
 ## keyword
 

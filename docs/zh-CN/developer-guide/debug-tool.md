@@ -106,7 +106,7 @@ Total: 668.6 MB
 当然也可以生成调用关系图片，更加方便分析。比如下面的命令就能够生成SVG格式的调用关系图。
 
 ```
-pprof --svg lib/palo_be /tmp/doris_be.hprof.0012.heap > heap.svg 
+pprof --svg lib/palo_be /tmp/doris_be.hprof.0012.heap > heap.svg
 ```
 
 **注意：开启这个选项是要影响程序的执行性能的，请慎重对线上的实例开启**
@@ -118,7 +118,7 @@ HEAPPROFILE虽然能够获得全部的内存使用信息，但是也有比较受
 对Doris BE也可以使用动态开启、关闭heap profile的方式来对进程进行内存申请分析。Doris内部支持了GPerftools的[远程server调试](https://gperftools.github.io/gperftools/pprof_remote_servers.html)。那么可以通过`pprof`直接对远程运行的Doris BE进行动态的HEAP PROFILE。比如我们可以通过以下命令来查看Doris的内存的使用增量
 
 ```
-$ pprof --text --seconds=60 http://be_host:be_webport/pprof/heap 
+$ pprof --text --seconds=60 http://be_host:be_webport/pprof/heap
 
 Total: 1296.4 MB
    484.9  37.4%  37.4%    484.9  37.4% doris::StorageByteBuffer::create
@@ -237,7 +237,7 @@ cat be.out | python asan_symbolize.py | c++filt
 由于Doris内部已经集成了并兼容了GPerf的REST接口，那么用户可以通过`pprof`工具来分析远程的Doris BE。具体的使用方式如下：
 
 ```
-pprof --svg --seconds=60 http://be_host:be_webport/pprof/profile > be.svg 
+pprof --svg --seconds=60 http://be_host:be_webport/pprof/profile > be.svg
 ```
 
 这样就能够生成一张BE执行的CPU消耗图。

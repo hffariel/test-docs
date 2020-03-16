@@ -54,13 +54,11 @@ under the License.
 
 ![step3](/images/subscribe-mail-list-step3.png)
 
-
 ## 4. 接收欢迎邮件
 
 ​完成第三步之后，将会受到一封标题为**WELCOME to dev@doris.apache.org**的欢迎邮件。至此，订阅邮件列表的工作已经完成了，社区的动态都会通过邮件的方式通知您。
 
 ![step4](/images/subscribe-mail-list-step4.png)
-
 
 ## 5. 发起邮件讨论（可选）
 

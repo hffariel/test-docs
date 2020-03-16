@@ -25,6 +25,7 @@ under the License.
 -->
 
 # ADMIN REPAIR
+
 ## Description
 
 This statement is used to try to fix the specified table or partition first
@@ -49,4 +50,5 @@ ADMIN REPAIR TABLE tbl1;
 ADMIN REPAIR TABLE tbl1 PARTITION (p1, p2);
 
 ## keyword
+
 ADMIN,REPAIR

@@ -25,11 +25,12 @@ under the License.
 -->
 
 # money_format
+
 ## Description
+
 ### Syntax
 
 VARCHAR money format (Number)
-
 
 The number is output in currency format, the integer part is separated by commas every three bits, and the decimal part is reserved for two bits.
 
@@ -57,5 +58,7 @@ mysql> select money_format(1123.4);
 | 1,123.40             |
 +----------------------+
 ```
-##keyword
+
+## keyword
+
 MONEY_FORMAT,MONEY,FORMAT

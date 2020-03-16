@@ -25,18 +25,21 @@ under the License.
 -->
 
 # BACKUP
+
 ## Description
+
 This statement is used to backup data under the specified database. This command is an asynchronous operation. After successful submission, you need to check progress through the SHOW BACKUP command. Only tables of OLAP type are backed up.
 Grammar:
 BACKUP SNAPSHOT [db_name].{snapshot_name}
 TO `repository_name`
 ON (
-"`Table `U name'[Distriction (`P1',...)],
+"`Table`U name'[Distriction (`P1',...)],
 ...
 )
 PROPERTIES ("key"="value", ...);
 
 Explain:
+
 1. Only one BACKUP or RESTORE task can be performed under the same database.
 2. The ON clause identifies the tables and partitions that need to be backed up. If no partition is specified, all partitions of the table are backed up by default.
 3. PROPERTIES currently supports the following attributes:
@@ -61,5 +64,5 @@ Example:
 );
 
 ## keyword
-BACKUP
 
+BACKUP

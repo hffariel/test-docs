@@ -75,7 +75,7 @@ Broker 在 Doris 系统架构中的位置如下：
 1. Broker Load
 
     Broker Load 功能通过 Broker 进程读取远端存储上的文件数据并导入到 Doris 中。示例如下：
-    
+
     ```
     LOAD LABEL example_db.label6
     (
@@ -91,15 +91,15 @@ Broker 在 Doris 系统架构中的位置如下：
     ```
 
     其中 `WITH BROKER` 以及之后的 Property Map 用于提供 Broker 相关信息。
-    
+
 2. 数据导出（Export）
 
     Export 功能通过 Broker 进程，将 Doris 中存储的数据以文本的格式导出到远端存储的文件中。示例如下：
-    
+
     ```
-    EXPORT TABLE testTbl 
-    TO "hdfs://hdfs_host:port/a/b/c" 
-    WITH BROKER "broker_name" 
+    EXPORT TABLE testTbl
+    TO "hdfs://hdfs_host:port/a/b/c"
+    WITH BROKER "broker_name"
     (
         "username" = "xxx",
         "password" = "yyy"
@@ -111,7 +111,7 @@ Broker 在 Doris 系统架构中的位置如下：
 3. 创建用于备份恢复的仓库（Create Repository）
 
     当用户需要使用备份恢复功能时，需要先通过 `CREATE REPOSITORY` 命令创建一个 “仓库”，仓库元信息中记录了所使用的 Broker 以及相关信息。之后的备份恢复操作，会通过 Broker 将数据备份到这个仓库，或从这个仓库读取数据恢复到 Doris 中。示例如下：
-    
+
     ```
     CREATE REPOSITORY `bos_repo`
     WITH BROKER `broker_name`
@@ -123,16 +123,15 @@ Broker 在 Doris 系统架构中的位置如下：
         "bos_secret_accesskey" = "70999999999999de274d59eaa980a"
     );
     ```
-    
+
     其中 `WITH BROKER` 以及之后的 Property Map 用于提供 Broker 相关信息。
-    
 
 ## Broker 信息
 
 Broker 的信息包括 **名称（Broker name）** 和 **认证信息** 两部分。通常的语法格式如下：
 
 ```
-WITH BROKER "broker_name" 
+WITH BROKER "broker_name"
 (
     "username" = "xxx",
     "password" = "yyy",
@@ -158,7 +157,7 @@ WITH BROKER "broker_name"
     简单认证即 Hadoop 配置 `hadoop.security.authentication` 为 `simple`。
 
     使用系统用户访问 HDFS。或者在 Broker 启动的环境变量中添加：```HADOOP_USER_NAME```。
-    
+
     ```
     (
         "username" = "user",
@@ -171,14 +170,14 @@ WITH BROKER "broker_name"
 2. Kerberos 认证
 
     该认证方式需提供以下信息：
-    
+
     * `hadoop.security.authentication`：指定认证方式为 kerberos。
     * `kerberos_principal`：指定 kerberos 的 principal。
     * `kerberos_keytab`：指定 kerberos 的 keytab 文件路径。该文件必须为 Broker 进程所在服务器上的文件的绝对路径。并且可以被 Broker 进程访问。
     * `kerberos_keytab_content`：指定 kerberos 中 keytab 文件内容经过 base64 编码之后的内容。这个跟 `kerberos_keytab` 配置二选一即可。
 
     示例如下：
-    
+
     ```
     (
         "hadoop.security.authentication" = "kerberos",
@@ -186,6 +185,7 @@ WITH BROKER "broker_name"
         "kerberos_keytab" = "/home/doris/my.keytab"
     )
     ```
+
     ```
     (
         "hadoop.security.authentication" = "kerberos",
@@ -193,9 +193,11 @@ WITH BROKER "broker_name"
         "kerberos_keytab_content" = "ASDOWHDLAWIDJHWLDKSALDJSDIWALD"
     )
     ```
+
     如果采用Kerberos认证方式，则部署Broker进程的时候需要[krb5.conf](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html)文件，
     krb5.conf文件包含Kerberos的配置信息，通常，您应该将krb5.conf文件安装在目录/etc中。您可以通过设置环境变量KRB5_CONFIG覆盖默认位置。
     krb5.conf文件的内容示例如下：
+
     ```
     [libdefaults]
         default_realm = DORIS.HADOOP
@@ -203,24 +205,24 @@ WITH BROKER "broker_name"
         default_tgs_enctypes = des3-hmac-sha1 des-cbc-crc
         dns_lookup_kdc = true
         dns_lookup_realm = false
-    
+
     [realms]
         DORIS.HADOOP = {
             kdc = kerberos-doris.hadoop.service:7005
         }
     ```
-    
+
 3. HDFS HA 模式
 
     这个配置用于访问以 HA 模式部署的 HDFS 集群。
-    
+
     * `dfs.nameservices`：指定 hdfs 服务的名字，自定义，如："dfs.nameservices" = "my_ha"。
     * `dfs.ha.namenodes.xxx`：自定义 namenode 的名字,多个名字以逗号分隔。其中 xxx 为 `dfs.nameservices` 中自定义的名字，如： "dfs.ha.namenodes.my_ha" = "my_nn"。
     * `dfs.namenode.rpc-address.xxx.nn`：指定 namenode 的rpc地址信息。其中 nn 表示 `dfs.ha.namenodes.xxx` 中配置的 namenode 的名字，如："dfs.namenode.rpc-address.my_ha.my_nn" = "host:port"。
     * `dfs.client.failover.proxy.provider`：指定 client 连接 namenode 的 provider，默认为：org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider。
 
     示例如下：
-    
+
     ```
     (
         "dfs.nameservices" = "my_ha",
@@ -230,9 +232,9 @@ WITH BROKER "broker_name"
         "dfs.client.failover.proxy.provider" = "org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider"
     )
     ```
-    
+
     HA 模式可以和前面两种认证方式组合，进行集群访问。如通过简单认证访问 HA HDFS：
-    
+
     ```
     (
         "username"="user",
@@ -244,8 +246,9 @@ WITH BROKER "broker_name"
         "dfs.client.failover.proxy.provider" = "org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider"
     )
     ```
+
    关于HDFS集群的配置可以写入hdfs-site.xml文件中，用户使用Broker进程读取HDFS集群的信息时，只需要填写集群的文件路径名和认证信息即可。
-    
+
 #### 百度对象存储 BOS
 
 **（开源版本不支持）**
@@ -255,11 +258,10 @@ WITH BROKER "broker_name"
     * AK/SK：Access Key 和 Secret Key。在百度云安全认证中心可以查看用户的 AK/SK。
     * Region Endpoint：BOS 所在地区的 Endpoint：
 
-        * 华北-北京：http://bj.bcebos.com
-        * 华北-保定：http://bd.bcebos.com
-        * 华南-广州：http://gz.bcebos.com
-        * 华东-苏州：http://sz.bcebos.com
-
+        * 华北-北京：<http://bj.bcebos.com>
+        * 华北-保定：<http://bd.bcebos.com>
+        * 华南-广州：<http://gz.bcebos.com>
+        * 华东-苏州：<http://sz.bcebos.com>
 
     示例如下：
 

@@ -25,7 +25,9 @@ under the License.
 -->
 
 # SHOW DATA
+
 ## description
+
     该语句用于展示数据量
     语法：
         SHOW DATA [FROM db_name[.table_name]];
@@ -36,6 +38,7 @@ under the License.
         3. 如果想查看各个 Partition 的大小，请参阅 help show partitions
 
 ## example
+
     1. 展示默认 db 的各个 table 的数据量及汇总数据量
         SHOW DATA;
         
@@ -43,5 +46,5 @@ under the License.
         SHOW DATA FROM example_db.table_name;
 
 ## keyword
-    SHOW,DATA
 
+    SHOW,DATA

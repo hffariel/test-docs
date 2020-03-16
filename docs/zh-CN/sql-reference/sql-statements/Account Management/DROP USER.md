@@ -25,6 +25,7 @@ under the License.
 -->
 
 # DROP USER
+
 ## description
 
 Syntax:
@@ -41,10 +42,9 @@ Syntax:
 ## example
 
 1. 删除用户 jack@'192.%'
-   
+
     DROP USER 'jack'@'192.%'
 
 ## keyword
 
     DROP, USER
-

@@ -25,7 +25,9 @@ under the License.
 -->
 
 # SHOW LOAD
+
 ## Description
+
 This statement is used to show the execution of the specified import task
 Grammar:
 SHOW LOAD
@@ -39,6 +41,7 @@ WHERE
 [LIMIT limit][OFFSET offset];
 
 Explain:
+
 1) If db_name is not specified, use the current default DB
 2) If you use LABEL LIKE, the label that matches the import task contains the import task of label_matcher
 3) If LABEL = is used, the specified label is matched accurately.
@@ -51,6 +54,7 @@ Explain:
 SHOW LOAD WARNINGS ON 'url'
 
 ## example
+
 1. Show all import tasks of default DB
 SHOW LOAD;
 
@@ -68,7 +72,8 @@ SHOW LOAD FROM example_db ORDER BY LoadStartTime DESC limit 5,10;
 SHOW LOAD FROM example_db ORDER BY LoadStartTime DESC limit 10 offset 5;
 
 6. Small batch import is a command to view the import status
-curl --location-trusted -u {user}:{passwd} http://{hostname}:{port}/api/{database}/_load_info?label={labelname}
+curl --location-trusted -u {user}:{passwd} <http://{hostname}:{port}/api/{database}/_load_info?label={labelname}>
 
 ## keyword
+
 SHOW,LOAD

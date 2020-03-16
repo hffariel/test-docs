@@ -25,11 +25,12 @@ under the License.
 -->
 
 # date_format
+
 ## Description
+
 ### Syntax
 
 'WARCHAR DATE'U FORMAT (DATETIME DATE, WARCHAR Format)'
-
 
 Convert the date type to a bit string according to the format type.
 Currently supports a string with a maximum 128 bytes and returns NULL if the length of the return value exceeds 128
@@ -133,7 +134,7 @@ mysql> select date_format('1997-10-04 22:23:00', '%H %k %I %r %T %S %w');
 | 22 22 10 10:23:00 PM 22:23:00 00 6                         |
 +------------------------------------------------------------+
 
-mysql> select date_format('1999-01-01 00:00:00', '%X %V'); 
+mysql> select date_format('1999-01-01 00:00:00', '%X %V');
 +---------------------------------------------+
 | date_format('1999-01-01 00:00:00', '%X %V') |
 +---------------------------------------------+
@@ -154,5 +155,7 @@ mysql> select date_format('2006-06-01', '%%%d');
 | %01                                        |
 +--------------------------------------------+
 ```
-##keyword
+
+## keyword
+
 DATE_FORMAT,DATE,FORMAT

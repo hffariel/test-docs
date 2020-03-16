@@ -25,12 +25,13 @@ under the License.
 -->
 
 # Cancel Label
+
 Description
 NAME:
 cancel_label: cancel a transaction with label
 
 SYNOPSIS
-curl -u user:passwd -XPOST http://host:port/api/{db}/{label}/_cancel
+curl -u user:passwd -XPOST <http://host:port/api/{db}/{label}/_cancel>
 
 DESCRIPTION
 This command is used to cancel a transaction corresponding to a specified Label, which can be successfully cancelled during the Prepare phase.
@@ -47,7 +48,8 @@ ERRORS
 '35;'35; example
 
 1. cancel testDb, testLabel20316;- 19994;
-curl -u root -XPOST http://host:port/api/testDb/testLabel/_cancel
+curl -u root -XPOST <http://host:port/api/testDb/testLabel/_cancel>
 
 ## keyword
+
 Cancel, Rabel

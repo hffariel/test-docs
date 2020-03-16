@@ -25,7 +25,9 @@ under the License.
 -->
 
 # RECOVER
+
 ## description
+
     该语句用于恢复之前删除的 database、table 或者 partition
     语法：
         1) 恢复 database
@@ -40,6 +42,7 @@ under the License.
         2. 如果删除元信息后新建立了同名同类型的元信息，则之前删除的元信息不能被恢复
 
 ## example
+
     1. 恢复名为 example_db 的 database
         RECOVER DATABASE example_db;
         
@@ -48,7 +51,7 @@ under the License.
         
     3. 恢复表 example_tbl 中名为 p1 的 partition
         RECOVER PARTITION p1 FROM example_tbl;
-        
+
 ## keyword
+
     RECOVER
-    

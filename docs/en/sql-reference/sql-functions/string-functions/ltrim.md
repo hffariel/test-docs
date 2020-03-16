@@ -25,11 +25,12 @@ under the License.
 -->
 
 # ltrim
+
 ## Description
+
 ### Syntax
 
 'VARCHAR ltrim (VARCHAR str)'
-
 
 Remove the space that appears continuously from the beginning of the parameter str
 
@@ -43,5 +44,7 @@ mysql> SELECT ltrim('   ab d');
 | ab d             |
 +------------------+
 ```
-##keyword
+
+## keyword
+
 LTRIM

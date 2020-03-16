@@ -25,7 +25,9 @@ under the License.
 -->
 
 # second
+
 ## description
+
 ### Syntax
 
 `INT SECOND(DATETIME date)`
@@ -44,5 +46,7 @@ mysql> select second('2018-12-31 23:59:59');
 |                          59 |
 +-----------------------------+
 ```
-##keyword
+
+## keyword
+
 SECOND

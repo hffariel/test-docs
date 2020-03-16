@@ -25,11 +25,12 @@ under the License.
 -->
 
 # concat_ws
+
 ## description
+
 ### Syntax
 
 `VARCHAR concat_ws(VARCHAR sep, VARCHAR str,...)`
-
 
 使用第一个参数 sep 作为连接符，将第二个参数以及后续所有参数拼接成一个字符串.
 如果分隔符是 NULL，返回 NULL。
@@ -59,5 +60,7 @@ mysql> select concat_ws("or", "d", NULL,"is");
 | doris                           |
 +---------------------------------+
 ```
-##keyword
+
+## keyword
+
 CONCAT_WS,CONCAT,WS

@@ -24,13 +24,13 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-
 # datediff
+
 ## Description
+
 ### Syntax
 
 'DATETIME DATEDIFF (DATETIME expr1,DATETIME expr2)'
-
 
 Expr1 - expr2 is calculated and the result is accurate to the sky.
 
@@ -55,5 +55,7 @@ mysql> select datediff(CAST('2010-11-30 23:59:59' AS DATETIME), CAST('2010-12-31
 |                                                                               -31 |
 +-----------------------------------------------------------------------------------+
 ```
-##keyword
+
+## keyword
+
 DATEDIFF

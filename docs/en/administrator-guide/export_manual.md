@@ -72,8 +72,8 @@ The overall mode of dispatch is as follows:
 
 1. The user submits an Export job to FE.
 2. FE's Export scheduler performs an Export job in two stages:
-	1. PENDING: FE generates Export Pending Task, sends snapshot command to BE, and takes a snapshot of all Tablets involved. And generate multiple query plans.
-	2. EXPORTING: FE generates Export ExporingTask and starts executing the query plan.
+1. PENDING: FE generates Export Pending Task, sends snapshot command to BE, and takes a snapshot of all Tablets involved. And generate multiple query plans.
+2. EXPORTING: FE generates Export ExporingTask and starts executing the query plan.
 
 ### query plan splitting
 
@@ -91,7 +91,7 @@ Doris will first create a temporary directory named `doris_export_tmp_12345` (wh
 
 `export-data-c69fcf2b6db5420f-a96b94c1ff8bccef-1561453713822`
 
-Among them, `c69fcf2b6db5420f-a96b94c1ff8bccef` is the query ID of the query plan. ` 1561453713822` Timestamp generated for the file.
+Among them, `c69fcf2b6db5420f-a96b94c1ff8bccef` is the query ID of the query plan. `1561453713822` Timestamp generated for the file.
 
 When all data is exported, Doris will rename these files to the user-specified path.
 
@@ -100,9 +100,9 @@ When all data is exported, Doris will rename these files to the user-specified p
 Export's detailed commands can be passed through `HELP EXPORT;` Examples are as follows:
 
 ```
-EXPORT TABLE db1.tbl1 
+EXPORT TABLE db1.tbl1
 PARTITION (p1,p2)
-TO "bos://bj-test-cmy/export/" 
+TO "bos://bj-test-cmy/export/"
 PROPERTIES
 (
     "column_separator"=",",
@@ -111,8 +111,8 @@ PROPERTIES
 )
 WITH BROKER "hdfs"
 (
-	"username" = "user",
-	"password" = "passwd",
+ "username" = "user",
+ "password" = "passwd",
 );
 ```
 
@@ -137,24 +137,23 @@ FinishTime: 2019-06-25 17:08:34
   ErrorMsg: N/A
 ```
 
-
 * JobId: The unique ID of the job
 * State: Job status:
-	* PENDING: Jobs to be Scheduled
-	* EXPORING: Data Export
-	* FINISHED: Operation Successful
-	* CANCELLED: Job Failure
+  * PENDING: Jobs to be Scheduled
+  * EXPORING: Data Export
+  * FINISHED: Operation Successful
+  * CANCELLED: Job Failure
 * Progress: Work progress. The schedule is based on the query plan. Assuming a total of 10 query plans have been completed, the progress will be 30%.
 * TaskInfo: Job information in Json format:
-	* db: database name
-	* tbl: Table name
-	* partitions: Specify the exported partition. `*` Represents all partitions.
-	* exec MEM limit: query plan memory usage limit. Unit bytes.
-	* column separator: The column separator for the exported file.
-	* line delimiter: The line separator for the exported file.
-	* tablet num: The total number of tablets involved.
-	* Broker: The name of the broker used.
-	* Coord num: Number of query plans.
+  * db: database name
+  * tbl: Table name
+  * partitions: Specify the exported partition. `*` Represents all partitions.
+  * exec MEM limit: query plan memory usage limit. Unit bytes.
+  * column separator: The column separator for the exported file.
+  * line delimiter: The line separator for the exported file.
+  * tablet num: The total number of tablets involved.
+  * Broker: The name of the broker used.
+  * Coord num: Number of query plans.
 * Path: Export path on remote storage.
 * CreateTime/StartTime/FinishTime: Creation time, start scheduling time and end time of jobs.
 * Timeout: Job timeout. The unit is seconds. This time is calculated from CreateTime.
@@ -186,6 +185,6 @@ Usually, a query plan for an Export job has only two parts `scan`- `export`, and
 ### FE
 
 * `expo_checker_interval_second`: Scheduling interval of Export job scheduler, default is 5 seconds. Setting this parameter requires restarting FE.
-* `export_running_job_num_limit `: Limit on the number of Export jobs running. If exceeded, the job will wait and be in PENDING state. The default is 5, which can be adjusted at run time.
+* `export_running_job_num_limit`: Limit on the number of Export jobs running. If exceeded, the job will wait and be in PENDING state. The default is 5, which can be adjusted at run time.
 * `Export_task_default_timeout_second`: Export job default timeout time. The default is 2 hours. It can be adjusted at run time.
 * `export_tablet_num_per_task`: The maximum number of fragments that a query plan is responsible for. The default is 5.

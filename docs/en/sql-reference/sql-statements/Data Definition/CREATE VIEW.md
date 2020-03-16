@@ -25,7 +25,9 @@ under the License.
 -->
 
 # CREATE VIEW
+
 ## Description
+
     This statement is used to create a logical view
     Grammar:
     
@@ -65,4 +67,3 @@ under the License.
 ## keyword
 
     CREATE,VIEW
-

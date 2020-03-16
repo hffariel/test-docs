@@ -25,7 +25,9 @@ under the License.
 -->
 
 # CREATE ROLE
+
 ## Description
+
 The statement user creates a role
 
 Grammar:
@@ -40,6 +42,5 @@ This statement creates an unauthorized role that can be subsequently granted per
 CREATE ROLE role1;
 
 ## keyword
+
 CREATE, ROLE
-
-

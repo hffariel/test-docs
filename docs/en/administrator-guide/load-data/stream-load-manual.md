@@ -64,6 +64,7 @@ Users submit import commands through HTTP protocol. If submitted to FE, FE forwa
 The final result of the import is returned to the user by Coordinator BE.
 
 ## Basic operations
+
 ### Create a Load
 
 Stream load submits and transfers data through HTTP protocol. Here, the `curl` command shows how to submit an import.
@@ -82,13 +83,14 @@ Examples:
 ```
 curl --location-trusted -u root -T date -H "label:123" http://abc.com:8030/api/test/date/_stream_load
 ```
+
 The detailed syntax for creating imports helps to execute ``HELP STREAM LOAD`` view. The following section focuses on the significance of creating some parameters of Stream load.
 
 #### Signature parameters
 
 + user/passwd
 
-	Stream load uses the HTTP protocol to create the imported protocol and signs it through the Basic Access authentication. The Doris system verifies user identity and import permissions based on signatures.
+ Stream load uses the HTTP protocol to create the imported protocol and signs it through the Basic Access authentication. The Doris system verifies user identity and import permissions based on signatures.
 
 #### Load Parameters
 
@@ -96,48 +98,48 @@ Stream load uses HTTP protocol, so all parameters related to import tasks are se
 
 + label
 
-	Identity of import task. Each import task has a unique label inside a single database. Label is a user-defined name in the import command. With this label, users can view the execution of the corresponding import task.
+ Identity of import task. Each import task has a unique label inside a single database. Label is a user-defined name in the import command. With this label, users can view the execution of the corresponding import task.
 
-	Another function of label is to prevent users from importing the same data repeatedly. **It is strongly recommended that users use the same label for the same batch of data. This way, repeated requests for the same batch of data will only be accepted once, guaranteeing at-Most-Once**
+ Another function of label is to prevent users from importing the same data repeatedly. **It is strongly recommended that users use the same label for the same batch of data. This way, repeated requests for the same batch of data will only be accepted once, guaranteeing at-Most-Once**
 
-	When the corresponding import operation state of label is CANCELLED, the label can be used again.
+ When the corresponding import operation state of label is CANCELLED, the label can be used again.
 
 + max\_filter\_ratio
 
-	The maximum tolerance rate of the import task is 0 by default, and the range of values is 0-1. When the import error rate exceeds this value, the import fails.
+ The maximum tolerance rate of the import task is 0 by default, and the range of values is 0-1. When the import error rate exceeds this value, the import fails.
 
-	If the user wishes to ignore the wrong row, the import can be successful by setting this parameter greater than 0.
+ If the user wishes to ignore the wrong row, the import can be successful by setting this parameter greater than 0.
 
-	The calculation formula is as follows:
+ The calculation formula is as follows:
 
-    ``` (dpp.abnorm.ALL / (dpp.abnorm.ALL + dpp.norm.ALL ) ) > max_filter_ratio ```
+    ```(dpp.abnorm.ALL / (dpp.abnorm.ALL + dpp.norm.ALL ) ) > max_filter_ratio```
 
-	``` dpp.abnorm.ALL``` denotes the number of rows whose data quality is not up to standard. Such as type mismatch, column mismatch, length mismatch and so on.
+ ```dpp.abnorm.ALL``` denotes the number of rows whose data quality is not up to standard. Such as type mismatch, column mismatch, length mismatch and so on.
 
-	``` dpp.norm.ALL ``` refers to the number of correct data in the import process. The correct amount of data for the import task can be queried by the ``SHOW LOAD` command.
+ ```dpp.norm.ALL``` refers to the number of correct data in the import process. The correct amount of data for the import task can be queried by the ``SHOW LOAD` command.
 
 The number of rows in the original file = `dpp.abnorm.ALL + dpp.norm.ALL`
 
 + where
 
-	Import the filter conditions specified by the task. Stream load supports filtering of where statements specified for raw data. The filtered data will not be imported or participated in the calculation of filter ratio, but will be counted as `num_rows_unselected`.
+ Import the filter conditions specified by the task. Stream load supports filtering of where statements specified for raw data. The filtered data will not be imported or participated in the calculation of filter ratio, but will be counted as `num_rows_unselected`.
 
 + partition
 
-	Partition information for tables to be imported will not be imported if the data to be imported does not belong to the specified Partition. These data will be included in `dpp.abnorm.ALL`.
+ Partition information for tables to be imported will not be imported if the data to be imported does not belong to the specified Partition. These data will be included in `dpp.abnorm.ALL`.
 
 + columns
 
-	The function transformation configuration of data to be imported includes the sequence change of columns and the expression transformation, in which the expression transformation method is consistent with the query statement.
+ The function transformation configuration of data to be imported includes the sequence change of columns and the expression transformation, in which the expression transformation method is consistent with the query statement.
 
-	```
-	Examples of column order transformation: There are two columns of original data, and there are also two columns (c1, c2) in the table at present. But the first column of the original file corresponds to the C2 column of the target table, while the second column of the original file corresponds to the C1 column of the target table, which is written as follows:
-	columns: c2,c1
-	
-	Example of expression transformation: There are two columns in the original file and two columns in the target table (c1, c2). However, both columns in the original file need to be transformed by functions to correspond to the two columns in the target table.
-	columns: tmp_c1, tmp_c2, c1 = year(tmp_c1), c2 = mouth(tmp_c2)
-	Tmp_* is a placeholder, representing two original columns in the original file.
-	```
+ ```
+ Examples of column order transformation: There are two columns of original data, and there are also two columns (c1, c2) in the table at present. But the first column of the original file corresponds to the C2 column of the target table, while the second column of the original file corresponds to the C1 column of the target table, which is written as follows:
+ columns: c2,c1
+
+ Example of expression transformation: There are two columns in the original file and two columns in the target table (c1, c2). However, both columns in the original file need to be transformed by functions to correspond to the two columns in the target table.
+ columns: tmp_c1, tmp_c2, c1 = year(tmp_c1), c2 = mouth(tmp_c2)
+ Tmp_* is a placeholder, representing two original columns in the original file.
+ ```
 
 + exec\_mem\_limit
 
@@ -174,14 +176,14 @@ The following main explanations are given for the Stream load import result para
 
 + Status: Import completion status.
 
-	"Success": Indicates successful import.
+ "Success": Indicates successful import.
 
-	"Publish Timeout": This state also indicates that the import has been completed, except that the data may be delayed and visible without retrying.
+ "Publish Timeout": This state also indicates that the import has been completed, except that the data may be delayed and visible without retrying.
 
-	"Label Already Exists"：Label duplicate, need to be replaced Label.
+ "Label Already Exists"：Label duplicate, need to be replaced Label.
 
-	"Fail": Import failed.
-	
+ "Fail": Import failed.
+
 + ExistingJobStatus: The state of the load job corresponding to the existing Label.
 
     This field is displayed only when the status is "Label Already Exists". The user can know the status of the load job corresponding to Label through this state. "RUNNING" means that the job is still executing, and "FINISHED" means that the job is successful.
@@ -214,15 +216,15 @@ Users can't cancel Stream load manually. Stream load will be cancelled automatic
 
 + stream\_load\_default\_timeout\_second
 
-	The timeout time of the import task (in seconds) will be cancelled by the system if the import task is not completed within the set timeout time, and will become CANCELLED.
+ The timeout time of the import task (in seconds) will be cancelled by the system if the import task is not completed within the set timeout time, and will become CANCELLED.
 
-	At present, Stream load does not support custom import timeout time. All Stream load import timeout time is uniform. The default timeout time is 300 seconds. If the imported source file can no longer complete the import within the specified time, the FE parameter ```stream_load_default_timeout_second``` needs to be adjusted.
+ At present, Stream load does not support custom import timeout time. All Stream load import timeout time is uniform. The default timeout time is 300 seconds. If the imported source file can no longer complete the import within the specified time, the FE parameter ```stream_load_default_timeout_second``` needs to be adjusted.
 
 ### BE configuration
 
 + streaming\_load\_max\_mb
 
-	The maximum import size of Stream load is 10G by default, in MB. If the user's original file exceeds this value, the BE parameter ```streaming_load_max_mb``` needs to be adjusted.
+ The maximum import size of Stream load is 10G by default, in MB. If the user's original file exceeds this value, the BE parameter ```streaming_load_max_mb``` needs to be adjusted.
 
 ## Best Practices
 
@@ -248,23 +250,25 @@ Timeout = 1000s -31561;. 20110G / 10M /s
 ```
 
 ### Complete examples
+
 Data situation: In the local disk path / home / store_sales of the sending and importing requester, the imported data is about 15G, and it is hoped to be imported into the table store\_sales of the database bj_sales.
 
 Cluster situation: The concurrency of Stream load is not affected by cluster size.
 
 + Step 1: Does the import file size exceed the default maximum import size of 10G
 
-	```
-	BE conf
-	streaming_load_max_mb = 16000
-	```
+ ```
+ BE conf
+ streaming_load_max_mb = 16000
+ ```
+
 + Step 2: Calculate whether the approximate import time exceeds the default timeout value
 
-	```
-	Import time 15000/10 = 1500s
-	Over the default timeout time, you need to modify the FE configuration
-	stream_load_default_timeout_second = 1500
-	```
+ ```
+ Import time 15000/10 = 1500s
+ Over the default timeout time, you need to modify the FE configuration
+ stream_load_default_timeout_second = 1500
+ ```
 
 + Step 3: Create Import Tasks
 
@@ -276,18 +280,18 @@ Cluster situation: The concurrency of Stream load is not affected by cluster siz
 
 * Label Already Exists
 
-	The Label repeat checking steps of Stream load are as follows:
+ The Label repeat checking steps of Stream load are as follows:
 
-	1. Is there an import Label conflict that already exists with other import methods?
+ 1. Is there an import Label conflict that already exists with other import methods?
 
-		Because imported Label in Doris system does not distinguish between import methods, there is a problem that other import methods use the same Label.
+  Because imported Label in Doris system does not distinguish between import methods, there is a problem that other import methods use the same Label.
 
-		Through ``SHOW LOAD WHERE LABEL = "xxx"'``, where XXX is a duplicate Label string, see if there is already a Label imported by FINISHED that is the same as the Label created by the user.
+  Through ``SHOW LOAD WHERE LABEL = "xxx"'``, where XXX is a duplicate Label string, see if there is already a Label imported by FINISHED that is the same as the Label created by the user.
 
-	2. Are Stream loads submitted repeatedly for the same job?
+ 2. Are Stream loads submitted repeatedly for the same job?
 
-		Since Stream load is an HTTP protocol submission creation import task, HTTP Clients in various languages usually have their own request retry logic. After receiving the first request, the Doris system has started to operate Stream load, but because the result is not returned to the Client side in time, the Client side will retry to create the request. At this point, the Doris system is already operating on the first request, so the second request will be reported to Label Already Exists.
+  Since Stream load is an HTTP protocol submission creation import task, HTTP Clients in various languages usually have their own request retry logic. After receiving the first request, the Doris system has started to operate Stream load, but because the result is not returned to the Client side in time, the Client side will retry to create the request. At this point, the Doris system is already operating on the first request, so the second request will be reported to Label Already Exists.
 
-		To sort out the possible methods mentioned above: Search FE Master's log with Label to see if there are two ``redirect load action to destination = ``redirect load action to destination'cases in the same Label. If so, the request is submitted repeatedly by the Client side.
+  To sort out the possible methods mentioned above: Search FE Master's log with Label to see if there are two ``redirect load action to destination =``redirect load action to destination'cases in the same Label. If so, the request is submitted repeatedly by the Client side.
 
-		It is suggested that the user calculate the approximate import time according to the data quantity of the current request, and change the request time-out time of the Client end according to the import time-out time, so as to avoid the request being submitted by the Client end many times.
+  It is suggested that the user calculate the approximate import time according to the data quantity of the current request, and change the request time-out time of the Client end according to the import time-out time, so as to avoid the request being submitted by the Client end many times.

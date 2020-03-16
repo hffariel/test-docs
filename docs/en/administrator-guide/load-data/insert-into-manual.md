@@ -73,30 +73,30 @@ The following is a brief introduction to the parameters used in creating import 
 
 + partition\_info
 
-	Import the target partition of the table. If the target partition is specified, only the data that matches the target partition will be imported. If not specified, the default value is all partitions of the table.
+ Import the target partition of the table. If the target partition is specified, only the data that matches the target partition will be imported. If not specified, the default value is all partitions of the table.
 
 + col\_list
 
-	The target column of the import table can exist in any order. If no target column is specified, the default value is all columns in this table. If a column in the table does not exist in the target column, the column needs a default value, otherwise Insert Into will fail.
+ The target column of the import table can exist in any order. If no target column is specified, the default value is all columns in this table. If a column in the table does not exist in the target column, the column needs a default value, otherwise Insert Into will fail.
 
-	If the result column type of the query statement is inconsistent with the type of the target column, an implicit type conversion is invoked. If the conversion is not possible, the Insert Into statement will report a parsing error.
+ If the result column type of the query statement is inconsistent with the type of the target column, an implicit type conversion is invoked. If the conversion is not possible, the Insert Into statement will report a parsing error.
 
 + query\_stmt
 
-	Through a query statement, the results of the query statement are imported into other tables in Doris system. Query statements support any SQL query syntax supported by Doris.
+ Through a query statement, the results of the query statement are imported into other tables in Doris system. Query statements support any SQL query syntax supported by Doris.
 
 + VALUES
 
-	Users can insert one or more data through VALUES grammar.
+ Users can insert one or more data through VALUES grammar.
 
-	*Note: VALUES is only suitable for importing several pieces of data as DEMO. It is totally unsuitable for any test and production environment. Doris system itself is not suitable for single data import scenarios. It is recommended to use INSERT INTO SELECT for batch import.*
-	
+ *Note: VALUES is only suitable for importing several pieces of data as DEMO. It is totally unsuitable for any test and production environment. Doris system itself is not suitable for single data import scenarios. It is recommended to use INSERT INTO SELECT for batch import.*
+
 * WITH LABEL
 
     INSERT as a load job, it can also be with a label. If not with a label, Doris will use a UUID as label.
-    
+
     This feature needs Doris version 0.11+.
-    
+
     *Note: It is recommended that Label be specified rather than automatically allocated by the system. If the system allocates automatically, but during the execution of the Insert Into statement, the connection is disconnected due to network errors, etc., then it is impossible to know whether Insert Into is successful. If you specify Label, you can view the task results again through Label.*
 
 ### Load results
@@ -124,15 +124,15 @@ Insert Into itself is a SQL command, and the return result is divided into the f
         mysql> insert into tbl1 select * from tbl2;
         Query OK, 4 rows affected (0.38 sec)
         {'label': 'insert_8510c568-9eda-4173-9e36-6adc7d35291c', 'status': 'visible', 'txnId': '4005'}
-        
+
         mysql> insert into tbl1 with label my_label1 select * from tbl2;
         Query OK, 4 rows affected (0.38 sec)
         {'label': 'my_label1', 'status': 'visible', 'txnId': '4005'}
-        
+
         mysql> insert into tbl1 select * from tbl2;
         Query OK, 2 rows affected, 2 warnings (0.31 sec)
         {'label': 'insert_f0747f0e-7a35-46e2-affa-13a235f4020d', 'status': 'visible', 'txnId': '4005'}
-        
+
         mysql> insert into tbl1 select * from tbl2;
         Query OK, 2 rows affected, 2 warnings (0.31 sec)
         {'label': 'insert_f0747f0e-7a35-46e2-affa-13a235f4020d', 'status': 'committed', 'txnId': '4005'}
@@ -150,7 +150,7 @@ Insert Into itself is a SQL command, and the return result is divided into the f
 
         `label` is a user-specified label or an automatically generated label. Label is the ID of this Insert Into load job. Each load job has a label that is unique within a single database.
 
-        `status` indicates whether the loaded data is visible. If visible, show `visible`, if not, show` committed`.
+        `status` indicates whether the loaded data is visible. If visible, show `visible`, if not, show`committed`.
 
         `txnId` is the id of the load transaction corresponding to this insert.
 
@@ -163,7 +163,7 @@ Insert Into itself is a SQL command, and the return result is divided into the f
         ```
 
         The URL in the returned result can be used to query the wrong data. For details, see the following **View Error Lines** Summary.
-    
+
         **"Data is not visible" is a temporary status, this batch of data must be visible eventually**
 
         You can view the visible status of this batch of data with the following statement:
@@ -192,8 +192,8 @@ Insert Into itself is a SQL command, and the return result is divided into the f
 
     1. If `rows affected` is 0, the result set is empty and no data is loaded.
     2. If `rows affected` is greater than 0:
-        1. If `status` is` committed`, the data is not yet visible. You need to check the status through the `show transaction` statement until `visible`.
-        2. If `status` is` visible`, the data is loaded successfully.
+        1. If `status` is`committed`, the data is not yet visible. You need to check the status through the `show transaction` statement until `visible`.
+        2. If `status` is`visible`, the data is loaded successfully.
     3. If `warnings` is greater than 0, it means that some data is filtered. You can get the url through the `show load` statement to see the filtered rows.
 
 ## Relevant System Configuration
@@ -202,30 +202,32 @@ Insert Into itself is a SQL command, and the return result is divided into the f
 
 + time out
 
-	The timeout time of the import task (in seconds) will be cancelled by the system if the import task is not completed within the set timeout time, and will become CANCELLED.
+ The timeout time of the import task (in seconds) will be cancelled by the system if the import task is not completed within the set timeout time, and will become CANCELLED.
 
-	At present, Insert Into does not support custom import timeout time. All Insert Into imports have a uniform timeout time. The default timeout time is 1 hour. If the imported source file cannot complete the import within the specified time, the parameter ``insert_load_default_timeout_second`` of FE needs to be adjusted.
+ At present, Insert Into does not support custom import timeout time. All Insert Into imports have a uniform timeout time. The default timeout time is 1 hour. If the imported source file cannot complete the import within the specified time, the parameter ``insert_load_default_timeout_second`` of FE needs to be adjusted.
 
-	At the same time, the Insert Into statement receives the restriction of the Session variable `query_timeout`. You can increase the timeout time by `SET query_timeout = xxx;` in seconds.
+ At the same time, the Insert Into statement receives the restriction of the Session variable `query_timeout`. You can increase the timeout time by `SET query_timeout = xxx;` in seconds.
 
 ### Session Variables
 
 + enable\_insert\_strict
 
-	The Insert Into import itself cannot control the tolerable error rate of the import. Users can only use the Session parameter `enable_insert_strict`. When this parameter is set to false, it indicates that at least one data has been imported correctly, and then it returns successfully. When this parameter is set to true, the import fails if there is a data error. The default is false. It can be set by `SET enable_insert_strict = true;`.
+ The Insert Into import itself cannot control the tolerable error rate of the import. Users can only use the Session parameter `enable_insert_strict`. When this parameter is set to false, it indicates that at least one data has been imported correctly, and then it returns successfully. When this parameter is set to true, the import fails if there is a data error. The default is false. It can be set by `SET enable_insert_strict = true;`.
 
 + query u timeout
 
-	Insert Into itself is also an SQL command, so the Insert Into statement is also restricted by the Session variable `query_timeout`. You can increase the timeout time by `SET query_timeout = xxx;` in seconds.
+ Insert Into itself is also an SQL command, so the Insert Into statement is also restricted by the Session variable `query_timeout`. You can increase the timeout time by `SET query_timeout = xxx;` in seconds.
 
 ## Best Practices
 
 ### Application scenarios
+
 1. Users want to import only a few false data to verify the functionality of Doris system. The grammar of INSERT INTO VALUS is suitable at this time.
 2. Users want to convert the data already in the Doris table into ETL and import it into a new Doris table, which is suitable for using INSERT INTO SELECT grammar.
 3. Users can create an external table, such as MySQL external table mapping a table in MySQL system. Or create Broker external tables to map data files on HDFS. Then the data from the external table is imported into the Doris table for storage through the INSERT INTO SELECT grammar.
 
 ### Data volume
+
 Insert Into has no limitation on the amount of data, and large data imports can also be supported. However, Insert Into has a default timeout time, and the amount of imported data estimated by users is too large, so it is necessary to modify the system's Insert Into import timeout time.
 
 ```
@@ -250,26 +252,26 @@ Cluster situation: The average import speed of current user cluster is about 5M/
 
 + Step1: Determine whether you want to modify the default timeout of Insert Into
 
-	```
-	Calculate the approximate time of import
-	10G / 5M /s = 2000s
-	
-	Modify FE configuration
-	insert_load_default_timeout_second = 2000
-	```
+ ```
+ Calculate the approximate time of import
+ 10G / 5M /s = 2000s
+
+ Modify FE configuration
+ insert_load_default_timeout_second = 2000
+ ```
 
 + Step2: Create Import Tasks
 
-	Since users want to ETL data from a table and import it into the target table, they should use the Insert in query\\stmt mode to import it.
+ Since users want to ETL data from a table and import it into the target table, they should use the Insert in query\\stmt mode to import it.
 
-	```
-	INSERT INTO bj_store_sales SELECT id, total, user_id, sale_timestamp FROM store_sales where region = "bj";
-	```
+ ```
+ INSERT INTO bj_store_sales SELECT id, total, user_id, sale_timestamp FROM store_sales where region = "bj";
+ ```
 
 ## Common Questions
 
 * View the wrong line
 
-	Because Insert Into can't control the error rate, it can only tolerate or ignore the error data completely by `enable_insert_strict`. So if `enable_insert_strict` is set to true, Insert Into may fail. If `enable_insert_strict` is set to false, then only some qualified data may be imported. However, in either case, Doris is currently unable to provide the ability to view substandard data rows. Therefore, the user cannot view the specific import error through the Insert Into statement.
+ Because Insert Into can't control the error rate, it can only tolerate or ignore the error data completely by `enable_insert_strict`. So if `enable_insert_strict` is set to true, Insert Into may fail. If `enable_insert_strict` is set to false, then only some qualified data may be imported. However, in either case, Doris is currently unable to provide the ability to view substandard data rows. Therefore, the user cannot view the specific import error through the Insert Into statement.
 
-	The causes of errors are usually: source data column length exceeds destination data column length, column type mismatch, partition mismatch, column order mismatch, etc. When it's still impossible to check for problems. At present, it is only recommended that the SELECT command in the Insert Into statement be run to export the data to a file, and then import the file through Stream load to see the specific errors.
+ The causes of errors are usually: source data column length exceeds destination data column length, column type mismatch, partition mismatch, column order mismatch, etc. When it's still impossible to check for problems. At present, it is only recommended that the SELECT command in the Insert Into statement be run to export the data to a file, and then import the file through Stream load to see the specific errors.

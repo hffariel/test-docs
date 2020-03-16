@@ -25,13 +25,14 @@ under the License.
 -->
 
 # MINI LOAD
+
 ## description
 
     MINI LOAD 和 STREAM LOAD 的导入实现方式完全一致。在导入功能支持上，MINI LOAD 的功能是 STREAM LOAD 的子集。
-	后续的导入新功能只会在 STREAM LOAD 中支持，MINI LOAD 将不再新增功能。建议改用 STREAM LOAD，具体使用方式请 HELP STREAM LOAD。
+ 后续的导入新功能只会在 STREAM LOAD 中支持，MINI LOAD 将不再新增功能。建议改用 STREAM LOAD，具体使用方式请 HELP STREAM LOAD。
 
-	MINI LOAD 是 通过 http 协议完成的导入方式。用户可以不依赖 Hadoop，也无需通过 Mysql 客户端，即可完成导入。
-	用户通过 http 协议描述导入，数据在接受 http 请求的过程中被流式的导入 Doris , **导入作业完成后** 返回给用户导入的结果。
+ MINI LOAD 是 通过 http 协议完成的导入方式。用户可以不依赖 Hadoop，也无需通过 Mysql 客户端，即可完成导入。
+ 用户通过 http 协议描述导入，数据在接受 http 请求的过程中被流式的导入 Doris , **导入作业完成后** 返回给用户导入的结果。
 
     * 注：为兼容旧版本 mini load 使用习惯，用户依旧可以通过 'SHOW LOAD' 命令来查看导入结果。
 
@@ -98,7 +99,7 @@ under the License.
         请求发送的，多个请求不能共用一个label号，所以无法使用
 
         3. mini load 的导入方式和 streaming 完全一致，都是在流式的完成导入后，同步的返回结果给用户。
-		后续查询虽可以查到 mini load 的信息，但不能对其进行操作，查询只为兼容旧的使用方式。
+  后续查询虽可以查到 mini load 的信息，但不能对其进行操作，查询只为兼容旧的使用方式。
 
         4. 当使用 curl 命令行导入时，需要在 & 前加入 \ 转义，否则参数信息会丢失。
 
@@ -135,5 +136,5 @@ under the License.
         curl --location-trusted -u root -T testData http://host:port/api/testDb/testTbl/_load?label=123\&strict_mode=false
 
 ## keyword
-    MINI, LOAD
 
+    MINI, LOAD

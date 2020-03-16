@@ -105,11 +105,11 @@ TransactionId: 10023
 * SchemaVersion：以 M:N 的格式展示。其中 M 表示本次 Schema Change 变更的版本，N 表示对应的 Hash 值。每次 Schema Change，版本都会递增。
 * TransactionId：转换历史数据的分水岭 transaction ID。
 * State：作业所在阶段。
-    * PENDING：作业在队列中等待被调度。
-    * WAITING_TXN：等待分水岭 transaction ID 之前的导入任务完成。
-    * RUNNING：历史数据转换中。
-    * FINISHED：作业成功。
-    * CANCELLED：作业失败。
+  * PENDING：作业在队列中等待被调度。
+  * WAITING_TXN：等待分水岭 transaction ID 之前的导入任务完成。
+  * RUNNING：历史数据转换中。
+  * FINISHED：作业成功。
+  * CANCELLED：作业失败。
 * Msg：如果作业失败，这里会显示失败信息。
 * Progress：作业进度。只有在 RUNNING 状态才会显示进度。进度是以 M/N 的形式显示。其中 N 为 Schema Change 涉及的总副本数。M 为已完成历史数据转换的副本数。
 * Timeout：作业超时时间。单位秒。
@@ -187,25 +187,25 @@ ADD COLUMN k5 INT default "1" to rollup2;
 * 如果 Schema 中有 REPLACE 方式聚合的 value 列，则不允许删除 Key 列。
 
     如果删除 Key 列，Doris 无法决定 REPLACE 列的取值。
-    
+
     Unique 数据模型表的所有非 Key 列都是 REPLACE 聚合方式。
-    
+
 * 在新增聚合类型为 SUM 或者 REPLACE 的 value 列时，该列的默认值对历史数据没有含义。
 
     因为历史数据已经失去明细信息，所以默认值的取值并不能实际反映聚合后的取值。
-    
+
 * 当修改列类型时，除 Type 以外的字段都需要按原列上的信息补全。
 
     如修改列 `k1 INT SUM NULL DEFAULT "1"` 类型为 BIGINT，则需执行命令如下：
-    
+
     ```ALTER TABLE tbl1 MODIFY COLUMN `k1` BIGINT SUM NULL DEFAULT "1";```
-    
+
     注意，除新的列类型外，如聚合方式，Nullable 属性，以及默认值都要按照原信息补全。
-    
+
 * 不支持修改列名称、聚合类型、Nullable 属性、默认值以及列注释。
 
 ## 常见问题
-    
+
 * Schema Change 的执行速度
 
     目前 Schema Change 执行速度按照最差效率估计约为 10MB/s。保守起见，用户可以根据这个速率来设置作业的超时时间。
@@ -213,23 +213,23 @@ ADD COLUMN k5 INT default "1" to rollup2;
 * 提交作业报错 `Table xxx is not stable. ...`
 
     Schema Change 只有在表数据完整且非均衡状态下才可以开始。如果表的某些数据分片副本不完整，或者某些副本正在进行均衡操作，则提交会被拒绝。
-    
+
     数据分片副本是否完整，可以通过以下命令查看：
-    
+
     ```ADMIN SHOW REPLICA STATUS FROM tbl WHERE STATUS != "OK";```
-    
+
     如果有返回结果，则说明有副本有问题。通常系统会自动修复这些问题，用户也可以通过以下命令优先修复这个表：
-    
+
     ```ADMIN REPAIR TABLE tbl1;```
-    
+
     用户可以通过以下命令查看是否有正在运行的均衡任务：
-    
+
     ```SHOW PROC "/cluster_balance/pending_tablets";```
-    
+
     可以等待均衡任务完成，或者通过以下命令临时禁止均衡操作：
-    
+
     ```ADMIN SET FRONTEND CONFIG ("disable_balance" = "true");```
-    
+
 ## 相关配置
 
 ### FE 配置
@@ -239,11 +239,3 @@ ADD COLUMN k5 INT default "1" to rollup2;
 ### BE 配置
 
 * `alter_tablet_worker_count`：在 BE 端用于执行历史数据转换的线程数。默认为 3。如果希望加快 Schema Change 作业的速度，可以适当调大这个参数后重启 BE。但过多的转换线程可能会导致 IO 压力增加，影响其他操作。该线程和 Rollup 作业共用。
-    
-    
-    
-    
-    
-     
-
-

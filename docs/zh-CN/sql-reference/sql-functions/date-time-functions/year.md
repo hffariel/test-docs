@@ -25,11 +25,12 @@ under the License.
 -->
 
 # year
+
 ## description
+
 ### Syntax
 
 `INT YEAR(DATETIME date)`
-
 
 返回date类型的year部分，范围从1000-9999
 
@@ -46,6 +47,6 @@ mysql> select year('1987-01-01');
 +-----------------------------+
 ```
 
-##keyword
+## keyword
 
     YEAR

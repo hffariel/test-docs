@@ -25,8 +25,9 @@ under the License.
 -->
 
 # RESTORE TABLET
+
 ## description
-   
+
     该功能用于恢复trash目录中被误删的tablet数据。
 
     说明：这个功能暂时只在be服务中提供一个http接口。如果要使用，

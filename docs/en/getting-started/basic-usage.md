@@ -24,7 +24,6 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-
 # Guidelines for Basic Use
 
 Doris uses MySQL protocol to communicate. Users can connect to Doris cluster through MySQL client or MySQL JDBC. When selecting the MySQL client version, it is recommended to use the version after 5.1, because user names of more than 16 characters can not be supported before 5.1. This paper takes MySQL client as an example to show users the basic usage of Doris through a complete process.
@@ -40,7 +39,7 @@ Use the following command to log in to Doris:
 mysql -h FE_HOST -P9030 -uroot
 ```
 
->` fe_host` is the IP address of any FE node. ` 9030 ` is the query_port configuration in fe.conf.
+>`fe_host` is the IP address of any FE node. `9030` is the query_port configuration in fe.conf.
 
 After login, you can modify the root password by following commands
 
@@ -73,8 +72,7 @@ Initially, a database can be created through root or admin users:
 `CREATE DATABASE example_db;`
 
 > All commands can use'HELP command;'to see detailed grammar help. For example: `HELP CREATE DATABASE;'`
-
-> If you don't know the full name of the command, you can use "help command a field" for fuzzy query. If you type'HELP CREATE', you can match commands like `CREATE DATABASE', `CREATE TABLE', `CREATE USER', etc.
+> If you don't know the full name of the command, you can use "help command a field" for fuzzy query. If you type'HELP CREATE', you can match commands like `CREATE DATABASE',`CREATE TABLE', `CREATE USER', etc.
 
 After the database is created, you can view the database information through `SHOW DATABASES'.
 
@@ -137,6 +135,7 @@ The schema of this table is as follows:
 * pv: Type is BIGINT (8 bytes), default value is 0; this is an index column, Doris will aggregate the index column internally, the aggregation method of this column is SUM.
 
 The TABLE statement is as follows:
+
 ```
 CREATE TABLE table1
 (
@@ -173,6 +172,7 @@ We use the event_day column as the partition column to create three partitions: 
 Each partition uses siteid to hash buckets, with a bucket count of 10
 
 The TABLE statement is as follows:
+
 ```
 CREATE TABLE table2
 (
@@ -271,7 +271,7 @@ Example 2: With "table2_20170707" as Label, import table2 tables using the local
 curl --location-trusted -u test:test -H "label:table2_20170707" -H "column_separator:," -T table1_data http://127.0.0.1:8030/api/example_db/table2/_stream_load
 ```
 
-The local file `table2_data'is separated by `t'. The details are as follows:
+The local file `table2_data'is separated by`t'. The details are as follows:
 
 ```
 2017-07-03  1   1   jim   2
@@ -299,7 +299,7 @@ LOAD LABEL table1_20170708
     DATA INFILE("hdfs://your.namenode.host:port/dir/table1_data")
     INTO TABLE table1
 )
-WITH BROKER hdfs 
+WITH BROKER hdfs
 (
     "username"="hdfs_user",
     "password"="hdfs_password"
@@ -317,7 +317,7 @@ Broker imports are asynchronous commands. Successful execution of the above comm
 
 In the return result, FINISHED in the `State'field indicates that the import was successful.
 
-For more instructions on `SHOW LOAD`, see` HELP SHOW LOAD; `
+For more instructions on `SHOW LOAD`, see`HELP SHOW LOAD;`
 
 Asynchronous import tasks can be cancelled before the end:
 

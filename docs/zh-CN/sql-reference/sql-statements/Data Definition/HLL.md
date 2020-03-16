@@ -25,7 +25,9 @@ under the License.
 -->
 
 # HLL
+
 ## description
+
     HLL是基于HyperLogLog算法的工程实现，用于保存HyperLogLog计算过程的中间结果，它只能作为表的value列类型
     通过聚合来不断的减少数据量，以此来实现加快查询的目的，基于它到的是一个估算结果，误差大概在1%左右
     hll列是通过其它列或者导入数据里面的数据生成的，导入的时候通过hll_hash函数来指定数据中哪一列用于生成hll列
@@ -47,8 +49,9 @@ under the License.
       
       EMPTY_HLL()
       生成空HLL列，用于insert或导入的时候补充默认值，导入的使用见相关说明
-    
+
 ## example
+
     1. 首先创建一张含有hll列的表
         create table test(
         dt date,
@@ -105,5 +108,5 @@ under the License.
         select dt, HLL_UNION_AGG(set1) as uv from test group by dt;
 
 ## keyword
-    HLL
 
+    HLL

@@ -25,6 +25,7 @@ under the License.
 -->
 
 # BROKER LOAD
+
 ## description
 
     Broker load 通过随 Doris 集群一同部署的 broker 进行，访问对应数据源的数据，进行数据导入。
@@ -429,7 +430,7 @@ under the License.
          SET (data_time=str_to_date(data_time, '%Y-%m-%d %H%%3A%i%%3A%s'))
         ) 
         WITH BROKER "hdfs" ("username"="user", "password"="pass");
-         
+
 ## keyword
 
     BROKER,LOAD

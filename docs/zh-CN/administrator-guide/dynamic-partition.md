@@ -50,7 +50,7 @@ under the License.
 ### 建表
 
 建表时，可以在 `PROPERTIES` 中指定以下`dynamic_partition`属性，表示这个表是一个动态分区表。
-    
+
 示例：
 
 ```
@@ -80,18 +80,22 @@ PROPERTIES(
 "dynamic_partition.buckets" = "32"
  );
 ```
+
 创建一张动态分区表，指定开启动态分区特性，以当天为2020-01-08为例，在每次调度时，会提前创建今天以及以后3天的4个分区(若分区已存在则会忽略)，分区名根据指定前缀分别为`p20200108` `p20200109` `p20200110` `p20200111`,每个分区的分桶数量为32，每个分区的范围如下:
+
 ```
 [types: [DATE]; keys: [2020-01-08]; ‥types: [DATE]; keys: [2020-01-09]; )
 [types: [DATE]; keys: [2020-01-09]; ‥types: [DATE]; keys: [2020-01-10]; )
 [types: [DATE]; keys: [2020-01-10]; ‥types: [DATE]; keys: [2020-01-11]; )
 [types: [DATE]; keys: [2020-01-11]; ‥types: [DATE]; keys: [2020-01-12]; )
 ```
-    
+
 ### 开启动态分区功能
+
 1. 首先需要在fe.conf中设置`dynamic_partition_enable=true`，可以在集群启动时通过修改配置文件指定，也可以在运行时通过http接口动态修改,修改方法查看高级操作部分
 
 2. 如果需要对0.12版本之前的表添加动态分区属性，则需要通过以下命令修改表的属性
+
 ```
 ALTER TABLE dynamic_partition set ("dynamic_partition.enable" = "true", "dynamic_partition.time_unit" = "DAY", "dynamic_partition.end" = "3", "dynamic_partition.prefix" = "p", "dynamic_partition.buckets" = "32");
 ```
@@ -101,6 +105,7 @@ ALTER TABLE dynamic_partition set ("dynamic_partition.enable" = "true", "dynamic
 如果需要对集群中所有动态分区表停止动态分区功能，则需要在fe.conf中设置`dynamic_partition_enable=false`
 
 如果需要对指定表停止动态分区功能，则可以通过以下命令修改表的属性
+
 ```
 ALTER TABLE dynamic_partition set ("dynamic_partition.enable" = "false")
 ```
@@ -108,6 +113,7 @@ ALTER TABLE dynamic_partition set ("dynamic_partition.enable" = "false")
 ### 修改动态分区属性
 
 通过如下命令可以修改动态分区的属性
+
 ```
 ALTER TABLE dynamic_partition set("key" = "value")
 ```
@@ -116,7 +122,7 @@ ALTER TABLE dynamic_partition set("key" = "value")
 
 通过以下命令可以进一步查看动态分区表的调度情况：
 
-```    
+```
 SHOW DYNAMIC PARTITION TABLES;
 
 +-------------------+--------+----------+------+--------+---------+---------------------+---------------------+--------+------+
@@ -127,11 +133,11 @@ SHOW DYNAMIC PARTITION TABLES;
 1 row in set (0.00 sec)
 
 ```
-    
-* LastUpdateTime: 最后一次修改动态分区属性的时间 
+
+* LastUpdateTime: 最后一次修改动态分区属性的时间
 * LastSchedulerTime:   最后一次执行动态分区调度的时间
 * State:    最后一次执行动态分区调度的状态
-* Msg:  最后一次执行动态分区调度的错误信息 
+* Msg:  最后一次执行动态分区调度的错误信息
 
 ## 高级操作
 
@@ -140,11 +146,11 @@ SHOW DYNAMIC PARTITION TABLES;
 * dynamic\_partition\_enable
 
     是否开启 Doris 的动态分区功能。默认为 false，即关闭。该参数只影响动态分区表的分区操作，不影响普通表。
-    
+
 * dynamic\_partition\_check\_interval\_seconds
 
     动态分区线程的执行频率，默认为3600(1个小时)，即每1个小时进行一次调度
-    
+
 ### HTTP Restful API
 
 Doris 提供了修改动态分区配置参数的 HTTP Restful API，用于运行时修改动态分区配置参数。
@@ -152,35 +158,35 @@ Doris 提供了修改动态分区配置参数的 HTTP Restful API，用于运行
 该 API 实现在 FE 端，使用 `fe_host:fe_http_port` 进行访问。需要 ADMIN 权限。
 
 1. 将 dynamic_partition_enable 设置为 true 或 false
-    
+
     * 标记为 true
-    
+
         ```
         GET /api/_set_config?dynamic_partition_enable=true
-        
+
         例如: curl --location-trusted -u username:password -XGET http://fe_host:fe_http_port/api/_set_config?dynamic_partition_enable=true
-        
+
         返回：200
         ```
-        
+
     * 标记为 false
-    
+
         ```
         GET /api/_set_config?dynamic_partition_enable=false
-        
+
         例如: curl --location-trusted -u username:password -XGET http://fe_host:fe_http_port/api/_set_config?dynamic_partition_enable=false
-        
+
         返回：200
         ```
-    
+
 2. 设置 dynamic partition 的调度频率
-    
+
     * 设置调度时间为12小时调度一次
-        
+
         ```
         GET /api/_set_config?dynamic_partition_check_interval_seconds=432000
-        
+
         例如: curl --location-trusted -u username:password -XGET http://fe_host:fe_http_port/api/_set_config?dynamic_partition_check_interval_seconds=432000
-        
+
         返回：200
         ```

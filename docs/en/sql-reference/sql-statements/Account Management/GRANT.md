@@ -25,6 +25,7 @@ under the License.
 -->
 
 # Grant
+
 ## Description
 
 The GRANT command is used to give the specified user or role the specified permissions.
@@ -32,7 +33,6 @@ The GRANT command is used to give the specified user or role the specified permi
 Syntax:
 
 GRANT privilege_list ON db_name[.tbl_name] TO user_identity [ROLE role_name]
-
 
 Privilege_list is a list of permissions that need to be granted, separated by commas. Currently Doris supports the following permissions:
 
@@ -50,7 +50,7 @@ READ_ONLY is converted to SELECT_PRIV.
 
 Db_name [.tbl_name] supports the following three forms:
 
-1. *. * permissions can be applied to all libraries and all tables in them
+1. *.* permissions can be applied to all libraries and all tables in them
 2. db. * permissions can be applied to all tables under the specified library
 3. db.tbl permissions can be applied to specified tables under specified Libraries
 
@@ -77,5 +77,5 @@ GRANT SELECT_PRIV,ALTER_PRIV,LOAD_PRIV ON db1.tbl1 TO 'jack'@'192.8.%';
 GRANT LOAD_PRIV ON db1.* TO ROLE 'my_role';
 
 ## keyword
-GRANT
 
+GRANT

@@ -25,7 +25,9 @@ under the License.
 -->
 
 # BACKUP
+
 ## description
+
     该语句用于备份指定数据库下的数据。该命令为异步操作。提交成功后，需通过 SHOW BACKUP 命令查看进度。仅支持备份 OLAP 类型的表。
     语法：
         BACKUP SNAPSHOT [db_name].{snapshot_name}
@@ -61,5 +63,5 @@ under the License.
         );
 
 ## keyword
+
     BACKUP
-   

@@ -25,11 +25,12 @@ under the License.
 -->
 
 # utc_timestamp
+
 ## description
+
 ### Syntax
 
 `DATETIME UTC_TIMESTAMP()`
-
 
 返回当前UTC日期和时间在 "YYYY-MM-DD HH:MM:SS" 或
 
@@ -48,6 +49,6 @@ mysql> select utc_timestamp(),utc_timestamp() + 1;
 +---------------------+---------------------+
 ```
 
-##keyword
+## keyword
 
     UTC_TIMESTAMP,UTC,TIMESTAMP
