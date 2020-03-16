@@ -29,7 +29,7 @@ after_script:
   - git config user.email "${GIT_EMAIL}"
   - git clone https://${SITE_REPO} site-repo && cd site-repo
   - mkdir -p ${BRANCH} && rm -rf ${BRANCH}/*
-  - cp -r ../.vuepress/dist ./${BRANCH}/
+  - cp -r ../.vuepress/dist/ ./${BRANCH}/
   - git add .
   - git commit -am "Auto Build"
   - git push --force --quiet "https://${SITE_PUSH_TOKEN}@${SITE_REPO}" master:master
