@@ -30,9 +30,10 @@ after_script:
   - git clone https://${SITE_REPO} site-repo && cd site-repo
   - mkdir -p ${BRANCH} && rm -rf ${BRANCH}/*
   - cp -r ../.vuepress/dist/ ./${BRANCH}/
+  - git checkout ${SITE_BRANCH}
   - git add .
   - git commit -am "Auto Build"
-  - git push --force --quiet "https://${SITE_PUSH_TOKEN}@${SITE_REPO}" master:master
+  - git push --force --quiet "https://${SITE_PUSH_TOKEN}@${SITE_REPO}" ${SITE_BRANCH}:${SITE_BRANCH}
 
 #指定分支，只有指定的分支提交时才会运行脚本
 branches:
