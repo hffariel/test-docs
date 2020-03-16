@@ -28,7 +28,7 @@ module.exports = {
   title: "Apache Doris",
   description: "Apache Doris",
   themeConfig: {
-    base:"",
+    base: "",
     title: "Doris",
     logo: "/images/logo.jpeg",
     search: true,
