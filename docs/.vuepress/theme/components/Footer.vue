@@ -1,5 +1,5 @@
 <template>
-  <div class="footer-container">
+  <div class="footer-wrapper">
     <br />
     <span class="footer-text">© Copyright 2019, Apache Doris(Incubating)</span>
     <br />
@@ -12,19 +12,23 @@
 <script>
 export default {};
 </script>
-<style scoped>
-.footer-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-.footer-text {
-  color: rgb(93, 93, 93);
-  font-size: 13px;
-  font-weight: 240;
-  text-align: center;
-  width: 60%;
-}
+<style lang="stylus">
+.footer-wrapper 
+  max-width $contentWidth
+  text-align: center
+  margin 0 auto
+  padding 2rem 2.5rem
+  color: rgb(93, 93, 93)
+  font-weight: 240
+
+@media (min-width: $MQMobile)
+  .footer-wrapper 
+    padding 2rem
+    .footer-text
+      font-size: 13px
+@media (max-width: $MQMobile)
+  .footer-wrapper 
+    padding 1.5rem
+    .footer-text
+      font-size: 12px;
 </style>
