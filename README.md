@@ -2,7 +2,7 @@
 
 [Vuepress](https://github.com/vuejs/vuepress.git}) is used as our document site generator, configurations are in `./docs/.vuepress` folder.
 
-## Getting Start
+## Getting Started
 
 ```bash
 cd docs && npm install
@@ -44,9 +44,51 @@ Open the browser and navigate to `localhost:8080/en/` or `localhost:8080/zh-CN/`
     ![alter text](/images/image_x.png)
     ```
 
-4. Remember to update the sidebar configurations in `.vuepress/sidebar/` each time you add a new file or a folder.
+4. Remember to update the sidebar configurations in `.vuepress/sidebar/` after adding a new file or a folder.
 
-5. Run `npm run lint` before startting a PR.
+    If the directories are:
+
+    ```bash
+    .
+    ├─ en/
+    │  ├─ subfolder
+    │  │  ├─ one.md
+    │  │  └─ two.md
+    │  └─ three.md
+    └─ zh-CN/
+    │  ├─ subfolder
+    │  │  ├─ one.md
+    │  │  └─ two.md
+    │  └─ three.md
+    ```
+
+    Then the sidebar configurations would be like:
+
+    ```nodejs
+    // .vuepress/sidebar/en.js`
+    module.exports = [
+      {
+        title: "subfolder name",
+        directoryPath: "subfolder/",
+        children: ["one", "two"]
+      },
+      "three"
+    ]
+    ```
+
+    ```nodejs
+    // .vuepress/sidebar/zh-CN.js
+    module.exports = [
+      {
+        title: "文件夹名称",
+        directoryPath: "subfolder/",
+        children: ["one", "two"]
+      },
+      "three"
+    ]
+    ```
+
+5. Run `npm run lint` before starting a PR.
 
 ## Deployment
 
