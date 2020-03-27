@@ -38,7 +38,7 @@ Open the browser and navigate to `localhost:8080/en/` or `localhost:8080/zh-CN/`
 
 3. Assets are in `.vuepress/public/`.
 
-    Assuming that there exists a png `.vuepress/public/images/image_x.png`, then it can be used like:
+    Assuming that there exists a png `.vuepress/public/images/image_x.png`, then it can be used like: 
 
     ```markdown
     ![alter text](/images/image_x.png)
@@ -107,3 +107,5 @@ Once a PR accepted, travis ci will be triggerd to build and deploy the whole web
 4. Fetch asf-site repo to local directory, and copy `.vupress/dist/` into `{BRANCH}/`.
 
 5. Push the new site to asf-site repo with `GitHub Token`(which is preset in Travis console as a variable used in .travis.yml).
+
+
