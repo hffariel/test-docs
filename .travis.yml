@@ -29,6 +29,22 @@ install:
   - cd docs && npm install
 
 before_script:
+  - export WORKDIR=/tmp/incubator-site
+  - export SVN_CO_DIR=/tmp/incubator-site-content
+  - export SVN_BUILD_DIR=/tmp/incubator-site-build
+  - export SVN_REPO=http://svn.apache.org/repos/asf/incubator/public/trunk/
+  - rm -rf $WORKDIR
+  - mkdir -p $WORKDIR
+  - rm -rf $SVN_CO_DIR
+  - rm -rf $SVN_BUILD_DIR
+  - svn co $SVN_REPO $SVN_CO_DIR
+  - cd $SVN_CO_DIR
+  - python3 clutch.py
+  - mv $SVN_BUILD_DIR/ip-clearance $WORKDIR
+  - mv $SVN_BUILD_DIR/projects $WORKDIR
+  - mv $SVN_BUILD_DIR/clutch $WORKDIR
+
+
   - export PR=https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST
   - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo `curl -s $PR | jq -r .head.ref`; fi)
   - echo $BRANCH
