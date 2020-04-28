@@ -25,9 +25,7 @@ under the License.
 -->
 
 # SHOW BACKENDS
-
 ## description
-
     该语句用于查看 cluster 内的 BE 节点
     语法：
         SHOW BACKENDS;
@@ -44,7 +42,7 @@ under the License.
         9. TotalCapacity 表示总磁盘空间。TotalCapacity = AvailCapacity + DataUsedCapacity + 其他非用户数据文件占用空间。
        10. UsedPct 表示磁盘已使用量百分比。
        11. ErrMsg 用于显示心跳失败时的错误信息。
-
+        
 ## keyword
-
     SHOW, BACKENDS
+

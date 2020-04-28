@@ -25,9 +25,7 @@ under the License.
 -->
 
 # from_unixtime
-
 ## description
-
 ### syntax
 
 `DATETIME FROM UNIXTIME (INT unix timestamp [, VARCHAR string format]`
@@ -38,8 +36,8 @@ Input is an integer and return is a string type
 
 Currently, `string_format` supports following formats：
 
-    %Y: Year.  eg. 2014，1900
-    %m: Month.  eg. 12，09
+    %Y: Year. 	eg. 2014，1900
+    %m: Month. 	eg. 12，09
     %d: Day.    eg. 11，01
     %H: Hour.   eg. 23，01，12
     %i: Minute. eg. 05，11

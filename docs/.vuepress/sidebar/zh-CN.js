@@ -1,14 +1,32 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 module.exports = [
   {
     title: "下载",
     directoryPath: "downloads/",
     children: ["downloads"],
-    sidebarDepth: 1
+    sidebarDepth: 1,
   },
   {
     title: "编译与部署",
     directoryPath: "installing/",
-    children: ["compilation", "install-deploy", "upgrade"]
+    children: ["compilation", "install-deploy", "upgrade"],
   },
   {
     title: "开始使用",
@@ -19,8 +37,8 @@ module.exports = [
       "best-practice",
       "data-partition",
       "data-model-rollup",
-      "hit-the-rollup"
-    ]
+      "hit-the-rollup",
+    ],
   },
   {
     title: "操作手册",
@@ -34,9 +52,10 @@ module.exports = [
           "broker-load-manual",
           "stream-load-manual",
           "routine-load-manual",
-          "insert-into-manual"
+          "insert-into-manual",
+          "delete-manual",
         ],
-        sidebarDepth: 2
+        sidebarDepth: 2,
       },
       {
         title: "表结构变更",
@@ -45,9 +64,15 @@ module.exports = [
           "alter-table-bitmap-index",
           "alter-table-rollup",
           "alter-table-schema-change",
-          "alter-table-temp-partition"
+          "alter-table-temp-partition",
         ],
-        sidebarDepth: 2
+        sidebarDepth: 2,
+      },
+      {
+        title: "物化视图",
+        directoryPath: "materialized-view/",
+        children: [],
+        sidebarDepth: 2,
       },
       {
         title: "HTTP API",
@@ -57,9 +82,9 @@ module.exports = [
           "compaction-action",
           "fe-get-log-file",
           "get-label-state",
-          "restore-tablet"
+          "restore-tablet",
         ],
-        sidebarDepth: 1
+        sidebarDepth: 1,
       },
       {
         title: "运维操作",
@@ -71,15 +96,15 @@ module.exports = [
           "multi-tenant",
           "tablet-meta-tool",
           "tablet-repair-and-balance",
-          "tablet-restore-tool"
+          "tablet-restore-tool",
         ],
-        sidebarDepth: 2
+        sidebarDepth: 2,
       },
       {
         title: "配置文件",
         directoryPath: "config/",
         children: ["fe_config"],
-        sidebarDepth: 1
+        sidebarDepth: 1,
       },
       "backup-restore",
       "broker",
@@ -87,17 +112,23 @@ module.exports = [
       "dynamic-partition",
       "export-manual",
       "privilege",
+      "segment-v2-usage",
       "small-file-mgr",
       "sql-mode",
       "time-zone",
-      "variables"
+      "variables",
     ],
-    sidebarDepth: 1
+    sidebarDepth: 1,
   },
   {
     title: "扩展功能",
     directoryPath: "extending-doris/",
-    children: ["doris-on-es", "user-defined-function"]
+    children: [
+      "audit-plugin",
+      "doris-on-es",
+      "plugin-development-manual",
+      "user-defined-function",
+    ],
   },
   {
     title: "设计文档",
@@ -106,8 +137,8 @@ module.exports = [
       "doris_storage_optimization",
       "grouping_sets_design",
       "metadata-design",
-      "spark_load"
-    ]
+      "spark_load",
+    ],
   },
   {
     title: "SQL 手册",
@@ -150,8 +181,8 @@ module.exports = [
               "unix_timestamp",
               "utc_timestamp",
               "workofyear",
-              "year"
-            ]
+              "year",
+            ],
           },
           {
             title: "地理位置函数",
@@ -166,8 +197,8 @@ module.exports = [
               "st_point",
               "st_polygon",
               "st_x",
-              "st_y"
-            ]
+              "st_y",
+            ],
           },
           {
             title: "字符串函数",
@@ -199,8 +230,8 @@ module.exports = [
               "split_part",
               "starts_with",
               "strleft",
-              "strright"
-            ]
+              "strright",
+            ],
           },
           {
             title: "聚合函数",
@@ -218,8 +249,8 @@ module.exports = [
               "stddev_samp",
               "sum",
               "var_samp",
-              "variance"
-            ]
+              "variance",
+            ],
           },
           {
             title: "bitmap函数",
@@ -233,16 +264,16 @@ module.exports = [
               "bitmap_hash",
               "bitmap_or",
               "bitmap_to_string",
-              "to_bitmap"
-            ]
+              "to_bitmap",
+            ],
           },
           {
             title: "Hash函数",
             directoryPath: "hash-functions/",
-            children: ["murmur_hash3_32"]
+            children: ["murmur_hash3_32"],
           },
-          "cast"
-        ]
+          "cast",
+        ],
       },
       {
         title: "语法帮助",
@@ -261,8 +292,8 @@ module.exports = [
               "SET PASSWORD",
               "SET PROPERTY",
               "SHOW GRANTS",
-              "SHOW ROLES"
-            ]
+              "SHOW ROLES",
+            ],
           },
           {
             title: "集群管理",
@@ -272,6 +303,7 @@ module.exports = [
               "ADMIN CHECK TABLET",
               "ADMIN REPAIR",
               "ADMIN SET CONFIG",
+              "ADMIN SET REPLICA STATUS",
               "ADMIN SHOW CONFIG",
               "ADMIN SHOW REPLICA DISTRIBUTION",
               "ADMIN SHOW REPLICA STATUS",
@@ -283,6 +315,7 @@ module.exports = [
               "DROP CLUSTER",
               "DROP FILE",
               "ENTER",
+              "INSTALL PLUGIN",
               "LINK DATABASE",
               "MIGRATE DATABASE",
               "SHOW BACKENDS",
@@ -292,8 +325,10 @@ module.exports = [
               "SHOW FULL COLUMNS",
               "SHOW INDEX",
               "SHOW MIGRATIONS",
-              "SHOW TABLE STATUS"
-            ]
+              "SHOW PLUGINS",
+              "SHOW TABLE STATUS",
+              "UNINSTALL PLUGIN",
+            ],
           },
           {
             title: "DDL",
@@ -308,12 +343,14 @@ module.exports = [
               "CANCEL RESTORE",
               "CREATE DATABASE",
               "CREATE INDEX",
+              "CREATE MATERIALIZED VIEW",
               "CREATE REPOSITORY",
               "CREATE TABLE",
               "CREATE VIEW",
               "create-function",
               "DROP DATABASE",
               "DROP INDEX",
+              "DROP MATERIALIZED VIEW",
               "DROP REPOSITORY",
               "DROP TABLE",
               "DROP VIEW",
@@ -322,8 +359,8 @@ module.exports = [
               "RECOVER",
               "RESTORE",
               "show-functions",
-              "TRUNCATE TABLE"
-            ]
+              "TRUNCATE TABLE",
+            ],
           },
           {
             title: "DML",
@@ -360,8 +397,8 @@ module.exports = [
               "SHOW TABLET",
               "SHOW TRANSACTION",
               "STOP ROUTINE LOAD",
-              "STREAM LOAD"
-            ]
+              "STREAM LOAD",
+            ],
           },
           {
             title: "数据类型",
@@ -380,22 +417,22 @@ module.exports = [
               "LARGEINT",
               "SMALLINT",
               "TINYINT",
-              "VARCHAR"
-            ]
+              "VARCHAR",
+            ],
           },
           {
             title: "辅助命令",
             directoryPath: "Utility/",
-            children: ["DESCRIBE"]
-          }
-        ]
-      }
-    ]
+            children: ["DESCRIBE"],
+          },
+        ],
+      },
+    ],
   },
   {
     title: "开发者手册",
     directoryPath: "developer-guide/",
-    children: ["debug-tool", "format-code"]
+    children: ["debug-tool", "format-code"],
   },
   {
     title: "Apache 社区",
@@ -407,7 +444,7 @@ module.exports = [
       "pull-request",
       "release-process",
       "subscribe-mail-list",
-      "verify-apache-release"
-    ]
-  }
+      "verify-apache-release",
+    ],
+  },
 ];

@@ -25,15 +25,12 @@ under the License.
 -->
 
 # SHOW REPOSITORIES
-
 ## Description
-
 This statement is used to view the currently created warehouse.
 Grammar:
 SHOW REPOSITORIES;
 
 Explain:
-
 1. Each column has the following meanings:
 RepoId: Unique Warehouse ID
 RepoName: Warehouse name
@@ -44,10 +41,9 @@ Broker: Dependent Broker
 ErrMsg: Palo regularly checks the connectivity of the warehouse, and if problems occur, error messages are displayed here.
 
 ## example
-
 1. View the warehouse that has been created:
 SHOW REPOSITORIES;
 
 ## keyword
-
 SHOW, REPOSITORY, REPOSITORIES
+

@@ -25,7 +25,6 @@ under the License.
 -->
 
 # EXPORT
-
 ## description
 
     该语句用于将指定表的数据导出到指定位置。
@@ -81,5 +80,5 @@ under the License.
         EXPORT TABLE testTbl TO "hdfs://hdfs_host:port/a/b/c" PROPERTIES ("column_separator"=",") WITH BROKER "broker_name" ("username"="xxx", "password"="yyy");
 
 ## keyword
-
     EXPORT
+

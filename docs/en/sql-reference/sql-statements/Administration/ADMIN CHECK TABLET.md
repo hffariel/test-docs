@@ -25,7 +25,6 @@ under the License.
 -->
 
 # ADMIN CHECK TABLET
-
 ## description
 
 This statement is used to perform a specified check operation on a list of tablets.
@@ -43,7 +42,7 @@ PROPERTIES("type" = "...");
 2. Currently "type" only supports:
 
     * consistency: Check the consistency of the replicas of the tablet. This command is asynchronous. After sending, Doris will start to perform the consistency check job of the corresponding tablet. The final result will be reflected in the "InconsistentTabletNum" column in the result of `SHOW PROC" / statistic ";
-
+                    
 ## example
 
 1. Perform a replica consistency check on a specified set of tablets

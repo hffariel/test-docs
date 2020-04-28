@@ -25,12 +25,11 @@ under the License.
 -->
 
 # get_json_string
-
 ## description
-
 ### Syntax
 
 `VARCHAR get_json_string(VARCHAR json_str, VARCHAR json_path)
+
 
 解析并获取 json 字符串内指定路径的字符串内容。
 其中 json_path 必须以 $ 符号作为开头，使用 . 作为路径分割符。如果路径中包含 . ，则可以使用双引号包围。
@@ -63,7 +62,6 @@ mysql> SELECT get_json_string('{"k1":"v1", "my.key":["e1", "e2", "e3"]}', '$."my
 ```
 
 3. 获取二级路径为 k1.key -> k2 的数组中，第一个元素
-
 ```
 mysql> SELECT get_json_string('{"k1.key":{"k2":["v1", "v2"]}}', '$."k1.key".k2[0]');
 +-----------------------------------------------------------------------+
@@ -74,7 +72,6 @@ mysql> SELECT get_json_string('{"k1.key":{"k2":["v1", "v2"]}}', '$."k1.key".k2[0
 ```
 
 4. 获取数组中，key 为 "k1" 的所有 value
-
 ```
 mysql> SELECT get_json_string('[{"k1":"v1"}, {"k2":"v2"}, {"k1":"v3"}, {"k1":"v4"}]', '$.k1');
 +---------------------------------------------------------------------------------+
@@ -83,7 +80,5 @@ mysql> SELECT get_json_string('[{"k1":"v1"}, {"k2":"v2"}, {"k1":"v3"}, {"k1":"v4
 | ["v1","v3","v4"]                                                                |
 +---------------------------------------------------------------------------------+
 ```
-
-## keyword
-
+##keyword
 GET_JSON_STRING,GET,JSON,STRING

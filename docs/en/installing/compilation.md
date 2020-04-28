@@ -24,6 +24,7 @@ specific language governing permissions and limitations
 under the License.
 -->
 
+
 # Compilation
 
 This document focuses on how to code Doris through source code.
@@ -34,9 +35,9 @@ This document focuses on how to code Doris through source code.
 
 1. Download Docker Mirror
 
- `$ docker pull apachedoris/doris-dev:build-env`
+	`$ docker pull apachedoris/doris-dev:build-env`
 
- Check mirror download completed:
+	Check mirror download completed:
 
     ```
     $ docker images
@@ -53,17 +54,17 @@ Note: For different versions of Oris, you need to download the corresponding mir
 
 2. Running Mirror
 
- `$ docker run -it apachedoris/doris-dev:build-env`
+	`$ docker run -it apachedoris/doris-dev:build-env`
 
- If you want to compile the local Doris source code, you can mount the path:
+	If you want to compile the local Doris source code, you can mount the path:
 
     ```
-    docker run -it -v /your/local/incubator-doris-DORIS-x.x.x-release/:/root/incubator-doris-DORIS-x.x.x-release/ apachedoris/doris-dev:build-env
+    $ docker run -it -v /your/local/incubator-doris-DORIS-x.x.x-release/:/root/incubator-doris-DORIS-x.x.x-release/ apachedoris/doris-dev:build-env
     ```
 
 3. Download source code
 
- After starting the mirror, you should be in the container. The Doris source code can be downloaded from the following command (local source directory mounted is not required):
+	After starting the mirror, you should be in the container. The Doris source code can be downloaded from the following command (local source directory mounted is not required):
 
     ```
     $ wget https://dist.apache.org/repos/dist/dev/incubator/doris/xxx.tar.gz
@@ -74,14 +75,15 @@ Note: For different versions of Oris, you need to download the corresponding mir
 4. Compile Doris
 
     ```
-    sh build.sh
+    $ sh build.sh
     ```
 
- After compilation, the output file is in the `output/` directory.
+	After compilation, the output file is in the `output/` directory.
 
 ### Self-compiling Development Environment Mirror
 
 You can also create a Doris development environment mirror yourself, referring specifically to the `docker/README.md'file.
+
 
 ## Direct Compilation (CentOS/Ubuntu)
 
@@ -92,7 +94,7 @@ You can try to compile Doris directly in your own Linux environment.
     `GCC 5.3.1+, Oracle JDK 1.8+, Python 2.7+, Apache Maven 3.5+, CMake 3.11+`
 
     If you are using Ubuntu 16.04 or newer, you can use the following command to install the dependencies
-
+    
     `sudo apt-get install build-essential openjdk-8-jdk maven cmake byacc flex automake libtool-bin bison binutils-dev libiberty-dev`
 
     After installation, set environment variables `PATH`, `JAVA_HOME`, etc.
@@ -100,7 +102,6 @@ You can try to compile Doris directly in your own Linux environment.
 2. Compile Doris
 
     ```
-    sh build.sh
+    $ sh build.sh
     ```
-
- After compilation, the output file is in the `output/` directory.
+	After compilation, the output file is in the `output/` directory.

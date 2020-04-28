@@ -25,12 +25,11 @@ under the License.
 -->
 
 # hour
-
 ## description
-
 ### Syntax
 
 `INT HOUR(DATETIME date)`
+
 
 获得日期中的小时的信息，返回值范围从0-23。
 
@@ -46,7 +45,5 @@ mysql> select hour('2018-12-31 23:59:59');
 |                          23 |
 +-----------------------------+
 ```
-
-## keyword
-
+##keyword
 HOUR

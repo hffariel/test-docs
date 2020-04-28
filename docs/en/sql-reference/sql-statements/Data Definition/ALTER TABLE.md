@@ -79,6 +79,8 @@ under the License.
             ADD ROLLUP rollup_name (column_name1, column_name2, ...)
             [FROM from_index_name]
             [PROPERTIES ("key"="value", ...)]
+ 
+            properties: Support setting timeout time, the default timeout time is 1 day.
         example:
             ADD ROLLUP r1(col1,col2) from r0
     1.2 Batch create rollup index
@@ -172,7 +174,7 @@ under the License.
             1) All columns in index must be written
             2) value is listed after the key column
             
-    6. Modify the properties of the table, currently supports modifying the bloom filter column, the colocate_with attribute and the dynamic_partition attribute.
+    6. Modify the properties of the table, currently supports modifying the bloom filter column, the colocate_with attribute and the dynamic_partition attribute， the replication_num and default.replication_num.
         grammar:
             PROPERTIES ("key"="value")
         note:
@@ -204,6 +206,15 @@ under the License.
             DROP INDEX index_name；
 
 ## example
+
+    [table]
+    1. Modify the default number of replications of the table, which is used as default number of replications while creating new partition.
+        ATLER TABLE example_db.my_table 
+        SET ("default.replication_num" = "2");
+        
+    2. Modify the actual number of replications of a unpartitioned table (unpartitioned table only)
+        ALTER TABLE example_db.my_table
+        SET ("replication_num" = "3");
 
     [partition]
     1. Add partition, existing partition [MIN, 2013-01-01), add partition [2013-01-01, 2014-01-01), use default bucket mode
@@ -243,6 +254,12 @@ under the License.
         ALTER TABLE example_db.my_table
         ADD ROLLUP example_rollup_index2 (k1, v1)
         FROM example_rollup_index;
+
+    3. Create index: example_rollup_index3, based on base index (k1, k2, k3, v1), custom rollup timeout time is one hour.
+        
+        ALTER TABLE example_db.my_table
+        ADD ROLLUP example_rollup_index(k1, k3, v1)
+        PROPERTIES("storage_type"="column", "timeout" = "3600");
     
     3. Delete index: example_rollup_index2
         ALTER TABLE example_db.my_table
@@ -268,7 +285,7 @@ under the License.
           ALTER TABLE example_db.my_table
           ADD COLUMN new_col INT SUM DEFAULT "0" AFTER col1
           TO example_rollup_index;
-    
+   
     5. Add multiple columns to the example_rollup_index (aggregate model)
         ALTER TABLE example_db.my_table
         ADD COLUMN (col1 INT DEFAULT "1", col2 FLOAT SUM DEFAULT "2.3")

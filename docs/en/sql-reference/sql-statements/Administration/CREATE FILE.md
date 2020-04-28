@@ -25,7 +25,6 @@ under the License.
 -->
 
 # CREATE FILE
-
 ## Description
 
 This statement is used to create and upload a file to the Doris cluster.
@@ -58,7 +57,7 @@ Md5: Optional. MD5 of the file. If specified, it will be checked after downloadi
 CREATE FILE "ca.pem"
 PROPERTIES
 (
-"url" ="<https://test.bj.bcebos.com> /kafka -key /ca.pem",
+"url" ="https://test.bj.bcebos.com /kafka -key /ca.pem",
 "catalog" = "kafka"
 );
 
@@ -68,11 +67,10 @@ CREATE FILE "client.key"
 IN my database
 PROPERTIES
 (
-"url" ="<https://test.bj.bcebos.com> /kafka -key /client.key",
+"url" ="https://test.bj.bcebos.com /kafka -key /client.key",
 "catalog" = "my_catalog",
 "md5"= "b5bb901bf1099205b39a46ac3557dd9"
 );
 
 ## keyword
-
 CREATE,FILE

@@ -25,9 +25,7 @@ under the License.
 -->
 
 # SHOW ROLES
-
 ## Description
-
 This statement is used to display all created role information, including the role name, the user included, and the permissions.
 
 Grammar:
@@ -40,5 +38,4 @@ SHOW ROLES;
 SHOW ROLES;
 
 ## keyword
-
 SHOW,ROLES

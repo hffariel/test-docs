@@ -25,9 +25,7 @@ under the License.
 -->
 
 # SHOW EXPORT
-
 ## Description
-
 This statement is used to show the execution of the specified export task
 Grammar:
 SHOW EXPORT
@@ -41,14 +39,12 @@ WHERE
 [LIMIT limit];
 
 Explain:
-
 1) If db_name is not specified, use the current default DB
 2) If STATE is specified, the EXPORT state is matched
 3) Any column combination can be sorted using ORDER BY
 4) If LIMIT is specified, the limit bar matching record is displayed. Otherwise, all of them will be displayed.
 
 ## example
-
 1. Show all export tasks of default DB
 SHOW EXPORT;
 
@@ -62,5 +58,5 @@ SHOW EXPORT FROM example_db WHERE STATE = "exporting" ORDER BY StartTime DESC;
 SHOW EXPORT FROM example_db WHERE EXPORT_JOB_ID = job_id;
 
 ## keyword
-
 SHOW,EXPORT
+

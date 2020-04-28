@@ -25,12 +25,11 @@ under the License.
 -->
 
 # current_timestamp
-
 ## description
-
 ### Syntax
 
 `DATETIME CURRENT_TIMESTAMP()`
+
 
 获得当前的时间，以Datetime类型返回
 

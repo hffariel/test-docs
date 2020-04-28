@@ -133,7 +133,6 @@ GROUPING SETS (
 ```
 
 ### 1.4 GROUPING 和 GROUPING_ID 函数
-
 当我们没有统计某一列时，它的值显示为 NULL，这也可能是列本身就有 NULL 值，这就需要一种方法区分是没有统计还是值本来就是 NULL。为此引入 GROUPING 和 GROUPING_ID 函数。
 GROUPING(column:Column) 函数用于区分分组后的单个列是普通列和聚合列。如果是聚合列，则返回1，反之，则是0. GROUPING() 只能有一个参数列。
 
@@ -505,9 +504,14 @@ select NULL, NULL, sum(k3) from t;
 
 对于 RepeatNode 这个执行计划，其输入是子节点的所有 tuple， 输出的 tuple 除了 repeat 子节点的数据外，还需要填写 GROUPING_ID 和其他grouping，grouping_id 对应的虚拟列，因此。
 
+
 ### 3.4 BE 查询执行阶段
 
 主要任务：
 
 1. 通过 RepeatNode 的执行类，增加扩展输入行的逻辑，其功能是在聚合之前将原有数据进行 repeat：对每行增加一列 GROUPING_ID， 然后按照 GroupingSets 中的集合数进行 repeat，并对对应列置为 null。根据grouping list设置新增虚拟列的值
 2. 实现 grouping_id() 和grouping() 函数。
+
+
+
+

@@ -25,12 +25,11 @@ under the License.
 -->
 
 # from_days
-
 ## description
-
 ### Syntax
 
 `DATE FROM_DAYS(INT N)`
+
 
 通过距离0000-01-01日的天数计算出哪一天
 
@@ -45,6 +44,6 @@ mysql> select from_days(730669);
 +-------------------+
 ```
 
-## keyword
+##keyword
 
     FROM_DAYS,FROM,DAYS

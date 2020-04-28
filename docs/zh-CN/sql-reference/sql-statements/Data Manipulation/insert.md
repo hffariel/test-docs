@@ -25,9 +25,7 @@ under the License.
 -->
 
 # INSERT
-
 ## description
-
 ### Syntax
 
 ```
@@ -56,7 +54,7 @@ INSERT INTO table_name
 > query: 一个普通查询，查询的结果会写入到目标中
 >
 > hint: 用于指示 `INSERT` 执行行为的一些指示符。`streaming` 和 默认的非 `streaming` 方式均会使用同步方式完成 `INSERT` 语句执行
-> 非 `streaming` 方式在执行完成后会返回一个 label 方便用户通过 `SHOW LOAD` 查询导入的状态
+>       非 `streaming` 方式在执行完成后会返回一个 label 方便用户通过 `SHOW LOAD` 查询导入的状态
 
 ### Note
 

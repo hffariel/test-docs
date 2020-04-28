@@ -25,12 +25,11 @@ under the License.
 -->
 
 # lower
-
 ## Description
-
 ### Syntax
 
 'INT lower (WARCHAR str)'
+
 
 Convert all strings in parameters to lowercase
 
@@ -44,7 +43,5 @@ mysql> SELECT lower("AbC123");
 | abc123          |
 +-----------------+
 ```
-
-## keyword
-
+##keyword
 LOWER

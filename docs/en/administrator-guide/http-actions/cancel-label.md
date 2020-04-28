@@ -25,9 +25,7 @@ under the License.
 -->
 
 # CANCEL LABEL
-
 ## description
-
     NAME:
         cancel_label: cancel a transaction with label
         
@@ -48,13 +46,19 @@ under the License.
         Message: Error message if cancel failed
            
     ERRORS
-
+    
 ## example
 
     1. Cancel the transaction with label "testLabel" on database "testDb"
 
         curl -u root -XPOST http://host:port/api/testDb/testLabel/_cancel
-
+ 
 ## keyword
 
     CANCEL，LABEL
+
+
+
+
+
+

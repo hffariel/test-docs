@@ -25,7 +25,6 @@ under the License.
 -->
 
 # CREATE CLUSTER
-
 ## description
 
     该语句用于新建逻辑集群 (cluster), 需要管理员权限。如果不使用多租户，直接创建一个名称为default_cluster的cluster。否则创建一个自定义名称的cluster。
@@ -59,5 +58,5 @@ under the License.
        CREATE CLUSTER default_cluster PROPERTIES("instance_num"="3") IDENTIFIED BY 'test';
   
 ## keyword
-
     CREATE,CLUSTER
+

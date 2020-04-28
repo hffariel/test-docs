@@ -314,7 +314,6 @@ In some multidimensional analysis scenarios, data has neither primary keys nor a
 |op_time|DATETIME|No|operation time|
 
 The TABLE statement is as follows:
-
 ```
 CREATE TABLE IF NOT EXISTS example_db.expamle_tbl
 (
@@ -331,9 +330,9 @@ DUPLICATE KEY(`timestamp`, `type`)
 ```
 
 This data model is different from Aggregate and Uniq models. Data is stored entirely in accordance with the data in the imported file, without any aggregation. Even if the two rows of data are identical, they will be retained.
-The DUPLICATE KEY specified in the table building statement is only used to specify which columns the underlying data is sorted according to. (The more appropriate name should be "Sorted Column", where the name "DUPLICATE KEY" is used to specify the data model used. For more explanations of "Sorted Column", see the section **Prefix Index**. On the choice of DUPLICATE KEY, we recommend that the first 2-4 columns be selected appropriately.
+The DUPLICATE KEY specified in the table building statement is only used to specify which columns the underlying data is sorted according to. (The more appropriate name should be "Sorted Column", where the name "DUPLICATE KEY" is used to specify the data model used. For more explanations of "Sorted Column", see the section ** Prefix Index **. On the choice of DUPLICATE KEY, we recommend that the first 2-4 columns be selected appropriately.
 
-This data model is suitable for storing raw data without aggregation requirements and primary key uniqueness constraints. For more usage scenarios, see the **Limitations of the Aggregation Model** section.
+This data model is suitable for storing raw data without aggregation requirements and primary key uniqueness constraints. For more usage scenarios, see the ** Limitations of the Aggregation Model ** section.
 
 ## ROLLUP
 
@@ -450,7 +449,7 @@ In Aggregate, Uniq and Duplicate three data models. The underlying data storage 
 
 The prefix index, which is based on sorting, implements an index method to query data quickly according to a given prefix column.
 
-We use the prefix index of **36 bytes** of a row of data as the prefix index of this row of data. When a VARCHAR type is encountered, the prefix index is truncated directly. We give examples to illustrate:
+We use the prefix index of ** 36 bytes ** of a row of data as the prefix index of this row of data. When a VARCHAR type is encountered, the prefix index is truncated directly. We give examples to illustrate:
 
 1. The prefix index of the following table structure is user_id (8Byte) + age (8Bytes) + message (prefix 20 Bytes).
 
@@ -472,7 +471,7 @@ We use the prefix index of **36 bytes** of a row of data as the prefix index of 
 |max\_dwell\_time|DATETIME|
 |min\_dwell\_time|DATETIME|
 
-When our query condition is the prefix of **prefix index**, it can greatly speed up the query speed. For example, in the first example, we execute the following queries:
+When our query condition is the prefix of ** prefix index **, it can greatly speed up the query speed. For example, in the first example, we execute the following queries:
 
 `SELECT * FROM table WHERE user_id=1829239 and age=20；`
 
@@ -480,7 +479,7 @@ The efficiency of this query is much higher than that of ** the following querie
 
 `SELECT * FROM table WHERE age=20；`
 
-Therefore, when constructing tables, **correctly choosing column order can greatly improve query efficiency**.
+Therefore, when constructing tables, ** correctly choosing column order can greatly improve query efficiency **.
 
 #### ROLLUP adjusts prefix index
 
@@ -580,7 +579,7 @@ Let's take the most basic count (*) query as an example:
 
 `SELECT COUNT(*) FROM table;`
 
-In other databases, such queries return results quickly. Because in the implementation, we can get the query result by counting rows at the time of import and saving count statistics information, or by scanning only a column of data to get count value at the time of query, with very little overhead. But in Doris's aggregation model, the overhead of this query **is very large**.
+In other databases, such queries return results quickly. Because in the implementation, we can get the query result by counting rows at the time of import and saving count statistics information, or by scanning only a column of data to get count value at the time of query, with very little overhead. But in Doris's aggregation model, the overhead of this query ** is very large **.
 
 Let's take the data as an example.
 

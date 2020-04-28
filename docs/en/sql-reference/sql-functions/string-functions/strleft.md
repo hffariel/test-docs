@@ -25,12 +25,11 @@ under the License.
 -->
 
 # strleft
-
 ## Description
-
 ### Syntax
 
 'VARCHAR STRAIGHT (VARCHAR STR)'
+
 
 It returns the left part of a string of specified length
 
@@ -44,7 +43,5 @@ mysql> select strleft("Hello doris",5);
 | Hello                  |
 +------------------------+
 ```
-
-## keyword
-
+##keyword
 STRLEFT

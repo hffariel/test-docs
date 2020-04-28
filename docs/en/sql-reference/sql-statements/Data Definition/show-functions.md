@@ -25,9 +25,7 @@ under the License.
 -->
 
 # SHOW FUNCTIONS
-
 ## Description
-
 ### Syntax
 
 ```
@@ -75,6 +73,5 @@ mysql> show builtin functions in testDb like 'year%';
 2 rows in set (0.00 sec)
 ```
 
-## keyword
-
+##keyword
 SHOW,FUNCTIONS

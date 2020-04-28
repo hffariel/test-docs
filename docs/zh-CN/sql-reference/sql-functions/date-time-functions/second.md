@@ -25,12 +25,11 @@ under the License.
 -->
 
 # second
-
 ## description
-
 ### Syntax
 
 `INT SECOND(DATETIME date)`
+
 
 获得日期中的秒的信息，返回值范围从0-59。
 
@@ -46,7 +45,5 @@ mysql> select second('2018-12-31 23:59:59');
 |                          59 |
 +-----------------------------+
 ```
-
-## keyword
-
+##keyword
 SECOND

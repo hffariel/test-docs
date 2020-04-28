@@ -25,16 +25,13 @@ under the License.
 -->
 
 # SHOW TABLET
-
 ## Description
-
 This statement is used to display tablet-related information (for administrators only)
 Grammar:
 SHOW TABLET
 [From [db-uu name]] table U name.; Table U Id]
 
 ## example
-
 1. Display all tablet information in the specified table below the specified DB
 SHOW TABLET FROM example_db.table_name;
 
@@ -42,5 +39,4 @@ SHOW TABLET FROM example_db.table_name;
 Performance board 10000;
 
 ## keyword
-
 SHOW,TABLET

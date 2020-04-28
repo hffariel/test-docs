@@ -25,7 +25,6 @@ under the License.
 -->
 
 # LOAD
-
 ## description
 
     Palo 目前支持以下4种导入方式：
@@ -290,5 +289,5 @@ under the License.
         );
 
 ## keyword
-
     LOAD
+    

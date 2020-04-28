@@ -52,6 +52,7 @@ api：
 
 `http://{host}:{port}/api/meta/header/{tablet_id}/{schema_hash}`
 
+
 > Host: be Hostname
 >
 > port: BE's HTTP port

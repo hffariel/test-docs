@@ -52,14 +52,13 @@ BE中提供单个tablet数据恢复的http接口，接口如下：
 curl -X POST "http://localhost:8040/api/restore_tablet?tablet_id=11111\&schema_hash=12345"
 ```
 
-成功的结果如下：
 
+成功的结果如下：
 ```
 {"status": "Success", "msg": "OK"}
 ```
 
 失败的话，会返回相应的失败原因，一种可能的结果如下：
-
 ```
 {"status": "Failed", "msg": "create link path failed"}
 ```
@@ -77,7 +76,6 @@ sh tools/restore_tablet_tool.sh --backend "http://127.0.0.1:8040" --tablet_id 12
 
 批量恢复模式用于实现恢复多个tablet数据的功能。使用的时候需要预先将恢复的tablet id和schema hash按照逗号分隔的格式放在一个文件中，一个tablet一行。
 格式如下：
-
 ```
 12345,11111
 12346,11111

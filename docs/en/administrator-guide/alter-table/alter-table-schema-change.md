@@ -35,7 +35,6 @@ Users can modify the schema of existing tables through the Scheam Change operati
 * Add and delete bitmap index
 
 This document mainly describes how to create a Scheam Change job, as well as some considerations and frequently asked questions about Scheam Change.
-
 ## Glossary
 
 * Base Table：When each table is created, it corresponds to a base table. The base table stores the complete data of this table. Rollups are usually created based on the data in the base table (and can also be created from other rollups).
@@ -46,7 +45,6 @@ This document mainly describes how to create a Scheam Change job, as well as som
 ## Basic Principles
 
 The basic process of executing a Schema Change is to generate a copy of the index data of the new schema from the data of the original index. Among them, two parts of data conversion are required. One is the conversion of existing historical data, and the other is the conversion of newly arrived imported data during the execution of Schema Change.
-
 ```
 +----------+
 | Load Job |
@@ -68,13 +66,11 @@ The basic process of executing a Schema Change is to generate a copy of the inde
 ```
 
 Before starting the conversion of historical data, Doris will obtain a latest transaction ID. And wait for all import transactions before this Transaction ID to complete. This Transaction ID becomes a watershed. This means that Doris guarantees that all import tasks after the watershed will generate data for both the original Index and the new Index. In this way, when the historical data conversion is completed, the data in the new Index can be guaranteed to be complete.
-
 ## Create Job
 
 The specific syntax for creating a Scheam Change can be found in the description of the Scheam Change section in the help `HELP ALTER TABLE`.
 
 The creation of Scheam Change is an asynchronous process. After the job is submitted successfully, the user needs to view the job progress through the `SHOW ALTER TABLE COLUMN` command.
-
 ## View Job
 
 `SHOW ALTER TABLE COLUMN` You can view the Schema Change jobs that are currently executing or completed. When multiple indexes are involved in a Schema Change job, the command displays multiple lines, each corresponding to an index. For example:
@@ -140,7 +136,6 @@ Source Schema：
 ```
 
 You can add a row k4 to both rollup1 and rollup2 by adding the following k5 to rollup2:
-
 ```
 ALTER TABLE tbl1
 ADD COLUMN k4 INT default "1" to rollup1,
@@ -173,7 +168,6 @@ When completion, the Schema becomes:
 As you can see, the base table tbl1 also automatically added k4, k5 columns. That is, columns added to any rollup are automatically added to the Base table.
 
 At the same time, columns that already exist in the Base table are not allowed to be added to Rollup. If you need to do this, you can re-create a Rollup with the new columns and then delete the original Rollup.
-
 ## Notice
 
 * Only one Schema Change job can be running on a table at a time.
@@ -185,25 +179,25 @@ At the same time, columns that already exist in the Base table are not allowed t
 * If there is a value column aggregated by REPLACE in the schema, the Key column is not allowed to be deleted.
 
      If the Key column is deleted, Doris cannot determine the value of the REPLACE column.
-
+    
      All non-Key columns of the Unique data model table are REPLACE aggregated.
-
+    
 * When adding a value column whose aggregation type is SUM or REPLACE, the default value of this column has no meaning to historical data.
 
      Because the historical data has lost the detailed information, the default value cannot actually reflect the aggregated value.
-
+    
 * When modifying the column type, fields other than Type need to be completed according to the information on the original column.
 
      If you modify the column `k1 INT SUM NULL DEFAULT" 1 "` as type BIGINT, you need to execute the following command:
-
+    
     ```ALTER TABLE tbl1 MODIFY COLUMN `k1` BIGINT SUM NULL DEFAULT "1"; ```
-
+    
    Note that in addition to the new column types, such as the aggregation mode, Nullable attributes, and default values must be completed according to the original information.
-
+    
 * Modifying column names, aggregation types, nullable attributes, default values, and column comments is not supported.
 
 ## FAQ
-
+    
 * the execution speed of Schema Change
 
     At present, the execution speed of Schema Change is estimated to be about 10MB / s according to the worst efficiency. To be conservative, users can set the timeout for jobs based on this rate.
@@ -211,21 +205,21 @@ At the same time, columns that already exist in the Base table are not allowed t
 * Submit job error `Table xxx is not stable. ...`
 
     Schema Change can only be started when the table data is complete and unbalanced. If some data shard copies of the table are incomplete, or if some copies are undergoing an equalization operation, the submission is rejected.
-
+        
     Whether the data shard copy is complete can be checked with the following command:
         ```ADMIN SHOW REPLICA STATUS FROM tbl WHERE STATUS != "OK";```
-
-    If a result is returned, there is a problem with the copy. These problems are usually fixed automatically by the system. You can also use the following commands to repair this table first:
+    
+    If a result is returned, there is a problem with the copy. These problems are usually fixed automatically by the system. You can also use the following commands to repair this table first:    
     ```ADMIN REPAIR TABLE tbl1;```
-
+    
     You can check if there are running balancing tasks with the following command:
-
+    
     ```SHOW PROC "/cluster_balance/pending_tablets";```
-
+    
     You can wait for the balancing task to complete, or temporarily disable the balancing operation with the following command:
-
+    
     ```ADMIN SET FRONTEND CONFIG ("disable_balance" = "true");```
-
+    
 ## Configurations
 
 ### FE Configurations

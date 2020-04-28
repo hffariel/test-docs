@@ -48,7 +48,6 @@ The set global sql mode will be persisted, so the operation on the global sql mo
 set global sql_mode = "DEFAULT"
 set session sql_mode = "DEFAULT"
 ```
-
 >At present, Doris's default sql mode is DEFAULT (but it will be changed in the future modification).
 >Setting global sql mode requires admin permission and affects all clients that connect later.
 >Setting session sql mode will only affect the current conversation client. The default setting way is session.
@@ -59,7 +58,6 @@ set session sql_mode = "DEFAULT"
 select @@global.sql_mode
 select @@session.sql_mode
 ```
-
 >In addition to this method, you can also view the current sql mode by returning all session variables as follows
 
 ```
@@ -70,8 +68,8 @@ show session variables
 ## supported mode
 
 1. `PIPES_AS_CONCAT`
-
- Treat '||' as a string concatenation operator (same as CONCAT()) rather than as a synonym for OR. (e.g., `'a'||'b' = 'ab'`, `1||0 = '10'`)
+	
+	Treat '||' as a string concatenation operator (same as CONCAT()) rather than as a synonym for OR. (e.g., `'a'||'b' = 'ab'`, `1||0 = '10'`)
 
 ## combine mode
 

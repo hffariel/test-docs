@@ -25,7 +25,6 @@ under the License.
 -->
 
 # ADMIN SET CONFIG
-
 ## Description
 
 This statement is used to set the configuration items for the cluster (currently only the configuration items for setting FE are supported).
@@ -42,5 +41,4 @@ ADMIN SET FRONTEND CONFIG ("key" = "value");
 ADMIN SET FRONTEND CONFIG ("disable_balance" = "true");
 
 ## keyword
-
 ADMIN,SET,CONFIG

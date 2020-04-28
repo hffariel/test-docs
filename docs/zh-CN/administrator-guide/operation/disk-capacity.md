@@ -54,7 +54,7 @@ storage_min_left_capacity_bytes 默认 2GB。
 ```
 
 当磁盘空间使用率**大于** `storage_high_watermark_usage_percent`，**或者** 磁盘空间剩余大小**小于** `storage_min_left_capacity_bytes` 时，该磁盘不会再被作为以下操作的目的路径：
-
+    
 * Tablet 均衡操作（Balance）
 * Colocation 表数据分片的重分布（Relocation）
 * Decommission
@@ -67,7 +67,7 @@ storage_flood_stage_left_capacity_bytes 默认 1GB。
 ```
 
 当磁盘空间使用率**大于** `storage_flood_stage_usage_percent`，**并且** 磁盘空间剩余大小**小于** `storage_flood_stage_left_capacity_bytes` 时，该磁盘不会再被作为以下操作的目的路径，并禁止某些操作：
-
+    
 * Tablet 均衡操作（Balance）
 * Colocation 表数据分片的重分布（Relocation）
 * 副本补齐
@@ -91,7 +91,7 @@ capacity_min_left_bytes_flood_stage 默认 1GB。
 * Push Task。发生在 Hadoop 导入的 Loading 阶段，下载文件。
 * Alter Task。Schema Change 或 Rollup 任务。
 * Download Task。恢复操作的 Downloading 阶段。
-
+    
 ## 磁盘空间释放
 
 当磁盘空间高于高水位甚至危险水位后，很多操作都会被禁止。此时可以尝试通过以下方式减少磁盘使用率，恢复系统。
@@ -104,45 +104,45 @@ capacity_min_left_bytes_flood_stage 默认 1GB。
     DROP TABLE tbl;
     ALTER TABLE tbl DROP PARTITION p1;
     ```
-
+    
 * 扩容 BE
 
     扩容后，数据分片会自动均衡到磁盘使用率较低的 BE 节点上。扩容操作会根据数据量及节点数量不同，在数小时或数天后使集群到达均衡状态。
-
+    
 * 修改表或分区的副本
 
     可以将表或分区的副本数降低。比如默认3副本可以降低为2副本。该方法虽然降低了数据的可靠性，但是能够快速的降低磁盘使用率，使集群恢复正常。该方法通常用于紧急恢复系统。请在恢复后，通过扩容或删除数据等方式，降低磁盘使用率后，将副本数恢复为 3。
-
+    
     修改副本操作为瞬间生效，后台会自动异步的删除多余的副本。
-
+    
     ```
     ALTER TABLE tbl MODIFY PARTITION p1 SET("replication_num" = "2");
     ```
-
+    
 * 删除多余文件
 
     当 BE 进程已经因为磁盘写满而挂掉并无法启动时（此现象可能因 FE 或 BE 检测不及时而发生）。需要通过删除数据目录下的一些临时文件，保证 BE 进程能够启动。以下目录中的文件可以直接删除：
-
-  * log/：日志目录下的日志文件。
-  * snapshot/: 快照目录下的快照文件。
-  * trash/：回收站中的文件。
+    
+    * log/：日志目录下的日志文件。
+    * snapshot/: 快照目录下的快照文件。
+    * trash/：回收站中的文件。
 
 * 删除数据文件（危险！！！）
 
     当以上操作都无法释放空间时，需要通过删除数据文件来释放空间。数据文件在指定数据目录的 `data/` 目录下。删除数据分片（Tablet）必须先确保该 Tablet 至少有一个副本是正常的，否则**删除唯一副本会导致数据丢失**。假设我们要删除 id 为 12345 的 Tablet：
-
-  * 找到 Tablet 对应的目录，通常位于 `data/shard_id/tablet_id/` 下。如：
+    
+    * 找到 Tablet 对应的目录，通常位于 `data/shard_id/tablet_id/` 下。如：
 
         ```data/0/12345/```
-
-  * 记录 tablet id 和 schema hash。其中 schema hash 为上一步目录的下一级目录名。如下为 352781111：
+        
+    * 记录 tablet id 和 schema hash。其中 schema hash 为上一步目录的下一级目录名。如下为 352781111：
 
         ```data/0/12345/352781111```
 
-  * 删除数据目录：
+    * 删除数据目录：
 
         ```rm -rf data/0/12345/```
 
-  * 删除 Tablet 元数据（具体参考 [Tablet 元数据管理工具](./tablet-meta-tool.md)）
+    * 删除 Tablet 元数据（具体参考 [Tablet 元数据管理工具](./tablet-meta-tool.md)）
 
         ```./lib/meta_tool --operation=delete_header --root_path=/path/to/root_path --tablet_id=12345 --schema_hash= 352781111```

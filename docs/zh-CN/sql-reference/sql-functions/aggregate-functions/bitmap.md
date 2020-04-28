@@ -40,7 +40,6 @@ AGGREGATE KEY(`dt`, `page`)
 COMMENT "OLAP"
 DISTRIBUTED BY HASH(`dt`) BUCKETS 2;
 ```
-
 注：当数据量很大时，最好为高频率的 bitmap_union 查询建立对应的 rollup 表
 
 ```
@@ -57,53 +56,49 @@ ALTER TABLE pv_bitmap ADD ROLLUP pv (page, user_id);
 
 ### Stream Load
 
-```
+``` 
 cat data | curl --location-trusted -u user:passwd -T - -H "columns: dt,page,user_id, user_id=to_bitmap(user_id)"   http://host:8410/api/test/testDb/_stream_load
 ```
 
-```
+``` 
 cat data | curl --location-trusted -u user:passwd -T - -H "columns: dt,page,user_id, user_id=bitmap_hash(user_id)"   http://host:8410/api/test/testDb/_stream_load
 ```
 
-```
+``` 
 cat data | curl --location-trusted -u user:passwd -T - -H "columns: dt,page,user_id, user_id=bitmap_empty()"   http://host:8410/api/test/testDb/_stream_load
 ```
 
 ### Insert Into
 
 id2 的列类型是 bitmap
-
 ```
 insert into bitmap_table1 select id, id2 from bitmap_table2;
 ```
 
 id2 的列类型是 bitmap
-
 ```
 INSERT INTO bitmap_table1 (id, id2) VALUES (1001, to_bitmap(1000)), (1001, to_bitmap(2000));
 ```
 
 id2 的列类型是 bitmap
-
 ```
 insert into bitmap_table1 select id, bitmap_union(id2) from bitmap_table2 group by id;
 ```
 
 id2 的列类型是 int
-
 ```
 insert into bitmap_table1 select id, to_bitmap(id2) from table;
 ```
 
 id2 的列类型是 String
-
 ```
 insert into bitmap_table1 select id, bitmap_hash(id_string) from table;
 ```
 
-## Data Query
 
+## Data Query
 ### Syntax
+
 
 `BITMAP_UNION(expr)` : 计算输入 Bitmap 的并集，返回新的bitmap
 
@@ -115,6 +110,7 @@ COUNT(DISTINCT expr) 相同
 `INTERSECT_COUNT(bitmap_column_to_count, filter_column, filter_values ...)` : 计算满足
 filter_column 过滤条件的多个 bitmap 的交集的基数值。
 bitmap_column_to_count 是 bitmap 类型的列，filter_column 是变化的维度列，filter_values 是维度取值列表
+
 
 ### Example
 
@@ -143,6 +139,7 @@ intersect_count(user_id, page, 'meituan', 'waimai') as retention //在 'meituan'
 from pv_bitmap
 where page in ('meituan', 'waimai');
 ```
+
 
 ## keyword
 

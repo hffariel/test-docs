@@ -24,13 +24,13 @@ specific language governing permissions and limitations
 under the License.
 -->
 
+
 # strright
-
 ## Description
-
 ### Syntax
 
 'VARCHAR strright (VARCHAR str)'
+
 
 It returns the right part of a string of specified length
 
@@ -44,7 +44,5 @@ mysql> select strright("Hello doris",5);
 | doris                   |
 +-------------------------+
 ```
-
-## keyword
-
+##keyword
 STRRIGHT

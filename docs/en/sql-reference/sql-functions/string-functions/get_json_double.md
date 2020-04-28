@@ -25,12 +25,11 @@ under the License.
 -->
 
 # get_json_double
-
 ## description
-
 ### Syntax
 
 `DOUBLE get_json_double(VARCHAR json_str, VARCHAR json_path)
+
 
 Parse and get the floating-point content of the specified path in the JSON string.
 Where json_path must start with the $symbol and use. as the path splitter. If the path contains..., double quotation marks can be used to surround it.
@@ -63,7 +62,6 @@ mysql> SELECT get_json_double('{"k1":"v1", "my.key":[1.1, 2.2, 3.3]}', '$."my.ke
 ```
 
 3. Get the first element in an array whose secondary path is k1. key - > K2
-
 ```
 mysql> SELECT get_json_double('{"k1.key":{"k2":[1.1, 2.2]}}', '$."k1.key".k2[0]');
 +---------------------------------------------------------------------+
@@ -72,7 +70,5 @@ mysql> SELECT get_json_double('{"k1.key":{"k2":[1.1, 2.2]}}', '$."k1.key".k2[0]'
 |                                                                 1.1 |
 +---------------------------------------------------------------------+
 ```
-
-## keyword
-
+##keyword
 GET_JSON_DOUBLE,GET,JSON,DOUBLE

@@ -25,15 +25,12 @@ under the License.
 -->
 
 # SHOW BACKENDS
-
 ## Description
-
 This statement is used to view BE nodes in the cluster
 Grammar:
 SHOW BACKENDS;
 
 Explain:
-
 1. LastStartTime indicates the last BE start-up time.
 2. LastHeartbeat represents the latest heartbeat.
 3. Alive indicates whether the node survives.
@@ -47,5 +44,4 @@ Explain:
 11. ErrMsg is used to display error messages when a heartbeat fails.
 
 ## keyword
-
 SHOW, BACKENDS

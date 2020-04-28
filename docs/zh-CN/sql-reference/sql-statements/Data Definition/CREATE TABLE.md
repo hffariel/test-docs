@@ -75,9 +75,9 @@ under the License.
             其中整数部分为 1 ~ 18
             不支持科学计数法
         DATE（3字节）
-            范围：1900-01-01 ~ 9999-12-31
+            范围：0000-01-01 ~ 9999-12-31
         DATETIME（8字节）
-            范围：1900-01-01 00:00:00 ~ 9999-12-31 23:59:59
+            范围：0000-01-01 00:00:00 ~ 9999-12-31 23:59:59
         CHAR[(length)]
             定长字符串。长度范围：1 ~ 255。默认为1
         VARCHAR[(length)]
@@ -230,9 +230,9 @@ under the License.
            )
     ```
 
-       storage_medium：        用于指定该分区的初始存储介质，可选择 SSD 或 HDD。默认为 HDD。
+       storage_medium：        用于指定该分区的初始存储介质，可选择 SSD 或 HDD。默认初始存储介质可通过fe的配置文件 `fe.conf` 中指定 `default_storage_medium=xxx`，如果没有指定，则默认为 HDD。
            storage_cooldown_time： 当设置存储介质为 SSD 时，指定该分区在 SSD 上的存储到期时间。
-                                   默认存放 7 天。
+                                   默认存放 30 天。
                                    格式为："yyyy-MM-dd HH:mm:ss"
            replication_num:        指定分区的副本数。默认为 3
     
@@ -257,21 +257,22 @@ under the License.
            "colocate_with"="table1"
            )
 ```
-
+    
     4) 如果希望使用动态分区特性，需要在properties 中指定
-
+    
 ```
       PROPERTIES (
           "dynamic_partition.enable" = "true|false",
           "dynamic_partition.time_unit" = "DAY|WEEK|MONTH",
+          "dynamic_partition.start" = "${integer_value}",
           "dynamic_partitoin.end" = "${integer_value}",
           "dynamic_partition.prefix" = "${string_value}",
           "dynamic_partition.buckets" = "${integer_value}
 ```
-
-    dynamic_partition.enable: 用于指定表级别的动态分区功能是否开启
+    dynamic_partition.enable: 用于指定表级别的动态分区功能是否开启。默认为 true。
     dynamic_partition.time_unit: 用于指定动态添加分区的时间单位，可选择为DAY（天），WEEK(周)，MONTH（月）
-    dynamic_partition.end: 用于指定提前创建的分区数量
+    dynamic_partition.start: 用于指定向前删除多少个分区。值必须小于0。默认为 Integer.MIN_VALUE。
+    dynamic_partition.end: 用于指定提前创建的分区数量。值必须大于0。
     dynamic_partition.prefix: 用于指定创建的分区名前缀，例如分区名前缀为p，则自动创建分区名为p20200108
     dynamic_partition.buckets: 用于指定自动创建的分区分桶数量
 
@@ -288,11 +289,9 @@ under the License.
 ```
         PROPERTIES (
            "in_memory"="true"
-        )
+        )   
 ```
-
     当 in_memory 属性为 true 时，Doris会尽可能将该表的数据和索引Cache到BE 内存中
-
 ## example
 
 1. 创建一个 olap 表，使用 HASH 分桶，使用列存，相同key的记录进行聚合
@@ -534,7 +533,7 @@ under the License.
     PROPERTIES ("storage_type"="column");
 ```
 
-11. 创建一个动态分区表(需要在FE配置中开启动态分区功能)，该表每天提前创建3天的分区，例如今天为`2020-01-08`，则会创建分区名为`p20200108`, `p20200109`, `p20200110`, `p20200111`的分区. 分区范围分别为:
+11. 创建一个动态分区表(需要在FE配置中开启动态分区功能)，该表每天提前创建3天的分区，并删除3天前的分区。例如今天为`2020-01-08`，则会创建分区名为`p20200108`, `p20200109`, `p20200110`, `p20200111`的分区. 分区范围分别为: 
 
 ```
 [types: [DATE]; keys: [2020-01-08]; ‥types: [DATE]; keys: [2020-01-09]; )
@@ -564,6 +563,7 @@ under the License.
     PROPERTIES(
     "storage_medium" = "SSD",
     "dynamic_partition.time_unit" = "DAY",
+    "dynamic_partition.start" = "-3",
     "dynamic_partition.end" = "3",
     "dynamic_partition.prefix" = "p",
     "dynamic_partition.buckets" = "32"
@@ -571,7 +571,6 @@ under the License.
 ```
 
 12. Create a table with rollup index
-
 ```
     CREATE TABLE example_db.rolup_index_table
     (
@@ -589,11 +588,10 @@ under the License.
     r3(event_day)
     )
     PROPERTIES("replication_num" = "3");
-
+    
 13. 创建一个内存表
 
 ```
-
     CREATE TABLE example_db.table_hash
     (
     k1 TINYINT,
@@ -607,7 +605,6 @@ under the License.
     COMMENT "my first doris table"
     DISTRIBUTED BY HASH(k1) BUCKETS 32
     PROPERTIES ("in_memory"="true");
-
 ```
 
 ## keyword

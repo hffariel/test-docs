@@ -79,7 +79,7 @@ under the License.
 
 Export 作业会生成多个查询计划，每个查询计划负责扫描一部分 Tablet。每个查询计划扫描的 Tablet 个数由 FE 配置参数 `export_tablet_num_per_task` 指定，默认为 5。即假设一共 100 个 Tablet，则会生成 20 个查询计划。用户也可以在提交作业时，通过作业属性 `tablet_num_per_task` 指定这个数值。
 
-一个作业的多个查询计划顺序执行。
+一个作业的多个查询计划顺序执行。 
 
 ### 查询计划执行
 
@@ -104,9 +104,9 @@ Export 需要借助 Broker 进程访问远端存储，不同的 Broker 需要提
 Export 的详细命令可以通过 `HELP EXPORT;` 。举例如下：
 
 ```
-EXPORT TABLE db1.tbl1
+EXPORT TABLE db1.tbl1 
 PARTITION (p1,p2)
-TO "hdfs://host/path/to/export/"
+TO "hdfs://host/path/to/export/" 
 PROPERTIES
 (
     "column_separator"=",",
@@ -115,8 +115,8 @@ PROPERTIES
 )
 WITH BROKER "hdfs"
 (
- "username" = "user",
- "password" = "passwd",
+	"username" = "user",
+	"password" = "passwd",
 );
 ```
 
@@ -143,21 +143,21 @@ FinishTime: 2019-06-25 17:08:34
 
 * JobId：作业的唯一 ID
 * State：作业状态：
-  * PENDING：作业待调度
-  * EXPORING：数据导出中
-  * FINISHED：作业成功
-  * CANCELLED：作业失败
+    * PENDING：作业待调度
+    * EXPORING：数据导出中
+    * FINISHED：作业成功
+    * CANCELLED：作业失败
 * Progress：作业进度。该进度以查询计划为单位。假设一共 10 个查询计划，当前已完成 3 个，则进度为 30%。
 * TaskInfo：以 Json 格式展示的作业信息：
-  * db：数据库名
-  * tbl：表名
-  * partitions：指定导出的分区。`*` 表示所有分区。
-  * exec mem limit：查询计划内存使用限制。单位字节。
-  * column separator：导出文件的列分隔符。
-  * line delimiter：导出文件的行分隔符。
-  * tablet num：涉及的总 Tablet 数量。
-  * broker：使用的 broker 的名称。
-  * coord num：查询计划的个数。
+    * db：数据库名
+    * tbl：表名
+    * partitions：指定导出的分区。`*` 表示所有分区。
+    * exec mem limit：查询计划内存使用限制。单位字节。
+    * column separator：导出文件的列分隔符。
+    * line delimiter：导出文件的行分隔符。
+    * tablet num：涉及的总 Tablet 数量。
+    * broker：使用的 broker 的名称。
+    * coord num：查询计划的个数。
 * Path：远端存储上的导出路径。
 * CreateTime/StartTime/FinishTime：作业的创建时间、开始调度时间和结束时间。
 * Timeout：作业超时时间。单位是秒。该时间从 CreateTime 开始计算。
@@ -192,3 +192,4 @@ FinishTime: 2019-06-25 17:08:34
 * `export_running_job_num_limit`：正在运行的 Export 作业数量限制。如果超过，则作业将等待并处于 PENDING 状态。默认为 5，可以运行时调整。
 * `export_task_default_timeout_second`：Export 作业默认超时时间。默认为 2 小时。可以运行时调整。
 * `export_tablet_num_per_task`：一个查询计划负责的最大分片数。默认为 5。
+

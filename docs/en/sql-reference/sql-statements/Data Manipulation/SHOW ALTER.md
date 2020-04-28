@@ -25,9 +25,7 @@ under the License.
 -->
 
 # SHOW ALTER
-
 ## Description
-
 This statement is used to show the execution of various modification tasks currently under way.
 Grammar:
 SHOW ALTER [CLUSTER | TABLE [COLUMN | ROLLUP] [FROM db_name]];
@@ -40,7 +38,6 @@ If db_name is not specified, use the current default DB
 CLUSTER: Show the cluster operation related tasks (only administrators use! To be realized...
 
 ## example
-
 1. Show the task execution of all modified columns of default DB
 SHOW ALTER TABLE COLUMN;
 
@@ -54,5 +51,5 @@ SHOW ALTER TABLE ROLLUP FROM example_db;
 SHOW ALTER CLUSTER;
 
 ## keyword
-
 SHOW,ALTER
+

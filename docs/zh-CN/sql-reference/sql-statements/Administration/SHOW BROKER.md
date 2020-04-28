@@ -25,9 +25,7 @@ under the License.
 -->
 
 # SHOW BROKER
-
 ## description
-
     该语句用于查看当前存在的 broker 
     语法：
         SHOW BROKER;
@@ -37,7 +35,7 @@ under the License.
         2. LastHeartbeat 表示最近一次心跳。
         3. Alive 表示节点是否存活。
         4. ErrMsg 用于显示心跳失败时的错误信息。
-
+        
 ## keyword
-
     SHOW, BROKER
+

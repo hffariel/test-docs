@@ -25,7 +25,6 @@ under the License.
 -->
 
 # ALTER CLUSTER
-
 ## description
 
 This statement is used to update the logical cluster. Administrator privileges are required
@@ -51,5 +50,4 @@ ALTER CLUSTER test_cluster PROPERTIES ("instance_num"="2");
 ALTER CLUSTER test_cluster PROPERTIES ("instance_num"="4");
 
 ## keyword
-
 ALTER,CLUSTER

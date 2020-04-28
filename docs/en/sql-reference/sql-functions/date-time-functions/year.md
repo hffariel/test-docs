@@ -24,13 +24,13 @@ specific language governing permissions and limitations
 under the License.
 -->
 
+
 # year
-
 ## Description
-
 ### Syntax
 
 `INT YEAR(DATETIME date)`
+
 
 Returns the year part of the date type, ranging from 1000 to 9999
 
@@ -46,7 +46,5 @@ mysql> select year('1987-01-01');
 |                        1987 |
 +-----------------------------+
 ```
-
-## keyword
-
+##keyword
 YEAR

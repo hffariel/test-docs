@@ -25,9 +25,7 @@ under the License.
 -->
 
 # SHOW BACKUP
-
 ## description
-
     该语句用于查看 BACKUP 任务
     语法：
         SHOW BACKUP [FROM db_name]
@@ -57,10 +55,9 @@ under the License.
             Timeout：                作业超时时间，单位秒
 
 ## example
-
     1. 查看 example_db 下最后一次 BACKUP 任务。
         SHOW BACKUP FROM example_db;
 
 ## keyword
-
     SHOW, BACKUP
+

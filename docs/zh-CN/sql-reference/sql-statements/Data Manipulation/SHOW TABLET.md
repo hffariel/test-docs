@@ -25,9 +25,7 @@ under the License.
 -->
 
 # SHOW TABLET
-
 ## description
-
     该语句用于显示 tablet 相关的信息（仅管理员使用）
     语法：
         SHOW TABLET
@@ -40,7 +38,6 @@ under the License.
     state，同时支持按照任意字段进行排序，并且提供limit限制返回条数。
 
 ## example
-
     1. 显示指定 db 的下指定表所有 tablet 信息
         SHOW TABLET FROM example_db.table_name;
 
@@ -66,5 +63,5 @@ under the License.
         SHOW TABLET 10000;
 
 ## keyword
-
     SHOW,TABLET,LIMIT
+

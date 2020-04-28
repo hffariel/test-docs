@@ -25,12 +25,11 @@ under the License.
 -->
 
 # ASCII
-
 ## Description
-
 ### Syntax
 
 `INT AXES (WARCHAR STR)`
+
 
 Returns the ASCII code corresponding to the first character of the string
 
@@ -51,7 +50,5 @@ mysql> select ascii('234');
 |           50 |
 +--------------+
 ```
-
-## keyword
-
+##keyword
 ASCII

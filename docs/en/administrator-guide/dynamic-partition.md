@@ -51,7 +51,7 @@ read dynamic partition properties of the table, and doing the task of adding par
 ### Establishment of tables
 
 When creating a table, you can specify the attribute `dynamic_partition` in `PROPERTIES`, which means that the table is a dynamic partition table.
-
+    
 Examples:
 
 ```
@@ -81,17 +81,15 @@ PROPERTIES(
 "dynamic_partition.buckets" = "32"
  );
 ```
-
-Create a dynamic partition table, specify enable dynamic partition features, take today is 2020-01-08 for example, at every time of scheduling, will create today and after 3 days in advance of four partitions
+Create a dynamic partition table, specify enable dynamic partition features, take today is 2020-01-08 for example, at every time of scheduling, will create today and after 3 days in advance of four partitions 
 (if the partition is existed, the task will be ignored), partition name respectively according to the specified prefix `p20200108` `p20200109` `p20200110` `p20200111`, each partition to 32 the number of points barrels, each partition scope is as follows:
-
 ```
 [types: [DATE]; keys: [2020-01-08]; ‥types: [DATE]; keys: [2020-01-09]; )
 [types: [DATE]; keys: [2020-01-09]; ‥types: [DATE]; keys: [2020-01-10]; )
 [types: [DATE]; keys: [2020-01-10]; ‥types: [DATE]; keys: [2020-01-11]; )
 [types: [DATE]; keys: [2020-01-11]; ‥types: [DATE]; keys: [2020-01-12]; )
 ```
-
+    
 ### Enable Dynamic Partition Feature
 
 1. First of all, `dynamic_partition_enable=true` needs to be set in fe.conf, which can be specified by modifying the configuration file when the cluster starts up, or dynamically modified by HTTP interface at run time
@@ -124,7 +122,7 @@ ALTER TABLE dynamic_partition set("key" = "value")
 
 You can further view the scheduling of dynamic partitioned tables by using the following command:
 
-```
+```    
 SHOW DYNAMIC PARTITION TABLES;
 
 +-------------------+--------+----------+------+--------+---------+---------------------+---------------------+--------+------+
@@ -135,11 +133,11 @@ SHOW DYNAMIC PARTITION TABLES;
 1 row in set (0.00 sec)
 
 ```
-
-* LastUpdateTime: The last time of modifying dynamic partition properties
+    
+* LastUpdateTime: The last time of modifying dynamic partition properties 
 * LastSchedulerTime:   The last time of performing dynamic partition scheduling
 * State:    The state of the last execution of dynamic partition scheduling
-* Msg:  Error message for the last time dynamic partition scheduling was performed
+* Msg:  Error message for the last time dynamic partition scheduling was performed 
 
 ## Advanced Operation
 
@@ -148,11 +146,11 @@ SHOW DYNAMIC PARTITION TABLES;
 * dynamic\_partition\_enable
 
     Whether to enable Doris's dynamic partition feature. The default value is false, which is off. This parameter only affects the partitioning operation of dynamic partition tables, not normal tables.
-
+    
 * dynamic\_partition\_check\_interval\_seconds
 
     The execution frequency of dynamically partitioned threads, by default 3600(1 hour), which means scheduled every 1 hour.
-
+    
 ### HTTP Restful API
 
 Doris provides an HTTP Restful API for modifying dynamic partition configuration parameters at run time.
@@ -160,35 +158,35 @@ Doris provides an HTTP Restful API for modifying dynamic partition configuration
 The API is implemented in FE, user can access it by `fe_host:fe_http_port`.The operation needs admin privilege.
 
 1. Set dynamic_partition_enable to true or false
-
+    
     * Set to true
-
+    
         ```
         GET /api/_set_config?dynamic_partition_enable=true
-
+        
         For example: curl --location-trusted -u username:password -XGET http://fe_host:fe_http_port/api/_set_config?dynamic_partition_enable=true
-
+        
         Return Code：200
         ```
-
+        
     * Set to false
-
+    
         ```
         GET /api/_set_config?dynamic_partition_enable=false
-
+        
         For example: curl --location-trusted -u username:password -XGET http://fe_host:fe_http_port/api/_set_config?dynamic_partition_enable=false
-
+        
         Return Code：200
         ```
-
-2. Set the scheduling frequency for dynamic partition
-
+    
+2.  Set the scheduling frequency for dynamic partition 
+    
     * Set schedule frequency to 12 hours.
-
+        
         ```
         GET /api/_set_config?dynamic_partition_check_interval_seconds=432000
-
+        
         For example: curl --location-trusted -u username:password -XGET http://fe_host:fe_http_port/api/_set_config?dynamic_partition_check_interval_seconds=432000
-
+        
         Return Code：200
         ```

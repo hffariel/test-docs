@@ -25,9 +25,7 @@ under the License.
 -->
 
 # bitmap_and
-
 ## description
-
 ### Syntax
 
 `BITMAP BITMAP_AND(BITMAP lhs, BITMAP rhs)`

@@ -1,14 +1,32 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 module.exports = [
   {
     title: "Downloads",
     directoryPath: "downloads/",
     children: ["downloads"],
-    sidebarDepth: 1
+    sidebarDepth: 1,
   },
   {
     title: "Compilation and Deployment",
     directoryPath: "installing/",
-    children: ["compilation", "install-deploy", "upgrade"]
+    children: ["compilation", "install-deploy", "upgrade"],
   },
   {
     title: "Getting Started",
@@ -19,8 +37,8 @@ module.exports = [
       "best-practice",
       "data-partition",
       "data-model-rollup",
-      "hit-the-rollup"
-    ]
+      "hit-the-rollup",
+    ],
   },
   {
     title: "Administrator Guide",
@@ -34,9 +52,10 @@ module.exports = [
           "broker-load-manual",
           "stream-load-manual",
           "routine-load-manual",
-          "insert-into-manual"
+          "insert-into-manual",
+          "delete-manual",
         ],
-        sidebarDepth: 2
+        sidebarDepth: 2,
       },
       {
         title: "Schema Change",
@@ -44,9 +63,10 @@ module.exports = [
         children: [
           "alter-table-bitmap-index",
           "alter-table-rollup",
-          "alter-table-schema-change"
+          "alter-table-schema-change",
+          "alter-table-temp-partition",
         ],
-        sidebarDepth: 2
+        sidebarDepth: 2,
       },
       {
         title: "HTTP API",
@@ -56,9 +76,9 @@ module.exports = [
           "compaction-action",
           "fe-get-log-file",
           "get-label-state",
-          "restore-tablet"
+          "restore-tablet",
         ],
-        sidebarDepth: 1
+        sidebarDepth: 1,
       },
       {
         title: "Maintainence Operation",
@@ -68,15 +88,15 @@ module.exports = [
           "monitor-alert",
           "multi-tenant",
           "tablet-meta-tool",
-          "tablet-repair-and-balance"
+          "tablet-repair-and-balance",
         ],
-        sidebarDepth: 2
+        sidebarDepth: 2,
       },
       {
         title: "Configuration",
         directoryPath: "config/",
         children: ["fe_config"],
-        sidebarDepth: 1
+        sidebarDepth: 1,
       },
       "backup-restore",
       "broker",
@@ -87,14 +107,19 @@ module.exports = [
       "small-file-mgr",
       "sql-mode",
       "time-zone",
-      "variables"
+      "variables",
     ],
-    sidebarDepth: 1
+    sidebarDepth: 1,
   },
   {
     title: "Extending Ability",
     directoryPath: "extending-doris/",
-    children: ["doris-on-es", "user-defined-function"]
+    children: [
+      "audit-plugin",
+      "doris-on-es",
+      "plugin-development-manual",
+      "user-defined-function",
+    ],
   },
   {
     title: "Design Documents",
@@ -102,8 +127,8 @@ module.exports = [
     children: [
       "doris_storage_optimization",
       "grouping_sets_design",
-      "metadata-design"
-    ]
+      "metadata-design",
+    ],
   },
   {
     title: "SQL Manual",
@@ -144,8 +169,8 @@ module.exports = [
               "unix_timestamp",
               "utc_timestamp",
               "workofyear",
-              "year"
-            ]
+              "year",
+            ],
           },
           {
             title: "Sptial Functions",
@@ -160,8 +185,8 @@ module.exports = [
               "st_point",
               "st_polygon",
               "st_x",
-              "st_y"
-            ]
+              "st_y",
+            ],
           },
           {
             title: "String Functions",
@@ -193,8 +218,8 @@ module.exports = [
               "split_part",
               "starts_with",
               "strleft",
-              "strright"
-            ]
+              "strright",
+            ],
           },
           {
             title: "Aggregate Functions",
@@ -212,8 +237,8 @@ module.exports = [
               "stddev_samp",
               "sum",
               "var_samp",
-              "variance"
-            ]
+              "variance",
+            ],
           },
           {
             title: "bitmap functions",
@@ -227,16 +252,16 @@ module.exports = [
               "bitmap_hash",
               "bitmap_or",
               "bitmap_to_string",
-              "to_bitmap"
-            ]
+              "to_bitmap",
+            ],
           },
           {
             title: "Hash Functions",
             directoryPath: "hash-functions/",
-            children: ["murmur_hash3_32"]
+            children: ["murmur_hash3_32"],
           },
-          "cast"
-        ]
+          "cast",
+        ],
       },
       {
         title: "DDL Statements",
@@ -255,8 +280,8 @@ module.exports = [
               "SET PASSWORD",
               "SET PROPERTY",
               "SHOW GRANTS",
-              "SHOW ROLES"
-            ]
+              "SHOW ROLES",
+            ],
           },
           {
             title: "Administration",
@@ -266,6 +291,7 @@ module.exports = [
               "ADMIN CHECK TABLET",
               "ADMIN REPAIR",
               "ADMIN SET CONFIG",
+              "ADMIN SET REPLICA STATUS",
               "ADMIN SHOW CONFIG",
               "ADMIN SHOW REPLICA DISTRIBUTION",
               "ADMIN SHOW REPLICA STATUS",
@@ -277,6 +303,7 @@ module.exports = [
               "DROP CLUSTER",
               "DROP FILE",
               "ENTER",
+              "INSTALL PLUGIN",
               "LINK DATABASE",
               "MIGRATE DATABASE",
               "SHOW BACKENDS",
@@ -286,8 +313,10 @@ module.exports = [
               "SHOW FULL COLUMNS",
               "SHOW INDEX",
               "SHOW MIGRATIONS",
-              "SHOW TABLE STATUS"
-            ]
+              "SHOW PLUGINS",
+              "SHOW TABLE STATUS",
+              "UNINTALL PLUGIN",
+            ],
           },
           {
             title: "Data Definition",
@@ -303,12 +332,14 @@ module.exports = [
               "Colocate Join",
               "CREATE DATABASE",
               "CREATE INDEX",
+              "CREATE MATERIALIZED VIEW",
               "CREATE REPOSITORY",
               "CREATE TABLE",
               "CREATE VIEW",
               "create-function",
               "DROP DATABASE",
               "DROP INDEX",
+              "DROP MATERIALIZED VIEW",
               "DROP REPOSITORY",
               "DROP TABLE",
               "DROP VIEW",
@@ -317,8 +348,8 @@ module.exports = [
               "RECOVER",
               "RESTORE",
               "show-functions",
-              "TRUNCATE TABLE"
-            ]
+              "TRUNCATE TABLE",
+            ],
           },
           {
             title: "Data Manipulation",
@@ -359,8 +390,8 @@ module.exports = [
               "SHOW TABLET",
               "SHOW TRANSACTION",
               "STOP ROUTINE LOAD",
-              "STREAM LOAD"
-            ]
+              "STREAM LOAD",
+            ],
           },
           {
             title: "Data Types",
@@ -378,22 +409,22 @@ module.exports = [
               "INT",
               "SMALLINT",
               "TINYINT",
-              "VARCHAR"
-            ]
+              "VARCHAR",
+            ],
           },
           {
             title: "Utility",
             directoryPath: "Utility/",
-            children: ["util_stmt"]
-          }
-        ]
-      }
-    ]
+            children: ["util_stmt"],
+          },
+        ],
+      },
+    ],
   },
   {
     title: "Developer Guide",
     directoryPath: "developer-guide/",
-    children: ["debug-tool", "format-code"]
+    children: ["debug-tool", "format-code"],
   },
   {
     title: "Apache Commnity",
@@ -405,7 +436,7 @@ module.exports = [
       "pull-request",
       "release-process",
       "subscribe-mail-list",
-      "verify-apache-release"
-    ]
-  }
-];
+      "verify-apache-release",
+    ],
+  },
+]

@@ -25,7 +25,6 @@ under the License.
 -->
 
 # CREATE CLUSTER
-
 ## Description
 
 This statement is used to create a new logical cluster, requiring administrator privileges. If you don't use multiple tenants, create a cluster named default_cluster directly. Otherwise, create a cluster with a custom name.
@@ -59,5 +58,4 @@ CREATE CLUSTER test_cluster PROPERTIES("instance_num"="3") IDENTIFIED BY 'test';
 CREATE CLUSTER default_cluster PROPERTIES("instance_num"="3") IDENTIFIED BY 'test';
 
 ## keyword
-
 CREATE,CLUSTER

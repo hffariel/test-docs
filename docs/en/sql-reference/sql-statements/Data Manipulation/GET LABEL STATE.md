@@ -25,14 +25,12 @@ under the License.
 -->
 
 # GET LABEL STATE
-
 ## Description
-
 NAME:
 get_label_state: get label's state
 
 SYNOPSIS
-curl -u user:passwd <http://host:port> /api /{db}/{label}// u state
+curl -u user:passwd http://host:port /api /{db}/{label}// u state
 
 DESCRIPTION
 This command is used to view the transaction status of a Label
@@ -54,8 +52,7 @@ ERRORS
 '35;'35; example
 
 1. Obtain the state of testDb, testLabel
-curl -u root <http://host:port> /api /testDb /testLabel / u state
+curl -u root http://host:port /api /testDb /testLabel / u state
 
 ## keyword
-
 GET, LABEL, STATE

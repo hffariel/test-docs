@@ -25,9 +25,7 @@ under the License.
 -->
 
 # CREATE REPOSITORY
-
 ## description
-
     该语句用于创建仓库。仓库用于属于备份或恢复。仅 root 或 superuser 用户可以创建仓库。
     语法：
         CREATE [READ ONLY] REPOSITORY `repo_name`
@@ -39,9 +37,8 @@ under the License.
         1. 仓库的创建，依赖于已存在的 broker
         2. 如果是只读仓库，则只能在仓库上进行恢复。如果不是，则可以进行备份和恢复操作。
         3. 根据 broker 的不同类型，PROPERTIES 有所不同，具体见示例。
-
+        
 ## example
-
     1. 创建名为 bos_repo 的仓库，依赖 BOS broker "bos_broker"，数据根目录为：bos://palo_backup
         CREATE REPOSITORY `bos_repo`
         WITH BROKER `bos_broker`
@@ -73,7 +70,7 @@ under the License.
             "username" = "user",
             "password" = "password"
         );
-
+        
 ## keyword
-
     CREATE REPOSITORY
+

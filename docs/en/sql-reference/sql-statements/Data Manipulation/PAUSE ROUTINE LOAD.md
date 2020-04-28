@@ -25,7 +25,6 @@ under the License.
 -->
 
 # PAUSE ROUTINE LOAD
-
 ## example
 
 1. Suspend the routine import operation named test 1.
@@ -33,5 +32,4 @@ under the License.
 PAUSE ROUTINE LOAD FOR test1;
 
 ## keyword
-
 PAUSE,ROUTINE,LOAD

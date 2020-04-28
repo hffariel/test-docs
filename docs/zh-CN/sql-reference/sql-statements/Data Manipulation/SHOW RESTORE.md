@@ -25,9 +25,7 @@ under the License.
 -->
 
 # SHOW RESTORE
-
 ## description
-
     该语句用于查看 RESTORE 任务
     语法：
         SHOW RESTORE [FROM db_name]
@@ -61,10 +59,9 @@ under the License.
             Timeout：                作业超时时间，单位秒
 
 ## example
-
     1. 查看 example_db 下最近一次 RESTORE 任务。
         SHOW RESTORE FROM example_db;
 
 ## keyword
-
     SHOW, RESTORE
+    

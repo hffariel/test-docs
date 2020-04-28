@@ -24,16 +24,16 @@ specific language governing permissions and limitations
 under the License.
 -->
 
+
 # Metadata Design Document
 
 ## Noun Interpretation
 
 * FE: Frontend, the front-end node of Doris. Mainly responsible for receiving and returning client requests, metadata, cluster management, query plan generation and so on.
 * BE: Backend, the back-end node of Doris. Mainly responsible for data storage and management, query plan execution and other work.
-* bdbje: [Oracle Berkeley DB Java Edition] (<http://www.oracle.com/technetwork/database/berkeleydb/overview/index-093405.html).> In Doris, we use bdbje to persist metadata operation logs and high availability of FE.
+* bdbje: [Oracle Berkeley DB Java Edition] (http://www.oracle.com/technetwork/database/berkeleydb/overview/index-093405.html). In Doris, we use bdbje to persist metadata operation logs and high availability of FE.
 
 ## Overall architecture
-
 ![](/images/palo_architecture.jpg)
 
 As shown above, Doris's overall architecture is divided into two layers. Multiple FEs form the first tier, providing lateral expansion and high availability of FE. Multiple BEs form the second layer, which is responsible for data storage and management. This paper mainly introduces the design and implementation of metadata in FE layer.
@@ -100,9 +100,11 @@ The data flow of metadata is as follows:
 
 2. FE starts for the first time. If the `-helper` parameter is specified in the startup script and points to the correct leader FE node, the FE first asks the leader node about its role (ROLE) and cluster_id through http. Then pull up the latest image file. After reading image file and generating metadata image, start bdbje and start bdbje log synchronization. After synchronization is completed, the log after image file in bdbje is replayed, and the final metadata image generation is completed.
 
- > Note 1: When starting with the `-helper` parameter, you need to first add the FE through the leader through the MySQL command, otherwise, the start will report an error.
- > Note 2: `-helper` can point to any follower node, even if it is not leader.
- > Note 3: In the process of synchronization log, the Fe log will show `xxx detached`. At this time, the log pull is in progress, which is a normal phenomenon.
+	> Note 1: When starting with the `-helper` parameter, you need to first add the FE through the leader through the MySQL command, otherwise, the start will report an error.
+
+	> Note 2: `-helper` can point to any follower node, even if it is not leader.
+
+	> Note 3: In the process of synchronization log, the Fe log will show `xxx detached`. At this time, the log pull is in progress, which is a normal phenomenon.
 
 3. FE is not the first startup. If the startup script does not add any parameters, it will determine its identity according to the ROLE information stored locally. At the same time, according to the cluster information stored in the local bdbje, the leader information is obtained. Then read the local image file and the log in bdbje to complete the metadata image generation. (If the roles recorded in the local ROLE are inconsistent with those recorded in bdbje, an error will be reported.)
 
@@ -112,7 +114,7 @@ The data flow of metadata is as follows:
 
 1. Users can use Mysql to connect any FE node to read and write metadata. If the connection is a non-leader node, the node forwards the write operation to the leader node. When the leader is successfully written, it returns a current and up-to-date log ID of the leader. Later, the non-leader node waits for the log ID it replays to be larger than the log ID it returns to the client before returning the message that the command succeeds. This approach guarantees Read-Your-Write semantics for any FE node.
 
- > Note: Some non-write operations are also forwarded to leader for execution. For example, `SHOW LOAD` operation. Because these commands usually need to read the intermediate states of some jobs, which are not written to bdbje, there are no such intermediate states in the memory of the non-leader node. (FE's direct metadata synchronization depends entirely on bdbje's log playback. If a metadata modification operation does not write bdbje's log, the result of the modification of the operation will not be seen in other non-leader nodes.)
+	> Note: Some non-write operations are also forwarded to leader for execution. For example, `SHOW LOAD` operation. Because these commands usually need to read the intermediate states of some jobs, which are not written to bdbje, there are no such intermediate states in the memory of the non-leader node. (FE's direct metadata synchronization depends entirely on bdbje's log playback. If a metadata modification operation does not write bdbje's log, the result of the modification of the operation will not be seen in other non-leader nodes.)
 
 2. The leader node starts a TimePrinter thread. This thread periodically writes a key-value entry for the current time to bdbje. The remaining non-leader nodes read the recorded time in the log by playback and compare it with the local time. If the lag between the local time and the local time is found to be greater than the specified threshold (configuration item: `meta_delay_toleration_second`). If the write interval is half of the configuration item, the node will be in the **unreadable** state. This mechanism solves the problem that non-leader nodes still provide outdated metadata services after a long time of leader disconnection.
 

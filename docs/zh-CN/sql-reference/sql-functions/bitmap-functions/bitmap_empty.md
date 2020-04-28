@@ -25,9 +25,7 @@ under the License.
 -->
 
 # bitmap_empty
-
 ## description
-
 ### Syntax
 
 `BITMAP BITMAP_EMPTY()`

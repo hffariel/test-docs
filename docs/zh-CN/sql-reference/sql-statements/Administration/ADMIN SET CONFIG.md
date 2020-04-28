@@ -25,7 +25,6 @@ under the License.
 -->
 
 # ADMIN SET CONFIG
-
 ## description
 
     该语句用于设置集群的配置项（当前仅支持设置FE的配置项）。
@@ -42,5 +41,4 @@ under the License.
         ADMIN SET FRONTEND CONFIG ("disable_balance" = "true");
 
 ## keyword
-
     ADMIN,SET,CONFIG

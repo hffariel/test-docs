@@ -25,7 +25,6 @@ under the License.
 -->
 
 # LINK DATABASE
-
 ## description
 
     （已废弃！！！）
@@ -48,5 +47,5 @@ under the License.
        DROP DATABASE link_test_db;
 
 ## keyword
-
     LINK,DATABASE
+

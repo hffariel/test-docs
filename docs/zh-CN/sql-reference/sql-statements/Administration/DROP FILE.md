@@ -25,7 +25,6 @@ under the License.
 -->
 
 # DROP FILE
-
 ## description
 
     该语句用于删除一个已上传的文件。
@@ -49,5 +48,4 @@ under the License.
         DROP FILE "ca.pem" properties("catalog" = "kafka");
 
 ## keyword
-
     DROP,FILE

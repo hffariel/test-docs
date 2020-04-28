@@ -25,9 +25,7 @@ under the License.
 -->
 
 # Colocate Join
-
 ## Description
-
 Colocate/Local Join means that when multiple nodes are Join, there is no data movement and network transmission, and each node is only Join locally.
 The premise of Join locally is to import data from the same Join Key into a fixed node according to the same rules.
 
@@ -40,7 +38,7 @@ If you need to Colocate Join table t1 and t2, you can build tables according to 
 
 CREATE TABLE `t1` (
 `id` int(11) COMMENT "",
-'value `varchar (8) COMMENT ""
+'value ` varchar (8) COMMENT ""
 ) ENGINE=OLAP
 DUPLICATE KEY(`id`)
 DISTRIBUTED BY HASH(`id`) BUCKETS 10
@@ -50,7 +48,7 @@ PROPERTIES (
 
 CREATE TABLE `t2` (
 `id` int(11) COMMENT "",
-'value `varchar (8) COMMENT ""
+'value ` varchar (8) COMMENT ""
 ) ENGINE=OLAP
 DUPLICATE KEY(`id`)
 DISTRIBUTED BY HASH(`id`) BUCKETS 10

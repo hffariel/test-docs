@@ -44,7 +44,7 @@ Rollup: Generally, it refers to the Rollup tables created based on Base tables, 
 Doris's prefix index has been introduced in the previous query practice, that is, Doris will generate the first 36 bytes in the Base/Rollup table separately in the underlying storage engine (with varchar type, the prefix index may be less than 36 bytes, varchar will truncate the prefix index, and use up to 20 bytes of varchar). A sorted sparse index data (data is also sorted, positioned by index, and then searched by dichotomy in the data), and then matched each Base/Rollup prefix index according to the conditions in the query, and selected a Base/Rollup that matched the longest prefix index.
 
 ```
-  ---> matching from left to right
+		---> matching from left to right
 +----+----+----+----+----+----+
 | c1 | c2 | c3 | c4 | c5 |... |
 ```
@@ -138,18 +138,18 @@ SELECT * FROM test WHERE k1 = 1 AND k2 > 3;
 With the conditions on K1 and k2, check that only the first column of Base contains K1 in the condition, so match the longest prefix index, test, explain:
 
 ```
-|   0:OlapScanNode
-|      TABLE: test
-|      PREAGGREGATION: OFF. Reason: No AggregateInfo
-|      PREDICATES: `k1` = 1, `k2` > 3
-|      partitions=1/1
-|      rollup: test
-|      buckets=1/10
-|      cardinality=-1
-|      avgRowSize=0.0
-|      numNodes=0
+|   0:OlapScanNode                                                                                                                                                                                                                                                                                                                                                                                                 
+|      TABLE: test                                                                                                                                                                                                                                                                                                                                                                                                  
+|      PREAGGREGATION: OFF. Reason: No AggregateInfo                                                                                                                                                                                                                                                                                                                                                                
+|      PREDICATES: `k1` = 1, `k2` > 3                                                                                                                                                                                                                                                                                                                                                                               
+|      partitions=1/1                                                                                                                                                                                                                                                                                                                                                                                               
+|      rollup: test                                                                                                                                                                                                                                                                                                                                                                                                 
+|      buckets=1/10                                                                                                                                                                                                                                                                                                                                                                                                 
+|      cardinality=-1                                                                                                                                                                                                                                                                                                                                                                                               
+|      avgRowSize=0.0                                                                                                                                                                                                                                                                                                                                                                                               
+|      numNodes=0                                                                                                                                                                                                                                                                                                                                                                                                   
 |      tuple ids: 0
-```
+``` 
 
 Look again at the following queries:
 
@@ -158,16 +158,16 @@ Look again at the following queries:
 With K4 and K5 conditions, check that the first column of rollup_index3 and rollup_index4 contains k4, but the second column of rollup_index3 contains k5, so the matching prefix index is the longest.
 
 ```
-|   0:OlapScanNode
-|      TABLE: test
-|      PREAGGREGATION: OFF. Reason: No AggregateInfo
-|      PREDICATES: `k4` = 1, `k5` > 3
-|      partitions=1/1
-|      rollup: rollup_index3
-|      buckets=10/10
-|      cardinality=-1
-|      avgRowSize=0.0
-|      numNodes=0
+|   0:OlapScanNode                                                                                                                                                                                                                                                                                                                                                                                                
+|      TABLE: test                                                                                                                                                                                                                                                                                                                                                                                                  
+|      PREAGGREGATION: OFF. Reason: No AggregateInfo                                                                                                                                                                                                                                                                                                                                                                
+|      PREDICATES: `k4` = 1, `k5` > 3                                                                                                                                                                                                                                                                                                                                                                              
+|      partitions=1/1                                                                                                                                                                                                                                                                                                                                                                                               
+|      rollup: rollup_index3                                                                                                                                                                                                                                                                                                                                                                                        
+|      buckets=10/10                                                                                                                                                                                                                                                                                                                                                                                                
+|      cardinality=-1                                                                                                                                                                                                                                                                                                                                                                                               
+|      avgRowSize=0.0                                                                                                                                                                                                                                                                                                                                                                                               
+|      numNodes=0                                                                                                                                                                                                                                                                                                                                                                                                   
 |      tuple ids: 0
 ```
 
@@ -178,16 +178,16 @@ Now we try to match the conditions on the column containing varchar, as follows:
 There are K9 and K1 conditions. The first column of rollup_index1 and rollup_index2 contains k9. It is reasonable to choose either rollup here to hit the prefix index and randomly select the same one (because there are just 20 bytes in varchar, and the prefix index is truncated in less than 36 bytes). The current strategy here will continue to match k1, because the second rollup_index1 is listed as k1, so rollup_index1 is chosen, in fact, the latter K1 condition will not play an accelerating role. (If the condition outside the prefix index needs to accelerate the query, it can be accelerated by establishing a Bloom Filter filter. Typically for string types, because Doris has a Block level for columns, a Min/Max index for shaping and dates.) The following is the result of explain.
 
 ```
-|   0:OlapScanNode
-|      TABLE: test
-|      PREAGGREGATION: OFF. Reason: No AggregateInfo
-|      PREDICATES: `k9` IN ('xxx', 'yyyy'), `k1` = 10
-|      partitions=1/1
-|      rollup: rollup_index1
-|      buckets=1/10
-|      cardinality=-1
-|      avgRowSize=0.0
-|      numNodes=0
+|   0:OlapScanNode                                                                                                                                                                                                                                                                                                                                                                                                  
+|      TABLE: test                                                                                                                                                                                                                                                                                                                                                                                                  
+|      PREAGGREGATION: OFF. Reason: No AggregateInfo                                                                                                                                                                                                                                                                                                                                                                
+|      PREDICATES: `k9` IN ('xxx', 'yyyy'), `k1` = 10                                                                                                                                                                                                                                                                                                                                                               
+|      partitions=1/1                                                                                                                                                                                                                                                                                                                                                                                               
+|      rollup: rollup_index1                                                                                                                                                                                                                                                                                                                                                                                        
+|      buckets=1/10                                                                                                                                                                                                                                                                                                                                                                                                 
+|      cardinality=-1                                                                                                                                                                                                                                                                                                                                                                                               
+|      avgRowSize=0.0                                                                                                                                                                                                                                                                                                                                                                                               
+|      numNodes=0                                                                                                                                                                                                                                                                                                                                                                                                   
 |      tuple ids: 0
 ```  
 
@@ -198,16 +198,16 @@ Finally, look at a query that can be hit by more than one Rollup:
 There are three conditions: k4, K5 and k6. The first three columns of rollup_index3 and rollup_index4 contain these three columns respectively. So the prefix index length matched by them is the same. Both can be selected. The current default strategy is to select a rollup created earlier. Here is rollup_index3.
 
 ```
-|   0:OlapScanNode
-|      TABLE: test
-|      PREAGGREGATION: OFF. Reason: No AggregateInfo
-|      PREDICATES: `k4` < 1000, `k5` = 80, `k6` >= 10000.0
-|      partitions=1/1
-|      rollup: rollup_index3
-|      buckets=10/10
-|      cardinality=-1
-|      avgRowSize=0.0
-|      numNodes=0
+|   0:OlapScanNode                                                                                                                                                                                                                                                                                                                                                                                                  
+|      TABLE: test                                                                                                                                                                                                                                                                                                                                                                                                  
+|      PREAGGREGATION: OFF. Reason: No AggregateInfo                                                                                                                                                                                                                                                                                                                                                                
+|      PREDICATES: `k4` < 1000, `k5` = 80, `k6` >= 10000.0                                                                                                                                                                                                                                                                                                                                                          
+|      partitions=1/1                                                                                                                                                                                                                                                                                                                                                                                               
+|      rollup: rollup_index3                                                                                                                                                                                                                                                                                                                                                                                        
+|      buckets=10/10                                                                                                                                                                                                                                                                                                                                                                                                
+|      cardinality=-1                                                                                                                                                                                                                                                                                                                                                                                               
+|      avgRowSize=0.0                                                                                                                                                                                                                                                                                                                                                                                               
+|      numNodes=0                                                                                                                                                                                                                                                                                                                                                                                                   
 |      tuple ids: 0
 ```
 
@@ -233,6 +233,7 @@ The following are some types of aggregated queries that can hit Rollup.
 |Value(Replace)| false |          false          | false | false | false |
 |   Value(Min) | false |          false          |  true | false | false |
 |   Value(Max) | false |          false          | false | true  | false |
+
 
 If the above conditions are met, there will be two stages in judging the hit of Rollup for the aggregation model:
 
@@ -272,6 +273,7 @@ The following Base table and Rollup:
 |             | k11   | FLOAT        | Yes  | false | N/A     | SUM   |
 +-------------+-------+--------------+------+-------+---------+-------+
 ```
+
 
 See the following queries:
 

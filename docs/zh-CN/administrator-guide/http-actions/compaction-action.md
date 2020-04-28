@@ -83,3 +83,4 @@ curl -X GET http://192.168.10.24:8040/api/compaction/show?tablet_id=10015\&schem
 ## 手动触发 Compaction
 
 (TODO)
+

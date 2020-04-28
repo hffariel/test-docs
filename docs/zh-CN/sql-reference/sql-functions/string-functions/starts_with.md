@@ -25,9 +25,7 @@ under the License.
 -->
 
 # starts_with
-
 ## description
-
 ### Syntax
 
 `BOOLEAN STARTS_WITH (VARCHAR str, VARCHAR prefix)`
@@ -51,7 +49,5 @@ MySQL [(none)]> select starts_with("hello world","world");
 |                                   0 |
 +-------------------------------------+
 ```
-
-## keyword
-
+##keyword
 STARTS_WITH

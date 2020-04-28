@@ -25,9 +25,7 @@ under the License.
 -->
 
 # TRUNCATE TABLE
-
 ## description
-
     该语句用于清空指定表和分区的数据
     语法：
 
@@ -39,7 +37,7 @@ under the License.
         3. 不同于 DELETE，使用该方式清空数据不会对查询性能造成影响。
         4. 该操作删除的数据不可恢复。
         5. 使用该命令时，表状态需为 NORMAL，即不允许正在进行 SCHEMA CHANGE 等操作。
-
+        
 ## example
 
     1. 清空 example_db 下的表 tbl
@@ -51,5 +49,5 @@ under the License.
         TRUNCATE TABLE tbl PARTITION(p1, p2);
 
 ## keyword
-
     TRUNCATE,TABLE
+

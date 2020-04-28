@@ -25,12 +25,11 @@ under the License.
 -->
 
 # right
-
 ## Description
-
 ### Syntax
 
 'VARCHAR RIGHT (VARCHAR STR)'
+
 
 It returns the right part of a string of specified length
 
@@ -44,7 +43,5 @@ mysql> select right("Hello doris",5);
 | doris                   |
 +-------------------------+
 ```
-
-## keyword
-
+##keyword
 RIGHT

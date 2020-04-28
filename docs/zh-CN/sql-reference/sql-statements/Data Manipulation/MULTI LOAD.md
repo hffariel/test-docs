@@ -25,7 +25,6 @@ under the License.
 -->
 
 # MULTI LOAD
-
 ## description
 
     Syntax:
@@ -105,5 +104,5 @@ under the License.
         curl --location-trusted -u root -XPOST http://host:port/api/testDb/_multi_desc?label=123
 
 ## keyword
-
     MULTI, MINI, LOAD
+

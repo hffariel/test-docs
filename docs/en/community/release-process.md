@@ -32,37 +32,38 @@ The general process of publication is as follows:
 
 1. Preparing your setup
 2. Preparing for release candidates
-1. launching DISCUSS in the community
-2. cutting a release branch
-3. clean up issues
-4. merging necessary patch to release branch
+	1. launching DISCUSS in the community
+	2. cutting a release branch
+	3. clean up issues
+	4. merging necessary patch to release branch
 3. Running the voting process for a release
-1. singing a tag and upload it to [Apache dev svn repo](https://dist.apache.org/repos/dist/dev/incubator/doris)
-2. calling votes from [Doris community](dev@doris.apache.org)
-3. send result email to [Doris community](dev@doris.apache.org)
-4. calling votes from [Incubator community](general@incubator.apache.org)
-5. send result email to general@incubator.apache.org
+	1. singing a tag and upload it to [Apache dev svn repo](https://dist.apache.org/repos/dist/dev/incubator/doris)
+	2. calling votes from [Doris community](dev@doris.apache.org)
+	3. send result email to [Doris community](dev@doris.apache.org)
+	4. calling votes from [Incubator community](general@incubator.apache.org)
+	5. send result email to general@incubator.apache.org
 4. Finalizing and posting a release
-1. Upload the signature package to [Apache release repo](https://dist.apache.org/repos/dist/release/incubator/doris) and generate relevant links
-2. Prepare release note and send Announce mail to general@incubator.apache.org
-3. Publish download links on Doris website and GitHub
+	1. Upload the signature package to [Apache release repo](https://dist.apache.org/repos/dist/release/incubator/doris) and generate relevant links
+	2. Prepare release note and send Announce mail to general@incubator.apache.org
+	3. Publish download links on Doris website and GitHub
+
 
 ## prepare setup
 
 If you are a new Release Manager, you can read up on the process from the followings:
 
-1. release signing <https://www.apache.org/dev/release-signing.html>
-2. gpg for signing <https://www.apache.org/dev/openpgp.html>
-3. svn <https://www.apache.org/dev/version-control.html#https-svn>
+1. release signing https://www.apache.org/dev/release-signing.html
+2. gpg for signing https://www.apache.org/dev/openpgp.html
+3. svn https://www.apache.org/dev/version-control.html#https-svn
 
 ### preparing gpg key
 
-Release manager needs Mr. A to sign his own public key before publishing and upload it to the public key
+Release manager needs Mr. A to sign his own public key before publishing and upload it to the public key 
 server. Then he can use this public key to sign the package ready for publication.
-If your key already exists in [key] (<https://dist.apache.org/repos/dist/dev/initiator/doris/keys),> you can skip this step.
+If your key already exists in [key] (https://dist.apache.org/repos/dist/dev/initiator/doris/keys), you can skip this step.
+
 
 #### Installation and configuration of signature software GnuPG
-
 ##### GnuPG
 
 In 1991, programmer Phil Zimmermann developed the encryption software PGP to avoid government surveillance. This software is very useful, spread quickly, has become a necessary tool for many programmers. However, it is commercial software and cannot be used freely. So the Free Software Foundation decided to develop a replacement for PGP, called GnuPG. This is the origin of GPG.
@@ -74,7 +75,6 @@ CentOS installation command:
 ```
 yum install gnupg
 ```
-
 After installation, the default configuration file gpg.conf will be placed in the home directory.
 
 ```
@@ -215,9 +215,10 @@ http://keys.gnupg.net
 
 After successful upload, you can query the website and enter 0x33DBF2E0:
 
-<http://keys.gnupg.net>
+http://keys.gnupg.net
 
 Queries on the site are delayed and may take an hour.
+
 
 #### Generate fingerprint and upload it to Apache user information
 
@@ -239,7 +240,7 @@ sub   4096R/0E8182E6 2018-12-06
 
 Paste the fingerprint above (i.e. 07AA E690 B01D 1A4B 469B 0BEF 5E29 CE39 33DB F2E0) into your user information:
 
-<https://id.apache.org>
+https://id.apache.org
 OpenPGP Public Key Primary Fingerprint:
 
 #### Generating keys
@@ -265,7 +266,7 @@ If DISCUSS mail is supported, we can proceed to the next step.
 Before publishing, we need to build a new branch, For example:
 
 ```
-git checkout -b branch-0.9
+$ git checkout -b branch-0.9
 
 ```
 
@@ -308,17 +309,17 @@ $ git tag
 The following steps also need to log into user accounts directly through terminals such as SecureCRT, and can not be transferred through Su - user or ssh, otherwise the password input box will not show and error will be reported.
 
 ```
-git checkout 0.9.0-rc01
+$ git checkout 0.9.0-rc01
 
-git archive --format=tar 0.9.0-rc01 --prefix=apache-doris-0.9.0-incubating-src/ | gzip > apache-doris-0.9.0-incubating-src.tar.gz
+$ git archive --format=tar 0.9.0-rc01 --prefix=apache-doris-0.9.0-incubating-src/ | gzip > apache-doris-0.9.0-incubating-src.tar.gz
 
-gpg -u xxx@apache.org --armor --output apache-doris-0.9.0-incubating-src.tar.gz.asc --detach-sign apache-doris-0.9.0-incubating-src.tar.gz
+$ gpg -u xxx@apache.org --armor --output apache-doris-0.9.0-incubating-src.tar.gz.asc --detach-sign apache-doris-0.9.0-incubating-src.tar.gz
 
-gpg --verify apache-doris-0.9.0-incubating-src.tar.gz.asc apache-doris-0.9.0-incubating-src.tar.gz
+$ gpg --verify apache-doris-0.9.0-incubating-src.tar.gz.asc apache-doris-0.9.0-incubating-src.tar.gz
 
-sha512sum apache-doris-0.9.0-incubating-src.tar.gz > apache-doris-0.9.0-incubating-src.tar.gz.sha512
+$ sha512sum apache-doris-0.9.0-incubating-src.tar.gz > apache-doris-0.9.0-incubating-src.tar.gz.sha512
 
-sha512sum --check apache-doris-0.9.0-incubating-src.tar.gz.sha512
+$ sha512sum --check apache-doris-0.9.0-incubating-src.tar.gz.sha512
 ```
 
 ### Upload signature packages and KEYS files to DEV SVN
@@ -350,6 +351,7 @@ svn commit -m "Release Apache Doris (incubating) 0.9.0 rc1"
 ### Send community voting emails
 
 [VOTE] Release Apache Doris 0.9.0-incubating-rc01
+
 
 ```
 Hi all,
@@ -393,24 +395,24 @@ Best Regards,
 xxx
 
 ----
-DISCLAIMER-WIP:
-Apache Doris is an effort undergoing incubation at The Apache Software Foundation (ASF),
-sponsored by the Apache Incubator. Incubation is required of all newly accepted projects
-until a further review indicates that the infrastructure, communications, and decision
-making process have stabilized in a manner consistent with other successful ASF projects.
-While incubation status is not necessarily a reflection of the completeness or stability
+DISCLAIMER-WIP: 
+Apache Doris is an effort undergoing incubation at The Apache Software Foundation (ASF), 
+sponsored by the Apache Incubator. Incubation is required of all newly accepted projects 
+until a further review indicates that the infrastructure, communications, and decision 
+making process have stabilized in a manner consistent with other successful ASF projects. 
+While incubation status is not necessarily a reflection of the completeness or stability 
 of the code, it does indicate that the project has yet to be fully endorsed by the ASF.
 
-Some of the incubating project’s releases may not be fully compliant with ASF policy. For
-example, releases may have incomplete or un-reviewed licensing conditions. What follows is
-a list of known issues the project is currently aware of (note that this list, by definition,
-is likely to be incomplete):
+Some of the incubating project’s releases may not be fully compliant with ASF policy. For 
+example, releases may have incomplete or un-reviewed licensing conditions. What follows is 
+a list of known issues the project is currently aware of (note that this list, by definition, 
+is likely to be incomplete): 
 
  * Releases may have incomplete licensing conditions
 
 If you are planning to incorporate this work into your product/project, please be aware that
-you will need to conduct a thorough licensing review to determine the overall implications of
-including this work. For the current status of this project through the Apache Incubator
+you will need to conduct a thorough licensing review to determine the overall implications of 
+including this work. For the current status of this project through the Apache Incubator 
 visit: https://incubator.apache.org/projects/doris.html
 ```
 
@@ -434,7 +436,7 @@ xxx
 
 ```
 
-### Send an e-mail to general@incubator.apache.org for a vote
+### Send an e-mail to general@incubator.apache.org for a vote.
 
 [VOTE] Release Apache Doris 0.9.0-incubating-rc01
 
@@ -499,30 +501,31 @@ Best Regards,
 xxx
 
 ----
-DISCLAIMER-WIP:
-Apache Doris is an effort undergoing incubation at The Apache Software Foundation (ASF),
-sponsored by the Apache Incubator. Incubation is required of all newly accepted projects
-until a further review indicates that the infrastructure, communications, and decision
-making process have stabilized in a manner consistent with other successful ASF projects.
-While incubation status is not necessarily a reflection of the completeness or stability
+DISCLAIMER-WIP: 
+Apache Doris is an effort undergoing incubation at The Apache Software Foundation (ASF), 
+sponsored by the Apache Incubator. Incubation is required of all newly accepted projects 
+until a further review indicates that the infrastructure, communications, and decision 
+making process have stabilized in a manner consistent with other successful ASF projects. 
+While incubation status is not necessarily a reflection of the completeness or stability 
 of the code, it does indicate that the project has yet to be fully endorsed by the ASF.
 
-Some of the incubating project’s releases may not be fully compliant with ASF policy. For
-example, releases may have incomplete or un-reviewed licensing conditions. What follows is
-a list of known issues the project is currently aware of (note that this list, by definition,
-is likely to be incomplete):
+Some of the incubating project’s releases may not be fully compliant with ASF policy. For 
+example, releases may have incomplete or un-reviewed licensing conditions. What follows is 
+a list of known issues the project is currently aware of (note that this list, by definition, 
+is likely to be incomplete): 
 
  * Releases may have incomplete licensing conditions
 
 If you are planning to incorporate this work into your product/project, please be aware that
-you will need to conduct a thorough licensing review to determine the overall implications of
-including this work. For the current status of this project through the Apache Incubator
+you will need to conduct a thorough licensing review to determine the overall implications of 
+including this work. For the current status of this project through the Apache Incubator 
 visit: https://incubator.apache.org/projects/doris.html
 ```
 
 The threaded connection for mail can be found here:
 
 `https://lists.apache.org/list.html?dev@doris.apache.org`
+
 
 ### Email Result to general@incubator.apache.org
 
@@ -566,6 +569,7 @@ http://www.apache.org/dist/incubator/doris/0.9.0-incubating/
 
 ```
 
+
 ### Send Announce e-mail to general@incubator.apache.org
 
 Title:
@@ -602,24 +606,24 @@ On behalf of the Doris team,
 xxx
 
 ----
-DISCLAIMER-WIP:
-Apache Doris is an effort undergoing incubation at The Apache Software Foundation (ASF),
-sponsored by the Apache Incubator. Incubation is required of all newly accepted projects
-until a further review indicates that the infrastructure, communications, and decision
-making process have stabilized in a manner consistent with other successful ASF projects.
-While incubation status is not necessarily a reflection of the completeness or stability
+DISCLAIMER-WIP: 
+Apache Doris is an effort undergoing incubation at The Apache Software Foundation (ASF), 
+sponsored by the Apache Incubator. Incubation is required of all newly accepted projects 
+until a further review indicates that the infrastructure, communications, and decision 
+making process have stabilized in a manner consistent with other successful ASF projects. 
+While incubation status is not necessarily a reflection of the completeness or stability 
 of the code, it does indicate that the project has yet to be fully endorsed by the ASF.
 
-Some of the incubating project’s releases may not be fully compliant with ASF policy. For
-example, releases may have incomplete or un-reviewed licensing conditions. What follows is
-a list of known issues the project is currently aware of (note that this list, by definition,
-is likely to be incomplete):
+Some of the incubating project’s releases may not be fully compliant with ASF policy. For 
+example, releases may have incomplete or un-reviewed licensing conditions. What follows is 
+a list of known issues the project is currently aware of (note that this list, by definition, 
+is likely to be incomplete): 
 
  * Releases may have incomplete licensing conditions
 
 If you are planning to incorporate this work into your product/project, please be aware that
-you will need to conduct a thorough licensing review to determine the overall implications of
-including this work. For the current status of this project through the Apache Incubator
+you will need to conduct a thorough licensing review to determine the overall implications of 
+including this work. For the current status of this project through the Apache Incubator 
 visit: https://incubator.apache.org/projects/doris.html
 
 ```
@@ -629,26 +633,26 @@ visit: https://incubator.apache.org/projects/doris.html
 #### Create Download Links
 
 Download link:
-<http://www.apache.org/dyn/closer.cgi?filename=incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz&action=download>
+http://www.apache.org/dyn/closer.cgi?filename=incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz&action=download
 
-wget --trust-server-names "<https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz">
+wget --trust-server-names "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz"
 
 Original location:
-<https://www.apache.org/dist/incubator/doris/0.9.0-incubating/>
+https://www.apache.org/dist/incubator/doris/0.9.0-incubating/
 
-<http://www.apache.org/dyn/closer.cgi/incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz>
+http://www.apache.org/dyn/closer.cgi/incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz
 
 Source package:
-<http://www.apache.org/dyn/closer.cgi/incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz>
+http://www.apache.org/dyn/closer.cgi/incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz
 
 ASC:
-<http://archive.apache.org/dist/incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz.asc>
+http://archive.apache.org/dist/incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz.asc
 
 sha512:
-<http://archive.apache.org/dist/incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz.sha512>
+http://archive.apache.org/dist/incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz.sha512
 
 KEYS:
-<http://archive.apache.org> /dist /incubator /doris /KEYS
+http://archive.apache.org /dist /incubator /doris /KEYS
 
 refer to: <http://www.apache.org/dev/release-download-pages#closer>
 

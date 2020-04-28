@@ -25,7 +25,6 @@ under the License.
 -->
 
 # DROP CLUSTER
-
 ## description
 
     该语句用于删除逻辑集群，成功删除逻辑集群需要首先删除集群内的db，需要管理员权限
@@ -41,5 +40,5 @@ under the License.
     DROP CLUSTER test_cluster;
 
 ## keyword
-
     DROP,CLUSTER
+

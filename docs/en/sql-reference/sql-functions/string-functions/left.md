@@ -25,12 +25,11 @@ under the License.
 -->
 
 # left
-
 ## Description
-
 ### Syntax
 
 'VARCHAR left (VARCHAR str)'
+
 
 It returns the left part of a string of specified length
 
@@ -44,7 +43,5 @@ mysql> select left("Hello doris",5);
 | Hello                  |
 +------------------------+
 ```
-
-## keyword
-
+##keyword
 LEFT

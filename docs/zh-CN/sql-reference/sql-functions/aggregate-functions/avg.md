@@ -25,12 +25,11 @@ under the License.
 -->
 
 # AVG
-
 ## description
-
 ### Syntax
 
 `AVG([DISTINCT] expr)`
+
 
 用于返回选中字段的平均值
 
@@ -54,7 +53,5 @@ mysql> SELECT datetime, AVG(distinct cost_time) FROM log_statis group by datetim
 +---------------------+---------------------------+
 
 ```
-
-## keyword
-
+##keyword
 AVG

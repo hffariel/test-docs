@@ -25,9 +25,7 @@ under the License.
 -->
 
 # curdate
-
 ## description
-
 ### Syntax
 
 `DATE CURDATE()`
@@ -52,6 +50,6 @@ mysql> SELECT CURDATE() + 0;
 +---------------+
 ```
 
-## keyword
+##keyword
 
     CURDATE

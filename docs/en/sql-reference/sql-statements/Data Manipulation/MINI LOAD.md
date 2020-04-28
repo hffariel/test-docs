@@ -25,25 +25,24 @@ under the License.
 -->
 
 # MINI LOAD
-
 ## Description
 
 MINI LOAD and STEAM LOAD are implemented in exactly the same way. MINI LOAD is a subset of STREAM LOAD in import support.
 Subsequent imports of new features will only be supported in STEAM LOAD, MINI LOAD will no longer add features. It is suggested that STREAM LOAD be used instead. Please use HELP STREAM LOAD.
 
 MINI LOAD is imported through HTTP protocol. Users can import without relying on Hadoop or Mysql client.
-The user describes the import through HTTP protocol, and the data is streamed into Doris in the process of receiving http requests. After the **import job is completed, the** returns to the user the imported results.
+The user describes the import through HTTP protocol, and the data is streamed into Doris in the process of receiving http requests. After the ** import job is completed, the ** returns to the user the imported results.
 
 * Note: In order to be compatible with the old version of mini load usage habits, users can still view the import results through the'SHOW LOAD'command.
 
 Grammar:
 Import:
 
-curl --location-trusted -u user:passwd -T data.file <http://host:port/api/{db}/{table}/_load?label=xxx>
+curl --location-trusted -u user:passwd -T data.file http://host:port/api/{db}/{table}/_load?label=xxx
 
 View import information
 
-curl -u user:passwd <http://host:port/api/{db}/_load_info?label=xxx>
+curl -u user:passwd http://host:port/api/{db}/_load_info?label=xxx
 
 HTTP Protocol Specification
 
@@ -58,6 +57,7 @@ Content-Length Doris needs to send a request with the header'Content-Length'. If
 'Content-Length'is less, so Doris believes that if there is a transmission problem, the submission task fails.
 NOTE: If you send more data than'Content-Length', Doris reads only'Content-Length'.
 Length content and import
+
 
 Description of parameters:
 
@@ -76,6 +76,7 @@ If you need to specify' t'as a separator, you should pass in'column_separator=% 
 If you need to specify'x01'as a delimiter, you should pass in'column_separator=% 01'
 If you need to specify','as a separator, you should pass in'column_separator=% 2c'
 
+
 Max_filter_ratio: Used to specify the maximum percentage allowed to filter irregular data, default is 0, not allowed to filter
 Custom specification should be as follows:'max_filter_ratio = 0.2', meaning that 20% error rate is allowed.
 
@@ -87,11 +88,10 @@ Hll: Used to specify the corresponding relationship between the HLL columns in t
 Specify multiple HLL columns using ":" splitting, for example:'hll1, cuid: hll2, device'
 
 NOTE:
-
 1. This method of importing is currently completed on a single machine, so it is not suitable to import a large amount of data.
 It is recommended that the amount of data imported should not exceed 1 GB.
 
-2. Currently, it is not possible to submit multiple files in the form of `curl-T',`{file1, file2}', because curl splits them into multiple files.
+2. Currently, it is not possible to submit multiple files in the form of `curl-T', `{file1, file2}', because curl splits them into multiple files.
 Request sent, multiple requests can not share a label number, so it can not be used
 
 3. Miniload is imported in exactly the same way as streaming. It returns the results synchronously to users after the import of streaming is completed.
@@ -102,10 +102,10 @@ Although the information of mini load can be found in subsequent queries, it can
 '35;'35; example
 
 1. Import the data from the local file'testData'into the table of'testTbl' in the database'testDb'(the user is in defalut_cluster)
-curl --location-trusted -u root -T testData <http://host:port/api/testDb/testTbl/_load?label=123>
+curl --location-trusted -u root -T testData http://host:port/api/testDb/testTbl/_load?label=123
 
 2. Import the data from the local file'testData'into the table of'testTbl' in the database'testDb'(the user is in test_cluster). The timeout time is 3600 seconds.
-curl --location-trusted -u root@test_cluster:root -T testData <http://fe.host:port/api/testDb/testTbl/_load?label=123&timeout=3600>
+curl --location-trusted -u root@test_cluster:root -T testData http://fe.host:port/api/testDb/testTbl/_load?label=123&timeout=3600
 
 3. Import data from the local file'testData'into the'testTbl' table in the database'testDb', allowing a 20% error rate (the user is in defalut_cluster)
 curl --location-trusted -u root -T testData http://host:port/api/testDb/testTbl/_load?label=123\&max_filter_ratio=0.2
@@ -114,7 +114,7 @@ curl --location-trusted -u root -T testData http://host:port/api/testDb/testTbl/
 curl --location-trusted -u root -T testData http://host:port/api/testDb/testTbl/_load?label=123\&max_filter_ratio=0.2\&columns=k1,k2,k3
 
 5. Import in streaming mode (user is in defalut_cluster)
-seq 1 10 | awk '{OFS="\t"}{print $1, $1 * 10}' | curl --location-trusted -u root -T - <http://host:port/api/testDb/testTbl/_load?label=123>
+seq 1 10 | awk '{OFS="\t"}{print $1, $1 * 10}' | curl --location-trusted -u root -T - http://host:port/api/testDb/testTbl/_load?label=123
 
 6. Import tables containing HLL columns, which can be columns in tables or columns in data to generate HLL columns (users are in defalut_cluster)
 
@@ -126,8 +126,7 @@ seq 1 10 | awk '{OFS="\t"}{print $1, $1 * 10}' | curl --location-trusted -u root
 
 7. View imports after submission
 
-curl -u root <http://host:port/api/testDb/_load_info?label=123>
+curl -u root http://host:port/api/testDb/_load_info?label=123
 
 ## keyword
-
 MINI, LOAD

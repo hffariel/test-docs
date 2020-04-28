@@ -25,7 +25,6 @@ under the License.
 -->
 
 # DELETE
-
 ## description
 
     该语句用于按条件删除指定 table（base index） partition 中的数据。
@@ -57,7 +56,7 @@ under the License.
     2. 删除 my_table partition p1 中 k1 列值大于等于 3 且 k2 列值为 "abc" 的数据行
         DELETE FROM my_table PARTITION p1
         WHERE k1 >= 3 AND k2 = "abc";
-
+        
 ## keyword
-
     DELETE
+    

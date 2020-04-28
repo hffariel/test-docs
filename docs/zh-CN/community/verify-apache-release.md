@@ -79,9 +79,10 @@ tar zxvf apache-rat-0.12-bin.tar.gz
 这个命令会产生一个文件，其中列举了所有非 ASF 协议的文件。
 
 ```
-/usr/java/jdk/bin/java  -jar apache-rat-0.12/apache-rat-0.12.jar -a -d apache-doris-a.b.c-incubating-src -E apache-doris-a.b.c-incubating-src/.rat-excudes
+/usr/java/jdk/bin/java  -jar apache-rat-0.12/apache-rat-0.12.jar -a -d apache-doris-a.b.c-incubating-src -E apache-doris-a.b.c-incubating-src/.rat-excudes 
 ```
 
 ## 4. 验证编译
 
 详细的编译步骤，请参阅 [编译文档](../installing/compilation.html)
+

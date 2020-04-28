@@ -72,6 +72,7 @@ mysql -h FE_HOST -P9030 -utest -ptest_passwd
 `CREATE DATABASE example_db;`
 
 > 所有命令都可以使用 'HELP command;' 查看到详细的语法帮助。如：`HELP CREATE DATABASE;`
+
 > 如果不清楚命令的全名，可以使用 "help 命令某一字段" 进行模糊查询。如键入'HELP CREATE'，可以匹配到 `CREATE DATABASE`, `CREATE TABLE`, `CREATE USER` 等命令。
 
 数据库创建完成之后，可以通过 `SHOW DATABASES;` 查看数据库信息。
@@ -135,7 +136,6 @@ Doris支持支持单分区和复合分区两种建表方式。
 * pv：类型是BIGINT（8字节）, 默认值是0; 这是一个指标列, Doris内部会对指标列做聚合操作, 这个列的聚合方法是求和（SUM）
 
 建表语句如下:
-
 ```
 CREATE TABLE table1
 (
@@ -172,7 +172,6 @@ PROPERTIES("replication_num" = "1");
 每个分区使用 siteid 进行哈希分桶，桶数为10
 
 建表语句如下:
-
 ```
 CREATE TABLE table2
 (
@@ -230,7 +229,7 @@ MySQL> DESC table2;
 ```
 
 > 注意事项：
->
+> 
 > 1. 上述表通过设置 replication_num 建的都是单副本的表，Doris建议用户采用默认的 3 副本设置，以保证高可用。
 > 2. 可以对复合分区表动态的增删分区。详见 `HELP ALTER TABLE` 中 Partition 相关部分。
 > 3. 数据导入可以导入指定的 Partition。详见 `HELP LOAD`。
@@ -268,21 +267,21 @@ curl --location-trusted -u test:test -H "label:table1_20170707" -H "column_separ
 示例2: 以 "table2_20170707" 为 Label，使用本地文件 table2_data 导入 table2 表。
 
 ```
-curl --location-trusted -u test:test -H "label:table2_20170707" -H "column_separator:\t" -T table2_data http://127.0.0.1:8030/api/example_db/table2/_stream_load
+curl --location-trusted -u test:test -H "label:table2_20170707" -H "column_separator:|" -T table1_data http://127.0.0.1:8030/api/example_db/table2/_stream_load
 ```
 
-本地文件 `table2_data` 以 `\t` 作为数据之间的分隔，具体内容如下：
+本地文件 `table2_data` 以 `|` 作为数据之间的分隔，具体内容如下：
 
 ```
-2017-07-03  1   1   jim   2
-2017-07-05  2   1   grace 2
-2017-07-12  3   2   tom   2
-2017-07-15  4   3   bush  3
-2017-07-12  5   3   helen 3
+2017-07-03|1|1|jim|2
+2017-07-05|2|1|grace|2
+2017-07-12|3|2|tom|2
+2017-07-15|4|3|bush|3
+2017-07-12|5|3|helen|3
 ```
 
 > 注意事项：
->
+> 
 > 1. 采用流式导入建议文件大小限制在 10GB 以内，过大的文件会导致失败重试代价变大。
 > 2. 每一批导入数据都需要取一个 Label，Label 最好是一个和一批数据有关的字符串，方便阅读和管理。Doris 基于 Label 保证在一个Database 内，同一批数据只可导入成功一次。失败任务的 Label 可以重用。
 > 3. 流式导入是同步命令。命令返回成功则表示数据已经导入，返回失败表示这批数据没有导入。
@@ -299,7 +298,7 @@ LOAD LABEL table1_20170708
     DATA INFILE("hdfs://your.namenode.host:port/dir/table1_data")
     INTO TABLE table1
 )
-WITH BROKER hdfs
+WITH BROKER hdfs 
 (
     "username"="hdfs_user",
     "password"="hdfs_password"

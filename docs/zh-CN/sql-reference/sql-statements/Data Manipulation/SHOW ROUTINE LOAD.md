@@ -25,7 +25,6 @@ under the License.
 -->
 
 # SHOW ROUTINE LOAD
-
 ## example
 
 1. 展示名称为 test1 的所有例行导入作业（包括已停止或取消的作业）。结果为一行或多行。
@@ -55,5 +54,5 @@ under the License.
     SHOW ALL ROUTINE LOAD FOR example_db.test1;
 
 ## keyword
-
     SHOW,ROUTINE,LOAD
+

@@ -25,7 +25,6 @@ under the License.
 # murmur_hash3_32
 
 ## description
-
 ### Syntax
 
 `INT MURMUR_HASH3_32(VARCHAR input, ...)`

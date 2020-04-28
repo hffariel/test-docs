@@ -25,22 +25,19 @@ under the License.
 -->
 
 # RESTORE
-
 ## Description
-
 1. RESTOR
 This statement is used to restore the data previously backed up by the BACKUP command to the specified database. This command is an asynchronous operation. After successful submission, you need to check progress through the SHOW RESTORE command. Restoring tables of OLAP type is supported only.
 Grammar:
 SNAPSHOT RESTORE [dbu name].{snapshot name}
 FROM `repository_name`
 ON (
-"`Table`uname'[`partition (`p1',...)] [as `tbl`uu alias'],
+"`Table `uname'[`partition (`p1',...)] [as `tbl `uu alias'],
 ...
 )
 PROPERTIES ("key"="value", ...);
 
 Explain:
-
 1. Only one BACKUP or RESTORE task can be performed under the same database.
 2. The ON clause identifies the tables and partitions that need to be restored. If no partition is specified, all partitions of the table are restored by default. The specified tables and partitions must already exist in the warehouse backup.
 3. The backup tables in the warehouse can be restored to new tables through AS statements. But the new table name cannot already exist in the database. Partition name cannot be changed.
@@ -53,11 +50,10 @@ Explain:
 "Meta_version" = 40: Use the specified meta_version to read the previously backed up metadata. Note that as a temporary solution, this parameter is only used to restore the data backed up by the older version of Doris. The latest version of the backup data already contains metaversion, no need to specify.
 
 ## example
-
 1. Restore backup table backup_tbl in snapshot_1 from example_repo to database example_db1 with the time version of "2018-05-04-16-45-08". Restore to one copy:
 RESTORE SNAPSHOT example_db1.`snapshot_1`
 FROM `example 'u repo'
-ON (`backup_tbl` )
+ON ( `backup_tbl` )
 PROPERTIES
 (
 "backup_timestamp"="2018-05-04-16-45-08",
@@ -69,8 +65,8 @@ RESTORE SNAPSHOT example_db1.`snapshot_2`
 FROM `example 'u repo'
 ON
 (
-`backup_tbl`PARTITION (`p1`,`p2`),
-`backup_tbl2`AS`new_tbl`
+`backup_tbl` PARTITION (`p1`, `p2`),
+`backup_tbl2` AS `new_tbl`
 )
 PROPERTIES
 (
@@ -78,5 +74,5 @@ PROPERTIES
 );
 
 ## keyword
-
 RESTORE
+

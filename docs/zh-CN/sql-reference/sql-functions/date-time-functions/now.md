@@ -25,12 +25,11 @@ under the License.
 -->
 
 # now
-
 ## description
-
 ### Syntax
 
 `DATETIME NOW()`
+
 
 获得当前的时间，以Datetime类型返回
 
@@ -45,6 +44,6 @@ mysql> select now();
 +---------------------+
 ```
 
-## keyword
+##keyword
 
     NOW

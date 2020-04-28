@@ -25,7 +25,6 @@ under the License.
 -->
 
 # BROKER LOAD
-
 ## description
 
     Broker load will load data into Doris via Broker.
@@ -38,7 +37,7 @@ under the License.
     3. Baidu Object Storage(BOS): BOS on Baidu Cloud.
     4. Apache HDFS.
 
-### Syntax
+### Syntax: 
 
     LOAD LABEL load_label
     (
@@ -423,7 +422,7 @@ under the License.
          SET (data_time=str_to_date(data_time, '%Y-%m-%d %H%%3A%i%%3A%s'))
         ) 
         WITH BROKER "hdfs" ("username"="user", "password"="pass");
-
+     
 ## keyword
 
     BROKER,LOAD

@@ -25,27 +25,22 @@ under the License.
 -->
 
 # Bitmap Index
-
 Users can speed up queries by creating a bitmap index
 This document focuses on how to create an index job, as well as some considerations and frequently asked questions when creating an index.
 
 ## Glossary
-
 * bitmap index：a fast data structure that speeds up queries
 
 ## Basic Principles
-
 Creating and droping index is essentially a schema change job. For details, please refer to
 [Schema Change](alter-table-schema-change_EN.html)。
 
 ## Syntax
-
 There are two forms of index creation and modification related syntax, one is integrated with alter table statement, and the other is using separate
 create/drop index syntax
-
 1. Create Index
 
-    Please refer to [CREATE INDEX](../../sql-reference/sql-statements/Data%20Definition/CREATE%20INDEX_EN.html)
+    Please refer to [CREATE INDEX](../../sql-reference/sql-statements/Data%20Definition/CREATE%20INDEX_EN.html) 
     or [ALTER TABLE](../../sql-reference/sql-statements/Data%20Definition/ALTER%20TABLE_EN.html),
     You can also specify a bitmap index when creating a table，Please refer to [CREATE TABLE](../../sql-reference/sql-statements/Data%20Definition/CREATE%20TABLE_EN.html)
 
@@ -58,38 +53,31 @@ create/drop index syntax
     Please refer to [DROP INDEX](../../sql-reference/sql-statements/Data%20Definition/DROP%20INDEX_EN.html) or [ALTER TABLE](../../sql-reference/sql-statements/Data%20Definition/ALTER%20TABLE_EN.html)
 
 ## Create Job
-
 Please refer to [Scheam Change](alter-table-schema-change_EN.html)
-
 ## View Job
-
 Please refer to [Scheam Change](alter-table-schema-change_EN.html)
 
 ## Cancel Job
-
 Please refer to [Scheam Change](alter-table-schema-change_EN.html)
 
 ## Notice
-
 * Currently only index of bitmap type is supported.
 * The bitmap index is only created on a single column.
 * Bitmap indexes can be applied to all columns of the `Duplicate` data model and key columns of the `Aggregate` and `Uniq` models.
 * The data types supported by bitmap indexes are as follows:
-  * `TINYINT`
-  * `SMALLINT`
-  * `INT`
-  * `UNSIGNEDINT`
-  * `BIGINT`
-  * `CHAR`
-  * `VARCHAE`
-  * `DATE`
-  * `DATETIME`
-  * `LARGEINT`
-  * `DECIMAL`
-  * `BOOL`
+    * `TINYINT`
+    * `SMALLINT`
+    * `INT`
+    * `UNSIGNEDINT`
+    * `BIGINT`
+    * `CHAR`
+    * `VARCHAE`
+    * `DATE`
+    * `DATETIME`
+    * `LARGEINT`
+    * `DECIMAL`
+    * `BOOL`
 * The bitmap index takes effect only in segmentV2. You need to add the following configuration to the configuration file of be
-
     ```
     default_rowset_type=BETA
-    compaction_rowset_type=BETA
-    ```
+    ``` 

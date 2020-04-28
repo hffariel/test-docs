@@ -25,7 +25,6 @@ under the License.
 -->
 
 # DROP USER
-
 ## Description
 
 Syntax:

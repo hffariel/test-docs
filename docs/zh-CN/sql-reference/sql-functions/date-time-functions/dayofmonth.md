@@ -25,12 +25,11 @@ under the License.
 -->
 
 # dayofmonth
-
 ## description
-
 ### Syntax
 
 `INT DAYOFMONTH(DATETIME date)`
+
 
 获得日期中的天信息，返回值范围从1-31。
 
@@ -47,6 +46,6 @@ mysql> select dayofmonth('1987-01-31');
 +-----------------------------------+
 ```
 
-## keyword
+##keyword
 
     DAYOFMONTH

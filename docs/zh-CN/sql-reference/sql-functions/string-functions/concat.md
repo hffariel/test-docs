@@ -25,12 +25,11 @@ under the License.
 -->
 
 # concat
-
 ## description
-
 ### Syntax
 
 `VARCHAR concat(VARCHAR,...)`
+
 
 将多个字符串连接起来, 如果参数中任意一个值是 NULL，那么返回的结果就是 NULL
 
@@ -58,7 +57,5 @@ mysql> select concat("a", null, "c");
 | NULL                   |
 +------------------------+
 ```
-
-## keyword
-
+##keyword
 CONCAT

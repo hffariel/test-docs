@@ -40,11 +40,11 @@ The backup operation is to upload the data of the specified table or partition d
 
 1. Snapshot and snapshot upload
 
- The snapshot phase takes a snapshot of the specified table or partition data file. Later, backups are all snapshots. After the snapshot, changes to tables, imports, and other operations no longer affect the results of the backup. Snapshots only produce a hard link to the current data file, which takes very little time. Once the snapshots are completed, they are uploaded one by one. Snapshot upload is done concurrently by each Backend.
+	The snapshot phase takes a snapshot of the specified table or partition data file. Later, backups are all snapshots. After the snapshot, changes to tables, imports, and other operations no longer affect the results of the backup. Snapshots only produce a hard link to the current data file, which takes very little time. Once the snapshots are completed, they are uploaded one by one. Snapshot upload is done concurrently by each Backend.
 
 2. Metadata preparation and upload
 
- After the data file snapshot is uploaded, Frontend first writes the corresponding metadata to the local file, and then uploads the local metadata file to the remote warehouse through broker. Finish the final backup job.
+	After the data file snapshot is uploaded, Frontend first writes the corresponding metadata to the local file, and then uploads the local metadata file to the remote warehouse through broker. Finish the final backup job.
 
 ### Restore
 
@@ -52,19 +52,19 @@ Recovery operations need to specify a backup that already exists in a remote rep
 
 1. Create corresponding metadata locally
 
- This step starts by creating structures such as restoring the corresponding table partitions in the local cluster. When created, the table is visible, but not accessible.
+	This step starts by creating structures such as restoring the corresponding table partitions in the local cluster. When created, the table is visible, but not accessible.
 
 2. Local snapshot
 
- This step is to take a snapshot of the table created in the previous step. This is actually an empty snapshot (because the tables just created have no data), and its main purpose is to generate the corresponding snapshot directory on the Backend for receiving the snapshot files downloaded from the remote repository later.
+	This step is to take a snapshot of the table created in the previous step. This is actually an empty snapshot (because the tables just created have no data), and its main purpose is to generate the corresponding snapshot directory on the Backend for receiving the snapshot files downloaded from the remote repository later.
 
 3. Download snapshots
 
- The snapshot files in the remote warehouse are downloaded to the corresponding snapshot directory generated in the previous step. This step is done concurrently by each backend.
+	The snapshot files in the remote warehouse are downloaded to the corresponding snapshot directory generated in the previous step. This step is done concurrently by each backend.
 
 4. Effective snapshot
 
- When the snapshot download is complete, we map each snapshot to the metadata of the current local table. These snapshots are then reloaded to take effect and complete the final recovery operation.
+	When the snapshot download is complete, we map each snapshot to the metadata of the current local table. These snapshots are then reloaded to take effect and complete the final recovery operation.
 
 ## Best Practices
 
@@ -94,93 +94,93 @@ The commands related to the backup recovery function are as follows. The followi
 
 1. CREATE REPOSITORY
 
- Create a remote warehouse Path for backup or recovery.
+	Create a remote warehouse Path for backup or recovery.
 
 1. BACKUP
 
- Perform a backup operation.
+	Perform a backup operation.
 
 3. SHOW BACKUP
 
- View the execution of the last backup job, including:
+	View the execution of the last backup job, including:
 
-* JobId: ID of this backup job.
-* SnapshotName: User-specified name of this backup job (Label).
-* DbName: The database corresponding to the backup job.
-* State: The current stage of the backup job:
-* PENDING: The initial state of the job.
-* SNAPSHOTING: Snapshot operation is in progress.
-* UPLOAD_SNAPSHOT: The snapshot is over and ready to upload.
-* UPLOADING: Uploading snapshots.
-* SAVE_META: Metadata files are being generated locally.
-* UPLOAD_INFO: Upload metadata files and information for this backup job.
-* FINISHED: The backup is complete.
-* CANCELLED: Backup failed or cancelled.
-* Backup Objs: List of tables and partitions involved in this backup.
-* CreateTime: Job creation time.
-* Snapshot Finished Time: Snapshot completion time.
-* Upload Finished Time: Snapshot upload completion time.
-* FinishedTime: The completion time of this assignment.
-* Unfinished Tasks: In the `SNAPSHOTTING',`UPLOADING'and other stages, there will be multiple sub-tasks at the same time, the current stage shown here, the task ID of the unfinished sub-tasks.
-* TaskErrMsg: If there is a sub-task execution error, the error message corresponding to the sub-task will be displayed here.
-* Status: It is used to record some status information that may appear during the whole operation.
-* Timeout: The timeout time of a job in seconds.
+	* JobId: ID of this backup job.
+	* SnapshotName: User-specified name of this backup job (Label).
+	* DbName: The database corresponding to the backup job.
+	* State: The current stage of the backup job:
+		* PENDING: The initial state of the job.
+		* SNAPSHOTING: Snapshot operation is in progress.
+		* UPLOAD_SNAPSHOT: The snapshot is over and ready to upload.
+		* UPLOADING: Uploading snapshots.
+		* SAVE_META: Metadata files are being generated locally.
+		* UPLOAD_INFO: Upload metadata files and information for this backup job.
+		* FINISHED: The backup is complete.
+		* CANCELLED: Backup failed or cancelled.
+	* Backup Objs: List of tables and partitions involved in this backup.
+	* CreateTime: Job creation time.
+	* Snapshot Finished Time: Snapshot completion time.
+	* Upload Finished Time: Snapshot upload completion time.
+	* FinishedTime: The completion time of this assignment.
+	* Unfinished Tasks: In the `SNAPSHOTTING', `UPLOADING'and other stages, there will be multiple sub-tasks at the same time, the current stage shown here, the task ID of the unfinished sub-tasks.
+	* TaskErrMsg: If there is a sub-task execution error, the error message corresponding to the sub-task will be displayed here.
+	* Status: It is used to record some status information that may appear during the whole operation.
+	* Timeout: The timeout time of a job in seconds.
 
 4. SHOW SNAPSHOT
 
- View the backup that already exists in the remote warehouse.
+	View the backup that already exists in the remote warehouse.
 
-* Snapshot: The name of the backup specified at the time of backup (Label).
-* Timestamp: Backup timestamp.
-* Status: Is the backup normal?
+	* Snapshot: The name of the backup specified at the time of backup (Label).
+	* Timestamp: Backup timestamp.
+	* Status: Is the backup normal?
 
- If the where clause is specified after `SHOW SNAPSHOT', more detailed backup information can be displayed.
+	If the where clause is specified after `SHOW SNAPSHOT', more detailed backup information can be displayed.
 
-* Database: The database corresponding to backup.
-* Details: Shows the complete data directory structure of the backup.
+	* Database: The database corresponding to backup.
+	* Details: Shows the complete data directory structure of the backup.
 
 5. RESTOR
 
- Perform a recovery operation.
+	Perform a recovery operation.
 
 6. SHOW RESTORE
 
- View the execution of the last restore job, including:
+	View the execution of the last restore job, including:
 
-* JobId: ID of this resumption job.
-* Label: The name of the backup in the user-specified warehouse (Label).
-* Timestamp: The timestamp for backup in a user-specified warehouse.
-* DbName: Restore the database corresponding to the job.
-* State: The current stage of the recovery operation:
-* PENDING: The initial state of the job.
-* SNAPSHOTING: A snapshot of a new local table is in progress.
-* DOWNLOAD: The download snapshot task is being sent.
-* DOWNLOADING: Snapshot is downloading.
-* COMMIT: Prepare to take effect the downloaded snapshot.
-* COMMITTING: The downloaded snapshot is in effect.
-* FINISHED: Recovery is complete.
-* CANCELLED: Recovery failed or cancelled.
-* AllowLoad: Is import allowed during recovery?
-* ReplicationNum: Restores the specified number of copies.
-* Restore Objs: List of tables and partitions involved in this recovery.
-* CreateTime: Job creation time.
-* MetaPreparedTime: Completion time of local metadata generation.
-* Snapshot Finished Time: Local snapshot completion time.
-* Download Finished Time: The download completion time of the remote snapshot.
-* FinishedTime: The completion time of this assignment.
-* Unfinished Tasks: In the `SNAPSHOTTING`, `DOWNLOADING`, `COMMITTING`, and other stages, there will be multiple sub-tasks at the same time, the current stage shown here, the task ID of the unfinished sub-tasks.
-* TaskErrMsg: If there is a sub-task execution error, the error message corresponding to the sub-task will be displayed here.
-* Status: It is used to record some status information that may appear during the whole operation.
-* Timeout: The timeout time of a job in seconds.
+	* JobId: ID of this resumption job.
+	* Label: The name of the backup in the user-specified warehouse (Label).
+	* Timestamp: The timestamp for backup in a user-specified warehouse.
+	* DbName: Restore the database corresponding to the job.
+	* State: The current stage of the recovery operation:
+		* PENDING: The initial state of the job.
+		* SNAPSHOTING: A snapshot of a new local table is in progress.
+		* DOWNLOAD: The download snapshot task is being sent.
+		* DOWNLOADING: Snapshot is downloading.
+		* COMMIT: Prepare to take effect the downloaded snapshot.
+		* COMMITTING: The downloaded snapshot is in effect.
+		* FINISHED: Recovery is complete.
+		* CANCELLED: Recovery failed or cancelled.
+	* AllowLoad: Is import allowed during recovery?
+	* ReplicationNum: Restores the specified number of copies.
+	* Restore Objs: List of tables and partitions involved in this recovery.
+	* CreateTime: Job creation time.
+	* MetaPreparedTime: Completion time of local metadata generation.
+	* Snapshot Finished Time: Local snapshot completion time.
+	* Download Finished Time: The download completion time of the remote snapshot.
+	* FinishedTime: The completion time of this assignment.
+	* Unfinished Tasks: In the `SNAPSHOTTING`, `DOWNLOADING`, `COMMITTING`, and other stages, there will be multiple sub-tasks at the same time, the current stage shown here, the task ID of the unfinished sub-tasks.
+	* TaskErrMsg: If there is a sub-task execution error, the error message corresponding to the sub-task will be displayed here.
+	* Status: It is used to record some status information that may appear during the whole operation.
+	* Timeout: The timeout time of a job in seconds.
 
 7. CANCEL BACKUP
 
- Cancel the backup job currently being performed.
+	Cancel the backup job currently being performed.
 
 8. CANCEL RESTORE
 
- Cancel the recovery job currently being performed.
+	Cancel the recovery job currently being performed.
 
 9. DROP REPOSITORY
 
- Delete the created remote warehouse. Delete the warehouse, just delete the mapping of the warehouse in Doris, will not delete the actual warehouse data.
+	Delete the created remote warehouse. Delete the warehouse, just delete the mapping of the warehouse in Doris, will not delete the actual warehouse data.

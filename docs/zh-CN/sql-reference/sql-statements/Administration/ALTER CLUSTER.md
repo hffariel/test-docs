@@ -25,7 +25,6 @@ under the License.
 -->
 
 # ALTER CLUSTER
-
 ## description
 
     该语句用于更新逻辑集群。需要有管理员权限
@@ -51,5 +50,5 @@ under the License.
         ALTER CLUSTER test_cluster PROPERTIES ("instance_num"="4");
 
 ## keyword
-
     ALTER,CLUSTER
+

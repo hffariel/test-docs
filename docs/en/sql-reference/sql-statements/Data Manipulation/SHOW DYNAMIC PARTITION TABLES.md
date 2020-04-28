@@ -22,19 +22,15 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-# SHOW DYNAMIC PARTITION TABLES
-
+ # SHOW DYNAMIC PARTITION TABLES
 ## description
-
     This statement is used to display all dynamically partitioned table states under the current db
     Grammar：
         SHOW DYNAMIC PARTITION TABLES [FROM db_name];
 
-## example
-
+ ## example
     1. Displays all dynamically partitioned table states for the database
         SHOW DYNAMIC PARTITION TABLES FROM database;
 
-## keyword
-
+ ## keyword
     SHOW,DYNAMIC,PARTITION,TABLES

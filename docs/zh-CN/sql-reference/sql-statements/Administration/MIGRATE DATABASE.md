@@ -25,7 +25,6 @@ under the License.
 -->
 
 # MIGRATE DATABASE
-
 ## description
 
     （已废弃！！！）
@@ -44,5 +43,5 @@ under the License.
        MIGRATE DATABASE test_clusterA.test_db test_clusterB.link_test_db;
 
 ## keyword
-
     MIGRATE,DATABASE
+

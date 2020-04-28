@@ -25,7 +25,6 @@ under the License.
 -->
 
 # SET PROPERTY
-
 ## description
 
    Syntax:
@@ -37,7 +36,7 @@ under the License.
     导入 cluster 仅适用于百度内部用户。
 
    key:
-
+   
     超级用户权限:
         max_user_connections: 最大连接数。
         resource.cpu_share: cpu资源分配。
@@ -79,5 +78,5 @@ under the License.
     SET PROPERTY FOR 'jack' 'load_cluster.{cluster_name}.priority' = 'HIGH';
 
 ## keyword
-
     SET, PROPERTY
+    

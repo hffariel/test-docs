@@ -25,12 +25,11 @@ under the License.
 -->
 
 # utc_timestamp
-
 ## Description
-
 ### Syntax
 
 `DATETIME UTC_TIMESTAMP()`
+
 
 Returns the current UTC date and time in "YYYY-MM-DD HH: MM: SS" or
 

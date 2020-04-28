@@ -25,7 +25,6 @@ under the License.
 -->
 
 # SHOW ROUTINE LOAD
-
 ## example
 
 1. Show all routine import jobs named test 1 (including stopped or cancelled jobs). The result is one or more lines.
@@ -55,5 +54,4 @@ SHOW ROUTINE LOAD FOR example_db.test1;
 SHOW ALL ROUTINE LOAD FOR example_db.test1;
 
 ## keyword
-
 SHOW,ROUTINE,LOAD

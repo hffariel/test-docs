@@ -25,9 +25,7 @@ under the License.
 -->
 
 # to_bitmap
-
 ## description
-
 ### Syntax
 
 `BITMAP TO_BITMAP(expr)`

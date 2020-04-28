@@ -25,9 +25,7 @@ under the License.
 -->
 
 # STREAM LOAD
-
 ## description
-
     NAME:
         stream-load: load data to table in streaming
         
@@ -99,7 +97,7 @@ under the License.
         SHOW LOAD WARNINGS ON 'url'
 
         其中 url 为 ErrorURL 给出的 url。
-
+    
 ## example
 
     1. 将本地文件'testData'中的数据导入到数据库'testDb'中'testTbl'的表，使用Label用于去重。指定超时时间为 100 秒
@@ -129,6 +127,7 @@ under the License.
     9. 导入含有BITMAP列的表，可以是表中的列或者数据中的列用于生成BITMAP列，也可以使用bitmap_empty填充空的Bitmap
         curl --location-trusted -u root -H "columns: k1, k2, v1=to_bitmap(k1), v2=bitmap_empty()" -T testData http://host:port/api/testDb/testTbl/_stream_load
 
+ 
 ## keyword
-
     STREAM,LOAD
+

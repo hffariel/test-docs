@@ -25,9 +25,7 @@ under the License.
 -->
 
 # unix_timestamp
-
 ## Description
-
 ### Syntax
 
 `INT UNIX_TIMESTAMP(), UNIX_TIMESTAMP(DATETIME date)`

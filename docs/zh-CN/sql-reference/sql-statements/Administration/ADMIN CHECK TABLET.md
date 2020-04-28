@@ -25,7 +25,6 @@ under the License.
 -->
 
 # ADMIN CHECK TABLET
-
 ## description
 
 该语句用于对一组 tablet 执行指定的检查操作
@@ -43,7 +42,7 @@ PROPERTIES("type" = "...");
 2. 目前 type 仅支持：
 
     * consistency: 对tablet的副本数据一致性进行检查。该命令为异步命令，发送后，Doris 会开始执行对应 tablet 的一致性检查作业。最终的结果，将体现在 `SHOW PROC "/statistic";` 结果中的 InconsistentTabletNum 列。
-
+                    
 ## example
 
 1. 对指定的一组 tablet 进行副本数据一致性检查

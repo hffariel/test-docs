@@ -25,7 +25,6 @@ under the License.
 -->
 
 # LOAD
-
 ## Description
 
 Palo currently supports the following four import methods:
@@ -283,5 +282,5 @@ v2 = hll, u hash (k2)
 );
 
 ## keyword
-
 LOAD
+

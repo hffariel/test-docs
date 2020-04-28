@@ -100,7 +100,7 @@ When defining columns, you can refer to the following suggestions:
 
 1. The Key column must precede all Value columns.
 2. Try to choose the type of integer. Because integer type calculations and lookups are much more efficient than strings.
-3. For the selection principle of integer types of different lengths, follow **enough to**.
+3. For the selection principle of integer types of different lengths, follow ** enough to **.
 4. For lengths of type VARCHAR and STRING, follow ** is sufficient.
 5. The total byte length of all columns (including Key and Value) cannot exceed 100KB.
 
@@ -112,7 +112,7 @@ It is also possible to use only one layer of partitioning. When using a layer pa
 
 1. Partition
 
-    * The Partition column can specify one or more columns. The partition class must be a KEY column. The use of multi-column partitions is described later in the **Multi-column partitioning** summary.
+    * The Partition column can specify one or more columns. The partition class must be a KEY column. The use of multi-column partitions is described later in the **Multi-column partitioning** summary. 
     * Regardless of the type of partition column, double quotes are required when writing partition values.
     * Partition columns are usually time columns for easy management of old and new data.
     * There is no theoretical limit on the number of partitions.
@@ -120,13 +120,11 @@ It is also possible to use only one layer of partitioning. When using a layer pa
     * Partition supports only the upper bound by `VALUES LESS THAN (...)`, the system will use the upper bound of the previous partition as the lower bound of the partition, and generate a left closed right open interval. Passing, also supports specifying the upper and lower bounds by `VALUES [...)`, and generating a left closed right open interval.
     * It is easier to understand by specifying `VALUES [...)`. Here is an example of the change in partition range when adding or deleting partitions using the `VALUES LESS THAN (...)` statement:
         * As the example above, when the table is built, the following 3 partitions are automatically generated:
-
             ```
             P201701: [MIN_VALUE, 2017-02-01)
             P201702: [2017-02-01, 2017-03-01)
             P201703: [2017-03-01, 2017-04-01)
             ```
-
         * When we add a partition p201705 VALUES LESS THAN ("2017-06-01"), the partition results are as follows:
 
             ```
@@ -135,35 +133,35 @@ It is also possible to use only one layer of partitioning. When using a layer pa
             P201703: [2017-03-01, 2017-04-01)
             P201705: [2017-04-01, 2017-06-01)
             ```
-
+            
         * At this point we delete the partition p201703, the partition results are as follows:
-
+        
             ```
             p201701: [MIN_VALUE, 2017-02-01)
             p201702: [2017-02-01, 2017-03-01)
             p201705: [2017-04-01, 2017-06-01)
             ```
-
+            
             > Note that the partition range of p201702 and p201705 has not changed, and there is a hole between the two partitions: [2017-03-01, 2017-04-01). That is, if the imported data range is within this hole, it cannot be imported.
-
+            
         * Continue to delete partition p201702, the partition results are as follows:
-
+        
             ```
             p201701: [MIN_VALUE, 2017-02-01)
             p201705: [2017-04-01, 2017-06-01)
             The void range becomes: [2017-02-01, 2017-04-01)
             ```
-
+            
         * Now add a partition p201702new VALUES LESS THAN ("2017-03-01"), the partition results are as follows:
-
+            
             ```
             p201701: [MIN_VALUE, 2017-02-01)
             p201702new: [2017-02-01, 2017-03-01)
             p201705: [2017-04-01, 2017-06-01)
             ```
-
+            
             > You can see that the hole size is reduced to: [2017-03-01, 2017-04-01)
-
+            
         * Now delete partition p201701 and add partition p201612 VALUES LESS THAN ("2017-01-01"), the partition result is as follows:
 
             ```
@@ -171,11 +169,11 @@ It is also possible to use only one layer of partitioning. When using a layer pa
             p201702new: [2017-02-01, 2017-03-01)
             p201705: [2017-04-01, 2017-06-01)
             ```
-
+            
             > A new void appeared: [2017-01-01, 2017-02-01)
-
+        
     In summary, the deletion of a partition does not change the scope of an existing partition. There may be holes in deleting partitions. When a partition is added by the `VALUES LESS THAN` statement, the lower bound of the partition immediately follows the upper bound of the previous partition.
-
+    
     You cannot add partitions with overlapping ranges.
 
 2. Bucket
@@ -186,7 +184,7 @@ It is also possible to use only one layer of partitioning. When using a layer pa
 
         1. If you select multiple bucket columns, the data is more evenly distributed. However, if the query condition does not include the equivalent condition for all bucket columns, a query will scan all buckets. The throughput of such queries will increase, but the latency of a single query will increase. This method is suitable for large throughput and low concurrent query scenarios.
         2. If you select only one or a few bucket columns, the point query can query only one bucket. This approach is suitable for high-concurrency point query scenarios.
-
+        
     * There is no theoretical limit on the number of buckets.
 
 3. Recommendations on the number and amount of data for Partitions and Buckets.
@@ -198,9 +196,9 @@ It is also possible to use only one layer of partitioning. When using a layer pa
     * When building a table, the number of Buckets for each partition is uniformly specified. However, when dynamically increasing partitions (`ADD PARTITION`), you can specify the number of Buckets for the new partition separately. This feature can be used to easily reduce or expand data.
     * Once the number of Buckets for a Partition is specified, it cannot be changed. Therefore, when determining the number of Buckets, you need to consider the expansion of the cluster in advance. For example, there are currently only 3 hosts, and each host has 1 disk. If the number of Buckets is only set to 3 or less, then even if you add more machines later, you can't increase the concurrency.
     * Give some examples: Suppose there are 10 BEs, one for each BE disk. If the total size of a table is 500MB, you can consider 4-8 shards. 5GB: 8-16. 50GB: 32. 500GB: Recommended partitions, each partition is about 50GB in size, with 16-32 shards per partition. 5TB: Recommended partitions, each with a size of around 50GB and 16-32 shards per partition.
-
+    
     > Note: The amount of data in the table can be viewed by the `show data` command. The result is divided by the number of copies, which is the amount of data in the table.
-
+    
 #### Multi-column partition
 
 Doris supports specifying multiple columns as partition columns, examples are as follows:
@@ -251,8 +249,8 @@ Replication_num
 2. storage_medium & storage\_cooldown\_time
 
     * The BE data storage directory can be explicitly specified as SSD or HDD (differentiated by .SSD or .HDD suffix). When you build a table, you can uniformly specify the media for all Partition initial storage. Note that the suffix is ​​to explicitly specify the disk media without checking to see if it matches the actual media type.
-    * The default initial storage medium is HDD. If specified as an SSD, the data is initially stored on the SSD.
-    * If storage\_cooldown\_time is not specified, the data is automatically migrated from the SSD to the HDD after 7 days by default. If storage\_cooldown\_time is specified, the data will not migrate until the storage_cooldown_time time is reached.
+    * The default initial storage media can be specified by `default_storage_medium= XXX` in the fe configuration file `fe.conf`, or, if not, by default, HDD. If specified as an SSD, the data is initially stored on the SSD.
+    * If storage\_cooldown\_time is not specified, the data is automatically migrated from the SSD to the HDD after 30 days by default. If storage\_cooldown\_time is specified, the data will not migrate until the storage_cooldown_time time is reached.
     * Note that this parameter is just a "best effort" setting when storage_medium is specified. Even if no SSD storage media is set in the cluster, no error is reported and it is automatically stored in the available data directory. Similarly, if the SSD media is inaccessible and out of space, the data may initially be stored directly on other available media. When the data expires and is migrated to the HDD, if the HDD media is inaccessible and there is not enough space, the migration may fail (but will continue to try).
 
 ### ENGINE

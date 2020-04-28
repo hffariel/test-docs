@@ -25,12 +25,12 @@ under the License.
 -->
 
 # weekofyear
-
 ## Description
-
 ### Syntax
 
 'INT WEEKOFYEAR (DATETIME DATE)'
+
+
 
 Get the Weeks of the Year
 
@@ -46,7 +46,5 @@ mysql> select weekofyear('2008-02-20 00:00:00');
 |                                 8 |
 +-----------------------------------+
 ```
-
-## keyword
-
+##keyword
 WEEKOFYEAR

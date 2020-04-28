@@ -25,7 +25,6 @@ under the License.
 # bitmap_to_string
 
 ## description
-
 ### Syntax
 
 `VARCHAR BITMAP_TO_STRING(BITMAP input)`

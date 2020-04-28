@@ -25,9 +25,7 @@ under the License.
 -->
 
 # bitmap_or
-
 ## description
-
 ### Syntax
 
 `BITMAP BITMAP_OR(BITMAP lhs, BITMAP rhs)`

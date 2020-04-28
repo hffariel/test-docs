@@ -25,7 +25,6 @@ under the License.
 -->
 
 # ROUTINE LOAD
-
 ## description
 
 Routine Load function allows users to submit a resident load task, and continuously load data into Doris by continuously reading data from the specified data source. Currently, only text data format (CSV) data is loaded from Kakfa by means of no authentication or SSL authentication.
@@ -66,7 +65,7 @@ FROM data_source
         `COLUMNS TERMINATED BY ","`
 
         The default is: `\t`
-
+        
     2. columns_mapping:
 
         Specifies the mapping of columns in the source data and defines how the derived columns are generated.
@@ -98,7 +97,7 @@ FROM data_source
         For example, if we only want to load a column with k1 greater than 100 and k2 equal to 1000, we would write as follows:
 
         `WHERE k1 > 100 and k2 = 1000`
-
+        
     4. partitions
 
         Specifies which partitions of the load destination table. If not specified, it will be automatically loaded into the corresponding partition.
@@ -106,7 +105,7 @@ FROM data_source
         Example:
 
         `PARTITION(p1, p2, p3)`
-
+        
 4. job_properties
 
     A generic parameter that specifies a routine load job.
@@ -163,7 +162,7 @@ FROM data_source
     4. `strict_mode`
 
         Whether to enable strict mode, the default is on. If turned on, the column type transformation of non-null raw data is filtered if the result is NULL. Specified as "strict_mode" = "true"
-
+            
     5. timezone
 
         Specifies the time zone in which the job will be loaded. The default by using session variable's timezone. This parameter affects all function results related to the time zone involved in the load.
@@ -179,7 +178,7 @@ FROM data_source
     Specify information about the data source.
 
     syntax:
-
+    
     ```
     (
         "key1" = "val1",
@@ -286,7 +285,7 @@ FROM data_source
     Integer class (TINYINT/SMALLINT/INT/BIGINT/LARGEINT): 1, 1000, 1234
 
     Floating point class (FLOAT/DOUBLE/DECIMAL): 1.1, 0.23, .356
-
+ 
     Date class (DATE/DATETIME): 2017-10-03, 2017-06-13 12:34:03.
 
     String class (CHAR/VARCHAR) (without quotes): I am a student, a
@@ -296,7 +295,6 @@ FROM data_source
 ## example
 
 1. Create a Kafka routine load task named test1 for the example_tbl of example_db. Specify group.id and client.id, and automatically consume all partitions by default, with subscriptions starting at the end (OFFSET_END)
-
     ```
     CREATE ROUTINE LOAD example_db.test1 ON example_tbl
     COLUMNS(k1, k2, k3, v1, v2, v3 = k1 * 100)

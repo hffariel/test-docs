@@ -25,9 +25,7 @@ under the License.
 -->
 
 # SHOW LOAD
-
 ## description
-
     该语句用于展示指定的导入任务的执行情况
     语法：
         SHOW LOAD
@@ -53,7 +51,6 @@ under the License.
             SHOW LOAD WARNINGS ON 'url'
 
 ## example
-
     1. 展示默认 db 的所有导入任务
         SHOW LOAD;
     
@@ -72,7 +69,7 @@ under the License.
 
     6. 小批量导入是查看导入状态的命令
         curl --location-trusted -u {user}:{passwd} http://{hostname}:{port}/api/{database}/_load_info?label={labelname}
-
+        
 ## keyword
-
     SHOW,LOAD
+

@@ -25,17 +25,15 @@ under the License.
 -->
 
 # MAX
-
 ## description
-
 ### Syntax
 
 `MAX(expr)`
 
+
 Returns the maximum value of an expr expression
 
 ## example
-
 ```
 MySQL > select max(scan_rows) from log_statis group by datetime;
 +------------------+
@@ -44,7 +42,5 @@ MySQL > select max(scan_rows) from log_statis group by datetime;
 |          4671587 |
 +------------------+
 ```
-
-## keyword
-
+##keyword
 MAX

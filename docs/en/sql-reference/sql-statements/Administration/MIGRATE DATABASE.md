@@ -25,7 +25,6 @@ under the License.
 -->
 
 # MIGRATE DATABASE
-
 ## Description
 
 This statement is used to migrate a logical cluster database to another logical cluster. Before performing this operation, the database must be in a link state and need to be managed.
@@ -43,5 +42,4 @@ MIGRATE DATABASE src u cluster name.src db name of the cluster name.des db name
 MIGRATE DATABASE test_clusterA.test_db test_clusterB.link_test_db;
 
 ## keyword
-
 MIGRATE,DATABASE

@@ -25,9 +25,7 @@ under the License.
 -->
 
 # ends_with
-
 ## description
-
 ### Syntax
 
 `BOOLEAN ENDS_WITH (VARCHAR str, VARCHAR suffix)`
@@ -41,17 +39,15 @@ mysql> select ends_with("Hello doris", "doris");
 +-----------------------------------+
 | ends_with('Hello doris', 'doris') |
 +-----------------------------------+
-|                                 1 |
+|                                 1 | 
 +-----------------------------------+
 
 mysql> select ends_with("Hello doris", "Hello");
 +-----------------------------------+
 | ends_with('Hello doris', 'Hello') |
 +-----------------------------------+
-|                                 0 |
+|                                 0 | 
 +-----------------------------------+
 ```
-
-## keyword
-
+##keyword
 ENDS_WITH

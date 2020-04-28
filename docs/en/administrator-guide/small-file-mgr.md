@@ -49,28 +49,29 @@ File management has three main commands: `CREATE FILE`, `SHOW FILE` and `DROP FI
 
 1. CREATE FILE
 
- In the command to create a file, the user must provide the following information:
+	In the command to create a file, the user must provide the following information:
 
-* file_name: File name. User-defined, unique within a catalog.
-* Catalog: Category of files. User-defined, unique within a database.
+	* file_name: File name. User-defined, unique within a catalog.
+	* Catalog: Category of files. User-defined, unique within a database.
 
-  > Doris also has some special classification names for specific commands.
-  >
-  > 1. Kafka
-  > When the data source is specified as Kafka in the routine Import command and the file needs to be referenced, Doris defaults to looking for the file from the catalog category named "kafka".
+		> Doris also has some special classification names for specific commands.
 
-* url: the download address of the file. Currently, only unauthenticated HTTP download addresses are supported. This download address is only used to download files from this address when executing the create file command. When the file is successfully created and saved in Doris, the address will no longer be used.
-* md5: optional. The MD5 value of the file. If the user provides this value, the MD5 value will be checked after the file is downloaded. File creation fails if validation fails.
+		> 1. Kafka
 
- When the file is created successfully, the file-related information will be persisted in Doris. Users can view successfully created files through the `SHOW FILE` command.
+		> When the data source is specified as Kafka in the routine Import command and the file needs to be referenced, Doris defaults to looking for the file from the catalog category named "kafka".
+
+	* url: the download address of the file. Currently, only unauthenticated HTTP download addresses are supported. This download address is only used to download files from this address when executing the create file command. When the file is successfully created and saved in Doris, the address will no longer be used.
+	* md5: optional. The MD5 value of the file. If the user provides this value, the MD5 value will be checked after the file is downloaded. File creation fails if validation fails.
+
+	When the file is created successfully, the file-related information will be persisted in Doris. Users can view successfully created files through the `SHOW FILE` command.
 
 2. SHOW FILE
 
- This command allows you to view files that have been created successfully. Specific operations see: `HELP SHOW FILE;`
+	This command allows you to view files that have been created successfully. Specific operations see: `HELP SHOW FILE;`
 
 3. DROP FILE
 
- This command can delete a file that has been created. Specific operations see: `HELP DROP FILE;`
+	This command can delete a file that has been created. Specific operations see: `HELP DROP FILE;`
 
 ## Implementation details
 
@@ -96,7 +97,7 @@ Because the file meta-information and content are stored in FE memory. So by def
 * `max_small_file_size_bytes`: A single file size limit in bytes. The default is 1MB. File creation larger than this configuration will be rejected.
 * `max_small_file_number`: The total number of files supported by a Doris cluster. The default is 100. When the number of files created exceeds this value, subsequent creation will be rejected.
 
- > If you need to upload more files or increase the size limit of a single file, you can modify the `max_small_file_size_bytes` and `max_small_file_number` parameters by using the `ADMIN SET CONFIG` command. However, the increase in the number and size of files will lead to an increase in FE memory usage.
+	> If you need to upload more files or increase the size limit of a single file, you can modify the `max_small_file_size_bytes` and `max_small_file_number` parameters by using the `ADMIN SET CONFIG` command. However, the increase in the number and size of files will lead to an increase in FE memory usage.
 
 2. BE configuration
 

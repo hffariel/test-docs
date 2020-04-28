@@ -25,9 +25,7 @@ under the License.
 -->
 
 # DOUBLE
-
 ## description
-
     DOUBLE
     8字节浮点数
 

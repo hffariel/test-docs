@@ -49,7 +49,7 @@ Doris 数据模型上目前分为三类: AGGREGATE KEY, UNIQUE KEY, DUPLICATE KE
     AGGREGATE KEY(siteid, city, username)
     DISTRIBUTED BY HASH(siteid) BUCKETS 10;
     ```
-
+    
 1.1.2. UNIQUE KEY
 
     UNIQUE KEY 相同时，新记录覆盖旧记录。目前 UNIQUE KEY 实现上和 AGGREGATE KEY 的 REPLACE 聚合方法一样，二者本质上相同。适用于有更新需求的分析业务。
@@ -65,7 +65,7 @@ Doris 数据模型上目前分为三类: AGGREGATE KEY, UNIQUE KEY, DUPLICATE KE
     UNIQUE KEY(orderid)
     DISTRIBUTED BY HASH(orderid) BUCKETS 10;
     ```
-
+    
 1.1.3. DUPLICATE KEY
 
     只指定排序列，相同的行不会合并。适用于数据无需提前聚合的分析业务。
@@ -88,13 +88,13 @@ Doris 数据模型上目前分为三类: AGGREGATE KEY, UNIQUE KEY, DUPLICATE KE
 
 ### 1.2 大宽表与 Star Schema
 
-业务方建表时, 为了和前端业务适配, 往往不对维度信息和指标信息加以区分, 而将 Schema 定义成大宽表。对于 Doris 而言, 这类大宽表往往性能不尽如人意:
+业务方建表时, 为了和前端业务适配, 往往不对维度信息和指标信息加以区分, 而将 Schema 定义成大宽表。对于 Doris 而言, 这类大宽表往往性能不尽如人意: 
 
 * Schema 中字段数比较多, 聚合模型中可能 key 列比较多, 导入过程中需要排序的列会增加。
 * 维度信息更新会反应到整张表中，而更新的频率直接影响查询的效率。
 
 使用过程中，建议用户尽量使用 Star Schema 区分维度表和指标表。频繁更新的维度表也可以放在 MySQL 外部表中。而如果只有少量更新, 可以直接放在 Doris 中。在 Doris 中存储维度表时，可对维度表设置更多的副本，提升 Join 的性能。
-
+ 
 ### 1.3 分区和分桶
 
 Doris 支持两级分区存储, 第一层为 RANGE 分区(partition), 第二层为 HASH 分桶(bucket)。
@@ -133,7 +133,7 @@ Rollup 本质上可以理解为原始表(Base Table)的一个物化索引。建�
 1.5.1. Base Table 中数据聚合度不高。
 
 这一般是因 Base Table 有区分度比较大的字段而导致。此时可以考虑选取部分列，建立 Rollup。
-
+    
 如对于 `site_visit` 表：
 
 ```
@@ -145,7 +145,7 @@ siteid 可能导致数据聚合度不高，如果业务方经常根据城市统�
 ```
 ALTER TABLE site_visit ADD ROLLUP rollup_city(city, pv);
 ```
-
+    
 1.5.2. Base Table 中的前缀索引无法命中
 
 这一般是 Base Table 的建表方式无法覆盖所有的查询模式。此时可以考虑调整列顺序，建立 Rollup。
@@ -173,17 +173,17 @@ Doris中目前进行 Schema Change 的方式有三种：Sorted Schema Change，D
     ```
     ALTER TABLE site_visit DROP COLUMN city;
     ```
-
+    
 2.2. Direct Schema Change: 无需重新排序，但是需要对数据做一次转换。例如修改列的类型，在稀疏索引中加一列等。
 
     ```
     ALTER TABLE site_visit MODIFY COLUMN username varchar(64);
     ```
-
+    
 2.3. Linked Schema Change: 无需转换数据，直接完成。例如加列操作。
-
+    
     ```
     ALTER TABLE site_visit ADD COLUMN click bigint SUM default '0';
     ```
-
+    
 建表时建议考虑好 Schema，这样在进行 Schema Change 时可以加快速度。

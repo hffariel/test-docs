@@ -25,9 +25,7 @@ under the License.
 -->
 
 # hour
-
 ## description
-
 ### Syntax
 
 `INT HOUR(DATETIME date)`
@@ -46,7 +44,5 @@ mysql> select hour('2018-12-31 23:59:59');
 |                          23 |
 +-----------------------------+
 ```
-
-## keyword
-
+##keyword
 HOUR

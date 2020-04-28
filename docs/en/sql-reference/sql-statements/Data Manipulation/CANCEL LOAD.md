@@ -25,7 +25,6 @@ under the License.
 -->
 
 # CANCEL LOAD
-
 Description
 
 This statement is used to undo the import job for the batch of the specified load label.
@@ -43,5 +42,4 @@ FROM example_db
 WHERE LABEL = "example_db_test_load_label";
 
 ## keyword
-
 CANCEL,LOAD

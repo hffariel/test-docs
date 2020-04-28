@@ -25,12 +25,11 @@ under the License.
 -->
 
 # day
-
 ## description
-
 ### Syntax
 
 `INT DAY(DATETIME date)`
+
 
 获得日期中的天信息，返回值范围从1-31。
 
@@ -46,7 +45,5 @@ mysql> select day('1987-01-31');
 |                         31 |
 +----------------------------+
 ```
-
-## keyword
-
+##keyword
 DAY

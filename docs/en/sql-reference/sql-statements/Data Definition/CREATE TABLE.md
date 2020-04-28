@@ -51,7 +51,6 @@ Syntax:
     Explain:
     col_name: Name of column
     col_type: Type of column
-
     ```
         TINYINT(1 Byte)
             Range: -2^7 + 1 ~ 2^7 - 1
@@ -75,9 +74,9 @@ Syntax:
             fractional part: 0 ~ 9
             Not support scientific notation
         DATE(3 Bytes)
-            Range: 1900-01-01 ~ 9999-12-31
+            Range: 0000-01-01 ~ 9999-12-31
         DATETIME(8 Bytes)
-            Range: 1900-01-01 00:00:00 ~ 9999-12-31 23:59:59
+            Range: 0000-01-01 00:00:00 ~ 9999-12-31 23:59:59
         CHAR[(length)]
             Fixed length string. Range: 1 ~ 255. Default: 1
         VARCHAR[(length)]
@@ -88,7 +87,6 @@ Syntax:
         BITMAP
             BITMAP type, No need to specify length. Represent a set of unsigned bigint numbers, the largest element could be 2^64 - 1
     ```
-
     agg_type: Aggregation type. If not specified, the column is key column. Otherwise, the column   is value column.
        * SUM、MAX、MIN、REPLACE
        * HLL_UNION: Only for HLL type
@@ -213,9 +211,9 @@ Syntax:
             )
         ```
 
-        storage_medium:         SSD or HDD
+        storage_medium:         SSD or HDD, The default initial storage media can be specified by `default_storage_medium= XXX` in the fe configuration file `fe.conf`, or, if not, by default, HDD.
         storage_cooldown_time:  If storage_medium is SSD, data will be automatically moved to HDD   when timeout.
-                                Default is 7 days.
+                                Default is 30 days.
                                 Format: "yyyy-MM-dd HH:mm:ss"
         replication_num:        Replication number of a partition. Default is 3.
         If table is not range partitions. This property takes on Table level. Or it will takes on   Partition level.
@@ -237,9 +235,9 @@ Syntax:
             "colocate_with"="table1"
         )
         ```
-
+        
     4) if you want to use the dynamic partitioning feature, specify it in properties
-
+       
         ```
         PROPERTIES (
             "dynamic_partition.enable" = "true|false",
@@ -247,21 +245,20 @@ Syntax:
             "dynamic_partitoin.end" = "${integer_value}",
             "dynamic_partition.prefix" = "${string_value}",
             "dynamic_partition.buckets" = "${integer_value}
-        )
+        )    
        ```
-
+       
        Dynamic_partition. Enable: specifies whether dynamic partitioning at the table level is enabled
-
+       
        Dynamic_partition. Time_unit: used to specify the time unit for dynamically adding partitions, which can be selected as DAY, WEEK, and MONTH.
-
+       
        Dynamic_partition. End: used to specify the number of partitions created in advance
-
+       
        Dynamic_partition. Prefix: used to specify the partition name prefix to be created, such as the partition name prefix p, automatically creates the partition name p20200108
-
+       
        Dynamic_partition. Buckets: specifies the number of partition buckets that are automatically created
 8. rollup_index
     grammar:
-
     ```
       ROLLUP (rollup_name (column_name1, column_name2, ...)
                      [FROM from_index_name]
@@ -273,9 +270,8 @@ Syntax:
         ```
         PROPERTIES (
            "in_memory"="true"
-        )
+        )   
         ```
-
 ## example
 
 1. Create an olap table, distributed by hash, with aggregation type.
@@ -490,7 +486,7 @@ Syntax:
     );
     ```
 
-10. Create a table with a bitmap index
+10. Create a table with a bitmap index 
 
     ```
     CREATE TABLE example_db.table_hash
@@ -507,7 +503,7 @@ Syntax:
     DISTRIBUTED BY HASH(k1) BUCKETS 32
     PROPERTIES ("storage_type"="column");
     ```
-
+    
 11. Create a dynamic partitioning table (dynamic partitioning needs to be enabled in FE configuration), which creates partitions 3 days in advance every day. For example, if today is' 2020-01-08 ', partitions named 'p20200108', 'p20200109', 'p20200110', 'p20200111' will be created.
 
     ```
@@ -516,7 +512,7 @@ Syntax:
     [types: [DATE]; keys: [2020-01-10]; ‥types: [DATE]; keys: [2020-01-11]; )
     [types: [DATE]; keys: [2020-01-11]; ‥types: [DATE]; keys: [2020-01-12]; )
     ```
-
+    
      ```
         CREATE TABLE example_db.dynamic_partition
         (
@@ -543,9 +539,7 @@ Syntax:
         "dynamic_partition.buckets" = "32"
          );
     ```
-
 12. Create a table with rollup index
-
 ```
     CREATE TABLE example_db.rolup_index_table
     (

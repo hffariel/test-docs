@@ -25,7 +25,6 @@ under the License.
 -->
 
 # ADMIN SHOW CONFIG
-
 ## description
 
     该语句用于展示当前集群的配置（当前仅支持展示 FE 的配置项）
@@ -43,7 +42,7 @@ under the License.
         4. IsMutable：  是否可以通过 ADMIN SET CONFIG 命令设置
         5. MasterOnly： 是否仅适用于 Master FE
         6. Comment：    配置项说明
-
+        
 ## example
 
     1. 查看当前FE节点的配置
@@ -51,5 +50,4 @@ under the License.
         ADMIN SHOW FRONTEND CONFIG;
 
 ## keyword
-
     ADMIN,SHOW,CONFIG

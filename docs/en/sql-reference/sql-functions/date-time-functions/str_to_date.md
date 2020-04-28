@@ -25,12 +25,11 @@ under the License.
 -->
 
 # Str_to_date
-
 ## Description
-
 ### Syntax
 
 'DATETIME STR TWO DATES (VARCHAR STR, VARCHAR format)'
+
 
 Convert STR to DATE type by format specified, if the conversion result does not return NULL
 
@@ -60,7 +59,6 @@ mysql> select str_to_date('200442 Monday', '%X%V %W');
 | 2004-10-18                              |
 +-----------------------------------------+
 ```
-
-## keyword
+##keyword
 
     STR_TO_DATE,STR,TO,DATE

@@ -25,12 +25,9 @@ under the License.
 -->
 
 # Double
-
 ## Description
-
 DOUBLE
 8-byte floating point number
 
-## keyword
-
+##keyword
 DOUBLE

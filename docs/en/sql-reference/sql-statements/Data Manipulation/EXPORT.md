@@ -25,7 +25,6 @@ under the License.
 -->
 
 # EXPORT
-
 Description
 
 This statement is used to export data from a specified table to a specified location.
@@ -81,5 +80,4 @@ EXPORT TABLE testTbl PARTITION (p1,p2) TO "hdfs://hdfs_host:port/a/b/c" WITH BRO
 EXPORT TABLE testTbl TO "hdfs://hdfs_host:port/a/b/c" PROPERTIES ("column_separator"=",") WITH BROKER "broker_name" ("username"="xxx", "password"="yyy");
 
 ## keyword
-
 EXPORT

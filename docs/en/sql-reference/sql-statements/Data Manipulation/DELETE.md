@@ -25,7 +25,6 @@ under the License.
 -->
 
 # DELETE
-
 Description
 
 This statement is used to conditionally delete data in the specified table (base index) partition.
@@ -36,7 +35,6 @@ WHERE
 column_name1 op value[ AND column_name2 op value ...];
 
 Explain:
-
 1) Optional types of OP include: =,>,<,>=,<=,<=,<=,!=
 2) Conditions on key columns can only be specified.
 2) When the selected key column does not exist in a rollup, delete cannot be performed.
@@ -60,5 +58,5 @@ DELETE FROM my_table PARTITION p1
 WHERE k1 >= 3 AND k2 = "abc";
 
 ## keyword
-
 DELETE
+

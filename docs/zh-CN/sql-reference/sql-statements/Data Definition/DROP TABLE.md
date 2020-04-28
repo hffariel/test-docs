@@ -25,9 +25,7 @@ under the License.
 -->
 
 # DROP TABLE
-
 ## description
-
     该语句用于删除 table 。
     语法：
         DROP TABLE [IF EXISTS] [db_name.]table_name;
@@ -36,7 +34,6 @@ under the License.
         执行 DROP TABLE 一段时间内，可以通过 RECOVER 语句恢复被删除的 table。详见 RECOVER 语句
 
 ## example
-
     1. 删除一个 table
         DROP TABLE my_table;
         
@@ -44,5 +41,5 @@ under the License.
         DROP TABLE IF EXISTS example_db.my_table;
 
 ## keyword
-
     DROP,TABLE
+    

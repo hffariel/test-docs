@@ -25,9 +25,7 @@ under the License.
 -->
 
 # bitmap_has_any
-
 ## description
-
 ### Syntax
 
 `B00LEAN BITMAP_HAS_ANY(BITMAP lhs, BITMAP rhs)`

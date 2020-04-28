@@ -24,6 +24,7 @@ specific language governing permissions and limitations
 under the License.
 -->
 
+
 # Best Practices
 
 ## 1 tabulation
@@ -95,7 +96,7 @@ In order to adapt to the front-end business, business side often does not distin
 
 In the process of using Star Schema, users are advised to use Star Schema to distinguish dimension tables from indicator tables as much as possible. Frequently updated dimension tables can also be placed in MySQL external tables. If there are only a few updates, they can be placed directly in Doris. When storing dimension tables in Doris, more copies of dimension tables can be set up to improve Join's performance.
 
-### 1.3 Partitioning and Bucketing
+### 1.3 Partitioning and Bucketing 
 
 Doris supports two-level partitioned storage. The first layer is RANGE partition and the second layer is HASH bucket.
 

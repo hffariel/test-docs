@@ -25,7 +25,6 @@ under the License.
 -->
 
 # ADMIN SHOW REPLICA STATUS
-
 ## Description
 
 This statement is used to display copy status information for a table or partition
@@ -55,11 +54,11 @@ ADMIN SHOW REPLICA STATUS FROM db1.tbl1;
 
 ADMIN SHOW REPLICA STATUS FROM tbl1 PARTITION (p1, p2)
 
+
 3. Check all unhealthy copies of the table
 
 ADMIN SHOW REPLICA STATUS FROM tbl1
 WHERE STATUS != "OK";
 
 ## keyword
-
 ADMIN,SHOW,REPLICA,STATUS
