@@ -5,6 +5,25 @@
 }
 ---
 
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
 # 安装与部署
 
 该文档主要介绍了部署 Doris 所需软硬件环境、建议的部署方式、集群扩容缩容，以及集群搭建到运行过程中的常见问题。  
@@ -72,7 +91,6 @@ Doris 各个实例直接通过网络进行通讯。以下表格展示了所有�
 | 实例名称 | 端口名称 | 默认端口 | 通讯方向 | 说明 | 
 |---|---|---|---| ---|
 | BE | be_port | 9060 | FE --> BE | BE 上 thrift server 的端口，用于接收来自 FE 的请求 |
-| BE | be\_rpc_port | 9070 | BE <--> BE | BE 之间 rpc 使用的端口 |
 | BE | webserver_port | 8040 | BE <--> BE | BE 上的 http server 的端口 |
 | BE | heartbeat\_service_port | 9050 | FE --> BE | BE 上心跳服务端口（thrift），用于接收来自 FE 的心跳 |
 | BE | brpc\_port* | 8060 | FE<-->BE, BE <--> BE | BE 上的 brpc 端口，用于 BE 之间通讯 |
@@ -85,7 +103,6 @@ Doris 各个实例直接通过网络进行通讯。以下表格展示了所有�
 > 注：  
 > 1. 当部署多个 FE 实例时，要保证 FE 的 http\_port 配置相同。  
 > 2. 部署前请确保各个端口在应有方向上的访问权限。
-> 3. brpc\_port 在 0.8.2 版本后替代了 be\_rpc_port
 
 #### IP 绑定
 
@@ -123,8 +140,8 @@ BROKER 当前没有，也不需要 priority\_networks 这个选项。Broker 的�
 
 * 配置 FE
 
-    1. 配置文件为 conf/fe.conf。其中注意：`meta_dir`：元数据存放位置。默认在 fe/palo-meta/ 下。需**手动创建**该目录。
-    2. fe.conf 中 JAVA_OPTS 默认 java 最大堆内存为 2GB，建议生产环境调整至 8G 以上。
+    1. 配置文件为 conf/fe.conf。其中注意：`meta_dir`：元数据存放位置。默认在 fe/doris-meta/ 下。需**手动创建**该目录。
+    2. fe.conf 中 JAVA_OPTS 默认 java 最大堆内存为 4GB，建议生产环境调整至 8G 以上。
 
 * 启动FE
 
@@ -142,7 +159,7 @@ BROKER 当前没有，也不需要 priority\_networks 这个选项。Broker 的�
 
 * 修改所有 BE 的配置
 
-    修改 be/conf/be.conf。主要是配置 `storage_root_path`：数据存放目录，使用 `;` 分隔（最后一个目录后不要加 `;`），其它可以采用默认值。
+    修改 be/conf/be.conf。主要是配置 `storage_root_path`：数据存放目录。默认在be/storage下，需要**手动创建**该目录。多个路径之间使用 `;` 分隔（最后一个目录后不要加 `;`）。
 
 * 在 FE 中添加所有 BE 节点
 
@@ -244,6 +261,8 @@ FE 分为 Leader，Follower 和 Observer 三种角色。 默认一个集群，�
 
 `./bin/start_fe.sh --helper host:port --daemon`
 
+其中 host 为 Leader 所在节点 ip, port 为 Leader 的配置文件 fe.conf 中的 edit_log_port。--helper 参数仅在 follower 和 observer 第一次启动时才需要。
+
 查看 Follower 或 Observer 运行状态。使用 mysql-client 连接到任一已启动的 FE，并执行：SHOW PROC '/frontends'; 可以查看当前已加入集群的 FE 及其对应角色。
 
 > FE 扩容注意事项：  
@@ -301,7 +320,7 @@ DECOMMISSION 语句如下：
 > 3. 该命令**不一定执行成功**。比如剩余 BE 存储空间不足以容纳下线 BE 上的数据，或者剩余机器数量不满足最小副本数时，该命令都无法完成，并且 BE 会一直处于 isDecommission 为 true 的状态。  
 > 4. DECOMMISSION 的进度，可以通过 ```SHOW PROC '/backends';``` 中的 TabletNum 查看，如果正在进行，TabletNum 将不断减少。  
 > 5. 该操作可以通过:  
-> 		```CANCEL ALTER SYSTEM DECOMMISSION BACKEND "be_host:be_heartbeat_service_port";```  
+> 		```CANCEL DECOMMISSION BACKEND "be_host:be_heartbeat_service_port";```  
 > 	命令取消。取消后，该 BE 上的数据将维持当前剩余的数据量。后续 Doris 重新进行负载均衡
 
 **对于多租户部署环境下，BE 节点的扩容和缩容，请参阅 [多租户设计文档](../administrator-guide/operation/multi-tenant.md)。**
@@ -368,7 +387,7 @@ Broker 是无状态的进程，可以随意启停。当然，停止后，正在�
 
 	除了 Master FE 以外，其余角色节点（Follower FE，Observer FE，Backend），都需要通过 `ALTER SYSTEM ADD` 语句先注册到集群，然后才能加入集群。
 	
-	Master FE 在第一次启动时，会在 palo-meta/image/VERSION 文件中生成一个 cluster_id。
+	Master FE 在第一次启动时，会在 doris-meta/image/VERSION 文件中生成一个 cluster_id。
 	
 	FE 在第一次加入集群时，会首先从 Master FE 获取这个文件。之后每次 FE 之间的重新连接（FE 重启），都会校验自身 cluster id 是否与已存在的其它 FE 的 cluster id 相同。如果不同，则该 FE 会自动退出。
 	

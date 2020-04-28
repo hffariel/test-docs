@@ -5,6 +5,25 @@
 }
 ---
 
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
 # Insert Into
 
 The use of Insert Into statements is similar to that of Insert Into statements in databases such as MySQL. But in Doris, all data writing is a separate import job. So Insert Into is also introduced here as an import method.
@@ -33,6 +52,21 @@ Examples:
 ```
 INSERT INTO tbl2 WITH LABEL label1 SELECT * FROM tbl3;
 INSERT INTO tbl1 VALUES ("qweasdzxcqweasdzxc"), ("a");
+```
+
+**Notice**
+
+When using `CTE(Common Table Expressions)` as the query part of insert operation, the `WITH LABEL` or column list part must be specified.
+For example:
+
+```
+INSERT INTO tbl1 WITH LABEL label1
+WITH cte1 AS (SELECT * FROM tbl1), cte2 AS (SELECT * FROM tbl2)
+SELECT k1 FROM cte1 JOIN cte2 WHERE cte1.k1 = 1;
+
+INSERT INTO tbl1 (k1)
+WITH cte1 AS (SELECT * FROM tbl1), cte2 AS (SELECT * FROM tbl2)
+SELECT k1 FROM cte1 JOIN cte2 WHERE cte1.k1 = 1;
 ```
 
 The following is a brief introduction to the parameters used in creating import statements:
@@ -178,7 +212,7 @@ Insert Into itself is a SQL command, and the return result is divided into the f
 
 + enable\_insert\_strict
 
-	The Insert Into import itself cannot control the tolerable error rate of the import. Users can only use the Session parameter `enable_insert_strict`. When this parameter is set to false, it indicates that at least one data has been imported correctly, and then it returns successfully. When this parameter is set to false, the import fails if there is a data error. The default is false. It can be set by `SET enable_insert_strict = true;`.
+	The Insert Into import itself cannot control the tolerable error rate of the import. Users can only use the Session parameter `enable_insert_strict`. When this parameter is set to false, it indicates that at least one data has been imported correctly, and then it returns successfully. When this parameter is set to true, the import fails if there is a data error. The default is false. It can be set by `SET enable_insert_strict = true;`.
 
 + query u timeout
 

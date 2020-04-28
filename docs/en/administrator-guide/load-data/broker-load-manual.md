@@ -5,6 +5,25 @@
 }
 ---
 
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
 # Broker Load
 
 Broker load is an asynchronous import method, and the data source supported depends on the data source supported by the Broker process.
@@ -66,7 +85,7 @@ BE pulls data from Broker and imports it into the system after transforming the 
 
 ### Create a load
 
-Broker load 创建导入语句
+Broker load create a data load job
 
 Grammar:
 
@@ -199,7 +218,7 @@ The following is a detailed explanation of some parameters of the import operati
 
 + strict\_mode
 
-	Broker load 导入可以开启 strict mode 模式。开启方式为 ```properties ("strict_mode" = "true")``` 。默认的 strict mode 为关闭。
+	Broker load can use `strict mode`. Use ```properties ("strict_mode" = "true")```  to enable `strict mode`, default is false
 
 	The strict mode means that the column type conversion in the import process is strictly filtered. The strategy of strict filtering is as follows:
 
@@ -217,7 +236,7 @@ Here's an example of a column type TinyInt
 
 |source data | source data example | string to int   | strict_mode        | result|
 |------------|---------------------|-----------------|--------------------|---------|
-|空值        | \N                  | N/A             | true or false      | NULL|
+|null        | \N                  | N/A             | true or false      | NULL|
 |not null    | aaa or 2000         | NULL            | true               | invalid data(filtered)|
 |not null    | aaa                 | NULL            | false              | NULL|
 |not null    | 1                   | 1               | true or false      | correct data|
@@ -228,7 +247,7 @@ Here's an example of column type Decimal (1,0)
 
 |source data | source data example | string to int   | strict_mode        | result|
 |------------|---------------------|-----------------|--------------------|--------|
-|空值        | \N                  | N/A             | true or false      | NULL|
+|null        | \N                  | N/A             | true or false      | NULL|
 |not null    | aaa                 | NULL            | true               | invalid data(filtered)|
 |not null    | aaa                 | NULL            | false              | NULL|
 |not null    | 1 or 10             | 1               | true or false      | correct data|
@@ -258,7 +277,7 @@ mysql> show load order by createtime desc limit 1\G
  LoadStartTime: 2019-07-27 11:46:44
 LoadFinishTime: 2019-07-27 11:50:16
            URL: http://192.168.1.1:8040/api/_load_error_log?file=__shard_4/error_log_insert_stmt_4bb00753932c491a-a6da6e2725415317_4bb00753932c491a_a6da6e2725415317
-    JobDetails: {"ScannedRows":28133395,"TaskNumber":1,"FileNumber":1,"FileSize":200000}
+    JobDetails: {"Unfinished backends":{"9c3441027ff948a0-8287923329a2b6a7":[10002]},"ScannedRows":2390016,"TaskNumber":1,"All backends":{"9c3441027ff948a0-8287923329a2b6a7":[10002]},"FileNumber":1,"FileSize":1073741824}
 ```
 
 The following is mainly about the significance of viewing the parameters in the return result set of the import command:
@@ -332,6 +351,16 @@ The following is mainly about the significance of viewing the parameters in the 
 
 	The error data sample of the import task can be obtained by accessing the URL address. When there is no error data in this import, the URL field is N/A.
 
++ JobDetails
+
+    Display some details of the running status of the job. Including file number, total file size(Bytes), num of sub tasks, scanned rows, related backend ids and unfinished backend ids.
+
+    ```
+    {"Unfinished backends":{"9c3441027ff948a0-8287923329a2b6a7":[10002]},"ScannedRows":2390016,"TaskNumber":1,"All backends":{"9c3441027ff948a0-8287923329a2b6a7":[10002]},"FileNumber":1,"FileSize":1073741824}
+    ```
+
+    This info will be updated every 5 seconds. the ScannedRows only for displaying the job progress, not indicate the real numbers.
+
 ### Cancel load
 
 When the Broker load job status is not CANCELLED or FINISHED, it can be manually cancelled by the user. When canceling, you need to specify a Label for the import task to be cancelled. Canceling Import command syntax can perform `HELP CANCEL LOAD` view.
@@ -384,7 +413,7 @@ We will only discuss the case of a single BE. If the user cluster has more than 
 		```
 		Modify the configuration in fe.conf
 		
-		max_broker_concurrency = BE 个数
+		max_broker_concurrency = BE number
 		The amount of data processed by a single BE for the current import task = the original file size / max_broker_concurrency
 		Max_bytes_per_broker_scanner >= the amount of data processed by a single BE of the current import task
 		
@@ -452,10 +481,25 @@ Cluster situation: The number of BEs in the cluster is about 3, and the Broker n
 
 ## Common Questions
 
-* 导入报错：`Scan bytes per broker scanner exceed limit:xxx`
+* failed with : `Scan bytes per broker scanner exceed limit:xxx`
 
 	Refer to the Best Practices section of the document to modify the FE configuration items `max_bytes_per_broker_scanner` and `max_broker_concurrency'.`
 
-* 导入报错：`failed to send batch` 或 `TabletWriter add batch with unknown id`
+*  failed with ：`failed to send batch` or `TabletWriter add batch with unknown id`
 
-	Refer to **General System Configuration** in **BE Configuration** in the Import Manual (./load-manual.md), and modify `tablet_writer_rpc_timeout_sec` and `streaming_load_rpc_max_alive_time_sec` appropriately.
+	Refer to **General System Configuration** in **BE Configuration** in the Import Manual (./load-manual.md), and modify `query_timeout` and `streaming_load_rpc_max_alive_time_sec` appropriately.
+	
+*  failed with : `LOAD_RUN_FAIL; msg: Invalid Column Name: xxx`
+    
+     If it is PARQUET or ORC format data, you need to keep the column names in the file header consistent with the column names in the doris table, such as:
+     `` `
+     (tmp_c1, tmp_c2)
+     SET
+     (
+         id = tmp_c2,
+         name = tmp_c1
+     )
+     `` `
+     Represents getting the column with (tmp_c1, tmp_c2) as the column name in parquet or orc, which is mapped to the (id, name) column in the doris table. If set is not set, the column names in the column are used as the mapping relationship.
+
+     Note: If the orc file directly generated by some hive versions is used, the table header in the orc file is not the column name in the hive meta, but (_col0, _col1, _col2, ...), which may cause the Invalid Column Name error, then You need to use set for mapping.

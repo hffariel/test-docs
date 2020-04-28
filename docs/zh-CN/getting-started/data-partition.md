@@ -5,6 +5,25 @@
 }
 ---
 
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
 # 数据划分
 
 本文档主要介绍 Doris 的建表和数据划分，以及建表操作中可能遇到的问题和解决方法。
@@ -100,7 +119,7 @@ Doris 支持两层的数据划分。第一层是 Partition，仅支持 Range 的
     * 当不使用 Partition 建表时，系统会自动生成一个和表名同名的，全值范围的 Partition。该 Partition 对用户不可见，并且不可删改。
     * Partition 支持通过 `VALUES LESS THAN (...)` 仅指定上界，系统会将前一个分区的上界作为该分区的下界，生成一个左闭右开的区间。通过，也支持通过 `VALUES [...)` 指定同时指定上下界，生成一个左闭右开的区间。
 
-    * 通过 `VALUES [...)` 同是指定上下界比较容易理解。这里举例说明，当使用 `VALUES LESS THAN (...)` 语句进行分区的增删操作时，分区范围的变化情况：
+    * 通过 `VALUES [...)` 同时指定上下界比较容易理解。这里举例说明，当使用 `VALUES LESS THAN (...)` 语句进行分区的增删操作时，分区范围的变化情况：
     
         * 如上示例，当建表完成后，会自动生成如下3个分区：
 
@@ -234,8 +253,8 @@ PARTITION BY RANGE(`date`, `id`)
 2. storage_medium & storage\_cooldown\_time
 
     * BE 的数据存储目录可以显式的指定为 SSD 或者 HDD（通过 .SSD 或者 .HDD 后缀区分）。建表时，可以统一指定所有 Partition 初始存储的介质。注意，后缀作用是显式指定磁盘介质，而不会检查是否与实际介质类型相符。
-    * 默认初始存储介质为 HDD。如果指定为 SSD，则数据初始存放在 SSD 上。
-    * 如果没有指定 storage\_cooldown\_time，则默认 7 天后，数据会从 SSD 自动迁移到 HDD 上。如果指定了 storage\_cooldown\_time，则在到达 storage_cooldown_time 时间后，数据才会迁移。
+    * 默认初始存储介质可通过fe的配置文件 `fe.conf` 中指定 `default_storage_medium=xxx`，如果没有指定，则默认为 HDD。如果指定为 SSD，则数据初始存放在 SSD 上。
+    * 如果没有指定 storage\_cooldown\_time，则默认 30 天后，数据会从 SSD 自动迁移到 HDD 上。如果指定了 storage\_cooldown\_time，则在到达 storage_cooldown_time 时间后，数据才会迁移。
     * 注意，当指定 storage_medium 时，该参数只是一个“尽力而为”的设置。即使集群内没有设置 SSD 存储介质，也不会报错，而是自动存储在可用的数据目录中。同样，如果 SSD 介质不可访问、空间不足，都可能导致数据初始直接存储在其他可用介质上。而数据到期迁移到 HDD 时，如果 HDD 介质不可访问、空间不足，也可能迁移失败（但是会不断尝试）。
 
 ### ENGINE
@@ -262,7 +281,7 @@ PARTITION BY RANGE(`date`, `id`)
     
     当遇到这个错误是，通常是 BE 在创建数据分片时遇到了问题。可以参照以下步骤排查：
     
-    1. 在 fe.log 中，查找对应时间点的 `Failed to create partition` 日志。在该日志中，会出现一系列类似 `{10001-10010}` 字样的数字对儿。数字对儿的第一个数字表示 Backend ID，第二个数字表示 Tablet ID。如上这个数字对，表示 ID 为 10001 的 Backend 上，创建 ID 为 10010 的 Tablet 失败了。
+    1. 在 fe.log 中，查找对应时间点的 `Failed to create partition` 日志。在该日志中，会出现一系列类似 `{10001-10010}` 字样的数字对。数字对的第一个数字表示 Backend ID，第二个数字表示 Tablet ID。如上这个数字对，表示 ID 为 10001 的 Backend 上，创建 ID 为 10010 的 Tablet 失败了。
     2. 前往对应 Backend 的 be.INFO 日志，查找对应时间段内，tablet id 相关的日志，可以找到错误信息。
     3. 以下罗列一些常见的 tablet 创建失败错误，包括但不限于：
         * BE 没有收到相关 task，此时无法在 be.INFO 中找到 tablet id 相关日志。或者 BE 创建成功，但汇报失败。以上问题，请参阅 [部署与升级文档] 检查 FE 和 BE 的连通性。
