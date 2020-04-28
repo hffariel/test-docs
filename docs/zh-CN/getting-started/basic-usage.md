@@ -5,24 +5,6 @@
 }
 ---
 
-<!-- 
-Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the NOTICE file
-distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
-to you under the Apache License, Version 2.0 (the
-"License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
-
-  http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License.
--->
 
 # 基础使用指南
 
@@ -235,7 +217,6 @@ MySQL> DESC table2;
 > 3. 数据导入可以导入指定的 Partition。详见 `HELP LOAD`。
 > 4. 可以动态修改表的 Schema。
 > 5. 可以对 Table 增加上卷表（Rollup）以提高查询性能，这部分可以参见高级使用指南关于 Rollup 的描述。
-> 6. 表的列的Null属性默认为true，会对查询性能有一定的影响。
 
 ### 2.4 导入数据
 
@@ -252,7 +233,7 @@ curl --location-trusted -u test:test -H "label:table1_20170707" -H "column_separ
 ```
 
 > 1. FE_HOST 是任一 FE 所在节点 IP，8030 为 fe.conf 中的 http_port。
-> 2. 可以使用任一 BE 的 IP，以及 be.conf 中的 webserver_port 进行导入。如：`BE_HOST:8040`
+> 2. 可以使用任一 BE 的 IP，以及 be.conf 中的 webserver_port 左右连接目标进行导入。如：`BE_HOST:8040`
 
 本地文件 `table1_data` 以 `,` 作为数据之间的分隔，具体内容如下：
 

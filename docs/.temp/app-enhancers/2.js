@@ -1,1 +1,0 @@
-export { default } from "/Users/fariel/.config/yarn/global/node_modules/vuepress-plugin-smooth-scroll/lib/enhanceApp.js"

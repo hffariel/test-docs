@@ -5,25 +5,6 @@
 }
 ---
 
-<!--
-Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the NOTICE file
-distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
-to you under the Apache License, Version 2.0 (the
-"License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
-
-  http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License.
--->
-
 # Routine Load
 
 The Routine Load feature provides users with a way to automatically load data from a specified data source.
@@ -41,7 +22,7 @@ This document describes the implementation principles, usage, and best practices
 
 ## Principle
 
-```
+```              
          +---------+
          |  Client |
          +----+----+
@@ -122,7 +103,7 @@ The detailed syntax for creating a routine load task can be connected to Doris a
     ```
 
     Where `Config.max_routine_load_task_concurrrent_num` is a default maximum concurrency limit for the system. This is a FE configuration that can be adjusted by changing the configuration. The default is 5.
-
+    
     Where partition num refers to the number of partitions for the Kafka topic subscribed to. `alive_backend_num` is the current number of normal BE nodes.
 
 * max\_batch\_interval/max\_batch\_rows/max\_batch\_size
@@ -144,7 +125,7 @@ The detailed syntax for creating a routine load task can be connected to Doris a
     `max_error_number` is used to control the error rate. When the error rate is too high, the job will automatically pause. Because the entire job is stream-oriented, and because of the borderless nature of the data stream, we can't calculate the error rate with an error ratio like other load tasks. So here is a new way of calculating to calculate the proportion of errors in the data stream.
 
     We have set up a sampling window. The size of the window is `max_batch_rows * 10`. Within a sampling window, if the number of error lines exceeds `max_error_number`, the job is suspended. If it is not exceeded, the next window restarts counting the number of error lines.
-
+    
     We assume that `max_batch_rows` is 200000 and the window size is 2000000. Let `max_error_number` be 20000, that is, the user expects an error behavior of 20000 for every 2000000 lines. That is, the error rate is 1%. But because not every batch of tasks consumes 200000 rows, the actual range of the window is [2000000, 2200000], which is 10% statistical error.
 
     The error line does not include rows that are filtered out by the where condition. But include rows that do not have a partition in the corresponding Doris table.
@@ -279,7 +260,7 @@ Some system configuration parameters can affect the use of routine loads.
     The FE configuration item, which defaults to 5, can be modified at runtime. This parameter limits the number of subtasks that can be executed concurrently by each BE node. It is recommended to maintain the default value. If the setting is too large, it may cause too many concurrent tasks and occupy cluster resources.
 
 3. max\_routine\_load\_job\_num
-
+    
     The FE configuration item, which defaults to 100, can be modified at runtime. This parameter limits the total number of routine load jobs, including NEED_SCHEDULED, RUNNING, PAUSE. After the overtime, you cannot submit a new assignment.
 
 4. max\_consumer\_num\_per\_group
@@ -289,9 +270,3 @@ Some system configuration parameters can affect the use of routine loads.
 5. push\_write\_mbytes\_per\_sec
 
     BE configuration item. The default is 10, which is 10MB/s. This parameter is to load common parameters, not limited to routine load jobs. This parameter limits the speed at which loaded data is written to disk. For high-performance storage devices such as SSDs, this speed limit can be appropriately increased.
-
-6. max\_tolerable\_backend\_down\_num
-    FE configuration item, the default is 0. Under certain conditions, Doris can reschedule PAUSED tasks, that becomes RUNNING?This parameter is 0, which means that rescheduling is allowed only when all BE nodes are in alive state.
-
-7. period\_of\_auto\_resume\_min
-    FE configuration item, the default is 5 mins. Doris reschedules will only try at most 3 times in the 5 minute period. If all 3 times fail, the current task will be locked, and auto-scheduling will not be performed. However, manual intervention can be performed.

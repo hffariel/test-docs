@@ -1,40 +1,20 @@
 ---
 {
-    "title": "Schema Change",
+    "title": "Scheam Change",
     "language": "zh-CN"
 }
 ---
 
-<!-- 
-Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the NOTICE file
-distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
-to you under the Apache License, Version 2.0 (the
-"License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
+# Scheam Change
 
-  http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License.
--->
-
-# Schema Change
-
-用户可以通过 Schema Change 操作来修改已存在表的 Schema。目前 Doris 支持以下几种修改:
+用户可以通过 Scheam Change 操作来修改已存在表的 Schema。目前 Doris 支持以下几种修改:
 
 * 增加、删除列
 * 修改列类型
 * 调整列顺序
 * 增加、修改 Bloom Filter
-* 增加、删除 bitmap index
 
-本文档主要介绍如何创建 Schema Change 作业，以及进行 Schema Change 的一些注意事项和常见问题。
+本文档主要介绍如何创建 Scheam Change 作业，以及进行 Scheam Change 的一些注意事项和常见问题。
 
 ## 名词解释
 
@@ -71,9 +51,9 @@ under the License.
 
 ## 创建作业
 
-创建 Schema Change 的具体语法可以查看帮助 `HELP ALTER TABLE` 中 Schema Change 部分的说明。
+创建 Scheam Change 的具体语法可以查看帮助 `HELP ALTER TABLE` 中 Scheam Change 部分的说明。
 
-Schema Change 的创建是一个异步过程，作业提交成功后，用户需要通过 `SHOW ALTER TABLE COLUMN` 命令来查看作业进度。
+Scheam Change 的创建是一个异步过程，作业提交成功后，用户需要通过 `SHOW ALTER TABLE COLUMN` 命令来查看作业进度。
 
 ## 查看作业
 
@@ -174,7 +154,7 @@ ADD COLUMN k5 INT default "1" to rollup2;
 
 可以看到，Base 表 tbl1 也自动加入了 k4, k5 列。即给任意 rollup 增加的列，都会自动加入到 Base 表中。
 
-同时，不允许向 Rollup 中加入 Base 表已经存在的列。如果用户需要这样做，可以重新建立一个包含新增列的 Rollup，之后再删除原 Rollup。
+同时，不允许向 Rollup 中加入 Base 表已经存在的列。如果用户需要这样做，可以重新建立一个包含新增列的 Rollup，之后在删除原 Rollup。
 
 ## 注意事项
 

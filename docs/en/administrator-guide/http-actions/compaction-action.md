@@ -5,7 +5,7 @@
 }
 ---
 
-<!--
+<!-
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements. See the NOTICE file
 distributed with this work for additional information
@@ -22,7 +22,7 @@ software distributed under the License is distributed on an
 KIND, either express or implied. See the License for the
 specific language governing permissions and limitations
 under the License.
--->
+->
 
 # Compaction Action
 
@@ -62,7 +62,7 @@ If the tablet exists, the result is returned in JSON format:
         "[0-48] 10 DATA OVERLAPPING",
         "[49-49] 2 DATA OVERLAPPING",
         "[50-50] 0 DELETE NONOVERLAPPING",
-        "[51-51] 5 DATA OVERLAPPING"
+        "[51-51] 5 DATE OVERLAPPING"
     ]
 }
 ```
