@@ -29,21 +29,21 @@ install:
   - cd docs && npm install
 
 before_script:
-  - if [ "$TRAVIS_EVENT_TYPE" != "pull_request" ]; then exit 0; fi
   - export PR=https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST
   - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo `curl -s $PR | jq -r .head.ref`; fi)
   - echo $BRANCH
   - sed -i 's/base:.*,/base:\"\/'$BRANCH'\/\",/g' .vuepress/config.js 
   - sed -i 's/docsBranch:.*,/docsBranch:\"'$BRANCH'\",/g' .vuepress/config.js 
   - rm -rf site-repo
-  - git config user.name "${GIT_NAME}"
-  - git config user.email "${GIT_EMAIL}"
-  - git clone https://${SITE_REPO} site-repo
   
 script:
   - npm run build
 
 after_script:
+  - if [ "$TRAVIS_EVENT_TYPE" != "push" ]; then exit 0; fi
+  - git config user.name "${GIT_NAME}"
+  - git config user.email "${GIT_EMAIL}"
+  - git clone https://${SITE_REPO} site-repo
   - cd site-repo
   - mkdir -p ${BRANCH} && rm -rf ${BRANCH}/*
   - cp -r ../.vuepress/dist/* ./${BRANCH}/
