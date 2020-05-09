@@ -16,8 +16,10 @@
  * limitations under the License.
  */
 
-// DO NOT CHANGE this const name, it's value would be set automatically during the travis' building
-const BUILDING_BRANCH = ''
+// Values would be replaced automatically during the travis' building
+const BUILDING_BRANCH = process.env.BRANCH || ''
+const ALGOLIA_API_KEY = process.env.ALGOLIA_API_KEY || ''
+const ALGOLIA_INDEX_NAME = process.env.ALGOLIA_INDEX_NAME || ''
 
 function convertSidebar(list, path) {
   if (list.length > 0) {
@@ -35,8 +37,8 @@ function convertSidebar(list, path) {
 
 function buildAlgoliaSearchConfig(lang) {
   return {
-    apiKey: '672f62e2890b975802bef6e68424e7c2',
-    indexName: 'apache_doris',
+    apiKey: ALGOLIA_API_KEY,
+    indexName: ALGOLIA_INDEX_NAME,
     algoliaOptions: {
       facetFilters: ['lang:' + lang, 'version:' + BUILDING_BRANCH]
     }
