@@ -16,6 +16,9 @@
  * limitations under the License.
  */
 
+// DO NOT CHANGE this const name, it's value would be set automatically during the travis' building
+const BUILDING_BRANCH = ''
+
 function convertSidebar(list, path) {
   if (list.length > 0) {
       list.forEach((element, i) => {
@@ -30,8 +33,18 @@ function convertSidebar(list, path) {
   return list
 }
 
+function buildAlgoliaSearchConfig(lang) {
+  return {
+    apiKey: '672f62e2890b975802bef6e68424e7c2',
+    indexName: 'apache_doris',
+    algoliaOptions: {
+      facetFilters: ['lang:' + lang, 'version:' + BUILDING_BRANCH]
+    }
+  }
+}
+
 module.exports = {
-  base: '',
+  base: BUILDING_BRANCH.length > 0 ? '/' + BUILDING_BRANCH + '/' : '',
   locales: {
     '/en/': {
       lang: 'en',
@@ -55,8 +68,8 @@ module.exports = {
   themeConfig: {
     title: 'Doris',
     logo: '/images/doris-logo-only.png',
-    search: true,
     smoothScroll: true,
+    search: true,
     searchMaxSuggestions: 10,
     nextLinks: true,
     prevLinks: true,
@@ -65,14 +78,15 @@ module.exports = {
     lastUpdated: 'Last Updated',
     editLinks: true,
     docsDir: 'docs',
-    docsBranch: '',
+    docsBranch: BUILDING_BRANCH,
     locales: {
       '/en/': {
+        algolia: buildAlgoliaSearchConfig('en'),
         selectText: 'Languages',
         label: 'English',
         ariaLabel: 'Languages',
         editLinkText: 'Edit this page on GitHub',
-        algolia: {},
+        searchPlaceholder: 'search',
         nav: [
           {
             text: 'Home', link: '/en/'
@@ -90,9 +104,11 @@ module.exports = {
         sidebar: convertSidebar(require('./sidebar/en.js'), '/en/')
       },
       '/zh-CN/': {
+        algolia: buildAlgoliaSearchConfig('zh-CN'),
         selectText: '选择语言',
         label: '简体中文',
         editLinkText: '在 GitHub 上编辑此页',
+        searchPlaceholder: '搜索',
         nav: [
           {
             text: '主页', link: '/zh-CN/'
@@ -107,7 +123,6 @@ module.exports = {
             text: 'Apache', link: 'https://www.apache.org/', target: '_blank'
           }
         ],
-        algolia: {},
         sidebar: {
           '/zh-CN/': convertSidebar(require('./sidebar/zh-CN.js'), '/zh-CN/')
         }
