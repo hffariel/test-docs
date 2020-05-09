@@ -48,7 +48,7 @@ after_script:
   - cp -r ../.vuepress/dist/* ./${BRANCH}/
   - git add .
   - git commit -am "Auto Build"
-  - git push --force --quiet "https://${SITE_PUSH_TOKEN}@${SITE_REPO}" ${SITE_BRANCH}:${SITE_BRANCH}
+  - git push --verbose "https://${SITE_PUSH_TOKEN}@${SITE_REPO}" ${SITE_BRANCH}:${SITE_BRANCH}
 
 branches:
   only:

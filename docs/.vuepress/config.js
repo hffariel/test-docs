@@ -70,8 +70,8 @@ module.exports = {
   themeConfig: {
     title: 'Doris',
     logo: '/images/doris-logo-only.png',
-    smoothScroll: true,
     search: true,
+    smoothScroll: true,
     searchMaxSuggestions: 10,
     nextLinks: true,
     prevLinks: true,
@@ -81,6 +81,7 @@ module.exports = {
     editLinks: true,
     docsDir: 'docs',
     docsBranch: BUILDING_BRANCH,
+    searchPlaceholder: 'Search',
     locales: {
       '/en/': {
         algolia: buildAlgoliaSearchConfig('en'),
@@ -88,7 +89,6 @@ module.exports = {
         label: 'English',
         ariaLabel: 'Languages',
         editLinkText: 'Edit this page on GitHub',
-        searchPlaceholder: 'search',
         nav: [
           {
             text: 'Home', link: '/en/'
@@ -110,7 +110,6 @@ module.exports = {
         selectText: '选择语言',
         label: '简体中文',
         editLinkText: '在 GitHub 上编辑此页',
-        searchPlaceholder: '搜索',
         nav: [
           {
             text: '主页', link: '/zh-CN/'
