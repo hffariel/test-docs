@@ -436,7 +436,7 @@ module.exports = [
       "pull-request",
       "release-process",
       "subscribe-mail-list",
-      "verify-apache-release,
+      "verify-apache-release",
     ],
   },
 ]
