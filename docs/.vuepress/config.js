@@ -91,16 +91,7 @@ module.exports = {
         searchPlaceholder: 'search',
         nav: [
           {
-            text: 'Home', link: '/en/'
-          },
-          {
-            text: 'Docs', link: '/en/installing/compilation'
-          },
-          {
             text: 'Download', link: '/en/downloads/downloads'
-          },
-          {
-            text: 'Apache', link: 'https://www.apache.org/', target: '_blank'
           }
         ],
         sidebar: convertSidebar(require('./sidebar/en.js'), '/en/')
@@ -113,16 +104,7 @@ module.exports = {
         searchPlaceholder: '搜索',
         nav: [
           {
-            text: '主页', link: '/zh-CN/'
-          },
-          {
-            text: '文档', link: '/zh-CN/installing/compilation'
-          },
-          {
             text: '下载', link: '/zh-CN/downloads/downloads'
-          },
-          {
-            text: 'Apache', link: 'https://www.apache.org/', target: '_blank'
           }
         ],
         sidebar: {

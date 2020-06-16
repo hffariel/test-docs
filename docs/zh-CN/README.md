@@ -18,7 +18,7 @@ casesText: Apache Doris 用户
 cases:
 - logo: https://s0.meituan.net/bs/fe-web-meituan/fa5f0f0/img/logo.png
   alt: 美团
-- logo: https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/3c6d55fbb2fb431619c5f9ad2da4462308f7d30b.jpg
+- logo: https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3452306450,1932457124&fm=26&gp=0.jpg
   alt: 小米
 - logo: https://img10.360buyimg.com/img/jfs/t1/117726/20/7368/88789/5ec3777cE70ffaf64/47d8f5d0310958bd.gif
   alt: 京东
@@ -38,7 +38,7 @@ cases:
   alt: Shopee
 - logo: https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1704289876,3870130483&fm=26&gp=0.jpg
   alt: 探探
-- logo: https://ali.static.yximgs.com/udata/pkg/fe/kwai_home_logo.png
+- logo: https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592304349676&di=57f7f991b20e527a3a0ef4c277043775&imgtype=0&src=http%3A%2F%2Fpic.ossfiles.cn%3A9186%2Fgroup2%2FM00%2F0E%2F6B%2FrBgICV0dnIiASALXAAAtNU0p8U8473.jpg
   alt: 快手
 - logo: https://statics.itc.cn/asm/static/images/logo-large.png
   alt: 搜狐

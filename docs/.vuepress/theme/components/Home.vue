@@ -164,9 +164,9 @@ export default {
       border-radius 4px
       transition background-color .1s ease
       box-sizing border-box
-      border-bottom 1px solid darken($accentColor, 10%)
+      border-bottom 1px solid darken(rgb(76, 110, 165), 10%)
       &:hover
-        background-color lighten($accentColor, 10%)
+        background-color lighten(rgb(76, 110, 165), 10%)
   .wrapper
     box-sizing: border-box
     max-width: 1280px
