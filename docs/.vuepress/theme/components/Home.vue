@@ -138,7 +138,7 @@ export default {
   margin 0px auto
   display block
   .hero
-    background-color: rgba(76, 110, 165, .2)
+    background-color: rgb(247, 247, 249)
     color: rgb(76, 110, 165)
     padding: 4em 2em 2em 2em
     text-align center
