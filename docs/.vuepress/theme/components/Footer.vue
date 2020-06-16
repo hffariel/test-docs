@@ -18,36 +18,71 @@ under the License.
 -->
 
 <template>
-  <div class="footer-wrapper">
+  <!-- <div class="footer-wrapper">
     <br />
-    <span class="footer-text">© Copyright 2020, Apache Doris(Incubating)</span>
+    <span class="footer-text">© Copyright {{ thisYear }}, Apache Doris(Incubating) </span>
     <br />
     <span
       class="footer-text"
     >
-    Apache Doris(incubating) is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</span>
+      Apache Doris(incubating) is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</span>
+  </div> -->
+  <div class="footer-wrapper">
+    <p class="apache-info">
+      <a href="https://apache.org">
+        <img width="200" :src="$withBase('/images/asf_logo.svg')" alt="The Apache Software Foundation">
+      </a>
+      <a style="float: right" href="https://www.apache.org/events/current-event.html">
+        <img src="https://www.apache.org/events/current-event-234x60.png">
+      </a>
+    <p>
+      <a href="https://www.apache.org/licenses/">License</a> | <a href="https://www.apache.org/security/">Security</a> | <a href="https://www.apache.org/foundation/thanks.html">Thanks</a> | <a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
+    </p>
+    <p>
+      <br />
+        <span class="footer-text">© Copyright {{ thisYear }}, Apache Doris(Incubating) </span>
+      <br />
+      <span
+        class="footer-text"
+      >
+        Apache Doris(incubating) is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.
+      </span>
+    </p>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  computed: {
+    thisYear: () => new Date().getFullYear()
+  }
+}
 </script>
 <style lang="stylus">
-.footer-wrapper 
+.footer-wrapper
   max-width $contentWidth
-  text-align: center
+  text-align center
   margin 0 auto
-  padding 2rem 2.5rem
-  color: rgb(93, 93, 93)
+  color rgb(93, 93, 93)
   font-weight: 240
+  .apache-info
+    display flex
+    flex-direction row
+    justify-content space-between
+    align-items center
+    margin-bottom 1em
+    width 100%
+    font-size .75em
+    border-collapse collapse
+    overflow-x auto
 
 @media (min-width: $MQMobile)
   .footer-wrapper 
-    padding 2rem
+    padding 1rem 0rem
     .footer-text
-      font-size: 13px
+      font-size .9rem
 @media (max-width: $MQMobile)
   .footer-wrapper 
     padding 1.5rem
     .footer-text
-      font-size: 12px;
+      font-size 12px
 </style>
