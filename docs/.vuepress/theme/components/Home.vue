@@ -138,8 +138,8 @@ export default {
   margin 0px auto
   display block
   .hero
-    background-image url(/images/test.jpg)
-    color: white
+    background-color rgb(247, 247, 249)
+    color: rgb(76, 110, 165)
     padding: 4em 2em 2em 2em
     text-align center
     img
@@ -154,7 +154,7 @@ export default {
     .description
       font-size 1.6rem
       line-height 1.3
-      color lighten(white, 40%)
+      color lighten(rgb(76, 110, 165), 40%)
     .action-button
       display inline-block
       font-size 1.2rem
