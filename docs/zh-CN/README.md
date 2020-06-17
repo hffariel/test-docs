@@ -3,7 +3,7 @@ home: true
 heroImage: /images/doris-logo.png
 heroText: 欢迎使用 Apache Doris
 tagline: 支持对海量大数据进行快速分析的MPP数据库
-structureImage: /images/structure.png
+structureImage: /images/structure-fresh.png
 featuresText: Apache Doris 核心特性
 features:
 - title: 现代化MPP架构

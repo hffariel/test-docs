@@ -3,7 +3,7 @@ home: true
 heroImage: /images/doris-logo.png
 heroText: Welcome to Apache Doris
 tagline: A fast mpp database for all modern analytics on big data.
-structureImage: /images/structure.png
+structureImage: /images/structure-fresh.png
 featuresText: Apache Doris Features
 features:
 - title: Modern MPP architecture
