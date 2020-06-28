@@ -131,8 +131,8 @@ under the License.
           class="case"
         >
           <img
-            v-if="$withBase(cese.logo)"
-            :src="cese.logo"
+            v-if="cese.logo"
+            :src="$withBase(cese.logo)"
             :alt="cese.alt"
           >
         </div>
