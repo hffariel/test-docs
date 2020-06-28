@@ -8,8 +8,8 @@ structure:
   subText: Our Data Interaction
   title: Apache Doris数据交互
   descriptions: 
-    - Apache Doris是一个现代化MPP分析型数据库产品。Apache Doris能够提供亚秒级的查询延时，并且能有效地支持实时数据分析。它分布式架构非常简洁，易于运维，可以支撑10PB级别的数据规模。Apache Doris可以满足您包括固定历史报表，实时数据分析，交互式数据分析，和探索式数据分析在内的多种数据分析需求。令您的数据分析工作更加简单！
-    - Doris 支持多种导入方式。建议先完整阅读本文档，再根据所选择的导入方式，查看各自导入方式的详细文档。
+    - Apache Doris是一个现代化MPP分析型数据库产品。Apache Doris能够提供亚秒级的查询延时，并且能有效地支持实时数据分析。它分布式架构非常简洁，易于运维，可以支撑10PB级别的数据规模。
+    - Apache Doris可以满足您包括固定历史报表，实时数据分析，交互式数据分析，和探索式数据分析在内的多种数据分析需求。令您的数据分析工作更加简单！
   image: /images/structure-fresh.png
   actionText: 了解更多
   actionLink: /zh-CN/getting-started/basic-usage
