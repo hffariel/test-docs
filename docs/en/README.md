@@ -1,41 +1,41 @@
 ---
 home: true
 heroImage: /images/home/hero_banner.png
-heroText: 欢迎使用 Apache Doris
-tagline: 支持对海量大数据进行快速分析的MPP数据库
+heroText: Welcome to Apache Doris
+tagline: A fast MPP database for all modern analytics on big data.
 structure: 
-  text: Apache Doris数据交互
-  subText: Our Data Interaction
-  title: Apache Doris数据交互
+  text: Apache Doris Data Interaction
+  subText: 
+  title: 
   descriptions: 
-    - 导入（Load）功能就是将用户的原始数据导入到 Doris 中。导入成功后，用户即可通过 Mysql 客户端查询数据。
-    - Doris 支持多种导入方式。建议先完整阅读本文档，再根据所选择的导入方式，查看各自导入方式的详细文档。
+    - Apache Doris is a modern MPP analytical database product. It can provide sub second query delay and support real-time data analysis effectively. Its distributed architecture is very simple, easy to operate and maintain, and can support 10PB level data scale.
+    - Apache Doris can meet your various data analysis needs, including fixed historical reports, real-time data analysis, interactive data analysis, and exploratory data analysis. Make your data analysis easier!
   image: /images/structure-fresh.png
-  actionText: 了解更多
+  actionText: Learn More
   actionLink: /zh-CN/getting-started/basic-usage
 features:
-  text: Apache Doris 核心特性
-  subText: Our Core Features
+  text: Apache Doris Core Features
+  subText: 
   list: 
-    - title: 现代化MPP架构
+    - title: Modern MPP architecture
       icon: /images/home/struct.png
-    - title: 秒级查询返回延时
+    - title: Getting result of a query within one second
       icon: /images/home/clock.png
-    - title: 支持标准SQL语言，兼容MySQL协议
+    - title: Support standard SQL language, compatible with MySQL protocol
       icon: /images/home/sql.png
-    - title: 向量化执行器
+    - title: Vectorized SQL executor
       icon: /images/home/program.png
-    - title: 高效的聚合表技术
+    - title: Effective data model for aggregation
       icon: /images/home/aggr.png
-    - title: 新型预聚合技术Rollup
+    - title: Rollup，novel pre-computation mechanism
       icon: /images/home/rollup.png
-    - title: 高性能、高可用、高可靠
+    - title: High performance, high availability, high reliability
       icon: /images/home/cpu.png
-    - title: 极简运维，弹性伸缩
+    - title: easy for operation，Elastic data warehouse for big data
       icon: /images/home/dev.png
 cases:
-  text: Apache Doris 用户
-  subText: Our Users
+  text: Apache Doris Users
+  subText: 
   list:
     - logo: /images/home/logo-meituan.png
       alt: 美团
@@ -67,6 +67,6 @@ cases:
       alt: 一点资讯
     - logo: /images/home/logo-dingdong.png
       alt: 叮咚买菜
-actionText: 快速上手 →
+actionText: Quick Start →
 actionLink: /zh-CN/installing/compilation
 ---
