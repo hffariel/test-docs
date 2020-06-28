@@ -277,7 +277,7 @@ export default {
           box-shadow 0 0 20px 0 rgba(81,105,172,0.30)
   .features
     .list
-      padding 0.5rem 0
+      padding-top 0.5rem
       margin-top 2.5rem
       display flex
       flex-wrap wrap
@@ -316,9 +316,7 @@ export default {
       margin-top 2.5rem
       display flex
       flex-wrap wrap
-      align-items flex-end
-      align-content stretch
-      justify-content space-between
+      justify-content flex-start
       .case
         flex-grow 1
         flex-basis 16%
@@ -383,6 +381,7 @@ export default {
           max-width 40%
     .cases
       .list
+        justify-content space-between
         .case
           flex-basis 30%
           max-width 30%
