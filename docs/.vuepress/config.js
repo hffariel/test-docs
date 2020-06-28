@@ -69,7 +69,7 @@ module.exports = {
   description: 'Apache Doris',
   themeConfig: {
     title: 'Doris',
-    logo: '/images/doris-logo-only.png',
+    logo: '/images/home/logo-doris-white.png',
     smoothScroll: true,
     search: true,
     searchMaxSuggestions: 10,

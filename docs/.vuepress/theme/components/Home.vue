@@ -28,31 +28,51 @@ under the License.
         :src="$withBase(data.heroImage)"
         :alt="data.heroAlt || 'hero'"
       > -->
-      <h1
-        v-if="data.heroText !== null"
-        id="main-title"
-      >
-        {{ data.heroText || $title || 'Hello' }}
-      </h1>
-      <p
-        v-if="data.tagline !== null"
-        class="description"
-      >
-        {{ data.tagline || $description || 'Welcome to your VuePress site' }}
-      </p>
+      <div class="header-wrapper">
+        <h1
+          v-if="data.heroText !== null"
+          id="main-title"
+        >
+          {{ data.heroText || $title || 'Hello' }}
+        </h1>
+        <div class="intro">
+          <div class="text">
+            <div
+              v-if="data.tagline !== null"
+              class="description"
+            >
+              {{ data.tagline || $description || 'Welcome to your VuePress site' }}
+            </div>
 
-      <p
-        v-if="data.actionText && data.actionLink"
-        class="action"
-      >
-        <NavLink
-          class="action-button"
-          :item="actionLink"
-        />
-      </p>
+            <p
+              v-if="data.actionText && data.actionLink"
+              class="action"
+            >
+              <NavLink
+                class="action-button"
+                :item="actionLink"
+              />
+            </p>
+          </div>
+          <div class="image">
+            <div class="card-front">
+              <img
+                :src="$withBase('/images/home/banner-stats.png')"
+                style="width: 100%;"
+              >
+            </div>
+            <div class="card-back">
+              <img
+                :src="$withBase('/images/home/banner-stats.png')"
+                style="width: 100%;"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
 
-    <div class="structure wrapper" style="margin-top: -300px;">
+    <div class="structure wrapper" style="margin-top: -270px;">
       <h1>
         {{ data.structure.text }}
       </h1>
@@ -61,6 +81,14 @@ under the License.
         {{ data.structure.subText }}
       </div>
       <div class="intro">
+        <div class="image">
+          <img
+            v-if="data.structure.image"
+            :src="$withBase(data.structure.image)"
+            alt="structure"
+            style="width: 100%;"
+          >
+        </div>
         <div class="text">
           <div class="title">
             {{ data.structure.title }}
@@ -72,14 +100,6 @@ under the License.
             class="action-button"
             :item="moreActionLink"
           />
-        </div>
-        <div class="image">
-          <img
-            v-if="data.structure.image"
-            :src="$withBase(data.structure.image)"
-            alt="structure"
-            style="width: 100%;"
-          >
         </div>
       </div>
     </div>
@@ -183,35 +203,64 @@ export default {
   .hero
     background-color rgb(247, 247, 249)
     color: rgb(76, 110, 165)
-    padding: 6em 2em 2em 2em
-    text-align center
-    height 1100px
-    img
-      max-width: 100%
-      max-height 200px
-      display block
-      margin 0 auto 1.5rem
-    h1
-      font-size 2.8rem
-      color #333333
-    h1, .description, .action
-      margin 1.8rem auto
-    .description
-      font-size 1.6rem
-      line-height 1.3
-      color #999999
-    .action-button
-      display inline-block
-      font-size 1.2rem
-      color #fff
-      box-shadow 0 8px 12px 0 rgba(81,105,172,0.27)
-      background-color #5169AC
-      padding 0.4rem 1.6rem
-      border-radius 10px
-      transition background-color .1s ease
-      box-sizing border-box
-      &:hover
-        background-color lighten(#5169AC, 10%)
+    padding: 5em 2em 2em 2em
+    text-align left
+    height 900px
+    .header-wrapper
+      box-sizing: border-box
+      max-width: 1280px
+      padding: 2em 2em 2em 2em
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      h1
+        font-size 2.8rem
+        color white
+      .intro
+        display flex
+        flex-direction row
+        align-items flex-start
+        justify-content center
+        .text
+          flex-basis 33%
+          .description
+            padding 0rem 4rem 2rem 0rem
+            font-size 1.6rem
+            color white
+            opacity 0.6
+          .action-button
+            display inline-block
+            font-size 1.2rem
+            color #5169AC
+            box-shadow 0 8px 12px 0 rgba(81,105,172,0.27)
+            background-color white
+            padding 0.4rem 1.6rem
+            border-radius 10px
+            transition background-color .1s ease
+            box-sizing border-box
+            &:hover
+              background-color lighten(white, 10%)
+        .image
+          position relative
+          flex-basis 67%
+          .card-front
+            padding 0.6rem
+            position absolute
+            top 0
+            transform translateX(20px) translateY(20px)
+            background #FFFFFF
+            box-shadow 0 0 20px 0 rgba(81,105,172,0.30)
+            border-radius 16px
+            z-index 2
+          .card-back
+            padding 0.6rem
+            position absolute
+            top 0
+            transform translateX(-10px) translateY(-10px)
+            background #FFFFFF
+            border-radius 16px
+            z-index 1
+            opacity 0.5
   .wrapper
     box-sizing: border-box
     max-width: 1280px
@@ -242,7 +291,7 @@ export default {
       align-items flex-start
       justify-content center
       .text
-        padding 3rem 0rem 0rem
+        padding 3rem 4rem 0rem
         flex-basis 35%
         .title
           color #333333
@@ -250,7 +299,7 @@ export default {
           font-size 1.6rem
           font-weight bold
         .description
-          padding 1.3rem 4rem 0rem 0rem
+          padding 1.3rem 0rem 0rem 0rem
           font-size 1.2rem
           line-height 1.6rem
           color #999999
@@ -348,6 +397,41 @@ export default {
 @media (max-width: $MQMobile)
   .home
     .hero
+      .header-wrapper
+        h1
+          font-size 2rem
+          color white
+          text-align center
+        .intro
+          display flex
+          flex-direction column
+          align-items center
+          justify-content flex-start
+          .text
+            flex-basis 100%
+            text-align center
+            .description
+              width 100%
+              font-size 1.4rem
+              color white
+              opacity 0.6
+            .action-button
+              display inline-block
+              font-size 1.2rem
+              color #5169AC
+              box-shadow 0 8px 12px 0 rgba(81,105,172,0.27)
+              background-color white
+              padding 0.4rem 1.6rem
+              border-radius 10px
+              transition background-color .1s ease
+              box-sizing border-box
+              &:hover
+                background-color lighten(white, 10%)
+          .image
+            margin-top 3rem
+            position relative
+            flex-basis 100%
+            width 100%
       h1
         font-size 2rem
         color #333333

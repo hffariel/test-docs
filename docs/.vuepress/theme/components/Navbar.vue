@@ -49,6 +49,8 @@ export default {
   .links
     background-color rgba(0, 0, 0, 0)
   .nav-link, .dropdown-title, .repo-link
-    color #5169AC
+    color white
+  .site-name
+    display none
   
 </style>

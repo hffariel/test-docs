@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /images/home/hero_banner.png
+heroImage: /images/home/hero-bg.png
 heroText: 欢迎使用 Apache Doris
 tagline: 支持对海量大数据进行快速分析的MPP数据库
 structure: 
