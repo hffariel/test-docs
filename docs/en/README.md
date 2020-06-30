@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /images/home/hero-stats1.png
+heroImage: /images/home/banner-stats1.png
 heroBgImage: /images/home/hero-bg1.png
 heroText:
   - Welcome to 

@@ -186,7 +186,7 @@ export default {
   display block
   font-family PingFangSC-Regular
   .hero
-    background-color rgb(73, 132, 231)
+    background-color #5A77F3
     color: rgb(76, 110, 165)
     padding: 0em
     text-align left
@@ -228,7 +228,8 @@ export default {
             padding 0.4rem 2.6rem
             transition background-color .1s ease
             &:hover
-              background-color lighten(rgb(73, 132, 231), 10%)
+              color #5A77F3
+              background-color white
         .image
           position relative
           flex-basis 50%
@@ -293,7 +294,8 @@ export default {
         transition background-color .1s ease
         box-sizing border-box
         &:hover
-          background-color lighten(#5169AC, 90%)
+          color white
+          background-color #5169AC
     .image
       flex-basis 68%
   .features
