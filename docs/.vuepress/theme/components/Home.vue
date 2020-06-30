@@ -29,7 +29,10 @@ under the License.
         :alt="data.heroAlt || 'hero'"
       > -->
       <div class="header-wrapper" style="position: relative;">
-        <img :src="$withBase(data.heroBgImage)" style="height: 100%; position: absolute;">
+        <div id="scene1" style="height: 100%; position: absolute;">
+          <img :src="$withBase(data.heroBgImage)"
+              data-depth="0.2" style="height: 100%;">
+        </div>
         <div class="intro" style="z-index: 1;">
           <div class="text">
             <div
@@ -55,8 +58,13 @@ under the License.
               />
             </p>
           </div>
-          <div class="image">
+          <div 
+            class="image" id="scene"
+          >
             <img
+              data-hover-only="true"
+              data-depth="0.4"
+              data-relative-input="true"
               :src="$withBase(data.heroImage)"
             >
           </div>
@@ -153,10 +161,17 @@ under the License.
 
 <script>
 import NavLink from '@parent-theme/components/NavLink.vue'
-import CustomFooter from "@theme/components/Footer.vue";
+import CustomFooter from '@theme/components/Footer.vue'
+import Parallax from 'parallax-js'
 export default {
   name: 'Home',
   components: { NavLink, CustomFooter },
+  mounted() {
+    var scene = document.getElementById('scene');
+    var parallaxInstance = new Parallax(scene);
+    var scene1 = document.getElementById('scene1');
+    var parallaxInstance = new Parallax(scene1);
+  },
   computed: {
     data () {
       return this.$page.frontmatter
