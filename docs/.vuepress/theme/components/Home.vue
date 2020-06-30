@@ -271,7 +271,7 @@ export default {
       .title
         color #595959
         text-align left
-        font-size 1.6rem
+        font-size 1.9rem
         font-family PingFangSC-Medium
       .sub-title
         text-align left
@@ -279,6 +279,7 @@ export default {
         font-size 1.3rem
         color #999999
         padding 0rem
+        line-height 1.8rem
       .description
         padding 1.3rem 0rem 0rem 0rem
         font-size 0.9rem

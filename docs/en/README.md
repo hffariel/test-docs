@@ -7,7 +7,7 @@ heroText:
   - Apache Doris
 tagline: A fast MPP database for all modern analytics on big data.
 structure: 
-  title: Apache Doris Data Interaction
+  title: 
   subTitle: 
   descriptions: 
     - Apache Doris is a modern MPP analytical database product. It can provide sub second query delay and support real-time data analysis effectively. Its distributed architecture is very simple, easy to operate and maintain, and can support 10PB level data scale.
