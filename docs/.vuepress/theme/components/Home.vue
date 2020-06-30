@@ -22,28 +22,29 @@ under the License.
     class="home"
     aria-labelledby="main-title"
   >
-    <header class="hero" :style="`background: url(${$withBase(data.heroImage)}) no-repeat top center`">
+    <header class="hero">
       <!-- <img
         v-if="data.heroImage"
         :src="$withBase(data.heroImage)"
         :alt="data.heroAlt || 'hero'"
       > -->
-      <div class="header-wrapper">
-        <h1
-          v-if="data.heroText !== null"
-          id="main-title"
-        >
-          {{ data.heroText || $title || 'Hello' }}
-        </h1>
-        <div class="intro">
+      <div class="header-wrapper" style="position: relative;">
+        <img :src="$withBase(data.heroImage)" style="height: 100%; position: absolute;">
+        <div class="intro" style="z-index: 1;">
           <div class="text">
+            <div
+              v-for="item in data.heroText"
+              :key="item"
+              class="title"
+            >
+              {{ item || $title || 'Hello' }}
+            </div>
             <div
               v-if="data.tagline !== null"
               class="description"
             >
               {{ data.tagline || $description || 'Welcome to your VuePress site' }}
             </div>
-
             <p
               v-if="data.actionText && data.actionLink"
               class="action"
@@ -55,80 +56,66 @@ under the License.
             </p>
           </div>
           <div class="image">
-            <div class="card-front">
-              <img
-                :src="$withBase('/images/home/banner-stats.png')"
-                style="width: 100%;"
-              >
-            </div>
-            <div class="card-back">
-              <img
-                :src="$withBase('/images/home/banner-stats.png')"
-                style="width: 100%;"
-              >
-            </div>
+            <img
+              :src="$withBase('/images/home/banner-stats.png')"
+            >
           </div>
         </div>
       </div>
     </header>
 
-    <div class="structure wrapper" style="margin-top: -270px;">
-      <h1>
-        {{ data.structure.text }}
-      </h1>
-      <div class="divider" />
-      <div class="sub-text">
-        {{ data.structure.subText }}
+    <div class="structure wrapper" style="margin-top: 0px;">
+      <div class="image">
+        <img
+          v-if="data.structure.image"
+          :src="$withBase(data.structure.image)"
+          alt="structure"
+          style="width: 100%;"
+        >
       </div>
-      <div class="intro">
-        <div class="image">
-          <img
-            v-if="data.structure.image"
-            :src="$withBase(data.structure.image)"
-            alt="structure"
-            style="width: 100%;"
-          >
+      <div class="text">
+        <div class="title">
+          {{ data.structure.title }}
         </div>
-        <div class="text">
-          <div class="title">
-            {{ data.structure.title }}
-          </div>
-          <div v-for="item in data.structure.descriptions" :key="item" class="description">
-            {{ item }}
-          </div>
-          <NavLink
-            class="action-button"
-            :item="moreActionLink"
-          />
+        <div class="sub-title">
+          {{ data.structure.subTitle }}
         </div>
+        <div v-for="item in data.structure.descriptions" :key="item" class="description">
+          {{ item }}
+        </div>
+        <NavLink
+          class="action-button"
+          :item="moreActionLink"
+        />
       </div>
     </div>
     <div 
       v-if="data.features"
-      class="wrapper features"
+      class="features"
     >
-      <h1>
-        {{ data.features.text }}
-      </h1>
-      <div class="divider" />
-      <div class="sub-text">
-        {{ data.features.subText }}
-      </div>
-      <div class="list">
-        <div
-          v-for="(feature, index) in data.features.list"
-          :key="index"
-          class="feature"
-        >
-          <div class="icon-card">
-            <img
-              v-if="feature.icon"
-              :src="$withBase(feature.icon)"
-              alt="feature"
-            >
-          </div>
-          <div class="label">
-            {{ feature.title }}
+      <div class="wrapper">
+        <div class="title">
+          {{ data.features.title }}
+        </div>
+        <div class="sub-title">
+          {{ data.features.subTitle }}
+        </div>
+        <div class="list">
+          <div
+            v-for="(feature, index) in data.features.list"
+            :key="index"
+            class="feature"
+          >
+            <div class="icon-card">
+              <img
+                v-if="feature.icon"
+                :src="$withBase(feature.icon)"
+                alt="feature"
+              >
+            </div>
+            <div class="label">
+              {{ feature.title }}
+            </div>
           </div>
         </div>
       </div>
@@ -137,12 +124,11 @@ under the License.
     <div
       v-if="data.cases"
       class="wrapper cases">
-      <h1>
-        {{ data.cases.text }}
-      </h1>
-      <div class="divider" />
-      <div class="sub-text">
-        {{ data.cases.subText }}
+      <div class="title">
+        {{ data.cases.title }}
+      </div>
+      <div class="sub-title">
+        {{ data.cases.subTitle }}
       </div>
       <div class="list">
         <div
@@ -160,9 +146,7 @@ under the License.
     </div>
 
     <footer class="footer">
-      <div class="pure_top">
-        <CustomFooter style="z-index: 1; position: relative; padding: 3rem 0rem" />
-      </div>
+      <CustomFooter />
     </footer>
   </main>
 </template>
@@ -200,67 +184,56 @@ export default {
   width 100%
   margin 0px auto
   display block
+  font-family PingFangSC-Regular
   .hero
-    background-color rgb(247, 247, 249)
+    background-color rgb(73, 132, 231)
     color: rgb(76, 110, 165)
-    padding: 5em 2em 2em 2em
+    padding: 0em
     text-align left
-    height 900px
+    height 760px
     .header-wrapper
+      display flex
+      flex-direction row
+      justify-content center
       box-sizing: border-box
-      max-width: 1280px
-      padding: 2em 2em 2em 2em
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
-      h1
-        font-size 2.8rem
-        color white
+      margin-left auto
+      margin-right auto
+      width: 100%
+      height 100%
+      padding: 0rem 4rem
       .intro
         display flex
         flex-direction row
-        align-items flex-start
-        justify-content center
+        align-items center
+        justify-content space-between
+        width 1280px
         .text
-          flex-basis 33%
-          .description
-            padding 0rem 4rem 2rem 0rem
-            font-size 1.6rem
+          .title
+            font-family PingFangSC-Semibold
+            font-size 3.1rem
             color white
-            opacity 0.6
+            letter-spacing 0
+          .description
+            font-family PingFangSC-Light
+            padding 1.5rem 0rem 3rem
+            opacity 0.85
+            font-size 1.3rem
+            color #FFFFFF
+            letter-spacing 0.33px
           .action-button
             display inline-block
             font-size 1.2rem
-            color #5169AC
-            box-shadow 0 8px 12px 0 rgba(81,105,172,0.27)
-            background-color white
-            padding 0.4rem 1.6rem
-            border-radius 10px
+            color white
+            border: 1px solid #FFFFFF;
+            padding 0.4rem 2.6rem
             transition background-color .1s ease
-            box-sizing border-box
             &:hover
-              background-color lighten(white, 10%)
+              background-color lighten(rgb(73, 132, 231), 10%)
         .image
           position relative
-          flex-basis 67%
-          .card-front
-            padding 0.6rem
-            position absolute
-            top 0
-            transform translateX(20px) translateY(20px)
-            background #FFFFFF
-            box-shadow 0 0 20px 0 rgba(81,105,172,0.30)
-            border-radius 16px
-            z-index 2
-          .card-back
-            padding 0.6rem
-            position absolute
-            top 0
-            transform translateX(-10px) translateY(-10px)
-            background #FFFFFF
-            border-radius 16px
-            z-index 1
-            opacity 0.5
+          flex-basis 50%
+          img
+            width 530px
   .wrapper
     box-sizing: border-box
     max-width: 1280px
@@ -268,15 +241,17 @@ export default {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    h1
-      font-size 2rem
+    .title
+      font-size 1.9rem
       text-align center
-      color #5169AC
-    .sub-text
-      font-size 2rem
+      color #595959
+      font-family PingFangSC-Medium
+    .sub-title
       text-align center
-      color #CCCCCC
-      padding: 0.7rem 0rem
+      font-family PingFangSC-Light
+      font-size 1.3rem
+      color #999999
+      padding-top 1rem
     .divider 
       height 2px
       width 580px
@@ -284,47 +259,46 @@ export default {
       opacity 0.05
       background-image radial-gradient(50% 100%, #000000 50%, #D8D8D8 100%)
   .structure
-    .intro
-      padding-top 2rem
-      display flex
-      flex-direction row
-      align-items flex-start
-      justify-content center
-      .text
-        padding 3rem 4rem 0rem
-        flex-basis 35%
-        .title
-          color #333333
-          line-height 4rem
-          font-size 1.6rem
-          font-weight bold
-        .description
-          padding 1.3rem 0rem 0rem 0rem
-          font-size 1.2rem
-          line-height 1.6rem
-          color #999999
-        .action-button
-          margin-top 2rem
-          display inline-block
-          font-size 1.2rem
-          color #fff
-          box-shadow 0 8px 12px 0 rgba(81,105,172,0.27)
-          background-color #5169AC
-          padding 0.4rem 1.6rem
-          border-radius 10px
-          transition background-color .1s ease
-          box-sizing border-box
-          &:hover
-            background-color lighten(#5169AC, 10%)
-      .image
-        background #FFFFFF
-        box-shadow 0 0 20px 0 rgba(81,105,172,0.10)
-        border-radius 16px
-        padding 1rem
-        flex-basis 65%
+    padding 8rem 0rem 5rem
+    display flex
+    flex-direction row
+    align-items flex-start
+    justify-content center
+    .text
+      padding 3rem 4rem 0rem
+      flex-basis 32%
+      .title
+        color #595959
+        text-align left
+        font-size 1.6rem
+        font-family PingFangSC-Medium
+      .sub-title
+        text-align left
+        font-family PingFangSC-Light
+        font-size 1.3rem
+        color #999999
+        padding 0rem
+      .description
+        padding 1.3rem 0rem 0rem 0rem
+        font-size 0.9rem
+        line-height 1.6rem
+        color #595959
+      .action-button
+        margin-top 2rem
+        display inline-block
+        font-size 1rem
+        color #5169AC
+        border: 1px solid #5169AC
+        padding 0.4rem 2.8rem
+        transition background-color .1s ease
+        box-sizing border-box
         &:hover
-          box-shadow 0 0 20px 0 rgba(81,105,172,0.30)
+          background-color lighten(#5169AC, 90%)
+    .image
+      flex-basis 68%
   .features
+    padding 5rem 0rem
+    background-color #F9FCFE
     .list
       padding-top 0.5rem
       margin-top 2.5rem
@@ -342,24 +316,19 @@ export default {
           width 8rem
           height 8rem
           margin 0 auto
-          background #FFFFFF
-          box-shadow 0 0 20px 0 rgba(81,105,172,0.10)
-          border-radius 16px
-          &:hover
-            box-shadow 0 0 20px 0 rgba(81,105,172,0.30)
           img
-            height 3.6rem
-            padding 2.2rem
+            height 4rem
+            padding 2rem
         .label
-          font-size 1.2rem
-          font-weight 500
-          border-bottom none
-          color #333333
+          font-size 1rem
+          color #595959
           height 4rem
-          padding-top 1rem
           margin 0 auto
           text-align center
+          font-family: PingFangSC-Regular;
+          color: #595959;
   .cases
+    padding 5rem 0rem
     .list
       padding 0.5rem 0
       margin-top 2.5rem
@@ -368,67 +337,39 @@ export default {
       justify-content flex-start
       .case
         flex-grow 1
-        flex-basis 16%
-        max-width 16%
+        flex-basis 25%
+        max-width 25%
         padding: 1rem 0rem
         text-align center
         img 
           width 80%
           margin 0 auto
   .footer
+    background #F9F9F9
     text-align center
     color lighten($textColor, 25%)
-    padding 3rem 0rem 0rem
-    .pure_top 
-      width 100%
-      height 27rem
-      position relative
-      z-index 0
-      overflow hidden
-      &:after
-        content ''
-        width 120%
-        height 27rem
-        position absolute
-        left -10%
-        top 0
-        border-radius 100% 100% 0 0
-        background #F7F7F9
+    padding 3rem 0rem 5rem
 @media (max-width: $MQMobile)
   .home
     .hero
+      height 960px
       .header-wrapper
-        h1
-          font-size 2rem
-          color white
-          text-align center
         .intro
           display flex
           flex-direction column
           align-items center
           justify-content flex-start
           .text
-            flex-basis 100%
+            padding 7rem 0rem 0rem
             text-align center
+            .title
+              font-size 2rem
             .description
               width 100%
               font-size 1.4rem
               color white
               opacity 0.6
-            .action-button
-              display inline-block
-              font-size 1.2rem
-              color #5169AC
-              box-shadow 0 8px 12px 0 rgba(81,105,172,0.27)
-              background-color white
-              padding 0.4rem 1.6rem
-              border-radius 10px
-              transition background-color .1s ease
-              box-sizing border-box
-              &:hover
-                background-color lighten(white, 10%)
           .image
-            margin-top 3rem
             position relative
             flex-basis 100%
             width 100%
@@ -438,26 +379,29 @@ export default {
       .description
         font-size 1.2rem
     .wrapper
-      h1
+      title
         font-size 1.6rem
-      .sub-text
+      .sub-title
         font-size 1.6rem
       .divider 
         width 380px
     .structure
-      .intro
-        flex-direction column
-        align-items center
-        justify-content flex-start
-        .text
-          order 1
-          flex-basis 100%
+      flex-direction column
+      align-items center
+      justify-content flex-start
+      .text
+        order 1
+        flex-basis 100%
+        text-align center
+        .title
           text-align center
-          .description
-            padding 1.3rem 0rem 0rem 0rem
-        .image
-          order 0
-          flex-basis 100%
+        .sub-title
+          text-align center
+        .description
+          padding 1.3rem 0rem 0rem 0rem
+      .image
+        order 0
+        flex-basis 100%
     .features
       .list
         .feature 
@@ -467,18 +411,6 @@ export default {
       .list
         justify-content space-between
         .case
-          flex-basis 30%
-          max-width 30%
-    .footer
-      .pure_top 
-        height 30rem
-        &:after
-          content ''
-          width 200%
-          height 30rem
-          position absolute
-          left -50%
-          top 0
-          border-radius 50% 50% 0 0
-          background #F7F7F9
+          flex-basis 50%
+          max-width 50%
 </style>

@@ -64,6 +64,8 @@ export default {
   margin 0 auto
   color rgb(93, 93, 93)
   font-weight: 240
+  a
+    color #3E8EFF
   .apache-info
     display flex
     flex-direction row

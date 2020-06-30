@@ -1,12 +1,13 @@
 ---
 home: true
 heroImage: /images/home/hero-bg.png
-heroText: 欢迎使用 Apache Doris
+heroText:
+  - 欢迎使用
+  - Apache Doris
 tagline: 支持对海量大数据进行快速分析的MPP数据库
 structure: 
-  text: Apache Doris数据交互
-  subText: Our Data Interaction
-  title: 
+  title: Apache Doris数据交互
+  subTitle: Our Data Interaction
   descriptions: 
     - Apache Doris是一个现代化MPP分析型数据库产品。Apache Doris能够提供亚秒级的查询延时，并且能有效地支持实时数据分析。它分布式架构非常简洁，易于运维，可以支撑10PB级别的数据规模。
     - Apache Doris可以满足您包括固定历史报表，实时数据分析，交互式数据分析，和探索式数据分析在内的多种数据分析需求。令您的数据分析工作更加简单！
@@ -14,8 +15,8 @@ structure:
   actionText: 了解更多
   actionLink: /zh-CN/getting-started/basic-usage
 features:
-  text: Apache Doris 核心特性
-  subText: Our Core Features
+  title: Apache Doris 核心特性
+  subTitle: Our Core Features
   list: 
     - title: 现代化MPP架构
       icon: /images/home/struct.png
@@ -34,8 +35,8 @@ features:
     - title: 极简运维，弹性伸缩
       icon: /images/home/dev.png
 cases:
-  text: Apache Doris 用户
-  subText: Our Users
+  title: Apache Doris 用户
+  subTitle: Our Users
   list:
     - logo: /images/home/logo-meituan.png
       alt: 美团

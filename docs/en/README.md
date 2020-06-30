@@ -1,12 +1,13 @@
 ---
 home: true
 heroImage: /images/home/hero-bg.png
-heroText: Welcome to Apache Doris
+heroText:
+  - Welcome to 
+  - Apache Doris
 tagline: A fast MPP database for all modern analytics on big data.
 structure: 
-  text: Apache Doris Data Interaction
-  subText: 
-  title: 
+  title: Apache Doris Data Interaction
+  subTitle: 
   descriptions: 
     - Apache Doris is a modern MPP analytical database product. It can provide sub second query delay and support real-time data analysis effectively. Its distributed architecture is very simple, easy to operate and maintain, and can support 10PB level data scale.
     - Apache Doris can meet your various data analysis needs, including fixed historical reports, real-time data analysis, interactive data analysis, and exploratory data analysis. Make your data analysis easier!
@@ -14,8 +15,8 @@ structure:
   actionText: Learn More
   actionLink: /zh-CN/getting-started/basic-usage
 features:
-  text: Apache Doris Core Features
-  subText: 
+  title: Apache Doris Core Features
+  subTitle: 
   list: 
     - title: Modern MPP architecture
       icon: /images/home/struct.png
@@ -34,8 +35,8 @@ features:
     - title: easy for operation，Elastic data warehouse for big data
       icon: /images/home/dev.png
 cases:
-  text: Apache Doris Users
-  subText: 
+  title: Apache Doris Users
+  subTitle: 
   list:
     - logo: /images/home/logo-meituan.png
       alt: 美团
