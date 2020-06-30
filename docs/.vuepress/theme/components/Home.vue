@@ -362,7 +362,7 @@ export default {
           align-items center
           justify-content flex-start
           .text
-            padding 7rem 0rem 0rem
+            padding 7rem 2rem 0rem 2rem
             text-align center
             .title
               font-size 2rem
