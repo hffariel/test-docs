@@ -29,7 +29,7 @@ under the License.
         :alt="data.heroAlt || 'hero'"
       > -->
       <div class="header-wrapper" style="position: relative;">
-        <img :src="$withBase(data.heroImage)" style="height: 100%; position: absolute;">
+        <img :src="$withBase(data.heroBgImage)" style="height: 100%; position: absolute;">
         <div class="intro" style="z-index: 1;">
           <div class="text">
             <div
@@ -57,7 +57,7 @@ under the License.
           </div>
           <div class="image">
             <img
-              :src="$withBase('/images/home/banner-stats.png')"
+              :src="$withBase(data.heroImage)"
             >
           </div>
         </div>

@@ -1,6 +1,7 @@
 ---
 home: true
-heroImage: /images/home/hero-bg.png
+heroImage: /images/home/hero-stats1.png
+heroBgImage: /images/home/hero-bg1.png
 heroText:
   - 欢迎使用
   - Apache Doris
@@ -38,35 +39,35 @@ cases:
   title: Apache Doris 用户
   subTitle: Our Users
   list:
-    - logo: /images/home/logo-meituan.png
+    - logo: /images/home/logo-meituan1.png
       alt: 美团
-    - logo: /images/home/logo-xiaomi.png
+    - logo: /images/home/logo-xiaomi1.png
       alt: 小米
-    - logo: /images/home/logo-jd.png
+    - logo: /images/home/logo-jd1.png
       alt: 京东
-    - logo: /images/home/logo-huawei.png
+    - logo: /images/home/logo-huawei1.png
       alt: 华为
-    - logo: /images/home/logo-baidu.png
+    - logo: /images/home/logo-baidu1.png
       alt: 百度
-    - logo: /images/home/logo-weibo.png
+    - logo: /images/home/logo-weibo1.png
       alt: 新浪微博
-    - logo: /images/home/logo-zuoyebang.png
+    - logo: /images/home/logo-zuoyebang1.png
       alt: 作业帮
-    - logo: /images/home/logo-vipkid.png
+    - logo: /images/home/logo-vipkid1.png
       alt: Vipkid
-    - logo: /images/home/logo-360.png
+    - logo: /images/home/logo-3601.png
       alt: 360
-    - logo: /images/home/logo-shopee.png
+    - logo: /images/home/logo-shopee1.png
       alt: Shopee
-    - logo: /images/home/logo-tantan.png
+    - logo: /images/home/logo-tantan1.png
       alt: 探探
-    - logo: /images/home/logo-kuaishou.png
+    - logo: /images/home/logo-kuaishou1.png
       alt: 快手
-    - logo: /images/home/logo-sohu.png
+    - logo: /images/home/logo-sohu1.png
       alt: 搜狐
-    - logo: /images/home/logo-yidian.png
+    - logo: /images/home/logo-yidian1.png
       alt: 一点资讯
-    - logo: /images/home/logo-dingdong.png
+    - logo: /images/home/logo-dingdong1.png
       alt: 叮咚买菜
 actionText: 快速上手 →
 actionLink: /zh-CN/installing/compilation
