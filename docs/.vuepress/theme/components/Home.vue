@@ -378,12 +378,13 @@ export default {
           align-items center
           justify-content flex-start
           .text
-            padding 7rem 2rem 0rem 2rem
+            padding 7rem 0rem 0rem
             text-align center
             .title
               font-size 2rem
             .description
-              width 100%
+              width 90%
+              margin 0 auto
               font-size 1.4rem
               color white
               opacity 0.6
