@@ -65,7 +65,7 @@ under the License.
           >
             <img
               data-hover-only="true"
-              data-depth="0.4"
+              data-depth="0.3"
               data-relative-input="true"
               :src="$withBase(data.heroImage)"
             >
