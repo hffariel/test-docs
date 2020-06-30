@@ -69,6 +69,8 @@ cases:
       alt: 一点资讯
     - logo: /images/home/logo-dingdong1.png
       alt: 叮咚买菜
+    - logo: /images/home/logo-youdao1.png
+      alt: 有道
 actionText: Quick Start →
 actionLink: /zh-CN/installing/compilation
 ---

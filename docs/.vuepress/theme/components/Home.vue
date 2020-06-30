@@ -31,7 +31,9 @@ under the License.
       <div class="header-wrapper" style="position: relative;">
         <div id="scene1" style="height: 100%; position: absolute;">
           <img :src="$withBase(data.heroBgImage)"
-              data-depth="0.2" style="height: 100%;">
+              data-hover-only="true"
+              data-depth="0.2"
+              data-relative-input="true" style="height: 100%;">
         </div>
         <div class="intro" style="z-index: 1;">
           <div class="text">
