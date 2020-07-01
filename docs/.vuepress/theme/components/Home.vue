@@ -359,7 +359,7 @@ export default {
     background #F9F9F9
     text-align center
     color lighten($textColor, 25%)
-    padding 3rem 0rem 5rem
+    padding 1rem 0rem 1rem
 @media (max-width: $MQMobile)
   .home
     .hero

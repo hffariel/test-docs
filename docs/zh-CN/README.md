@@ -17,7 +17,7 @@ structure:
   actionLink: /zh-CN/getting-started/basic-usage
 features:
   title: Apache Doris 核心特性
-  subTitle: Our Core Features
+  subTitle: 
   list: 
     - title: 现代化MPP架构
       icon: /images/home/struct.png
@@ -37,7 +37,7 @@ features:
       icon: /images/home/dev.png
 cases:
   title: Apache Doris 用户
-  subTitle: Our Users
+  subTitle: 
   list:
     - logo: /images/home/logo-meituan1.png
       alt: 美团

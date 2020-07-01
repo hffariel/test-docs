@@ -4,10 +4,46 @@
 
 import { injectComponentOption, ensureAsyncComponentsLoaded } from '@app/util'
 import rootMixins from '@internal/root-mixins'
-import GlobalLayout from "/Users/fariel/.config/yarn/global/node_modules/@vuepress/core/lib/client/components/GlobalLayout.vue"
+import GlobalLayout from "/Users/fariel/git/test-docs/docs/node_modules/@vuepress/core/lib/client/components/GlobalLayout.vue"
 
 injectComponentOption(GlobalLayout, 'mixins', rootMixins)
 export const routes = [
+  {
+    name: "v-31e6c060",
+    path: "/",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-31e6c060").then(next)
+    },
+  },
+  {
+    path: "/index.html",
+    redirect: "/"
+  },
+  {
+    name: "v-6103349b",
+    path: "/en/administrator-guide/alter-table/alter-table-bitmap-index.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-6103349b").then(next)
+    },
+  },
+  {
+    name: "v-0666b04a",
+    path: "/en/administrator-guide/alter-table/alter-table-rollup.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-0666b04a").then(next)
+    },
+  },
+  {
+    name: "v-1a49bfbb",
+    path: "/en/administrator-guide/alter-table/alter-table-temp-partition.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-1a49bfbb").then(next)
+    },
+  },
   {
     name: "v-56c62ab0",
     path: "/en/",
@@ -21,11 +57,11 @@ export const routes = [
     redirect: "/en/"
   },
   {
-    name: "v-0666b04a",
-    path: "/en/administrator-guide/alter-table/alter-table-rollup.html",
+    name: "v-1fb7e53b",
+    path: "/en/administrator-guide/backup-restore.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-0666b04a").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-1fb7e53b").then(next)
     },
   },
   {
@@ -37,11 +73,11 @@ export const routes = [
     },
   },
   {
-    name: "v-1fb7e53b",
-    path: "/en/administrator-guide/backup-restore.html",
+    name: "v-6512d2fb",
+    path: "/en/administrator-guide/config/fe_config.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-1fb7e53b").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-6512d2fb").then(next)
     },
   },
   {
@@ -53,43 +89,11 @@ export const routes = [
     },
   },
   {
-    name: "v-6103349b",
-    path: "/en/administrator-guide/alter-table/alter-table-bitmap-index.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-6103349b").then(next)
-    },
-  },
-  {
     name: "v-0cc04aa6",
     path: "/en/administrator-guide/colocation-join.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-0cc04aa6").then(next)
-    },
-  },
-  {
-    name: "v-6512d2fb",
-    path: "/en/administrator-guide/config/fe_config.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-6512d2fb").then(next)
-    },
-  },
-  {
-    name: "v-67792d3e",
-    path: "/en/administrator-guide/dynamic-partition.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-67792d3e").then(next)
-    },
-  },
-  {
-    name: "v-6bf9d777",
-    path: "/en/administrator-guide/export_manual.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-6bf9d777").then(next)
     },
   },
   {
@@ -130,6 +134,14 @@ export const routes = [
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-4d744761").then(next)
+    },
+  },
+  {
+    name: "v-7c7802c5",
+    path: "/en/administrator-guide/load-data/delete-manual.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-7c7802c5").then(next)
     },
   },
   {
@@ -189,19 +201,19 @@ export const routes = [
     },
   },
   {
-    name: "v-0346464a",
-    path: "/en/administrator-guide/operation/multi-tenant.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-0346464a").then(next)
-    },
-  },
-  {
     name: "v-2c5b4d7b",
     path: "/en/administrator-guide/operation/tablet-meta-tool.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-2c5b4d7b").then(next)
+    },
+  },
+  {
+    name: "v-0346464a",
+    path: "/en/administrator-guide/operation/multi-tenant.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-0346464a").then(next)
     },
   },
   {
@@ -237,14 +249,6 @@ export const routes = [
     },
   },
   {
-    name: "v-085ee72a",
-    path: "/en/administrator-guide/variables.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-085ee72a").then(next)
-    },
-  },
-  {
     name: "v-7d377cca",
     path: "/en/community/gitter.html",
     component: GlobalLayout,
@@ -258,6 +262,14 @@ export const routes = [
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-5ae7cac1").then(next)
+    },
+  },
+  {
+    name: "v-085ee72a",
+    path: "/en/administrator-guide/variables.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-085ee72a").then(next)
     },
   },
   {
@@ -285,14 +297,6 @@ export const routes = [
     },
   },
   {
-    name: "v-791ab326",
-    path: "/en/community/release-process.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-791ab326").then(next)
-    },
-  },
-  {
     name: "v-3b084cdd",
     path: "/en/community/subscribe-mail-list.html",
     component: GlobalLayout,
@@ -306,6 +310,14 @@ export const routes = [
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-a1907f72").then(next)
+    },
+  },
+  {
+    name: "v-791ab326",
+    path: "/en/community/release-process.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-791ab326").then(next)
     },
   },
   {
@@ -325,6 +337,14 @@ export const routes = [
     },
   },
   {
+    name: "v-4f648afb",
+    path: "/en/extending-doris/audit-plugin.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-4f648afb").then(next)
+    },
+  },
+  {
     name: "v-fbbed8b6",
     path: "/en/downloads/downloads.html",
     component: GlobalLayout,
@@ -338,6 +358,14 @@ export const routes = [
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-fcde010e").then(next)
+    },
+  },
+  {
+    name: "v-6c0d87d5",
+    path: "/en/extending-doris/plugin-development-manual.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-6c0d87d5").then(next)
     },
   },
   {
@@ -357,14 +385,6 @@ export const routes = [
     },
   },
   {
-    name: "v-28f923ce",
-    path: "/en/getting-started/best-practice.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-28f923ce").then(next)
-    },
-  },
-  {
     name: "v-18406cdd",
     path: "/en/getting-started/basic-usage.html",
     component: GlobalLayout,
@@ -373,11 +393,11 @@ export const routes = [
     },
   },
   {
-    name: "v-0b6ccb3b",
-    path: "/en/getting-started/data-partition.html",
+    name: "v-28f923ce",
+    path: "/en/getting-started/best-practice.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-0b6ccb3b").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-28f923ce").then(next)
     },
   },
   {
@@ -389,19 +409,11 @@ export const routes = [
     },
   },
   {
-    name: "v-4dae1adb",
-    path: "/en/getting-started/hit-the-rollup.html",
+    name: "v-0b6ccb3b",
+    path: "/en/getting-started/data-partition.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-4dae1adb").then(next)
-    },
-  },
-  {
-    name: "v-0e87f4f1",
-    path: "/en/installing/install-deploy.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-0e87f4f1").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-0b6ccb3b").then(next)
     },
   },
   {
@@ -413,6 +425,14 @@ export const routes = [
     },
   },
   {
+    name: "v-4dae1adb",
+    path: "/en/getting-started/hit-the-rollup.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-4dae1adb").then(next)
+    },
+  },
+  {
     name: "v-9382010a",
     path: "/en/installing/upgrade.html",
     component: GlobalLayout,
@@ -421,11 +441,11 @@ export const routes = [
     },
   },
   {
-    name: "v-712e9811",
-    path: "/en/internal/doris_storage_optimization.html",
+    name: "v-0e87f4f1",
+    path: "/en/installing/install-deploy.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-712e9811").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-0e87f4f1").then(next)
     },
   },
   {
@@ -434,6 +454,14 @@ export const routes = [
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-0e6c52a2").then(next)
+    },
+  },
+  {
+    name: "v-712e9811",
+    path: "/en/internal/doris_storage_optimization.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-712e9811").then(next)
     },
   },
   {
@@ -461,19 +489,19 @@ export const routes = [
     },
   },
   {
-    name: "v-087aa076",
-    path: "/en/sql-reference/sql-functions/aggregate-functions/count.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-087aa076").then(next)
-    },
-  },
-  {
     name: "v-ca43b7a2",
     path: "/en/sql-reference/sql-functions/aggregate-functions/hll_union_agg.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-ca43b7a2").then(next)
+    },
+  },
+  {
+    name: "v-087aa076",
+    path: "/en/sql-reference/sql-functions/aggregate-functions/count.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-087aa076").then(next)
     },
   },
   {
@@ -485,19 +513,19 @@ export const routes = [
     },
   },
   {
+    name: "v-addc0a2a",
+    path: "/en/sql-reference/sql-functions/aggregate-functions/percentile_approx.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-addc0a2a").then(next)
+    },
+  },
+  {
     name: "v-f0fc2a02",
     path: "/en/sql-reference/sql-functions/aggregate-functions/min.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-f0fc2a02").then(next)
-    },
-  },
-  {
-    name: "v-65f5f8ba",
-    path: "/en/sql-reference/sql-functions/aggregate-functions/ndv.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-65f5f8ba").then(next)
     },
   },
   {
@@ -509,11 +537,11 @@ export const routes = [
     },
   },
   {
-    name: "v-addc0a2a",
-    path: "/en/sql-reference/sql-functions/aggregate-functions/percentile_approx.html",
+    name: "v-65f5f8ba",
+    path: "/en/sql-reference/sql-functions/aggregate-functions/ndv.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-addc0a2a").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-65f5f8ba").then(next)
     },
   },
   {
@@ -541,19 +569,19 @@ export const routes = [
     },
   },
   {
-    name: "v-1c8f671b",
-    path: "/en/sql-reference/sql-functions/aggregate-functions/variance.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-1c8f671b").then(next)
-    },
-  },
-  {
     name: "v-4f8f986d",
     path: "/en/sql-reference/sql-functions/bitmap-functions/bitmap_and.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-4f8f986d").then(next)
+    },
+  },
+  {
+    name: "v-1c8f671b",
+    path: "/en/sql-reference/sql-functions/aggregate-functions/variance.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-1c8f671b").then(next)
     },
   },
   {
@@ -565,14 +593,6 @@ export const routes = [
     },
   },
   {
-    name: "v-b13eac7e",
-    path: "/en/sql-reference/sql-functions/bitmap-functions/bitmap_empty.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-b13eac7e").then(next)
-    },
-  },
-  {
     name: "v-5863348f",
     path: "/en/sql-reference/sql-functions/bitmap-functions/bitmap_from_string.html",
     component: GlobalLayout,
@@ -581,11 +601,11 @@ export const routes = [
     },
   },
   {
-    name: "v-7ed0900d",
-    path: "/en/sql-reference/sql-functions/bitmap-functions/bitmap_has_any.html",
+    name: "v-b13eac7e",
+    path: "/en/sql-reference/sql-functions/bitmap-functions/bitmap_empty.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-7ed0900d").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-b13eac7e").then(next)
     },
   },
   {
@@ -597,6 +617,14 @@ export const routes = [
     },
   },
   {
+    name: "v-7ed0900d",
+    path: "/en/sql-reference/sql-functions/bitmap-functions/bitmap_has_any.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-7ed0900d").then(next)
+    },
+  },
+  {
     name: "v-6f4e42ca",
     path: "/en/sql-reference/sql-functions/bitmap-functions/bitmap_or.html",
     component: GlobalLayout,
@@ -605,11 +633,11 @@ export const routes = [
     },
   },
   {
-    name: "v-30cd0e9b",
-    path: "/en/sql-reference/sql-functions/bitmap-functions/to_bitmap.html",
+    name: "v-181dca31",
+    path: "/en/sql-reference/sql-functions/bitmap-functions/bitmap_to_string.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-30cd0e9b").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-181dca31").then(next)
     },
   },
   {
@@ -618,6 +646,14 @@ export const routes = [
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-4a21779b").then(next)
+    },
+  },
+  {
+    name: "v-30cd0e9b",
+    path: "/en/sql-reference/sql-functions/bitmap-functions/to_bitmap.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-30cd0e9b").then(next)
     },
   },
   {
@@ -653,11 +689,11 @@ export const routes = [
     },
   },
   {
-    name: "v-181dca31",
-    path: "/en/sql-reference/sql-functions/bitmap-functions/bitmap_to_string.html",
+    name: "v-858bad8a",
+    path: "/en/sql-reference/sql-functions/date-time-functions/date_sub.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-181dca31").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-858bad8a").then(next)
     },
   },
   {
@@ -677,14 +713,6 @@ export const routes = [
     },
   },
   {
-    name: "v-90f4758a",
-    path: "/en/sql-reference/sql-functions/date-time-functions/dayname.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-90f4758a").then(next)
-    },
-  },
-  {
     name: "v-84aa3a0a",
     path: "/en/sql-reference/sql-functions/date-time-functions/dayofmonth.html",
     component: GlobalLayout,
@@ -693,19 +721,11 @@ export const routes = [
     },
   },
   {
-    name: "v-069d418a",
-    path: "/en/sql-reference/sql-functions/date-time-functions/dayofweek.html",
+    name: "v-90f4758a",
+    path: "/en/sql-reference/sql-functions/date-time-functions/dayname.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-069d418a").then(next)
-    },
-  },
-  {
-    name: "v-25c23c2e",
-    path: "/en/sql-reference/sql-functions/date-time-functions/dayofyear.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-25c23c2e").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-90f4758a").then(next)
     },
   },
   {
@@ -717,11 +737,27 @@ export const routes = [
     },
   },
   {
+    name: "v-069d418a",
+    path: "/en/sql-reference/sql-functions/date-time-functions/dayofweek.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-069d418a").then(next)
+    },
+  },
+  {
     name: "v-3433e2b5",
     path: "/en/sql-reference/sql-functions/date-time-functions/from_unixtime.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-3433e2b5").then(next)
+    },
+  },
+  {
+    name: "v-25c23c2e",
+    path: "/en/sql-reference/sql-functions/date-time-functions/dayofyear.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-25c23c2e").then(next)
     },
   },
   {
@@ -741,27 +777,11 @@ export const routes = [
     },
   },
   {
-    name: "v-858bad8a",
-    path: "/en/sql-reference/sql-functions/date-time-functions/date_sub.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-858bad8a").then(next)
-    },
-  },
-  {
     name: "v-571e306e",
     path: "/en/sql-reference/sql-functions/date-time-functions/month.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-571e306e").then(next)
-    },
-  },
-  {
-    name: "v-49335746",
-    path: "/en/sql-reference/sql-functions/date-time-functions/now.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-49335746").then(next)
     },
   },
   {
@@ -773,19 +793,27 @@ export const routes = [
     },
   },
   {
+    name: "v-49335746",
+    path: "/en/sql-reference/sql-functions/date-time-functions/now.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-49335746").then(next)
+    },
+  },
+  {
+    name: "v-214fdd9b",
+    path: "/en/sql-reference/sql-functions/date-time-functions/second.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-214fdd9b").then(next)
+    },
+  },
+  {
     name: "v-0fa12e41",
     path: "/en/sql-reference/sql-functions/date-time-functions/str_to_date.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-0fa12e41").then(next)
-    },
-  },
-  {
-    name: "v-9374b4ca",
-    path: "/en/sql-reference/sql-functions/date-time-functions/timediff.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-9374b4ca").then(next)
     },
   },
   {
@@ -805,27 +833,19 @@ export const routes = [
     },
   },
   {
+    name: "v-9374b4ca",
+    path: "/en/sql-reference/sql-functions/date-time-functions/timediff.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-9374b4ca").then(next)
+    },
+  },
+  {
     name: "v-c81feb5a",
     path: "/en/sql-reference/sql-functions/date-time-functions/to_days.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-c81feb5a").then(next)
-    },
-  },
-  {
-    name: "v-637bfada",
-    path: "/en/sql-reference/sql-functions/date-time-functions/utc_timestamp.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-637bfada").then(next)
-    },
-  },
-  {
-    name: "v-2de12fbb",
-    path: "/en/sql-reference/sql-functions/date-time-functions/unix_timestamp.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-2de12fbb").then(next)
     },
   },
   {
@@ -837,11 +857,27 @@ export const routes = [
     },
   },
   {
+    name: "v-2de12fbb",
+    path: "/en/sql-reference/sql-functions/date-time-functions/unix_timestamp.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-2de12fbb").then(next)
+    },
+  },
+  {
     name: "v-3399fefb",
     path: "/en/sql-reference/sql-functions/date-time-functions/year.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-3399fefb").then(next)
+    },
+  },
+  {
+    name: "v-637bfada",
+    path: "/en/sql-reference/sql-functions/date-time-functions/utc_timestamp.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-637bfada").then(next)
     },
   },
   {
@@ -853,19 +889,19 @@ export const routes = [
     },
   },
   {
-    name: "v-7a2caa1f",
-    path: "/en/sql-reference/sql-functions/spatial-functions/st_astext.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-7a2caa1f").then(next)
-    },
-  },
-  {
     name: "v-5139063d",
     path: "/en/sql-reference/sql-functions/spatial-functions/st_circle.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-5139063d").then(next)
+    },
+  },
+  {
+    name: "v-7a2caa1f",
+    path: "/en/sql-reference/sql-functions/spatial-functions/st_astext.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-7a2caa1f").then(next)
     },
   },
   {
@@ -901,19 +937,19 @@ export const routes = [
     },
   },
   {
-    name: "v-263c17db",
-    path: "/en/sql-reference/sql-functions/spatial-functions/st_point.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-263c17db").then(next)
-    },
-  },
-  {
     name: "v-c6c0404a",
     path: "/en/sql-reference/sql-functions/spatial-functions/st_polygon.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-c6c0404a").then(next)
+    },
+  },
+  {
+    name: "v-263c17db",
+    path: "/en/sql-reference/sql-functions/spatial-functions/st_point.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-263c17db").then(next)
     },
   },
   {
@@ -933,11 +969,11 @@ export const routes = [
     },
   },
   {
-    name: "v-214fdd9b",
-    path: "/en/sql-reference/sql-functions/date-time-functions/second.html",
+    name: "v-98a705d2",
+    path: "/en/sql-reference/sql-functions/string-functions/concat.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-214fdd9b").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-98a705d2").then(next)
     },
   },
   {
@@ -954,14 +990,6 @@ export const routes = [
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-ca92b24a").then(next)
-    },
-  },
-  {
-    name: "v-98a705d2",
-    path: "/en/sql-reference/sql-functions/string-functions/concat.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-98a705d2").then(next)
     },
   },
   {
@@ -1005,19 +1033,19 @@ export const routes = [
     },
   },
   {
-    name: "v-a115bdd2",
-    path: "/en/sql-reference/sql-functions/string-functions/group_concat.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-a115bdd2").then(next)
-    },
-  },
-  {
     name: "v-8a9f348a",
     path: "/en/sql-reference/sql-functions/string-functions/instr.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-8a9f348a").then(next)
+    },
+  },
+  {
+    name: "v-a115bdd2",
+    path: "/en/sql-reference/sql-functions/string-functions/group_concat.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-a115bdd2").then(next)
     },
   },
   {
@@ -1133,19 +1161,19 @@ export const routes = [
     },
   },
   {
-    name: "v-5c8c813b",
-    path: "/en/sql-reference/sql-functions/string-functions/starts_with.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-5c8c813b").then(next)
-    },
-  },
-  {
     name: "v-1ed5d8bb",
     path: "/en/sql-reference/sql-functions/string-functions/strleft.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-1ed5d8bb").then(next)
+    },
+  },
+  {
+    name: "v-5c8c813b",
+    path: "/en/sql-reference/sql-functions/string-functions/starts_with.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-5c8c813b").then(next)
     },
   },
   {
@@ -1157,16 +1185,12 @@ export const routes = [
     },
   },
   {
-    name: "v-774a0219",
-    path: "/en/sql-reference/sql-statements/Account%20Management/CREATE%20ROLE.html",
+    name: "v-6bf9d777",
+    path: "/en/administrator-guide/export_manual.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-774a0219").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-6bf9d777").then(next)
     },
-  },
-  {
-    path: "/en/sql-reference/sql-statements/Account Management/CREATE ROLE.html",
-    redirect: "/en/sql-reference/sql-statements/Account%20Management/CREATE%20ROLE.html"
   },
   {
     name: "v-4687296f",
@@ -1181,16 +1205,24 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Account%20Management/CREATE%20USER.html"
   },
   {
-    name: "v-613552ff",
-    path: "/en/sql-reference/sql-statements/Account%20Management/DROP%20ROLE.html",
+    name: "v-774a0219",
+    path: "/en/sql-reference/sql-statements/Account%20Management/CREATE%20ROLE.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-613552ff").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-774a0219").then(next)
     },
   },
   {
-    path: "/en/sql-reference/sql-statements/Account Management/DROP ROLE.html",
-    redirect: "/en/sql-reference/sql-statements/Account%20Management/DROP%20ROLE.html"
+    path: "/en/sql-reference/sql-statements/Account Management/CREATE ROLE.html",
+    redirect: "/en/sql-reference/sql-statements/Account%20Management/CREATE%20ROLE.html"
+  },
+  {
+    name: "v-67792d3e",
+    path: "/en/administrator-guide/dynamic-partition.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-67792d3e").then(next)
+    },
   },
   {
     name: "v-5a2c6115",
@@ -1229,16 +1261,16 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Account%20Management/REVOKE.html"
   },
   {
-    name: "v-03775f3b",
-    path: "/en/sql-reference/sql-statements/Account%20Management/SET%20PASSWORD.html",
+    name: "v-613552ff",
+    path: "/en/sql-reference/sql-statements/Account%20Management/DROP%20ROLE.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-03775f3b").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-613552ff").then(next)
     },
   },
   {
-    path: "/en/sql-reference/sql-statements/Account Management/SET PASSWORD.html",
-    redirect: "/en/sql-reference/sql-statements/Account%20Management/SET%20PASSWORD.html"
+    path: "/en/sql-reference/sql-statements/Account Management/DROP ROLE.html",
+    redirect: "/en/sql-reference/sql-statements/Account%20Management/DROP%20ROLE.html"
   },
   {
     name: "v-2ea27c7b",
@@ -1251,6 +1283,18 @@ export const routes = [
   {
     path: "/en/sql-reference/sql-statements/Account Management/SET PROPERTY.html",
     redirect: "/en/sql-reference/sql-statements/Account%20Management/SET%20PROPERTY.html"
+  },
+  {
+    name: "v-03775f3b",
+    path: "/en/sql-reference/sql-statements/Account%20Management/SET%20PASSWORD.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-03775f3b").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Account Management/SET PASSWORD.html",
+    redirect: "/en/sql-reference/sql-statements/Account%20Management/SET%20PASSWORD.html"
   },
   {
     name: "v-fccbcbce",
@@ -1277,18 +1321,6 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Account%20Management/SHOW%20ROLES.html"
   },
   {
-    name: "v-5003aad5",
-    path: "/en/sql-reference/sql-statements/Administration/ADMIN%20CHECK%20TABLET.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-5003aad5").then(next)
-    },
-  },
-  {
-    path: "/en/sql-reference/sql-statements/Administration/ADMIN CHECK TABLET.html",
-    redirect: "/en/sql-reference/sql-statements/Administration/ADMIN%20CHECK%20TABLET.html"
-  },
-  {
     name: "v-ead62042",
     path: "/en/sql-reference/sql-statements/Administration/ADMIN%20CANCEL%20REPAIR.html",
     component: GlobalLayout,
@@ -1299,6 +1331,18 @@ export const routes = [
   {
     path: "/en/sql-reference/sql-statements/Administration/ADMIN CANCEL REPAIR.html",
     redirect: "/en/sql-reference/sql-statements/Administration/ADMIN%20CANCEL%20REPAIR.html"
+  },
+  {
+    name: "v-453fc795",
+    path: "/en/sql-reference/sql-statements/Administration/ADMIN%20SET%20CONFIG.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-453fc795").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Administration/ADMIN SET CONFIG.html",
+    redirect: "/en/sql-reference/sql-statements/Administration/ADMIN%20SET%20CONFIG.html"
   },
   {
     name: "v-698c8618",
@@ -1313,16 +1357,28 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Administration/ADMIN%20REPAIR.html"
   },
   {
-    name: "v-453fc795",
-    path: "/en/sql-reference/sql-statements/Administration/ADMIN%20SET%20CONFIG.html",
+    name: "v-5003aad5",
+    path: "/en/sql-reference/sql-statements/Administration/ADMIN%20CHECK%20TABLET.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-453fc795").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-5003aad5").then(next)
     },
   },
   {
-    path: "/en/sql-reference/sql-statements/Administration/ADMIN SET CONFIG.html",
-    redirect: "/en/sql-reference/sql-statements/Administration/ADMIN%20SET%20CONFIG.html"
+    path: "/en/sql-reference/sql-statements/Administration/ADMIN CHECK TABLET.html",
+    redirect: "/en/sql-reference/sql-statements/Administration/ADMIN%20CHECK%20TABLET.html"
+  },
+  {
+    name: "v-36cd2f32",
+    path: "/en/sql-reference/sql-statements/Administration/ADMIN%20SET%20REPLICA%20STATUS.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-36cd2f32").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Administration/ADMIN SET REPLICA STATUS.html",
+    redirect: "/en/sql-reference/sql-statements/Administration/ADMIN%20SET%20REPLICA%20STATUS.html"
   },
   {
     name: "v-20c94e8a",
@@ -1421,18 +1477,6 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Administration/CREATE%20FILE.html"
   },
   {
-    name: "v-b13d74c4",
-    path: "/en/sql-reference/sql-statements/Administration/DROP%20CLUSTER.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-b13d74c4").then(next)
-    },
-  },
-  {
-    path: "/en/sql-reference/sql-statements/Administration/DROP CLUSTER.html",
-    redirect: "/en/sql-reference/sql-statements/Administration/DROP%20CLUSTER.html"
-  },
-  {
     name: "v-67db1674",
     path: "/en/sql-reference/sql-statements/Administration/DROP%20FILE.html",
     component: GlobalLayout,
@@ -1445,12 +1489,36 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Administration/DROP%20FILE.html"
   },
   {
+    name: "v-b13d74c4",
+    path: "/en/sql-reference/sql-statements/Administration/DROP%20CLUSTER.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-b13d74c4").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Administration/DROP CLUSTER.html",
+    redirect: "/en/sql-reference/sql-statements/Administration/DROP%20CLUSTER.html"
+  },
+  {
     name: "v-829d575a",
     path: "/en/sql-reference/sql-statements/Administration/ENTER.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-829d575a").then(next)
     },
+  },
+  {
+    name: "v-6c89f7d8",
+    path: "/en/sql-reference/sql-statements/Administration/INSTALL%20PLUGIN.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-6c89f7d8").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Administration/INSTALL PLUGIN.html",
+    redirect: "/en/sql-reference/sql-statements/Administration/INSTALL%20PLUGIN.html"
   },
   {
     name: "v-3afdee5e",
@@ -1477,18 +1545,6 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Administration/MIGRATE%20DATABASE.html"
   },
   {
-    name: "v-027f709c",
-    path: "/en/sql-reference/sql-statements/Administration/SHOW%20BACKENDS.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-027f709c").then(next)
-    },
-  },
-  {
-    path: "/en/sql-reference/sql-statements/Administration/SHOW BACKENDS.html",
-    redirect: "/en/sql-reference/sql-statements/Administration/SHOW%20BACKENDS.html"
-  },
-  {
     name: "v-2e260f68",
     path: "/en/sql-reference/sql-statements/Administration/SHOW%20BROKER.html",
     component: GlobalLayout,
@@ -1501,16 +1557,16 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Administration/SHOW%20BROKER.html"
   },
   {
-    name: "v-5282c9e2",
-    path: "/en/sql-reference/sql-statements/Administration/SHOW%20FILE.html",
+    name: "v-027f709c",
+    path: "/en/sql-reference/sql-statements/Administration/SHOW%20BACKENDS.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-5282c9e2").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-027f709c").then(next)
     },
   },
   {
-    path: "/en/sql-reference/sql-statements/Administration/SHOW FILE.html",
-    redirect: "/en/sql-reference/sql-statements/Administration/SHOW%20FILE.html"
+    path: "/en/sql-reference/sql-statements/Administration/SHOW BACKENDS.html",
+    redirect: "/en/sql-reference/sql-statements/Administration/SHOW%20BACKENDS.html"
   },
   {
     name: "v-38719f84",
@@ -1525,6 +1581,18 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Administration/SHOW%20FRONTENDS.html"
   },
   {
+    name: "v-5282c9e2",
+    path: "/en/sql-reference/sql-statements/Administration/SHOW%20FILE.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-5282c9e2").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Administration/SHOW FILE.html",
+    redirect: "/en/sql-reference/sql-statements/Administration/SHOW%20FILE.html"
+  },
+  {
     name: "v-6aea1985",
     path: "/en/sql-reference/sql-statements/Administration/SHOW%20FULL%20COLUMNS.html",
     component: GlobalLayout,
@@ -1537,16 +1605,16 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Administration/SHOW%20FULL%20COLUMNS.html"
   },
   {
-    name: "v-6c74bade",
-    path: "/en/sql-reference/sql-statements/Administration/SHOW%20INDEX.html",
+    name: "v-2a514ac4",
+    path: "/en/sql-reference/sql-statements/Administration/SHOW%20PLUGINS.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-6c74bade").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-2a514ac4").then(next)
     },
   },
   {
-    path: "/en/sql-reference/sql-statements/Administration/SHOW INDEX.html",
-    redirect: "/en/sql-reference/sql-statements/Administration/SHOW%20INDEX.html"
+    path: "/en/sql-reference/sql-statements/Administration/SHOW PLUGINS.html",
+    redirect: "/en/sql-reference/sql-statements/Administration/SHOW%20PLUGINS.html"
   },
   {
     name: "v-4fbca9d0",
@@ -1561,6 +1629,18 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Administration/SHOW%20MIGRATIONS.html"
   },
   {
+    name: "v-6c74bade",
+    path: "/en/sql-reference/sql-statements/Administration/SHOW%20INDEX.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-6c74bade").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Administration/SHOW INDEX.html",
+    redirect: "/en/sql-reference/sql-statements/Administration/SHOW%20INDEX.html"
+  },
+  {
     name: "v-293da3ef",
     path: "/en/sql-reference/sql-statements/Administration/SHOW%20TABLE%20STATUS.html",
     component: GlobalLayout,
@@ -1573,16 +1653,28 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Administration/SHOW%20TABLE%20STATUS.html"
   },
   {
-    name: "v-652e1faa",
-    path: "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20DATABASE.html",
+    name: "v-3698f810",
+    path: "/en/sql-reference/sql-statements/Administration/UNINTALL%20PLUGIN.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-652e1faa").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-3698f810").then(next)
     },
   },
   {
-    path: "/en/sql-reference/sql-statements/Data Definition/ALTER DATABASE.html",
-    redirect: "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20DATABASE.html"
+    path: "/en/sql-reference/sql-statements/Administration/UNINTALL PLUGIN.html",
+    redirect: "/en/sql-reference/sql-statements/Administration/UNINTALL%20PLUGIN.html"
+  },
+  {
+    name: "v-42b1cf58",
+    path: "/en/sql-reference/sql-statements/Data%20Definition/BACKUP.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-42b1cf58").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Data Definition/BACKUP.html",
+    redirect: "/en/sql-reference/sql-statements/Data%20Definition/BACKUP.html"
   },
   {
     name: "v-26bcc93b",
@@ -1597,28 +1689,16 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20TABLE.html"
   },
   {
-    name: "v-ebf9c452",
-    path: "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20VIEW.html",
+    name: "v-652e1faa",
+    path: "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20DATABASE.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-ebf9c452").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-652e1faa").then(next)
     },
   },
   {
-    path: "/en/sql-reference/sql-statements/Data Definition/ALTER VIEW.html",
-    redirect: "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20VIEW.html"
-  },
-  {
-    name: "v-42b1cf58",
-    path: "/en/sql-reference/sql-statements/Data%20Definition/BACKUP.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-42b1cf58").then(next)
-    },
-  },
-  {
-    path: "/en/sql-reference/sql-statements/Data Definition/BACKUP.html",
-    redirect: "/en/sql-reference/sql-statements/Data%20Definition/BACKUP.html"
+    path: "/en/sql-reference/sql-statements/Data Definition/ALTER DATABASE.html",
+    redirect: "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20DATABASE.html"
   },
   {
     name: "v-6bfc2b8a",
@@ -1643,6 +1723,18 @@ export const routes = [
   {
     path: "/en/sql-reference/sql-statements/Data Definition/CANCEL BACKUP.html",
     redirect: "/en/sql-reference/sql-statements/Data%20Definition/CANCEL%20BACKUP.html"
+  },
+  {
+    name: "v-ebf9c452",
+    path: "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20VIEW.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-ebf9c452").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Data Definition/ALTER VIEW.html",
+    redirect: "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20VIEW.html"
   },
   {
     name: "v-b14203ea",
@@ -1681,6 +1773,18 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Data%20Definition/CREATE%20INDEX.html"
   },
   {
+    name: "v-352d5d64",
+    path: "/en/sql-reference/sql-statements/Data%20Definition/CREATE%20MATERIALIZED%20VIEW.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-352d5d64").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Data Definition/CREATE MATERIALIZED VIEW.html",
+    redirect: "/en/sql-reference/sql-statements/Data%20Definition/CREATE%20MATERIALIZED%20VIEW.html"
+  },
+  {
     name: "v-8a1cd156",
     path: "/en/sql-reference/sql-statements/Data%20Definition/CREATE%20REPOSITORY.html",
     component: GlobalLayout,
@@ -1691,18 +1795,6 @@ export const routes = [
   {
     path: "/en/sql-reference/sql-statements/Data Definition/CREATE REPOSITORY.html",
     redirect: "/en/sql-reference/sql-statements/Data%20Definition/CREATE%20REPOSITORY.html"
-  },
-  {
-    name: "v-01752ec7",
-    path: "/en/sql-reference/sql-statements/Data%20Definition/CREATE%20TABLE.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-01752ec7").then(next)
-    },
-  },
-  {
-    path: "/en/sql-reference/sql-statements/Data Definition/CREATE TABLE.html",
-    redirect: "/en/sql-reference/sql-statements/Data%20Definition/CREATE%20TABLE.html"
   },
   {
     name: "v-2ca6abd5",
@@ -1717,16 +1809,16 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Data%20Definition/Colocate%20Join.html"
   },
   {
-    name: "v-06d043f5",
-    path: "/en/sql-reference/sql-statements/Data%20Definition/CREATE%20VIEW.html",
+    name: "v-01752ec7",
+    path: "/en/sql-reference/sql-statements/Data%20Definition/CREATE%20TABLE.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-06d043f5").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-01752ec7").then(next)
     },
   },
   {
-    path: "/en/sql-reference/sql-statements/Data Definition/CREATE VIEW.html",
-    redirect: "/en/sql-reference/sql-statements/Data%20Definition/CREATE%20VIEW.html"
+    path: "/en/sql-reference/sql-statements/Data Definition/CREATE TABLE.html",
+    redirect: "/en/sql-reference/sql-statements/Data%20Definition/CREATE%20TABLE.html"
   },
   {
     name: "v-68c314ce",
@@ -1753,6 +1845,18 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Data%20Definition/DROP%20DATABASE.html"
   },
   {
+    name: "v-06d043f5",
+    path: "/en/sql-reference/sql-statements/Data%20Definition/CREATE%20VIEW.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-06d043f5").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Data Definition/CREATE VIEW.html",
+    redirect: "/en/sql-reference/sql-statements/Data%20Definition/CREATE%20VIEW.html"
+  },
+  {
     name: "v-0bb3c396",
     path: "/en/sql-reference/sql-statements/Data%20Definition/DROP%20REPOSITORY.html",
     component: GlobalLayout,
@@ -1765,6 +1869,18 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Data%20Definition/DROP%20REPOSITORY.html"
   },
   {
+    name: "v-2451973e",
+    path: "/en/sql-reference/sql-statements/Data%20Definition/DROP%20MATERIALIZED%20VIEW.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-2451973e").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Data Definition/DROP MATERIALIZED VIEW.html",
+    redirect: "/en/sql-reference/sql-statements/Data%20Definition/DROP%20MATERIALIZED%20VIEW.html"
+  },
+  {
     name: "v-0d7699a1",
     path: "/en/sql-reference/sql-statements/Data%20Definition/DROP%20TABLE.html",
     component: GlobalLayout,
@@ -1775,6 +1891,18 @@ export const routes = [
   {
     path: "/en/sql-reference/sql-statements/Data Definition/DROP TABLE.html",
     redirect: "/en/sql-reference/sql-statements/Data%20Definition/DROP%20TABLE.html"
+  },
+  {
+    name: "v-099eb838",
+    path: "/en/sql-reference/sql-statements/Data%20Definition/RECOVER.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-099eb838").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Data Definition/RECOVER.html",
+    redirect: "/en/sql-reference/sql-statements/Data%20Definition/RECOVER.html"
   },
   {
     name: "v-4af3c355",
@@ -1799,30 +1927,6 @@ export const routes = [
   {
     path: "/en/sql-reference/sql-statements/Data Definition/HLL.html",
     redirect: "/en/sql-reference/sql-statements/Data%20Definition/HLL.html"
-  },
-  {
-    name: "v-099eb838",
-    path: "/en/sql-reference/sql-statements/Data%20Definition/RECOVER.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-099eb838").then(next)
-    },
-  },
-  {
-    path: "/en/sql-reference/sql-statements/Data Definition/RECOVER.html",
-    redirect: "/en/sql-reference/sql-statements/Data%20Definition/RECOVER.html"
-  },
-  {
-    name: "v-748a6ff8",
-    path: "/en/sql-reference/sql-statements/Data%20Definition/RESTORE.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-748a6ff8").then(next)
-    },
-  },
-  {
-    path: "/en/sql-reference/sql-statements/Data Definition/RESTORE.html",
-    redirect: "/en/sql-reference/sql-statements/Data%20Definition/RESTORE.html"
   },
   {
     name: "v-bbc20b1a",
@@ -1873,18 +1977,6 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Data%20Definition/show-functions.html"
   },
   {
-    name: "v-44f21e96",
-    path: "/en/sql-reference/sql-statements/Data%20Manipulation/BROKER%20LOAD.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-44f21e96").then(next)
-    },
-  },
-  {
-    path: "/en/sql-reference/sql-statements/Data Manipulation/BROKER LOAD.html",
-    redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/BROKER%20LOAD.html"
-  },
-  {
     name: "v-e1685f16",
     path: "/en/sql-reference/sql-statements/Data%20Manipulation/CANCEL%20DELETE.html",
     component: GlobalLayout,
@@ -1897,6 +1989,18 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/CANCEL%20DELETE.html"
   },
   {
+    name: "v-44f21e96",
+    path: "/en/sql-reference/sql-statements/Data%20Manipulation/BROKER%20LOAD.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-44f21e96").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Data Manipulation/BROKER LOAD.html",
+    redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/BROKER%20LOAD.html"
+  },
+  {
     name: "v-44cbdeda",
     path: "/en/sql-reference/sql-statements/Data%20Manipulation/CANCEL%20LABEL.html",
     component: GlobalLayout,
@@ -1907,6 +2011,18 @@ export const routes = [
   {
     path: "/en/sql-reference/sql-statements/Data Manipulation/CANCEL LABEL.html",
     redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/CANCEL%20LABEL.html"
+  },
+  {
+    name: "v-748a6ff8",
+    path: "/en/sql-reference/sql-statements/Data%20Definition/RESTORE.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-748a6ff8").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Data Definition/RESTORE.html",
+    redirect: "/en/sql-reference/sql-statements/Data%20Definition/RESTORE.html"
   },
   {
     name: "v-c2e54dd6",
@@ -1933,18 +2049,6 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/DELETE.html"
   },
   {
-    name: "v-77287e84",
-    path: "/en/sql-reference/sql-statements/Data%20Manipulation/EXPORT.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-77287e84").then(next)
-    },
-  },
-  {
-    path: "/en/sql-reference/sql-statements/Data Manipulation/EXPORT.html",
-    redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/EXPORT.html"
-  },
-  {
     name: "v-1d8ee944",
     path: "/en/sql-reference/sql-statements/Data%20Manipulation/GET%20LABEL%20STATE.html",
     component: GlobalLayout,
@@ -1967,6 +2071,18 @@ export const routes = [
   {
     path: "/en/sql-reference/sql-statements/Data Manipulation/GROUP BY.html",
     redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/GROUP%20BY.html"
+  },
+  {
+    name: "v-77287e84",
+    path: "/en/sql-reference/sql-statements/Data%20Manipulation/EXPORT.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-77287e84").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Data Manipulation/EXPORT.html",
+    redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/EXPORT.html"
   },
   {
     name: "v-779817a0",
@@ -2077,18 +2193,6 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20BACKUP.html"
   },
   {
-    name: "v-da78ae16",
-    path: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATA.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-da78ae16").then(next)
-    },
-  },
-  {
-    path: "/en/sql-reference/sql-statements/Data Manipulation/SHOW DATA.html",
-    redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATA.html"
-  },
-  {
     name: "v-776d75c5",
     path: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATABASES.html",
     component: GlobalLayout,
@@ -2099,18 +2203,6 @@ export const routes = [
   {
     path: "/en/sql-reference/sql-statements/Data Manipulation/SHOW DATABASES.html",
     redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATABASES.html"
-  },
-  {
-    name: "v-7820e856",
-    path: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DELETE.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-7820e856").then(next)
-    },
-  },
-  {
-    path: "/en/sql-reference/sql-statements/Data Manipulation/SHOW DELETE.html",
-    redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DELETE.html"
   },
   {
     name: "v-8a926e22",
@@ -2125,6 +2217,18 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DYNAMIC%20PARTITION%20TABLES.html"
   },
   {
+    name: "v-7820e856",
+    path: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DELETE.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-7820e856").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Data Manipulation/SHOW DELETE.html",
+    redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DELETE.html"
+  },
+  {
     name: "v-41ec2b96",
     path: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20EXPORT.html",
     component: GlobalLayout,
@@ -2135,6 +2239,18 @@ export const routes = [
   {
     path: "/en/sql-reference/sql-statements/Data Manipulation/SHOW EXPORT.html",
     redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20EXPORT.html"
+  },
+  {
+    name: "v-da78ae16",
+    path: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATA.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-da78ae16").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Data Manipulation/SHOW DATA.html",
+    redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATA.html"
   },
   {
     name: "v-3e40b275",
@@ -2173,16 +2289,16 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20PROPERTY.html"
   },
   {
-    name: "v-08b9bc96",
-    path: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20REPOSITORIES.html",
+    name: "v-79572959",
+    path: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20RESTORE.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-08b9bc96").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-79572959").then(next)
     },
   },
   {
-    path: "/en/sql-reference/sql-statements/Data Manipulation/SHOW REPOSITORIES.html",
-    redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20REPOSITORIES.html"
+    path: "/en/sql-reference/sql-statements/Data Manipulation/SHOW RESTORE.html",
+    redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20RESTORE.html"
   },
   {
     name: "v-d8401162",
@@ -2195,18 +2311,6 @@ export const routes = [
   {
     path: "/en/sql-reference/sql-statements/Data Manipulation/SHOW ROUTINE LOAD TASK.html",
     redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20ROUTINE%20LOAD%20TASK.html"
-  },
-  {
-    name: "v-79572959",
-    path: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20RESTORE.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-79572959").then(next)
-    },
-  },
-  {
-    path: "/en/sql-reference/sql-statements/Data Manipulation/SHOW RESTORE.html",
-    redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20RESTORE.html"
   },
   {
     name: "v-74f94bd2",
@@ -2245,18 +2349,6 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLES.html"
   },
   {
-    name: "v-43b002f5",
-    path: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLET.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-43b002f5").then(next)
-    },
-  },
-  {
-    path: "/en/sql-reference/sql-statements/Data Manipulation/SHOW TABLET.html",
-    redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLET.html"
-  },
-  {
     name: "v-c05f288e",
     path: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TRANSACTION.html",
     component: GlobalLayout,
@@ -2267,6 +2359,18 @@ export const routes = [
   {
     path: "/en/sql-reference/sql-statements/Data Manipulation/SHOW TRANSACTION.html",
     redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TRANSACTION.html"
+  },
+  {
+    name: "v-43b002f5",
+    path: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLET.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-43b002f5").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Data Manipulation/SHOW TABLET.html",
+    redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLET.html"
   },
   {
     name: "v-5ae65d1c",
@@ -2291,6 +2395,18 @@ export const routes = [
   {
     path: "/en/sql-reference/sql-statements/Data Manipulation/STREAM LOAD.html",
     redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/STREAM%20LOAD.html"
+  },
+  {
+    name: "v-08b9bc96",
+    path: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20REPOSITORIES.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-08b9bc96").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Data Manipulation/SHOW REPOSITORIES.html",
+    redirect: "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20REPOSITORIES.html"
   },
   {
     name: "v-4604317a",
@@ -2353,18 +2469,6 @@ export const routes = [
     redirect: "/en/sql-reference/sql-statements/Data%20Types/DATE.html"
   },
   {
-    name: "v-76798d18",
-    path: "/en/sql-reference/sql-statements/Data%20Types/DATETIME.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-76798d18").then(next)
-    },
-  },
-  {
-    path: "/en/sql-reference/sql-statements/Data Types/DATETIME.html",
-    redirect: "/en/sql-reference/sql-statements/Data%20Types/DATETIME.html"
-  },
-  {
     name: "v-f9fe934c",
     path: "/en/sql-reference/sql-statements/Data%20Types/DECIMAL.html",
     component: GlobalLayout,
@@ -2375,6 +2479,18 @@ export const routes = [
   {
     path: "/en/sql-reference/sql-statements/Data Types/DECIMAL.html",
     redirect: "/en/sql-reference/sql-statements/Data%20Types/DECIMAL.html"
+  },
+  {
+    name: "v-76798d18",
+    path: "/en/sql-reference/sql-statements/Data%20Types/DATETIME.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-76798d18").then(next)
+    },
+  },
+  {
+    path: "/en/sql-reference/sql-statements/Data Types/DATETIME.html",
+    redirect: "/en/sql-reference/sql-statements/Data%20Types/DATETIME.html"
   },
   {
     name: "v-4abd4098",
@@ -2497,14 +2613,6 @@ export const routes = [
     },
   },
   {
-    name: "v-75d0e3fb",
-    path: "/zh-CN/administrator-guide/alter-table/alter-table-schema-change.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-75d0e3fb").then(next)
-    },
-  },
-  {
     name: "v-27806bf9",
     path: "/zh-CN/administrator-guide/alter-table/alter-table-temp-partition.html",
     component: GlobalLayout,
@@ -2537,14 +2645,6 @@ export const routes = [
     },
   },
   {
-    name: "v-c17555e6",
-    path: "/zh-CN/administrator-guide/config/fe_config.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-c17555e6").then(next)
-    },
-  },
-  {
     name: "v-797ba48a",
     path: "/zh-CN/administrator-guide/dynamic-partition.html",
     component: GlobalLayout,
@@ -2553,11 +2653,27 @@ export const routes = [
     },
   },
   {
+    name: "v-c17555e6",
+    path: "/zh-CN/administrator-guide/config/fe_config.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-c17555e6").then(next)
+    },
+  },
+  {
     name: "v-7133189b",
     path: "/zh-CN/administrator-guide/export-manual.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-7133189b").then(next)
+    },
+  },
+  {
+    name: "v-75d0e3fb",
+    path: "/zh-CN/administrator-guide/alter-table/alter-table-schema-change.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-75d0e3fb").then(next)
     },
   },
   {
@@ -2593,19 +2709,27 @@ export const routes = [
     },
   },
   {
-    name: "v-559e943b",
-    path: "/zh-CN/administrator-guide/http-actions/restore-tablet.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-559e943b").then(next)
-    },
-  },
-  {
     name: "v-c5c4c2ee",
     path: "/zh-CN/administrator-guide/load-data/broker-load-manual.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-c5c4c2ee").then(next)
+    },
+  },
+  {
+    name: "v-7d09ee7b",
+    path: "/zh-CN/administrator-guide/load-data/delete-manual.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-7d09ee7b").then(next)
+    },
+  },
+  {
+    name: "v-559e943b",
+    path: "/zh-CN/administrator-guide/http-actions/restore-tablet.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-559e943b").then(next)
     },
   },
   {
@@ -2649,6 +2773,14 @@ export const routes = [
     },
   },
   {
+    name: "v-2b56a675",
+    path: "/zh-CN/administrator-guide/operation/tablet-meta-tool.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-2b56a675").then(next)
+    },
+  },
+  {
     name: "v-5140c215",
     path: "/zh-CN/administrator-guide/operation/metadata-operation.html",
     component: GlobalLayout,
@@ -2673,11 +2805,11 @@ export const routes = [
     },
   },
   {
-    name: "v-2b56a675",
-    path: "/zh-CN/administrator-guide/operation/tablet-meta-tool.html",
+    name: "v-e284a60a",
+    path: "/zh-CN/administrator-guide/operation/tablet-restore-tool.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-2b56a675").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-e284a60a").then(next)
     },
   },
   {
@@ -2689,14 +2821,6 @@ export const routes = [
     },
   },
   {
-    name: "v-e284a60a",
-    path: "/zh-CN/administrator-guide/operation/tablet-restore-tool.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-e284a60a").then(next)
-    },
-  },
-  {
     name: "v-fc77454a",
     path: "/zh-CN/administrator-guide/privilege.html",
     component: GlobalLayout,
@@ -2705,11 +2829,11 @@ export const routes = [
     },
   },
   {
-    name: "v-ed0c75c6",
-    path: "/zh-CN/administrator-guide/small-file-mgr.html",
+    name: "v-e60408ba",
+    path: "/zh-CN/administrator-guide/segment-v2-usage.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-ed0c75c6").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-e60408ba").then(next)
     },
   },
   {
@@ -2729,11 +2853,11 @@ export const routes = [
     },
   },
   {
-    name: "v-1c6d181b",
-    path: "/zh-CN/administrator-guide/variables.html",
+    name: "v-ed0c75c6",
+    path: "/zh-CN/administrator-guide/small-file-mgr.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-1c6d181b").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-ed0c75c6").then(next)
     },
   },
   {
@@ -2745,11 +2869,11 @@ export const routes = [
     },
   },
   {
-    name: "v-7fe8ff5b",
-    path: "/zh-CN/community/how-to-contribute.html",
+    name: "v-1c6d181b",
+    path: "/zh-CN/administrator-guide/variables.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-7fe8ff5b").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-1c6d181b").then(next)
     },
   },
   {
@@ -2761,19 +2885,19 @@ export const routes = [
     },
   },
   {
+    name: "v-7fe8ff5b",
+    path: "/zh-CN/community/how-to-contribute.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-7fe8ff5b").then(next)
+    },
+  },
+  {
     name: "v-3dff7283",
     path: "/zh-CN/community/pull-request.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-3dff7283").then(next)
-    },
-  },
-  {
-    name: "v-b7fb360a",
-    path: "/zh-CN/community/release-process.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-b7fb360a").then(next)
     },
   },
   {
@@ -2785,19 +2909,11 @@ export const routes = [
     },
   },
   {
-    name: "v-15ad919b",
-    path: "/zh-CN/community/verify-apache-release.html",
+    name: "v-b7fb360a",
+    path: "/zh-CN/community/release-process.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-15ad919b").then(next)
-    },
-  },
-  {
-    name: "v-438934cd",
-    path: "/zh-CN/developer-guide/debug-tool.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-438934cd").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-b7fb360a").then(next)
     },
   },
   {
@@ -2809,19 +2925,19 @@ export const routes = [
     },
   },
   {
+    name: "v-438934cd",
+    path: "/zh-CN/developer-guide/debug-tool.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-438934cd").then(next)
+    },
+  },
+  {
     name: "v-95db4f0a",
     path: "/zh-CN/downloads/downloads.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-95db4f0a").then(next)
-    },
-  },
-  {
-    name: "v-20ab37fb",
-    path: "/zh-CN/extending-doris/user-defined-function.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-20ab37fb").then(next)
     },
   },
   {
@@ -2833,11 +2949,43 @@ export const routes = [
     },
   },
   {
-    name: "v-4e57a78a",
-    path: "/zh-CN/getting-started/best-practice.html",
+    name: "v-e1ace5e6",
+    path: "/zh-CN/extending-doris/audit-plugin.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-4e57a78a").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-e1ace5e6").then(next)
+    },
+  },
+  {
+    name: "v-15ad919b",
+    path: "/zh-CN/community/verify-apache-release.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-15ad919b").then(next)
+    },
+  },
+  {
+    name: "v-7865e07b",
+    path: "/zh-CN/extending-doris/plugin-development-manual.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-7865e07b").then(next)
+    },
+  },
+  {
+    name: "v-20ab37fb",
+    path: "/zh-CN/extending-doris/user-defined-function.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-20ab37fb").then(next)
+    },
+  },
+  {
+    name: "v-35bc770a",
+    path: "/zh-CN/getting-started/advance-usage.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-35bc770a").then(next)
     },
   },
   {
@@ -2846,6 +2994,14 @@ export const routes = [
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-a133e40a").then(next)
+    },
+  },
+  {
+    name: "v-4e57a78a",
+    path: "/zh-CN/getting-started/best-practice.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-4e57a78a").then(next)
     },
   },
   {
@@ -2865,35 +3021,11 @@ export const routes = [
     },
   },
   {
-    name: "v-35bc770a",
-    path: "/zh-CN/getting-started/advance-usage.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-35bc770a").then(next)
-    },
-  },
-  {
     name: "v-1f1641da",
     path: "/zh-CN/getting-started/hit-the-rollup.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-1f1641da").then(next)
-    },
-  },
-  {
-    name: "v-84856ab2",
-    path: "/zh-CN/installing/compilation.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-84856ab2").then(next)
-    },
-  },
-  {
-    name: "v-1b3f0dbb",
-    path: "/zh-CN/installing/install-deploy.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-1b3f0dbb").then(next)
     },
   },
   {
@@ -2905,19 +3037,27 @@ export const routes = [
     },
   },
   {
+    name: "v-1b3f0dbb",
+    path: "/zh-CN/installing/install-deploy.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-1b3f0dbb").then(next)
+    },
+  },
+  {
+    name: "v-84856ab2",
+    path: "/zh-CN/installing/compilation.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-84856ab2").then(next)
+    },
+  },
+  {
     name: "v-2a2a783b",
     path: "/zh-CN/internal/doris_storage_optimization.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-2a2a783b").then(next)
-    },
-  },
-  {
-    name: "v-5c2d344a",
-    path: "/zh-CN/internal/grouping_sets_design.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-5c2d344a").then(next)
     },
   },
   {
@@ -2929,11 +3069,11 @@ export const routes = [
     },
   },
   {
-    name: "v-5a3faf9b",
-    path: "/zh-CN/internal/spark_load.html",
+    name: "v-5c2d344a",
+    path: "/zh-CN/internal/grouping_sets_design.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-5a3faf9b").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-5c2d344a").then(next)
     },
   },
   {
@@ -2942,6 +3082,14 @@ export const routes = [
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-23edbb9b").then(next)
+    },
+  },
+  {
+    name: "v-5a3faf9b",
+    path: "/zh-CN/internal/spark_load.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-5a3faf9b").then(next)
     },
   },
   {
@@ -2993,6 +3141,14 @@ export const routes = [
     },
   },
   {
+    name: "v-7c92811b",
+    path: "/zh-CN/sql-reference/sql-functions/aggregate-functions/stddev_samp.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-7c92811b").then(next)
+    },
+  },
+  {
     name: "v-4b7b7889",
     path: "/zh-CN/sql-reference/sql-functions/aggregate-functions/stddev.html",
     component: GlobalLayout,
@@ -3001,19 +3157,19 @@ export const routes = [
     },
   },
   {
+    name: "v-1be6a64a",
+    path: "/zh-CN/sql-reference/sql-functions/aggregate-functions/var_samp.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-1be6a64a").then(next)
+    },
+  },
+  {
     name: "v-4b99b79b",
     path: "/zh-CN/sql-reference/sql-functions/aggregate-functions/percentile_approx.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-4b99b79b").then(next)
-    },
-  },
-  {
-    name: "v-7c92811b",
-    path: "/zh-CN/sql-reference/sql-functions/aggregate-functions/stddev_samp.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-7c92811b").then(next)
     },
   },
   {
@@ -3033,35 +3189,19 @@ export const routes = [
     },
   },
   {
-    name: "v-1bed6efb",
-    path: "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_and.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-1bed6efb").then(next)
-    },
-  },
-  {
-    name: "v-1be6a64a",
-    path: "/zh-CN/sql-reference/sql-functions/aggregate-functions/var_samp.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-1be6a64a").then(next)
-    },
-  },
-  {
-    name: "v-20ef868a",
-    path: "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_empty.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-20ef868a").then(next)
-    },
-  },
-  {
     name: "v-a9be0992",
     path: "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_contains.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-a9be0992").then(next)
+    },
+  },
+  {
+    name: "v-1bed6efb",
+    path: "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_and.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-1bed6efb").then(next)
     },
   },
   {
@@ -3073,11 +3213,11 @@ export const routes = [
     },
   },
   {
-    name: "v-5c8f244e",
-    path: "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_hash.html",
+    name: "v-20ef868a",
+    path: "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_empty.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-5c8f244e").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-20ef868a").then(next)
     },
   },
   {
@@ -3089,11 +3229,11 @@ export const routes = [
     },
   },
   {
-    name: "v-8ac894a2",
-    path: "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_or.html",
+    name: "v-5c8f244e",
+    path: "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_hash.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-8ac894a2").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-5c8f244e").then(next)
     },
   },
   {
@@ -3113,14 +3253,6 @@ export const routes = [
     },
   },
   {
-    name: "v-12fcf0f3",
-    path: "/zh-CN/sql-reference/sql-functions/cast.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-12fcf0f3").then(next)
-    },
-  },
-  {
     name: "v-4cee8ba3",
     path: "/zh-CN/sql-reference/sql-functions/date-time-functions/convert_tz.html",
     component: GlobalLayout,
@@ -3129,11 +3261,27 @@ export const routes = [
     },
   },
   {
+    name: "v-12fcf0f3",
+    path: "/zh-CN/sql-reference/sql-functions/cast.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-12fcf0f3").then(next)
+    },
+  },
+  {
     name: "v-878c9a0a",
     path: "/zh-CN/sql-reference/sql-functions/date-time-functions/curdate.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-878c9a0a").then(next)
+    },
+  },
+  {
+    name: "v-8ac894a2",
+    path: "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_or.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-8ac894a2").then(next)
     },
   },
   {
@@ -3169,19 +3317,19 @@ export const routes = [
     },
   },
   {
-    name: "v-35b318e9",
-    path: "/zh-CN/sql-reference/sql-functions/date-time-functions/date_sub.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-35b318e9").then(next)
-    },
-  },
-  {
     name: "v-5308d1e1",
     path: "/zh-CN/sql-reference/sql-functions/date-time-functions/datediff.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-5308d1e1").then(next)
+    },
+  },
+  {
+    name: "v-35b318e9",
+    path: "/zh-CN/sql-reference/sql-functions/date-time-functions/date_sub.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-35b318e9").then(next)
     },
   },
   {
@@ -3217,14 +3365,6 @@ export const routes = [
     },
   },
   {
-    name: "v-f3cf178a",
-    path: "/zh-CN/sql-reference/sql-functions/date-time-functions/dayofyear.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-f3cf178a").then(next)
-    },
-  },
-  {
     name: "v-2fd379bb",
     path: "/zh-CN/sql-reference/sql-functions/date-time-functions/from_days.html",
     component: GlobalLayout,
@@ -3233,11 +3373,11 @@ export const routes = [
     },
   },
   {
-    name: "v-2339c402",
-    path: "/zh-CN/sql-reference/sql-functions/date-time-functions/hour.html",
+    name: "v-f3cf178a",
+    path: "/zh-CN/sql-reference/sql-functions/date-time-functions/dayofyear.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-2339c402").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-f3cf178a").then(next)
     },
   },
   {
@@ -3257,27 +3397,19 @@ export const routes = [
     },
   },
   {
+    name: "v-2339c402",
+    path: "/zh-CN/sql-reference/sql-functions/date-time-functions/hour.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-2339c402").then(next)
+    },
+  },
+  {
     name: "v-1fec9b3b",
     path: "/zh-CN/sql-reference/sql-functions/date-time-functions/month.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-1fec9b3b").then(next)
-    },
-  },
-  {
-    name: "v-07ccb5fb",
-    path: "/zh-CN/sql-reference/sql-functions/date-time-functions/now.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-07ccb5fb").then(next)
-    },
-  },
-  {
-    name: "v-26e7485f",
-    path: "/zh-CN/sql-reference/sql-functions/date-time-functions/second.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-26e7485f").then(next)
     },
   },
   {
@@ -3289,19 +3421,27 @@ export const routes = [
     },
   },
   {
+    name: "v-26e7485f",
+    path: "/zh-CN/sql-reference/sql-functions/date-time-functions/second.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-26e7485f").then(next)
+    },
+  },
+  {
+    name: "v-07ccb5fb",
+    path: "/zh-CN/sql-reference/sql-functions/date-time-functions/now.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-07ccb5fb").then(next)
+    },
+  },
+  {
     name: "v-403b653b",
     path: "/zh-CN/sql-reference/sql-functions/date-time-functions/str_to_date.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-403b653b").then(next)
-    },
-  },
-  {
-    name: "v-c90e85ba",
-    path: "/zh-CN/sql-reference/sql-functions/date-time-functions/timediff.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-c90e85ba").then(next)
     },
   },
   {
@@ -3345,6 +3485,14 @@ export const routes = [
     },
   },
   {
+    name: "v-c90e85ba",
+    path: "/zh-CN/sql-reference/sql-functions/date-time-functions/timediff.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-c90e85ba").then(next)
+    },
+  },
+  {
     name: "v-7f9f243d",
     path: "/zh-CN/sql-reference/sql-functions/date-time-functions/workofyear.html",
     component: GlobalLayout,
@@ -3358,6 +3506,14 @@ export const routes = [
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-ce2bf366").then(next)
+    },
+  },
+  {
+    name: "v-bf04280a",
+    path: "/zh-CN/sql-reference/sql-functions/spatial-functions/st_circle.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-bf04280a").then(next)
     },
   },
   {
@@ -3377,35 +3533,11 @@ export const routes = [
     },
   },
   {
-    name: "v-bf04280a",
-    path: "/zh-CN/sql-reference/sql-functions/spatial-functions/st_circle.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-bf04280a").then(next)
-    },
-  },
-  {
     name: "v-cbb36b4a",
     path: "/zh-CN/sql-reference/sql-functions/spatial-functions/st_contains.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-cbb36b4a").then(next)
-    },
-  },
-  {
-    name: "v-5d740bc5",
-    path: "/zh-CN/sql-reference/sql-functions/spatial-functions/st_distance_sphere.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-5d740bc5").then(next)
-    },
-  },
-  {
-    name: "v-27bb219b",
-    path: "/zh-CN/sql-reference/sql-functions/spatial-functions/st_geometryfromtext.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-27bb219b").then(next)
     },
   },
   {
@@ -3417,6 +3549,14 @@ export const routes = [
     },
   },
   {
+    name: "v-27bb219b",
+    path: "/zh-CN/sql-reference/sql-functions/spatial-functions/st_geometryfromtext.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-27bb219b").then(next)
+    },
+  },
+  {
     name: "v-6b27d3d3",
     path: "/zh-CN/sql-reference/sql-functions/spatial-functions/st_point.html",
     component: GlobalLayout,
@@ -3425,19 +3565,19 @@ export const routes = [
     },
   },
   {
+    name: "v-5d740bc5",
+    path: "/zh-CN/sql-reference/sql-functions/spatial-functions/st_distance_sphere.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-5d740bc5").then(next)
+    },
+  },
+  {
     name: "v-f2c97d02",
     path: "/zh-CN/sql-reference/sql-functions/spatial-functions/st_polygon.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-f2c97d02").then(next)
-    },
-  },
-  {
-    name: "v-ffe6fffa",
-    path: "/zh-CN/sql-reference/sql-functions/spatial-functions/st_x.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-ffe6fffa").then(next)
     },
   },
   {
@@ -3457,19 +3597,19 @@ export const routes = [
     },
   },
   {
+    name: "v-ffe6fffa",
+    path: "/zh-CN/sql-reference/sql-functions/spatial-functions/st_x.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-ffe6fffa").then(next)
+    },
+  },
+  {
     name: "v-0e9c971b",
     path: "/zh-CN/sql-reference/sql-functions/string-functions/concat.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-0e9c971b").then(next)
-    },
-  },
-  {
-    name: "v-417bd383",
-    path: "/zh-CN/sql-reference/sql-functions/string-functions/concat_ws.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-417bd383").then(next)
     },
   },
   {
@@ -3481,14 +3621,6 @@ export const routes = [
     },
   },
   {
-    name: "v-72838335",
-    path: "/zh-CN/sql-reference/sql-functions/string-functions/find_in_set.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-72838335").then(next)
-    },
-  },
-  {
     name: "v-5451f4da",
     path: "/zh-CN/sql-reference/sql-functions/string-functions/get_json_double.html",
     component: GlobalLayout,
@@ -3497,19 +3629,19 @@ export const routes = [
     },
   },
   {
+    name: "v-417bd383",
+    path: "/zh-CN/sql-reference/sql-functions/string-functions/concat_ws.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-417bd383").then(next)
+    },
+  },
+  {
     name: "v-2a89280a",
     path: "/zh-CN/sql-reference/sql-functions/string-functions/get_json_int.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-2a89280a").then(next)
-    },
-  },
-  {
-    name: "v-7874bd13",
-    path: "/zh-CN/sql-reference/sql-functions/string-functions/get_json_string.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-7874bd13").then(next)
     },
   },
   {
@@ -3526,6 +3658,22 @@ export const routes = [
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-17874f8e").then(next)
+    },
+  },
+  {
+    name: "v-72838335",
+    path: "/zh-CN/sql-reference/sql-functions/string-functions/find_in_set.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-72838335").then(next)
+    },
+  },
+  {
+    name: "v-7874bd13",
+    path: "/zh-CN/sql-reference/sql-functions/string-functions/get_json_string.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-7874bd13").then(next)
     },
   },
   {
@@ -3577,35 +3725,11 @@ export const routes = [
     },
   },
   {
-    name: "v-73784b16",
-    path: "/zh-CN/sql-reference/sql-functions/string-functions/ltrim.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-73784b16").then(next)
-    },
-  },
-  {
-    name: "v-2d75a01b",
-    path: "/zh-CN/sql-reference/sql-functions/string-functions/money_format.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-2d75a01b").then(next)
-    },
-  },
-  {
     name: "v-26aec87f",
     path: "/zh-CN/sql-reference/sql-functions/string-functions/null_or_empty.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-26aec87f").then(next)
-    },
-  },
-  {
-    name: "v-0e8f1dbb",
-    path: "/zh-CN/sql-reference/sql-functions/string-functions/regexp_extract.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-0e8f1dbb").then(next)
     },
   },
   {
@@ -3617,11 +3741,35 @@ export const routes = [
     },
   },
   {
+    name: "v-2d75a01b",
+    path: "/zh-CN/sql-reference/sql-functions/string-functions/money_format.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-2d75a01b").then(next)
+    },
+  },
+  {
+    name: "v-0e8f1dbb",
+    path: "/zh-CN/sql-reference/sql-functions/string-functions/regexp_extract.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-0e8f1dbb").then(next)
+    },
+  },
+  {
     name: "v-4c7f55bb",
     path: "/zh-CN/sql-reference/sql-functions/string-functions/repeat.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-4c7f55bb").then(next)
+    },
+  },
+  {
+    name: "v-73784b16",
+    path: "/zh-CN/sql-reference/sql-functions/string-functions/ltrim.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-73784b16").then(next)
     },
   },
   {
@@ -3649,22 +3797,6 @@ export const routes = [
     },
   },
   {
-    name: "v-16d80461",
-    path: "/zh-CN/sql-reference/sql-functions/string-functions/strleft.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-16d80461").then(next)
-    },
-  },
-  {
-    name: "v-6e6ab93b",
-    path: "/zh-CN/sql-reference/sql-functions/string-functions/strright.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-6e6ab93b").then(next)
-    },
-  },
-  {
     name: "v-2e304656",
     path: "/zh-CN/sql-reference/sql-statements/Account%20Management/CREATE%20ROLE.html",
     component: GlobalLayout,
@@ -3677,6 +3809,14 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Account%20Management/CREATE%20ROLE.html"
   },
   {
+    name: "v-16d80461",
+    path: "/zh-CN/sql-reference/sql-functions/string-functions/strleft.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-16d80461").then(next)
+    },
+  },
+  {
     name: "v-42828935",
     path: "/zh-CN/sql-reference/sql-statements/Account%20Management/CREATE%20USER.html",
     component: GlobalLayout,
@@ -3687,6 +3827,14 @@ export const routes = [
   {
     path: "/zh-CN/sql-reference/sql-statements/Account Management/CREATE USER.html",
     redirect: "/zh-CN/sql-reference/sql-statements/Account%20Management/CREATE%20USER.html"
+  },
+  {
+    name: "v-6e6ab93b",
+    path: "/zh-CN/sql-reference/sql-functions/string-functions/strright.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-6e6ab93b").then(next)
+    },
   },
   {
     name: "v-51d2b3b5",
@@ -3713,18 +3861,6 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Account%20Management/DROP%20USER.html"
   },
   {
-    name: "v-0509bc78",
-    path: "/zh-CN/sql-reference/sql-statements/Account%20Management/GRANT.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-0509bc78").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/sql-reference/sql-statements/Account Management/GRANT.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Account%20Management/GRANT.html"
-  },
-  {
     name: "v-5aa67b18",
     path: "/zh-CN/sql-reference/sql-statements/Account%20Management/REVOKE.html",
     component: GlobalLayout,
@@ -3737,6 +3873,18 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Account%20Management/REVOKE.html"
   },
   {
+    name: "v-0509bc78",
+    path: "/zh-CN/sql-reference/sql-statements/Account%20Management/GRANT.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-0509bc78").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Account Management/GRANT.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Account%20Management/GRANT.html"
+  },
+  {
     name: "v-6c1f34aa",
     path: "/zh-CN/sql-reference/sql-statements/Account%20Management/SET%20PASSWORD.html",
     component: GlobalLayout,
@@ -3747,6 +3895,18 @@ export const routes = [
   {
     path: "/zh-CN/sql-reference/sql-statements/Account Management/SET PASSWORD.html",
     redirect: "/zh-CN/sql-reference/sql-statements/Account%20Management/SET%20PASSWORD.html"
+  },
+  {
+    name: "v-2197fb4f",
+    path: "/zh-CN/sql-reference/sql-statements/Account%20Management/SHOW%20ROLES.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-2197fb4f").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Account Management/SHOW ROLES.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Account%20Management/SHOW%20ROLES.html"
   },
   {
     name: "v-1811c837",
@@ -3773,16 +3933,16 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Account%20Management/SHOW%20GRANTS.html"
   },
   {
-    name: "v-2197fb4f",
-    path: "/zh-CN/sql-reference/sql-statements/Account%20Management/SHOW%20ROLES.html",
+    name: "v-a086b224",
+    path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20REPAIR.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-2197fb4f").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-a086b224").then(next)
     },
   },
   {
-    path: "/zh-CN/sql-reference/sql-statements/Account Management/SHOW ROLES.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Account%20Management/SHOW%20ROLES.html"
+    path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN REPAIR.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20REPAIR.html"
   },
   {
     name: "v-049740bb",
@@ -3797,16 +3957,16 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20CANCEL%20REPAIR.html"
   },
   {
-    name: "v-5f7d0b29",
-    path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20CHECK%20TABLET.html",
+    name: "v-569117bb",
+    path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SHOW%20CONFIG.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-5f7d0b29").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-569117bb").then(next)
     },
   },
   {
-    path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN CHECK TABLET.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20CHECK%20TABLET.html"
+    path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN SHOW CONFIG.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SHOW%20CONFIG.html"
   },
   {
     name: "v-91d42036",
@@ -3821,28 +3981,16 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SET%20CONFIG.html"
   },
   {
-    name: "v-a086b224",
-    path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20REPAIR.html",
+    name: "v-6fcb63d8",
+    path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SHOW%20REPLICA%20STATUS.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-a086b224").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-6fcb63d8").then(next)
     },
   },
   {
-    path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN REPAIR.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20REPAIR.html"
-  },
-  {
-    name: "v-569117bb",
-    path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SHOW%20CONFIG.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-569117bb").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN SHOW CONFIG.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SHOW%20CONFIG.html"
+    path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN SHOW REPLICA STATUS.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SHOW%20REPLICA%20STATUS.html"
   },
   {
     name: "v-3aa59698",
@@ -3855,6 +4003,30 @@ export const routes = [
   {
     path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN SHOW REPLICA DISTRIBUTION.html",
     redirect: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SHOW%20REPLICA%20DISTRIBUTION.html"
+  },
+  {
+    name: "v-5f7d0b29",
+    path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20CHECK%20TABLET.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-5f7d0b29").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN CHECK TABLET.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20CHECK%20TABLET.html"
+  },
+  {
+    name: "v-3d1d2b12",
+    path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SET%20REPLICA%20STATUS.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-3d1d2b12").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN SET REPLICA STATUS.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SET%20REPLICA%20STATUS.html"
   },
   {
     name: "v-098f5c9e",
@@ -3881,30 +4053,6 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Administration/ALTER%20SYSTEM.html"
   },
   {
-    name: "v-4bd63e10",
-    path: "/zh-CN/sql-reference/sql-statements/Administration/CANCEL%20DECOMMISSION.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-4bd63e10").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/sql-reference/sql-statements/Administration/CANCEL DECOMMISSION.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Administration/CANCEL%20DECOMMISSION.html"
-  },
-  {
-    name: "v-6fcb63d8",
-    path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SHOW%20REPLICA%20STATUS.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-6fcb63d8").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN SHOW REPLICA STATUS.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SHOW%20REPLICA%20STATUS.html"
-  },
-  {
     name: "v-81d736b8",
     path: "/zh-CN/sql-reference/sql-statements/Administration/CREATE%20CLUSTER.html",
     component: GlobalLayout,
@@ -3917,16 +4065,16 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Administration/CREATE%20CLUSTER.html"
   },
   {
-    name: "v-228fff38",
-    path: "/zh-CN/sql-reference/sql-statements/Administration/CREATE%20FILE.html",
+    name: "v-4bd63e10",
+    path: "/zh-CN/sql-reference/sql-statements/Administration/CANCEL%20DECOMMISSION.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-228fff38").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-4bd63e10").then(next)
     },
   },
   {
-    path: "/zh-CN/sql-reference/sql-statements/Administration/CREATE FILE.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Administration/CREATE%20FILE.html"
+    path: "/zh-CN/sql-reference/sql-statements/Administration/CANCEL DECOMMISSION.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Administration/CANCEL%20DECOMMISSION.html"
   },
   {
     name: "v-05077efe",
@@ -3941,6 +4089,18 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Administration/DROP%20CLUSTER.html"
   },
   {
+    name: "v-228fff38",
+    path: "/zh-CN/sql-reference/sql-statements/Administration/CREATE%20FILE.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-228fff38").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Administration/CREATE FILE.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Administration/CREATE%20FILE.html"
+  },
+  {
     name: "v-b22487d0",
     path: "/zh-CN/sql-reference/sql-statements/Administration/DROP%20FILE.html",
     component: GlobalLayout,
@@ -3951,6 +4111,30 @@ export const routes = [
   {
     path: "/zh-CN/sql-reference/sql-statements/Administration/DROP FILE.html",
     redirect: "/zh-CN/sql-reference/sql-statements/Administration/DROP%20FILE.html"
+  },
+  {
+    name: "v-98df480c",
+    path: "/zh-CN/sql-reference/sql-statements/Administration/INSTALL%20PLUGIN.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-98df480c").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Administration/INSTALL PLUGIN.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Administration/INSTALL%20PLUGIN.html"
+  },
+  {
+    name: "v-b5c8d810",
+    path: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20BACKENDS.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-b5c8d810").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Administration/SHOW BACKENDS.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20BACKENDS.html"
   },
   {
     name: "v-0170491b",
@@ -3985,18 +4169,6 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Administration/MIGRATE%20DATABASE.html"
   },
   {
-    name: "v-b5c8d810",
-    path: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20BACKENDS.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-b5c8d810").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/sql-reference/sql-statements/Administration/SHOW BACKENDS.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20BACKENDS.html"
-  },
-  {
     name: "v-21771258",
     path: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20FILE.html",
     component: GlobalLayout,
@@ -4021,18 +4193,6 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20BROKER.html"
   },
   {
-    name: "v-3c5a3958",
-    path: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20FRONTENDS.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-3c5a3958").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/sql-reference/sql-statements/Administration/SHOW FRONTENDS.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20FRONTENDS.html"
-  },
-  {
     name: "v-54aec8db",
     path: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20FULL%20COLUMNS.html",
     component: GlobalLayout,
@@ -4045,16 +4205,16 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20FULL%20COLUMNS.html"
   },
   {
-    name: "v-7f45f572",
-    path: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20INDEX.html",
+    name: "v-3c5a3958",
+    path: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20FRONTENDS.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-7f45f572").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-3c5a3958").then(next)
     },
   },
   {
-    path: "/zh-CN/sql-reference/sql-statements/Administration/SHOW INDEX.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20INDEX.html"
+    path: "/zh-CN/sql-reference/sql-statements/Administration/SHOW FRONTENDS.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20FRONTENDS.html"
   },
   {
     name: "v-60f13bb8",
@@ -4069,6 +4229,30 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20MIGRATIONS.html"
   },
   {
+    name: "v-7f45f572",
+    path: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20INDEX.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-7f45f572").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Administration/SHOW INDEX.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20INDEX.html"
+  },
+  {
+    name: "v-158fe3d4",
+    path: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20PLUGINS.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-158fe3d4").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Administration/SHOW PLUGINS.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20PLUGINS.html"
+  },
+  {
     name: "v-3f379b35",
     path: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20TABLE%20STATUS.html",
     component: GlobalLayout,
@@ -4081,6 +4265,18 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20TABLE%20STATUS.html"
   },
   {
+    name: "v-71f28308",
+    path: "/zh-CN/sql-reference/sql-statements/Administration/UNINSTALL%20PLUGIN.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-71f28308").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Administration/UNINSTALL PLUGIN.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Administration/UNINSTALL%20PLUGIN.html"
+  },
+  {
     name: "v-9dcb858a",
     path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/ALTER%20DATABASE.html",
     component: GlobalLayout,
@@ -4091,30 +4287,6 @@ export const routes = [
   {
     path: "/zh-CN/sql-reference/sql-statements/Data Definition/ALTER DATABASE.html",
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/ALTER%20DATABASE.html"
-  },
-  {
-    name: "v-28df275a",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/ALTER%20TABLE.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-28df275a").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/sql-reference/sql-statements/Data Definition/ALTER TABLE.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/ALTER%20TABLE.html"
-  },
-  {
-    name: "v-496f710a",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/ALTER%20VIEW.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-496f710a").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/sql-reference/sql-statements/Data Definition/ALTER VIEW.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/ALTER%20VIEW.html"
   },
   {
     name: "v-5ecab401",
@@ -4141,16 +4313,16 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/BACKUP.html"
   },
   {
-    name: "v-2f21f4b6",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/CANCEL%20BACKUP.html",
+    name: "v-28df275a",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/ALTER%20TABLE.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-2f21f4b6").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-28df275a").then(next)
     },
   },
   {
-    path: "/zh-CN/sql-reference/sql-statements/Data Definition/CANCEL BACKUP.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/CANCEL%20BACKUP.html"
+    path: "/zh-CN/sql-reference/sql-statements/Data Definition/ALTER TABLE.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/ALTER%20TABLE.html"
   },
   {
     name: "v-333b6681",
@@ -4177,6 +4349,30 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/CREATE%20DATABASE.html"
   },
   {
+    name: "v-2f21f4b6",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/CANCEL%20BACKUP.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-2f21f4b6").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Data Definition/CANCEL BACKUP.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/CANCEL%20BACKUP.html"
+  },
+  {
+    name: "v-496f710a",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/ALTER%20VIEW.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-496f710a").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Data Definition/ALTER VIEW.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/ALTER%20VIEW.html"
+  },
+  {
     name: "v-a9ad337e",
     path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/CREATE%20INDEX.html",
     component: GlobalLayout,
@@ -4187,18 +4383,6 @@ export const routes = [
   {
     path: "/zh-CN/sql-reference/sql-statements/Data Definition/CREATE INDEX.html",
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/CREATE%20INDEX.html"
-  },
-  {
-    name: "v-5fdf45ce",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/CREATE%20REPOSITORY.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-5fdf45ce").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/sql-reference/sql-statements/Data Definition/CREATE REPOSITORY.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/CREATE%20REPOSITORY.html"
   },
   {
     name: "v-163369c1",
@@ -4213,6 +4397,42 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/CREATE%20TABLE.html"
   },
   {
+    name: "v-5fdf45ce",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/CREATE%20REPOSITORY.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-5fdf45ce").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Data Definition/CREATE REPOSITORY.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/CREATE%20REPOSITORY.html"
+  },
+  {
+    name: "v-5036d244",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/CREATE%20MATERIALIZED%20VIEW.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-5036d244").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Data Definition/CREATE MATERIALIZED VIEW.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/CREATE%20MATERIALIZED%20VIEW.html"
+  },
+  {
+    name: "v-2f537104",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20MATERIALIZED%20VIEW.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-2f537104").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Data Definition/DROP MATERIALIZED VIEW.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20MATERIALIZED%20VIEW.html"
+  },
+  {
     name: "v-0a356663",
     path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/CREATE%20VIEW.html",
     component: GlobalLayout,
@@ -4223,18 +4443,6 @@ export const routes = [
   {
     path: "/zh-CN/sql-reference/sql-statements/Data Definition/CREATE VIEW.html",
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/CREATE%20VIEW.html"
-  },
-  {
-    name: "v-3ebd6461",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20INDEX.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-3ebd6461").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/sql-reference/sql-statements/Data Definition/DROP INDEX.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20INDEX.html"
   },
   {
     name: "v-cb6b2146",
@@ -4249,16 +4457,16 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20DATABASE.html"
   },
   {
-    name: "v-5922313f",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20REPOSITORY.html",
+    name: "v-3ebd6461",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20INDEX.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-5922313f").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-3ebd6461").then(next)
     },
   },
   {
-    path: "/zh-CN/sql-reference/sql-statements/Data Definition/DROP REPOSITORY.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20REPOSITORY.html"
+    path: "/zh-CN/sql-reference/sql-statements/Data Definition/DROP INDEX.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20INDEX.html"
   },
   {
     name: "v-8d5d123e",
@@ -4333,16 +4541,16 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/TRUNCATE%20TABLE.html"
   },
   {
-    name: "v-947c55a8",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/drop-function.html",
+    name: "v-5922313f",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20REPOSITORY.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-947c55a8").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-5922313f").then(next)
     },
   },
   {
-    path: "/zh-CN/sql-reference/sql-statements/Data Definition/drop-function.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/drop-function.html"
+    path: "/zh-CN/sql-reference/sql-statements/Data Definition/DROP REPOSITORY.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20REPOSITORY.html"
   },
   {
     name: "v-7aba2ff4",
@@ -4357,6 +4565,18 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/create-function.html"
   },
   {
+    name: "v-947c55a8",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/drop-function.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-947c55a8").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Data Definition/drop-function.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/drop-function.html"
+  },
+  {
     name: "v-8454cfc4",
     path: "/zh-CN/sql-reference/sql-statements/Data%20Definition/show-functions.html",
     component: GlobalLayout,
@@ -4367,18 +4587,6 @@ export const routes = [
   {
     path: "/zh-CN/sql-reference/sql-statements/Data Definition/show-functions.html",
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Definition/show-functions.html"
-  },
-  {
-    name: "v-6945bb87",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/BROKER%20LOAD.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-6945bb87").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/BROKER LOAD.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/BROKER%20LOAD.html"
   },
   {
     name: "v-b6f09dee",
@@ -4393,16 +4601,16 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/CANCEL%20LOAD.html"
   },
   {
-    name: "v-e250e484",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/EXPORT.html",
+    name: "v-6945bb87",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/BROKER%20LOAD.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-e250e484").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-6945bb87").then(next)
     },
   },
   {
-    path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/EXPORT.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/EXPORT.html"
+    path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/BROKER LOAD.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/BROKER%20LOAD.html"
   },
   {
     name: "v-359c62de",
@@ -4417,16 +4625,16 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/DELETE.html"
   },
   {
-    name: "v-1340baca",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/GROUP%20BY.html",
+    name: "v-e250e484",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/EXPORT.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-1340baca").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-e250e484").then(next)
     },
   },
   {
-    path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/GROUP BY.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/GROUP%20BY.html"
+    path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/EXPORT.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/EXPORT.html"
   },
   {
     name: "v-59f8343e",
@@ -4451,6 +4659,30 @@ export const routes = [
   {
     path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/MINI LOAD.html",
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/MINI%20LOAD.html"
+  },
+  {
+    name: "v-1340baca",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/GROUP%20BY.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-1340baca").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/GROUP BY.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/GROUP%20BY.html"
+  },
+  {
+    name: "v-7bd1653b",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/MULTI%20LOAD.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-7bd1653b").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/MULTI LOAD.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/MULTI%20LOAD.html"
   },
   {
     name: "v-73f69938",
@@ -4501,18 +4733,6 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20ALTER.html"
   },
   {
-    name: "v-7bd1653b",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/MULTI%20LOAD.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-7bd1653b").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/MULTI LOAD.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/MULTI%20LOAD.html"
-  },
-  {
     name: "v-111d4e57",
     path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20BACKUP.html",
     component: GlobalLayout,
@@ -4523,18 +4743,6 @@ export const routes = [
   {
     path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW BACKUP.html",
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20BACKUP.html"
-  },
-  {
-    name: "v-23d8f872",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATA.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-23d8f872").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW DATA.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATA.html"
   },
   {
     name: "v-9cc01fbe",
@@ -4549,18 +4757,6 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATABASES.html"
   },
   {
-    name: "v-2b9762c5",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DELETE.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-2b9762c5").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW DELETE.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DELETE.html"
-  },
-  {
     name: "v-59d316c6",
     path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DYNAMIC%20PARTITION%20TABLES.html",
     component: GlobalLayout,
@@ -4571,6 +4767,30 @@ export const routes = [
   {
     path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW DYNAMIC PARTITION TABLES.html",
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DYNAMIC%20PARTITION%20TABLES.html"
+  },
+  {
+    name: "v-23d8f872",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATA.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-23d8f872").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW DATA.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATA.html"
+  },
+  {
+    name: "v-2b9762c5",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DELETE.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-2b9762c5").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW DELETE.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DELETE.html"
   },
   {
     name: "v-b32d7a1a",
@@ -4669,18 +4889,6 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20ROUTINE%20LOAD.html"
   },
   {
-    name: "v-73597bda",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20SNAPSHOT.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-73597bda").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW SNAPSHOT.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20SNAPSHOT.html"
-  },
-  {
     name: "v-9fa2b85e",
     path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLES.html",
     component: GlobalLayout,
@@ -4693,30 +4901,6 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLES.html"
   },
   {
-    name: "v-6a3663e2",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLET.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-6a3663e2").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW TABLET.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLET.html"
-  },
-  {
-    name: "v-21ad4d21",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TRANSACTION.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-21ad4d21").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW TRANSACTION.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TRANSACTION.html"
-  },
-  {
     name: "v-f72afe84",
     path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/STOP%20ROUTINE%20LOAD.html",
     component: GlobalLayout,
@@ -4727,6 +4911,30 @@ export const routes = [
   {
     path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/STOP ROUTINE LOAD.html",
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/STOP%20ROUTINE%20LOAD.html"
+  },
+  {
+    name: "v-73597bda",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20SNAPSHOT.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-73597bda").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW SNAPSHOT.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20SNAPSHOT.html"
+  },
+  {
+    name: "v-6a3663e2",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLET.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-6a3663e2").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW TABLET.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLET.html"
   },
   {
     name: "v-1a4116d6",
@@ -4813,6 +5021,18 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Types/DATETIME.html"
   },
   {
+    name: "v-78768252",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Types/DOUBLE.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-78768252").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Data Types/DOUBLE.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Types/DOUBLE.html"
+  },
+  {
     name: "v-cb72a0c4",
     path: "/zh-CN/sql-reference/sql-statements/Data%20Types/DECIMAL.html",
     component: GlobalLayout,
@@ -4825,16 +5045,16 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Types/DECIMAL.html"
   },
   {
-    name: "v-78768252",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Types/DOUBLE.html",
+    name: "v-21ad4d21",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TRANSACTION.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-78768252").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-21ad4d21").then(next)
     },
   },
   {
-    path: "/zh-CN/sql-reference/sql-statements/Data Types/DOUBLE.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Types/DOUBLE.html"
+    path: "/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW TRANSACTION.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TRANSACTION.html"
   },
   {
     name: "v-e2c85284",
@@ -4861,18 +5081,6 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Types/HLL.html"
   },
   {
-    name: "v-4062645e",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Types/INT.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-4062645e").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/sql-reference/sql-statements/Data Types/INT.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Types/INT.html"
-  },
-  {
     name: "v-6717980c",
     path: "/zh-CN/sql-reference/sql-statements/Data%20Types/LARGEINT.html",
     component: GlobalLayout,
@@ -4885,16 +5093,16 @@ export const routes = [
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Types/LARGEINT.html"
   },
   {
-    name: "v-65a899a4",
-    path: "/zh-CN/sql-reference/sql-statements/Data%20Types/SMALLINT.html",
+    name: "v-4062645e",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Types/INT.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-65a899a4").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-4062645e").then(next)
     },
   },
   {
-    path: "/zh-CN/sql-reference/sql-statements/Data Types/SMALLINT.html",
-    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Types/SMALLINT.html"
+    path: "/zh-CN/sql-reference/sql-statements/Data Types/INT.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Types/INT.html"
   },
   {
     name: "v-2d99db44",
@@ -4907,6 +5115,18 @@ export const routes = [
   {
     path: "/zh-CN/sql-reference/sql-statements/Data Types/TINYINT.html",
     redirect: "/zh-CN/sql-reference/sql-statements/Data%20Types/TINYINT.html"
+  },
+  {
+    name: "v-65a899a4",
+    path: "/zh-CN/sql-reference/sql-statements/Data%20Types/SMALLINT.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-65a899a4").then(next)
+    },
+  },
+  {
+    path: "/zh-CN/sql-reference/sql-statements/Data Types/SMALLINT.html",
+    redirect: "/zh-CN/sql-reference/sql-statements/Data%20Types/SMALLINT.html"
   },
   {
     name: "v-7d9489c4",

@@ -5,22 +5,125 @@ export const siteData = {
   "title": "Apache Doris",
   "description": "Apache Doris",
   "base": "/",
+  "headTags": [
+    [
+      "meta",
+      {
+        "name": "theme-color",
+        "content": "#3eaf7c"
+      }
+    ],
+    [
+      "meta",
+      {
+        "name": "apple-mobile-web-app-capable",
+        "content": "yes"
+      }
+    ],
+    [
+      "meta",
+      {
+        "name": "apple-mobile-web-app-status-bar-style",
+        "content": "black"
+      }
+    ],
+    [
+      "meta",
+      {
+        "name": "msapplication-TileColor",
+        "content": "#000000"
+      }
+    ]
+  ],
   "pages": [
     {
-      "title": "Home",
+      "frontmatter": {},
+      "regularPath": "/",
+      "relativePath": "README.md",
+      "key": "v-31e6c060",
+      "path": "/",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Getting Started",
+          "slug": "getting-started"
+        },
+        {
+          "level": 2,
+          "title": "Docs' Directories",
+          "slug": "docs-directories"
+        },
+        {
+          "level": 2,
+          "title": "Start Writing",
+          "slug": "start-writing"
+        },
+        {
+          "level": 2,
+          "title": "Deployment",
+          "slug": "deployment"
+        },
+        {
+          "level": 2,
+          "title": "What Travis Does",
+          "slug": "what-travis-does"
+        },
+        {
+          "level": 2,
+          "title": "asf-site repository",
+          "slug": "asf-site-repository"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 6:02:06 PM"
+    },
+    {
+      "title": "Bitmap Index",
       "frontmatter": {
-        "home": true,
-        "heroImage": "/images/logo.jpeg",
-        "heroText": "Apache Doris",
-        "tagline": "MPP-based interactive SQL data warehousing for reporting and analysis.",
-        "actionText": "Get Started →",
-        "actionLink": "/en/installing/compilation"
+        "title": "Bitmap Index",
+        "language": "en"
       },
-      "regularPath": "/en/",
-      "relativePath": "en/README.md",
-      "key": "v-56c62ab0",
-      "path": "/en/",
-      "lastUpdated": "3/16/2020, 10:31:47 AM"
+      "regularPath": "/en/administrator-guide/alter-table/alter-table-bitmap-index.html",
+      "relativePath": "en/administrator-guide/alter-table/alter-table-bitmap-index.md",
+      "key": "v-6103349b",
+      "path": "/en/administrator-guide/alter-table/alter-table-bitmap-index.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Glossary",
+          "slug": "glossary"
+        },
+        {
+          "level": 2,
+          "title": "Basic Principles",
+          "slug": "basic-principles"
+        },
+        {
+          "level": 2,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "Create Job",
+          "slug": "create-job"
+        },
+        {
+          "level": 2,
+          "title": "View Job",
+          "slug": "view-job"
+        },
+        {
+          "level": 2,
+          "title": "Cancel Job",
+          "slug": "cancel-job"
+        },
+        {
+          "level": 2,
+          "title": "Notice",
+          "slug": "notice"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Rollup",
@@ -84,7 +187,269 @@ export const siteData = {
           "slug": "be-configurations"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "Temporary partition",
+      "frontmatter": {
+        "title": "Temporary partition",
+        "language": "en"
+      },
+      "regularPath": "/en/administrator-guide/alter-table/alter-table-temp-partition.html",
+      "relativePath": "en/administrator-guide/alter-table/alter-table-temp-partition.md",
+      "key": "v-1a49bfbb",
+      "path": "/en/administrator-guide/alter-table/alter-table-temp-partition.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Rules",
+          "slug": "rules"
+        },
+        {
+          "level": 2,
+          "title": "Supported operations",
+          "slug": "supported-operations"
+        },
+        {
+          "level": 3,
+          "title": "Add temporary partition",
+          "slug": "add-temporary-partition"
+        },
+        {
+          "level": 3,
+          "title": "Delete temporary partition",
+          "slug": "delete-temporary-partition"
+        },
+        {
+          "level": 3,
+          "title": "Replace partition",
+          "slug": "replace-partition"
+        },
+        {
+          "level": 2,
+          "title": "Load and query of temporary partitions",
+          "slug": "load-and-query-of-temporary-partitions"
+        },
+        {
+          "level": 2,
+          "title": "Relationship to other operations",
+          "slug": "relationship-to-other-operations"
+        },
+        {
+          "level": 3,
+          "title": "DROP",
+          "slug": "drop"
+        },
+        {
+          "level": 3,
+          "title": "TRUNCATE",
+          "slug": "truncate"
+        },
+        {
+          "level": 3,
+          "title": "ALTER",
+          "slug": "alter"
+        },
+        {
+          "level": 2,
+          "title": "Best Practices",
+          "slug": "best-practices"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "Home",
+      "frontmatter": {
+        "home": true,
+        "heroImage": "/images/home/banner-stats1.png",
+        "heroBgImage": "/images/home/hero-bg1.png",
+        "heroText": [
+          "Welcome to",
+          "Apache Doris"
+        ],
+        "tagline": "A fast MPP database for all modern analytics on big data.",
+        "structure": {
+          "title": "Apache Doris",
+          "subTitle": null,
+          "descriptions": [
+            "Apache Doris is a modern MPP analytical database product. It can provide sub second query delay and support real-time data analysis effectively. Its distributed architecture is very simple, easy to operate and maintain, and can support 10PB level data scale.",
+            "Apache Doris can meet your various data analysis needs, including fixed historical reports, real-time data analysis, interactive data analysis, and exploratory data analysis. Make your data analysis easier!"
+          ],
+          "image": "/images/structure-fresh.png",
+          "actionText": "Learn More",
+          "actionLink": "/zh-CN/getting-started/basic-usage"
+        },
+        "features": {
+          "title": "Apache Doris Core Features",
+          "subTitle": null,
+          "list": [
+            {
+              "title": "Modern MPP architecture",
+              "icon": "/images/home/struct.png"
+            },
+            {
+              "title": "Getting result of a query within one second",
+              "icon": "/images/home/clock.png"
+            },
+            {
+              "title": "Support standard SQL language, compatible with MySQL protocol",
+              "icon": "/images/home/sql.png"
+            },
+            {
+              "title": "Vectorized SQL executor",
+              "icon": "/images/home/program.png"
+            },
+            {
+              "title": "Effective data model for aggregation",
+              "icon": "/images/home/aggr.png"
+            },
+            {
+              "title": "Rollup，novel pre-computation mechanism",
+              "icon": "/images/home/rollup.png"
+            },
+            {
+              "title": "High performance, high availability, high reliability",
+              "icon": "/images/home/cpu.png"
+            },
+            {
+              "title": "easy for operation，Elastic data warehouse for big data",
+              "icon": "/images/home/dev.png"
+            }
+          ]
+        },
+        "cases": {
+          "title": "Apache Doris Users",
+          "subTitle": null,
+          "list": [
+            {
+              "logo": "/images/home/logo-meituan1.png",
+              "alt": "美团"
+            },
+            {
+              "logo": "/images/home/logo-xiaomi1.png",
+              "alt": "小米"
+            },
+            {
+              "logo": "/images/home/logo-jd1.png",
+              "alt": "京东"
+            },
+            {
+              "logo": "/images/home/logo-huawei1.png",
+              "alt": "华为"
+            },
+            {
+              "logo": "/images/home/logo-baidu1.png",
+              "alt": "百度"
+            },
+            {
+              "logo": "/images/home/logo-weibo1.png",
+              "alt": "新浪微博"
+            },
+            {
+              "logo": "/images/home/logo-zuoyebang1.png",
+              "alt": "作业帮"
+            },
+            {
+              "logo": "/images/home/logo-vipkid1.png",
+              "alt": "Vipkid"
+            },
+            {
+              "logo": "/images/home/logo-3601.png",
+              "alt": 360
+            },
+            {
+              "logo": "/images/home/logo-shopee1.png",
+              "alt": "Shopee"
+            },
+            {
+              "logo": "/images/home/logo-tantan1.png",
+              "alt": "探探"
+            },
+            {
+              "logo": "/images/home/logo-kuaishou1.png",
+              "alt": "快手"
+            },
+            {
+              "logo": "/images/home/logo-sohu1.png",
+              "alt": "搜狐"
+            },
+            {
+              "logo": "/images/home/logo-yidian1.png",
+              "alt": "一点资讯"
+            },
+            {
+              "logo": "/images/home/logo-dingdong1.png",
+              "alt": "叮咚买菜"
+            },
+            {
+              "logo": "/images/home/logo-youdao1.png",
+              "alt": "有道"
+            }
+          ]
+        },
+        "actionText": "Quick Start →",
+        "actionLink": "/zh-CN/installing/compilation"
+      },
+      "regularPath": "/en/",
+      "relativePath": "en/README.md",
+      "key": "v-56c62ab0",
+      "path": "/en/",
+      "lastUpdated": "6/30/2020, 6:33:37 PM"
+    },
+    {
+      "title": "Backup and Recovery",
+      "frontmatter": {
+        "title": "Backup and Recovery",
+        "language": "en"
+      },
+      "regularPath": "/en/administrator-guide/backup-restore.html",
+      "relativePath": "en/administrator-guide/backup-restore.md",
+      "key": "v-1fb7e53b",
+      "path": "/en/administrator-guide/backup-restore.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Brief Principle Description",
+          "slug": "brief-principle-description"
+        },
+        {
+          "level": 3,
+          "title": "Backup",
+          "slug": "backup"
+        },
+        {
+          "level": 3,
+          "title": "Restore",
+          "slug": "restore"
+        },
+        {
+          "level": 2,
+          "title": "Best Practices",
+          "slug": "best-practices"
+        },
+        {
+          "level": 3,
+          "title": "Backup",
+          "slug": "backup-2"
+        },
+        {
+          "level": 3,
+          "title": "Data migration",
+          "slug": "data-migration"
+        },
+        {
+          "level": 2,
+          "title": "Highlights",
+          "slug": "highlights"
+        },
+        {
+          "level": 2,
+          "title": "Relevant orders",
+          "slug": "relevant-orders"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Scheam Change",
@@ -153,61 +518,31 @@ export const siteData = {
           "slug": "be-configurations"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
-      "title": "Backup and Recovery",
+      "title": "Configuration",
       "frontmatter": {
-        "title": "Backup and Recovery",
+        "title": "Configuration",
         "language": "en"
       },
-      "regularPath": "/en/administrator-guide/backup-restore.html",
-      "relativePath": "en/administrator-guide/backup-restore.md",
-      "key": "v-1fb7e53b",
-      "path": "/en/administrator-guide/backup-restore.html",
+      "regularPath": "/en/administrator-guide/config/fe_config.html",
+      "relativePath": "en/administrator-guide/config/fe_config.md",
+      "key": "v-6512d2fb",
+      "path": "/en/administrator-guide/config/fe_config.html",
       "headers": [
         {
           "level": 2,
-          "title": "Brief Principle Description",
-          "slug": "brief-principle-description"
-        },
-        {
-          "level": 3,
-          "title": "Backup",
-          "slug": "backup"
-        },
-        {
-          "level": 3,
-          "title": "Restore",
-          "slug": "restore"
+          "title": "brpcmaxbody_size",
+          "slug": "brpc-max-body-size"
         },
         {
           "level": 2,
-          "title": "Best Practices",
-          "slug": "best-practices"
-        },
-        {
-          "level": 3,
-          "title": "Backup",
-          "slug": "backup-2"
-        },
-        {
-          "level": 3,
-          "title": "Data migration",
-          "slug": "data-migration"
-        },
-        {
-          "level": 2,
-          "title": "Highlights",
-          "slug": "highlights"
-        },
-        {
-          "level": 2,
-          "title": "Relevant orders",
-          "slug": "relevant-orders"
+          "title": "maxrunningtxnnumper_db",
+          "slug": "max-running-txn-num-per-db"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Broker",
@@ -246,56 +581,7 @@ export const siteData = {
           "slug": "certification-information"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "Bitmap Index",
-      "frontmatter": {
-        "title": "Bitmap Index",
-        "language": "en"
-      },
-      "regularPath": "/en/administrator-guide/alter-table/alter-table-bitmap-index.html",
-      "relativePath": "en/administrator-guide/alter-table/alter-table-bitmap-index.md",
-      "key": "v-6103349b",
-      "path": "/en/administrator-guide/alter-table/alter-table-bitmap-index.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Glossary",
-          "slug": "glossary"
-        },
-        {
-          "level": 2,
-          "title": "Basic Principles",
-          "slug": "basic-principles"
-        },
-        {
-          "level": 2,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "Create Job",
-          "slug": "create-job"
-        },
-        {
-          "level": 2,
-          "title": "View Job",
-          "slug": "view-job"
-        },
-        {
-          "level": 2,
-          "title": "Cancel Job",
-          "slug": "cancel-job"
-        },
-        {
-          "level": 2,
-          "title": "Notice",
-          "slug": "notice"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Colocation Join",
@@ -377,176 +663,9 @@ export const siteData = {
           "level": 3,
           "title": "FE Configuration Item",
           "slug": "fe-configuration-item"
-        },
-        {
-          "level": 3,
-          "title": "HTTP Restful API",
-          "slug": "http-restful-api"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "Configuration",
-      "frontmatter": {
-        "title": "Configuration",
-        "language": "en"
-      },
-      "regularPath": "/en/administrator-guide/config/fe_config.html",
-      "relativePath": "en/administrator-guide/config/fe_config.md",
-      "key": "v-6512d2fb",
-      "path": "/en/administrator-guide/config/fe_config.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "brpcmaxbody_size",
-          "slug": "brpc-max-body-size"
-        },
-        {
-          "level": 2,
-          "title": "maxrunningtxnnumper_db",
-          "slug": "max-running-txn-num-per-db"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 10:31:47 AM"
-    },
-    {
-      "title": "Dynamic Partition",
-      "frontmatter": {
-        "title": "Dynamic Partition",
-        "language": "en"
-      },
-      "regularPath": "/en/administrator-guide/dynamic-partition.html",
-      "relativePath": "en/administrator-guide/dynamic-partition.md",
-      "key": "v-67792d3e",
-      "path": "/en/administrator-guide/dynamic-partition.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Noun Interpretation",
-          "slug": "noun-interpretation"
-        },
-        {
-          "level": 2,
-          "title": "Principle",
-          "slug": "principle"
-        },
-        {
-          "level": 2,
-          "title": "Usage",
-          "slug": "usage"
-        },
-        {
-          "level": 3,
-          "title": "Establishment of tables",
-          "slug": "establishment-of-tables"
-        },
-        {
-          "level": 3,
-          "title": "Enable Dynamic Partition Feature",
-          "slug": "enable-dynamic-partition-feature"
-        },
-        {
-          "level": 3,
-          "title": "Disable Dynamic Partition Feature",
-          "slug": "disable-dynamic-partition-feature"
-        },
-        {
-          "level": 3,
-          "title": "Modify Dynamic Partition Properties",
-          "slug": "modify-dynamic-partition-properties"
-        },
-        {
-          "level": 3,
-          "title": "Check Dynamic Partition Table Scheduling Status",
-          "slug": "check-dynamic-partition-table-scheduling-status"
-        },
-        {
-          "level": 2,
-          "title": "Advanced Operation",
-          "slug": "advanced-operation"
-        },
-        {
-          "level": 3,
-          "title": "FE Configuration Item",
-          "slug": "fe-configuration-item"
-        },
-        {
-          "level": 3,
-          "title": "HTTP Restful API",
-          "slug": "http-restful-api"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "Data export",
-      "frontmatter": {
-        "title": "Data export",
-        "language": "en"
-      },
-      "regularPath": "/en/administrator-guide/export_manual.html",
-      "relativePath": "en/administrator-guide/export_manual.md",
-      "key": "v-6bf9d777",
-      "path": "/en/administrator-guide/export_manual.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Noun Interpretation",
-          "slug": "noun-interpretation"
-        },
-        {
-          "level": 2,
-          "title": "Principle",
-          "slug": "principle"
-        },
-        {
-          "level": 3,
-          "title": "query plan splitting",
-          "slug": "query-plan-splitting"
-        },
-        {
-          "level": 3,
-          "title": "Query Plan Execution",
-          "slug": "query-plan-execution"
-        },
-        {
-          "level": 2,
-          "title": "Use examples",
-          "slug": "use-examples"
-        },
-        {
-          "level": 2,
-          "title": "Best Practices",
-          "slug": "best-practices"
-        },
-        {
-          "level": 3,
-          "title": "Splitting Query Plans",
-          "slug": "splitting-query-plans"
-        },
-        {
-          "level": 3,
-          "title": "exec_mem_limit",
-          "slug": "exec-mem-limit"
-        },
-        {
-          "level": 2,
-          "title": "Notes",
-          "slug": "notes"
-        },
-        {
-          "level": 2,
-          "title": "Relevant configuration",
-          "slug": "relevant-configuration"
-        },
-        {
-          "level": 3,
-          "title": "FE",
-          "slug": "fe"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "CANCEL LABEL",
@@ -575,7 +694,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Compaction Action",
@@ -614,7 +733,7 @@ export const siteData = {
           "slug": "manually-trigger-compaction"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "get_log_file",
@@ -643,7 +762,7 @@ export const siteData = {
           "slug": "notification"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "GET LABEL STATE",
@@ -672,7 +791,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "RESTORE TABLET",
@@ -694,14 +813,48 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "Delete",
+      "frontmatter": {
+        "title": "Delete",
+        "language": "en"
+      },
+      "regularPath": "/en/administrator-guide/load-data/delete-manual.html",
+      "relativePath": "en/administrator-guide/load-data/delete-manual.md",
+      "key": "v-7c7802c5",
+      "path": "/en/administrator-guide/load-data/delete-manual.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "Delete Result",
+          "slug": "delete-result"
+        },
+        {
+          "level": 2,
+          "title": "Relevant Configuration",
+          "slug": "relevant-configuration"
+        },
+        {
+          "level": 3,
+          "title": "FE configuration",
+          "slug": "fe-configuration"
+        },
+        {
+          "level": 2,
+          "title": "Show delete history",
+          "slug": "show-delete-history"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Broker Load",
@@ -785,7 +938,7 @@ export const siteData = {
           "slug": "common-questions"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Insert Into",
@@ -854,7 +1007,7 @@ export const siteData = {
           "slug": "common-questions"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Introduction Overview",
@@ -938,7 +1091,7 @@ export const siteData = {
           "slug": "be-configuration"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Routine Load",
@@ -977,7 +1130,7 @@ export const siteData = {
           "slug": "create-a-routine-load-task"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Stream load",
@@ -1056,7 +1209,7 @@ export const siteData = {
           "slug": "common-questions"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Metadata Operations and Maintenance",
@@ -1140,7 +1293,7 @@ export const siteData = {
           "slug": "other-common-problems"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Monitoring and alarming",
@@ -1189,7 +1342,51 @@ export const siteData = {
           "slug": "dashboard-update"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "Tablet metadata management tool",
+      "frontmatter": {
+        "title": "Tablet metadata management tool",
+        "language": "en"
+      },
+      "regularPath": "/en/administrator-guide/operation/tablet-meta-tool.html",
+      "relativePath": "en/administrator-guide/operation/tablet-meta-tool.md",
+      "key": "v-2c5b4d7b",
+      "path": "/en/administrator-guide/operation/tablet-meta-tool.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Background",
+          "slug": "background"
+        },
+        {
+          "level": 2,
+          "title": "Operation",
+          "slug": "operation"
+        },
+        {
+          "level": 3,
+          "title": "View Tablet Meta",
+          "slug": "view-tablet-meta"
+        },
+        {
+          "level": 3,
+          "title": "Load header",
+          "slug": "load-header"
+        },
+        {
+          "level": 3,
+          "title": "Delete header",
+          "slug": "delete-header"
+        },
+        {
+          "level": 3,
+          "title": "TabletMeta in Pb format",
+          "slug": "tabletmeta-in-pb-format"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Multi-tenancy(Exprimental)",
@@ -1238,51 +1435,7 @@ export const siteData = {
           "slug": "detailed-design"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "Tablet metadata management tool",
-      "frontmatter": {
-        "title": "Tablet metadata management tool",
-        "language": "en"
-      },
-      "regularPath": "/en/administrator-guide/operation/tablet-meta-tool.html",
-      "relativePath": "en/administrator-guide/operation/tablet-meta-tool.md",
-      "key": "v-2c5b4d7b",
-      "path": "/en/administrator-guide/operation/tablet-meta-tool.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Background",
-          "slug": "background"
-        },
-        {
-          "level": 2,
-          "title": "Operation",
-          "slug": "operation"
-        },
-        {
-          "level": 3,
-          "title": "View Tablet Meta",
-          "slug": "view-tablet-meta"
-        },
-        {
-          "level": 3,
-          "title": "Load header",
-          "slug": "load-header"
-        },
-        {
-          "level": 3,
-          "title": "Delete header",
-          "slug": "delete-header"
-        },
-        {
-          "level": 3,
-          "title": "TabletMeta in Pb format",
-          "slug": "tabletmeta-in-pb-format"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Data replica management",
@@ -1357,6 +1510,16 @@ export const siteData = {
         },
         {
           "level": 3,
+          "title": "Duplicate Scheduling Task",
+          "slug": "duplicate-scheduling-task"
+        },
+        {
+          "level": 2,
+          "title": "Viewing Cluster Load and Scheduling Resources",
+          "slug": "viewing-cluster-load-and-scheduling-resources"
+        },
+        {
+          "level": 3,
           "title": "Scheduler Statistical Status View",
           "slug": "scheduler-statistical-status-view"
         },
@@ -1381,7 +1544,7 @@ export const siteData = {
           "slug": "relevant-issues"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Authority Management",
@@ -1430,7 +1593,7 @@ export const siteData = {
           "slug": "best-practices"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "File Manager",
@@ -1484,7 +1647,7 @@ export const siteData = {
           "slug": "relevant-configuration"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SQL MODE",
@@ -1523,41 +1686,7 @@ export const siteData = {
           "slug": "combine-mode"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "Variable",
-      "frontmatter": {
-        "title": "Variable",
-        "language": "en"
-      },
-      "regularPath": "/en/administrator-guide/variables.html",
-      "relativePath": "en/administrator-guide/variables.md",
-      "key": "v-085ee72a",
-      "path": "/en/administrator-guide/variables.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Variable setting and viewing",
-          "slug": "variable-setting-and-viewing"
-        },
-        {
-          "level": 3,
-          "title": "View",
-          "slug": "view"
-        },
-        {
-          "level": 3,
-          "title": "Settings",
-          "slug": "settings"
-        },
-        {
-          "level": 2,
-          "title": "Supported variables",
-          "slug": "supported-variables"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Gitter Manual",
@@ -1591,7 +1720,7 @@ export const siteData = {
           "slug": "search-gitter-and-join-doris-community-chat-room"
         }
       ],
-      "lastUpdated": "3/16/2020, 10:31:47 AM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Time zone",
@@ -1635,7 +1764,41 @@ export const siteData = {
           "slug": "time-zone-format-list"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "Variable",
+      "frontmatter": {
+        "title": "Variable",
+        "language": "en"
+      },
+      "regularPath": "/en/administrator-guide/variables.html",
+      "relativePath": "en/administrator-guide/variables.md",
+      "key": "v-085ee72a",
+      "path": "/en/administrator-guide/variables.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Variable setting and viewing",
+          "slug": "variable-setting-and-viewing"
+        },
+        {
+          "level": 3,
+          "title": "View",
+          "slug": "view"
+        },
+        {
+          "level": 3,
+          "title": "Settings",
+          "slug": "settings"
+        },
+        {
+          "level": 2,
+          "title": "Supported variables",
+          "slug": "supported-variables"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Contribute to Doris",
@@ -1674,7 +1837,7 @@ export const siteData = {
           "slug": "modify-the-code-and-submit-pr-pull-request"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "PMC Members & Committer",
@@ -1703,7 +1866,7 @@ export const siteData = {
           "slug": "committers-11"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Code Submission Guide",
@@ -1742,7 +1905,80 @@ export const siteData = {
           "slug": "_5-an-example"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "Subscribe to mailing lists",
+      "frontmatter": {
+        "title": "Subscribe to mailing lists",
+        "language": "en"
+      },
+      "regularPath": "/en/community/subscribe-mail-list.html",
+      "relativePath": "en/community/subscribe-mail-list.md",
+      "key": "v-3b084cdd",
+      "path": "/en/community/subscribe-mail-list.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1. Send Subscription Mail",
+          "slug": "_1-send-subscription-mail"
+        },
+        {
+          "level": 2,
+          "title": "2. Receive confirmation emails from dev-help@doris.apache.org",
+          "slug": "_2-receive-confirmation-emails-from-dev-help-doris-apache-org"
+        },
+        {
+          "level": 2,
+          "title": "3. Reply to confirmation mail",
+          "slug": "_3-reply-to-confirmation-mail"
+        },
+        {
+          "level": 2,
+          "title": "4. Receiving Welcome Emails",
+          "slug": "_4-receiving-welcome-emails"
+        },
+        {
+          "level": 2,
+          "title": "5. Initiate e-mail discussion (optional)",
+          "slug": "_5-initiate-e-mail-discussion-optional"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "Verify Apache Release",
+      "frontmatter": {
+        "title": "Verify Apache Release",
+        "language": "en"
+      },
+      "regularPath": "/en/community/verify-apache-release.html",
+      "relativePath": "en/community/verify-apache-release.md",
+      "key": "v-a1907f72",
+      "path": "/en/community/verify-apache-release.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1. Download source package, signature file, hash file and KEYS",
+          "slug": "_1-download-source-package-signature-file-hash-file-and-keys"
+        },
+        {
+          "level": 2,
+          "title": "2. Verify signature and hash",
+          "slug": "_2-verify-signature-and-hash"
+        },
+        {
+          "level": 2,
+          "title": "3. Verify license header",
+          "slug": "_3-verify-license-header"
+        },
+        {
+          "level": 2,
+          "title": "4. Verify building",
+          "slug": "_4-verify-building"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Publish of Apache Doris",
@@ -1822,7 +2058,7 @@ export const siteData = {
         },
         {
           "level": 3,
-          "title": "Send an e-mail to general@incubator.apache.org for a vote",
+          "title": "Send an e-mail to general@incubator.apache.org for a vote.",
           "slug": "send-an-e-mail-to-general-incubator-apache-org-for-a-vote"
         },
         {
@@ -1851,80 +2087,7 @@ export const siteData = {
           "slug": "publish-links-on-doris-website-and-github"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "Subscribe to mailing lists",
-      "frontmatter": {
-        "title": "Subscribe to mailing lists",
-        "language": "en"
-      },
-      "regularPath": "/en/community/subscribe-mail-list.html",
-      "relativePath": "en/community/subscribe-mail-list.md",
-      "key": "v-3b084cdd",
-      "path": "/en/community/subscribe-mail-list.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1. Send Subscription Mail",
-          "slug": "_1-send-subscription-mail"
-        },
-        {
-          "level": 2,
-          "title": "2. Receive confirmation emails from dev-help@doris.apache.org",
-          "slug": "_2-receive-confirmation-emails-from-dev-help-doris-apache-org"
-        },
-        {
-          "level": 2,
-          "title": "3. Reply to confirmation mail",
-          "slug": "_3-reply-to-confirmation-mail"
-        },
-        {
-          "level": 2,
-          "title": "4. Receiving Welcome Emails",
-          "slug": "_4-receiving-welcome-emails"
-        },
-        {
-          "level": 2,
-          "title": "5. Initiate e-mail discussion (optional)",
-          "slug": "_5-initiate-e-mail-discussion-optional"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "Verify Apache Release",
-      "frontmatter": {
-        "title": "Verify Apache Release",
-        "language": "en"
-      },
-      "regularPath": "/en/community/verify-apache-release.html",
-      "relativePath": "en/community/verify-apache-release.md",
-      "key": "v-a1907f72",
-      "path": "/en/community/verify-apache-release.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1. Download source package, signature file, hash file and KEYS",
-          "slug": "_1-download-source-package-signature-file-hash-file-and-keys"
-        },
-        {
-          "level": 2,
-          "title": "2. Verify signature and hash",
-          "slug": "_2-verify-signature-and-hash"
-        },
-        {
-          "level": 2,
-          "title": "3. Verify license header",
-          "slug": "_3-verify-license-header"
-        },
-        {
-          "level": 2,
-          "title": "4. Verify building",
-          "slug": "_4-verify-building"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Debug Tool",
@@ -1988,7 +2151,7 @@ export const siteData = {
           "slug": "perf-flamegragh"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Format Code",
@@ -2037,7 +2200,46 @@ export const siteData = {
           "slug": "using-clang-format-in-ides-or-editors"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "Audit log plugin",
+      "frontmatter": {
+        "title": "Audit log plugin",
+        "language": "en"
+      },
+      "regularPath": "/en/extending-doris/audit-plugin.html",
+      "relativePath": "en/extending-doris/audit-plugin.md",
+      "key": "v-4f648afb",
+      "path": "/en/extending-doris/audit-plugin.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Compile, Configure and Deploy",
+          "slug": "compile-configure-and-deploy"
+        },
+        {
+          "level": 3,
+          "title": "Compile",
+          "slug": "compile"
+        },
+        {
+          "level": 3,
+          "title": "Configuration",
+          "slug": "configuration"
+        },
+        {
+          "level": 3,
+          "title": "Deployment",
+          "slug": "deployment"
+        },
+        {
+          "level": 3,
+          "title": "Installation",
+          "slug": "installation"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Downloads",
@@ -2049,7 +2251,7 @@ export const siteData = {
       "relativePath": "en/downloads/downloads.md",
       "key": "v-fbbed8b6",
       "path": "/en/downloads/downloads.html",
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Doris On ES",
@@ -2098,7 +2300,76 @@ export const siteData = {
           "slug": "other-notes"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "Plugin Development Manual",
+      "frontmatter": {
+        "title": "Plugin Development Manual",
+        "language": "en"
+      },
+      "regularPath": "/en/extending-doris/plugin-development-manual.html",
+      "relativePath": "en/extending-doris/plugin-development-manual.md",
+      "key": "v-6c0d87d5",
+      "path": "/en/extending-doris/plugin-development-manual.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Introduction",
+          "slug": "introduction"
+        },
+        {
+          "level": 2,
+          "title": "Plugin",
+          "slug": "plugin"
+        },
+        {
+          "level": 2,
+          "title": "Write A Plugin",
+          "slug": "write-a-plugin"
+        },
+        {
+          "level": 3,
+          "title": "Create module",
+          "slug": "create-module"
+        },
+        {
+          "level": 3,
+          "title": "Add zip.xml",
+          "slug": "add-zip-xml"
+        },
+        {
+          "level": 3,
+          "title": "Update pom.xml",
+          "slug": "update-pom-xml"
+        },
+        {
+          "level": 3,
+          "title": "Implement plugin",
+          "slug": "implement-plugin"
+        },
+        {
+          "level": 3,
+          "title": "Compile",
+          "slug": "compile"
+        },
+        {
+          "level": 3,
+          "title": "Other way",
+          "slug": "other-way"
+        },
+        {
+          "level": 2,
+          "title": "Deploy",
+          "slug": "deploy"
+        },
+        {
+          "level": 2,
+          "title": "Install and Uninstall",
+          "slug": "install-and-uninstall"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "User Define Function",
@@ -2157,7 +2428,7 @@ export const siteData = {
           "slug": "delete-udf-functions"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Advanced Use Guide",
@@ -2206,56 +2477,7 @@ export const siteData = {
           "slug": "_2-4-query-retry-and-high-availability"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "Best Practices",
-      "frontmatter": {
-        "title": "Best Practices",
-        "language": "en"
-      },
-      "regularPath": "/en/getting-started/best-practice.html",
-      "relativePath": "en/getting-started/best-practice.md",
-      "key": "v-28f923ce",
-      "path": "/en/getting-started/best-practice.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1 tabulation",
-          "slug": "_1-tabulation"
-        },
-        {
-          "level": 3,
-          "title": "1.1 Data Model Selection",
-          "slug": "_1-1-data-model-selection"
-        },
-        {
-          "level": 3,
-          "title": "1.2 Wide Table vs. Star Schema",
-          "slug": "_1-2-wide-table-vs-star-schema"
-        },
-        {
-          "level": 3,
-          "title": "1.3 Partitioning and Bucketing",
-          "slug": "_1-3-partitioning-and-bucketing"
-        },
-        {
-          "level": 3,
-          "title": "1.4 Sparse Index and Bloom Filter",
-          "slug": "_1-4-sparse-index-and-bloom-filter"
-        },
-        {
-          "level": 3,
-          "title": "1.5 Physical and Chemical View (rollup)",
-          "slug": "_1-5-physical-and-chemical-view-rollup"
-        },
-        {
-          "level": 2,
-          "title": "2 Schema Change",
-          "slug": "_2-schema-change"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Guidelines for Basic Use",
@@ -2329,76 +2551,56 @@ export const siteData = {
           "slug": "_3-4-subquery"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
-      "title": "Data Partition",
+      "title": "Best Practices",
       "frontmatter": {
-        "title": "Data Partition",
+        "title": "Best Practices",
         "language": "en"
       },
-      "regularPath": "/en/getting-started/data-partition.html",
-      "relativePath": "en/getting-started/data-partition.md",
-      "key": "v-0b6ccb3b",
-      "path": "/en/getting-started/data-partition.html",
+      "regularPath": "/en/getting-started/best-practice.html",
+      "relativePath": "en/getting-started/best-practice.md",
+      "key": "v-28f923ce",
+      "path": "/en/getting-started/best-practice.html",
       "headers": [
         {
           "level": 2,
-          "title": "Basic Concepts",
-          "slug": "basic-concepts"
+          "title": "1 tabulation",
+          "slug": "_1-tabulation"
         },
         {
           "level": 3,
-          "title": "Row & Column",
-          "slug": "row-column"
+          "title": "1.1 Data Model Selection",
+          "slug": "_1-1-data-model-selection"
         },
         {
           "level": 3,
-          "title": "Tablet & Partition",
-          "slug": "tablet-partition"
+          "title": "1.2 Wide Table vs. Star Schema",
+          "slug": "_1-2-wide-table-vs-star-schema"
+        },
+        {
+          "level": 3,
+          "title": "1.3 Partitioning and Bucketing",
+          "slug": "_1-3-partitioning-and-bucketing"
+        },
+        {
+          "level": 3,
+          "title": "1.4 Sparse Index and Bloom Filter",
+          "slug": "_1-4-sparse-index-and-bloom-filter"
+        },
+        {
+          "level": 3,
+          "title": "1.5 Physical and Chemical View (rollup)",
+          "slug": "_1-5-physical-and-chemical-view-rollup"
         },
         {
           "level": 2,
-          "title": "Data division",
-          "slug": "data-division"
-        },
-        {
-          "level": 3,
-          "title": "Column Definition",
-          "slug": "column-definition"
-        },
-        {
-          "level": 3,
-          "title": "Partitioning and binning",
-          "slug": "partitioning-and-binning"
-        },
-        {
-          "level": 3,
-          "title": "PROPERTIES",
-          "slug": "properties"
-        },
-        {
-          "level": 3,
-          "title": "ENGINE",
-          "slug": "engine"
-        },
-        {
-          "level": 3,
-          "title": "Other",
-          "slug": "other"
-        },
-        {
-          "level": 2,
-          "title": "common problem",
-          "slug": "common-problem"
-        },
-        {
-          "level": 3,
-          "title": "Build Table Operations FAQ",
-          "slug": "build-table-operations-faq"
+          "title": "2 Schema Change",
+          "slug": "_2-schema-change"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Data Model, ROLLUP and Prefix Index",
@@ -2482,7 +2684,110 @@ export const siteData = {
           "slug": "suggestions-for-choosing-data-model"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "Data Partition",
+      "frontmatter": {
+        "title": "Data Partition",
+        "language": "en"
+      },
+      "regularPath": "/en/getting-started/data-partition.html",
+      "relativePath": "en/getting-started/data-partition.md",
+      "key": "v-0b6ccb3b",
+      "path": "/en/getting-started/data-partition.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Basic Concepts",
+          "slug": "basic-concepts"
+        },
+        {
+          "level": 3,
+          "title": "Row & Column",
+          "slug": "row-column"
+        },
+        {
+          "level": 3,
+          "title": "Tablet & Partition",
+          "slug": "tablet-partition"
+        },
+        {
+          "level": 2,
+          "title": "Data division",
+          "slug": "data-division"
+        },
+        {
+          "level": 3,
+          "title": "Column Definition",
+          "slug": "column-definition"
+        },
+        {
+          "level": 3,
+          "title": "Partitioning and binning",
+          "slug": "partitioning-and-binning"
+        },
+        {
+          "level": 3,
+          "title": "PROPERTIES",
+          "slug": "properties"
+        },
+        {
+          "level": 3,
+          "title": "ENGINE",
+          "slug": "engine"
+        },
+        {
+          "level": 3,
+          "title": "Other",
+          "slug": "other"
+        },
+        {
+          "level": 2,
+          "title": "common problem",
+          "slug": "common-problem"
+        },
+        {
+          "level": 3,
+          "title": "Build Table Operations FAQ",
+          "slug": "build-table-operations-faq"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "Compilation",
+      "frontmatter": {
+        "title": "Compilation",
+        "language": "en"
+      },
+      "regularPath": "/en/installing/compilation.html",
+      "relativePath": "en/installing/compilation.md",
+      "key": "v-2a9e47ca",
+      "path": "/en/installing/compilation.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Developing mirror compilation using Docker (recommended)",
+          "slug": "developing-mirror-compilation-using-docker-recommended"
+        },
+        {
+          "level": 3,
+          "title": "Use off-the-shelf mirrors",
+          "slug": "use-off-the-shelf-mirrors"
+        },
+        {
+          "level": 3,
+          "title": "Self-compiling Development Environment Mirror",
+          "slug": "self-compiling-development-environment-mirror"
+        },
+        {
+          "level": 2,
+          "title": "Direct Compilation (CentOS/Ubuntu)",
+          "slug": "direct-compilation-centos-ubuntu"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Rollup and query",
@@ -2511,7 +2816,41 @@ export const siteData = {
           "slug": "aggregate-data"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "Cluster upgrade",
+      "frontmatter": {
+        "title": "Cluster upgrade",
+        "language": "en"
+      },
+      "regularPath": "/en/installing/upgrade.html",
+      "relativePath": "en/installing/upgrade.md",
+      "key": "v-9382010a",
+      "path": "/en/installing/upgrade.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Test the correctness of BE upgrade",
+          "slug": "test-the-correctness-of-be-upgrade"
+        },
+        {
+          "level": 2,
+          "title": "Testing FE Metadata Compatibility",
+          "slug": "testing-fe-metadata-compatibility"
+        },
+        {
+          "level": 2,
+          "title": "Upgrade preparation",
+          "slug": "upgrade-preparation"
+        },
+        {
+          "level": 2,
+          "title": "rolling upgrade",
+          "slug": "rolling-upgrade"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Installation and deployment",
@@ -2575,154 +2914,7 @@ export const siteData = {
           "slug": "process-correlation"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "Compilation",
-      "frontmatter": {
-        "title": "Compilation",
-        "language": "en"
-      },
-      "regularPath": "/en/installing/compilation.html",
-      "relativePath": "en/installing/compilation.md",
-      "key": "v-2a9e47ca",
-      "path": "/en/installing/compilation.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Developing mirror compilation using Docker (recommended)",
-          "slug": "developing-mirror-compilation-using-docker-recommended"
-        },
-        {
-          "level": 3,
-          "title": "Use off-the-shelf mirrors",
-          "slug": "use-off-the-shelf-mirrors"
-        },
-        {
-          "level": 3,
-          "title": "Self-compiling Development Environment Mirror",
-          "slug": "self-compiling-development-environment-mirror"
-        },
-        {
-          "level": 2,
-          "title": "Direct Compilation (CentOS/Ubuntu)",
-          "slug": "direct-compilation-centos-ubuntu"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "Cluster upgrade",
-      "frontmatter": {
-        "title": "Cluster upgrade",
-        "language": "en"
-      },
-      "regularPath": "/en/installing/upgrade.html",
-      "relativePath": "en/installing/upgrade.md",
-      "key": "v-9382010a",
-      "path": "/en/installing/upgrade.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Test the correctness of BE upgrade",
-          "slug": "test-the-correctness-of-be-upgrade"
-        },
-        {
-          "level": 2,
-          "title": "Testing FE Metadata Compatibility",
-          "slug": "testing-fe-metadata-compatibility"
-        },
-        {
-          "level": 2,
-          "title": "Upgrade preparation",
-          "slug": "upgrade-preparation"
-        },
-        {
-          "level": 2,
-          "title": "rolling upgrade",
-          "slug": "rolling-upgrade"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "Doris Storage File Format Optimization",
-      "frontmatter": {
-        "title": "Doris Storage File Format Optimization",
-        "language": "en"
-      },
-      "regularPath": "/en/internal/doris_storage_optimization.html",
-      "relativePath": "en/internal/doris_storage_optimization.md",
-      "key": "v-712e9811",
-      "path": "/en/internal/doris_storage_optimization.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "File format",
-          "slug": "file-format"
-        },
-        {
-          "level": 3,
-          "title": "DataPage",
-          "slug": "datapage"
-        },
-        {
-          "level": 3,
-          "title": "Bloom Filter Pages",
-          "slug": "bloom-filter-pages"
-        },
-        {
-          "level": 3,
-          "title": "Ordinal Index Page",
-          "slug": "ordinal-index-page"
-        },
-        {
-          "level": 3,
-          "title": "Short Key Index page",
-          "slug": "short-key-index-page"
-        },
-        {
-          "level": 3,
-          "title": "Column's other indexes",
-          "slug": "column-s-other-indexes"
-        },
-        {
-          "level": 3,
-          "title": "Metadata Definition",
-          "slug": "metadata-definition"
-        },
-        {
-          "level": 2,
-          "title": "Read-write logic",
-          "slug": "read-write-logic"
-        },
-        {
-          "level": 3,
-          "title": "Write",
-          "slug": "write"
-        },
-        {
-          "level": 3,
-          "title": "Read",
-          "slug": "read"
-        },
-        {
-          "level": 2,
-          "title": "Coding",
-          "slug": "coding"
-        },
-        {
-          "level": 2,
-          "title": "Compression",
-          "slug": "compression"
-        },
-        {
-          "level": 2,
-          "title": "TODO",
-          "slug": "todo"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "GROUPING SETS DESIGN",
@@ -2811,7 +3003,86 @@ export const siteData = {
           "slug": "_3-4-be"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "Doris Storage File Format Optimization",
+      "frontmatter": {
+        "title": "Doris Storage File Format Optimization",
+        "language": "en"
+      },
+      "regularPath": "/en/internal/doris_storage_optimization.html",
+      "relativePath": "en/internal/doris_storage_optimization.md",
+      "key": "v-712e9811",
+      "path": "/en/internal/doris_storage_optimization.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "File format",
+          "slug": "file-format"
+        },
+        {
+          "level": 3,
+          "title": "DataPage",
+          "slug": "datapage"
+        },
+        {
+          "level": 3,
+          "title": "Bloom Filter Pages",
+          "slug": "bloom-filter-pages"
+        },
+        {
+          "level": 3,
+          "title": "Ordinal Index Page",
+          "slug": "ordinal-index-page"
+        },
+        {
+          "level": 3,
+          "title": "Short Key Index page",
+          "slug": "short-key-index-page"
+        },
+        {
+          "level": 3,
+          "title": "Column's other indexes###",
+          "slug": "column-s-other-indexes"
+        },
+        {
+          "level": 3,
+          "title": "Metadata Definition###",
+          "slug": "metadata-definition"
+        },
+        {
+          "level": 2,
+          "title": "Read-write logic##",
+          "slug": "read-write-logic"
+        },
+        {
+          "level": 3,
+          "title": "Write",
+          "slug": "write"
+        },
+        {
+          "level": 3,
+          "title": "Read###",
+          "slug": "read"
+        },
+        {
+          "level": 2,
+          "title": "Coding##",
+          "slug": "coding"
+        },
+        {
+          "level": 2,
+          "title": "Compression##",
+          "slug": "compression"
+        },
+        {
+          "level": 2,
+          "title": "TODO",
+          "slug": "todo"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Metadata Design Document",
@@ -2865,7 +3136,7 @@ export const siteData = {
           "slug": "downtime-recovery"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "AVG",
@@ -2892,14 +3163,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "BITMAP",
@@ -2953,41 +3219,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "COUNT",
-      "frontmatter": {
-        "title": "COUNT",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/aggregate-functions/count.html",
-      "relativePath": "en/sql-reference/sql-functions/aggregate-functions/count.md",
-      "key": "v-087aa076",
-      "path": "/en/sql-reference/sql-functions/aggregate-functions/count.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "HLLUNIONAGG",
@@ -3014,14 +3246,38 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "COUNT",
+      "frontmatter": {
+        "title": "COUNT",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/aggregate-functions/count.html",
+      "relativePath": "en/sql-reference/sql-functions/aggregate-functions/count.md",
+      "key": "v-087aa076",
+      "path": "/en/sql-reference/sql-functions/aggregate-functions/count.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "MAX",
@@ -3048,116 +3304,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "MIN",
-      "frontmatter": {
-        "title": "MIN",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/aggregate-functions/min.html",
-      "relativePath": "en/sql-reference/sql-functions/aggregate-functions/min.md",
-      "key": "v-f0fc2a02",
-      "path": "/en/sql-reference/sql-functions/aggregate-functions/min.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "NDV",
-      "frontmatter": {
-        "title": "NDV",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/aggregate-functions/ndv.html",
-      "relativePath": "en/sql-reference/sql-functions/aggregate-functions/ndv.md",
-      "key": "v-65f5f8ba",
-      "path": "/en/sql-reference/sql-functions/aggregate-functions/ndv.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "STDDEV,STDDEV_POP",
-      "frontmatter": {
-        "title": "STDDEV,STDDEV_POP",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/aggregate-functions/stddev.html",
-      "relativePath": "en/sql-reference/sql-functions/aggregate-functions/stddev.md",
-      "key": "v-71ce85bb",
-      "path": "/en/sql-reference/sql-functions/aggregate-functions/stddev.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "PERCENTILE_APPROX",
@@ -3184,14 +3333,96 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "MIN",
+      "frontmatter": {
+        "title": "MIN",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/aggregate-functions/min.html",
+      "relativePath": "en/sql-reference/sql-functions/aggregate-functions/min.md",
+      "key": "v-f0fc2a02",
+      "path": "/en/sql-reference/sql-functions/aggregate-functions/min.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "STDDEV,STDDEV_POP",
+      "frontmatter": {
+        "title": "STDDEV,STDDEV_POP",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/aggregate-functions/stddev.html",
+      "relativePath": "en/sql-reference/sql-functions/aggregate-functions/stddev.md",
+      "key": "v-71ce85bb",
+      "path": "/en/sql-reference/sql-functions/aggregate-functions/stddev.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "NDV",
+      "frontmatter": {
+        "title": "NDV",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/aggregate-functions/ndv.html",
+      "relativePath": "en/sql-reference/sql-functions/aggregate-functions/ndv.md",
+      "key": "v-65f5f8ba",
+      "path": "/en/sql-reference/sql-functions/aggregate-functions/ndv.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "STDDEV_SAMP",
@@ -3218,14 +3449,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SUM",
@@ -3252,14 +3478,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "VARIANCESAMP,VARIANCESAMP",
@@ -3286,48 +3507,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "VARIANCE,VARPOP,VARIANCEPOP",
-      "frontmatter": {
-        "title": "VARIANCE,VAR_POP,VARIANCE_POP",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/aggregate-functions/variance.html",
-      "relativePath": "en/sql-reference/sql-functions/aggregate-functions/variance.md",
-      "key": "v-1c8f671b",
-      "path": "/en/sql-reference/sql-functions/aggregate-functions/variance.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "bitmap_and",
@@ -3361,7 +3543,36 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "VARIANCE,VARPOP,VARIANCEPOP",
+      "frontmatter": {
+        "title": "VARIANCE,VAR_POP,VARIANCE_POP",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/aggregate-functions/variance.html",
+      "relativePath": "en/sql-reference/sql-functions/aggregate-functions/variance.md",
+      "key": "v-1c8f671b",
+      "path": "/en/sql-reference/sql-functions/aggregate-functions/variance.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "bitmap_contains",
@@ -3395,41 +3606,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "bitmap_empty",
-      "frontmatter": {
-        "title": "bitmap_empty",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/bitmap-functions/bitmap_empty.html",
-      "relativePath": "en/sql-reference/sql-functions/bitmap-functions/bitmap_empty.md",
-      "key": "v-b13eac7e",
-      "path": "/en/sql-reference/sql-functions/bitmap-functions/bitmap_empty.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "bitmapfromstring",
@@ -3463,18 +3640,18 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
-      "title": "bitmaphasany",
+      "title": "bitmap_empty",
       "frontmatter": {
-        "title": "bitmap_has_any",
+        "title": "bitmap_empty",
         "language": "en"
       },
-      "regularPath": "/en/sql-reference/sql-functions/bitmap-functions/bitmap_has_any.html",
-      "relativePath": "en/sql-reference/sql-functions/bitmap-functions/bitmap_has_any.md",
-      "key": "v-7ed0900d",
-      "path": "/en/sql-reference/sql-functions/bitmap-functions/bitmap_has_any.html",
+      "regularPath": "/en/sql-reference/sql-functions/bitmap-functions/bitmap_empty.html",
+      "relativePath": "en/sql-reference/sql-functions/bitmap-functions/bitmap_empty.md",
+      "key": "v-b13eac7e",
+      "path": "/en/sql-reference/sql-functions/bitmap-functions/bitmap_empty.html",
       "headers": [
         {
           "level": 2,
@@ -3497,7 +3674,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "bitmap_hash",
@@ -3531,7 +3708,41 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "bitmaphasany",
+      "frontmatter": {
+        "title": "bitmap_has_any",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/bitmap-functions/bitmap_has_any.html",
+      "relativePath": "en/sql-reference/sql-functions/bitmap-functions/bitmap_has_any.md",
+      "key": "v-7ed0900d",
+      "path": "/en/sql-reference/sql-functions/bitmap-functions/bitmap_has_any.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "bitmap_or",
@@ -3565,216 +3776,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "to_bitmap",
-      "frontmatter": {
-        "title": "to_bitmap",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/bitmap-functions/to_bitmap.html",
-      "relativePath": "en/sql-reference/sql-functions/bitmap-functions/to_bitmap.md",
-      "key": "v-30cd0e9b",
-      "path": "/en/sql-reference/sql-functions/bitmap-functions/to_bitmap.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "CAST",
-      "frontmatter": {
-        "title": "CAST",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/cast.html",
-      "relativePath": "en/sql-reference/sql-functions/cast.md",
-      "key": "v-4a21779b",
-      "path": "/en/sql-reference/sql-functions/cast.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "BIGINT type",
-          "slug": "bigint-type"
-        },
-        {
-          "level": 3,
-          "title": "Syntax (BIGINT)",
-          "slug": "syntax-bigint"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "curdate",
-      "frontmatter": {
-        "title": "curdate",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/curdate.html",
-      "relativePath": "en/sql-reference/sql-functions/date-time-functions/curdate.md",
-      "key": "v-317156a6",
-      "path": "/en/sql-reference/sql-functions/date-time-functions/curdate.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "current_timestamp",
-      "frontmatter": {
-        "title": "current_timestamp",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/current_timestamp.html",
-      "relativePath": "en/sql-reference/sql-functions/date-time-functions/current_timestamp.md",
-      "key": "v-26c8d7a9",
-      "path": "/en/sql-reference/sql-functions/date-time-functions/current_timestamp.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "date_add",
-      "frontmatter": {
-        "title": "date_add",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/date_add.html",
-      "relativePath": "en/sql-reference/sql-functions/date-time-functions/date_add.md",
-      "key": "v-122edd5b",
-      "path": "/en/sql-reference/sql-functions/date-time-functions/date_add.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "date_format",
-      "frontmatter": {
-        "title": "date_format",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/date_format.html",
-      "relativePath": "en/sql-reference/sql-functions/date-time-functions/date_format.md",
-      "key": "v-dd85428e",
-      "path": "/en/sql-reference/sql-functions/date-time-functions/date_format.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "bitmaptostring",
@@ -3808,7 +3810,215 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "CAST",
+      "frontmatter": {
+        "title": "CAST",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/cast.html",
+      "relativePath": "en/sql-reference/sql-functions/cast.md",
+      "key": "v-4a21779b",
+      "path": "/en/sql-reference/sql-functions/cast.html",
+      "headers": [
+        {
+          "level": 3,
+          "title": "BIGINT type",
+          "slug": "bigint-type"
+        },
+        {
+          "level": 3,
+          "title": "Syntax (BIGINT)",
+          "slug": "syntax-bigint"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "to_bitmap",
+      "frontmatter": {
+        "title": "to_bitmap",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/bitmap-functions/to_bitmap.html",
+      "relativePath": "en/sql-reference/sql-functions/bitmap-functions/to_bitmap.md",
+      "key": "v-30cd0e9b",
+      "path": "/en/sql-reference/sql-functions/bitmap-functions/to_bitmap.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "curdate",
+      "frontmatter": {
+        "title": "curdate",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/curdate.html",
+      "relativePath": "en/sql-reference/sql-functions/date-time-functions/curdate.md",
+      "key": "v-317156a6",
+      "path": "/en/sql-reference/sql-functions/date-time-functions/curdate.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "current_timestamp",
+      "frontmatter": {
+        "title": "current_timestamp",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/current_timestamp.html",
+      "relativePath": "en/sql-reference/sql-functions/date-time-functions/current_timestamp.md",
+      "key": "v-26c8d7a9",
+      "path": "/en/sql-reference/sql-functions/date-time-functions/current_timestamp.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "date_add",
+      "frontmatter": {
+        "title": "date_add",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/date_add.html",
+      "relativePath": "en/sql-reference/sql-functions/date-time-functions/date_add.md",
+      "key": "v-122edd5b",
+      "path": "/en/sql-reference/sql-functions/date-time-functions/date_add.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "date_format",
+      "frontmatter": {
+        "title": "date_format",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/date_format.html",
+      "relativePath": "en/sql-reference/sql-functions/date-time-functions/date_format.md",
+      "key": "v-dd85428e",
+      "path": "/en/sql-reference/sql-functions/date-time-functions/date_format.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "date_sub",
+      "frontmatter": {
+        "title": "date_sub",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/date_sub.html",
+      "relativePath": "en/sql-reference/sql-functions/date-time-functions/date_sub.md",
+      "key": "v-858bad8a",
+      "path": "/en/sql-reference/sql-functions/date-time-functions/date_sub.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "datediff",
@@ -3835,14 +4045,9 @@ export const siteData = {
           "level": 3,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "day",
@@ -3869,48 +4074,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "dayname",
-      "frontmatter": {
-        "title": "dayname",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/dayname.html",
-      "relativePath": "en/sql-reference/sql-functions/date-time-functions/dayname.md",
-      "key": "v-90f4758a",
-      "path": "/en/sql-reference/sql-functions/date-time-functions/dayname.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Dayofmonth",
@@ -3937,25 +4103,20 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
-      "title": "dayofweek",
+      "title": "dayname",
       "frontmatter": {
-        "title": "dayofweek",
+        "title": "dayname",
         "language": "en"
       },
-      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/dayofweek.html",
-      "relativePath": "en/sql-reference/sql-functions/date-time-functions/dayofweek.md",
-      "key": "v-069d418a",
-      "path": "/en/sql-reference/sql-functions/date-time-functions/dayofweek.html",
+      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/dayname.html",
+      "relativePath": "en/sql-reference/sql-functions/date-time-functions/dayname.md",
+      "key": "v-90f4758a",
+      "path": "/en/sql-reference/sql-functions/date-time-functions/dayname.html",
       "headers": [
         {
           "level": 2,
@@ -3971,48 +4132,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "Dayofyear",
-      "frontmatter": {
-        "title": "Dayofyear",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/dayofyear.html",
-      "relativePath": "en/sql-reference/sql-functions/date-time-functions/dayofyear.md",
-      "key": "v-25c23c2e",
-      "path": "/en/sql-reference/sql-functions/date-time-functions/dayofyear.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "from_days",
@@ -4041,7 +4163,36 @@ export const siteData = {
           "slug": "example"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "dayofweek",
+      "frontmatter": {
+        "title": "dayofweek",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/dayofweek.html",
+      "relativePath": "en/sql-reference/sql-functions/date-time-functions/dayofweek.md",
+      "key": "v-069d418a",
+      "path": "/en/sql-reference/sql-functions/date-time-functions/dayofweek.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "from_unixtime",
@@ -4070,7 +4221,36 @@ export const siteData = {
           "slug": "example"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "Dayofyear",
+      "frontmatter": {
+        "title": "Dayofyear",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/dayofyear.html",
+      "relativePath": "en/sql-reference/sql-functions/date-time-functions/dayofyear.md",
+      "key": "v-25c23c2e",
+      "path": "/en/sql-reference/sql-functions/date-time-functions/dayofyear.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "hour",
@@ -4097,14 +4277,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "minute",
@@ -4131,48 +4306,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "date_sub",
-      "frontmatter": {
-        "title": "date_sub",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/date_sub.html",
-      "relativePath": "en/sql-reference/sql-functions/date-time-functions/date_sub.md",
-      "key": "v-858bad8a",
-      "path": "/en/sql-reference/sql-functions/date-time-functions/date_sub.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "month",
@@ -4199,48 +4335,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "now",
-      "frontmatter": {
-        "title": "now",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/now.html",
-      "relativePath": "en/sql-reference/sql-functions/date-time-functions/now.md",
-      "key": "v-49335746",
-      "path": "/en/sql-reference/sql-functions/date-time-functions/now.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Monthname",
@@ -4267,14 +4364,67 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "now",
+      "frontmatter": {
+        "title": "now",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/now.html",
+      "relativePath": "en/sql-reference/sql-functions/date-time-functions/now.md",
+      "key": "v-49335746",
+      "path": "/en/sql-reference/sql-functions/date-time-functions/now.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "second",
+      "frontmatter": {
+        "title": "second",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/second.html",
+      "relativePath": "en/sql-reference/sql-functions/date-time-functions/second.md",
+      "key": "v-214fdd9b",
+      "path": "/en/sql-reference/sql-functions/date-time-functions/second.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Strtodate",
@@ -4301,48 +4451,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "timediff",
-      "frontmatter": {
-        "title": "timediff",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/timediff.html",
-      "relativePath": "en/sql-reference/sql-functions/date-time-functions/timediff.md",
-      "key": "v-9374b4ca",
-      "path": "/en/sql-reference/sql-functions/date-time-functions/timediff.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 3,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "timestampadd",
@@ -4369,14 +4480,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "timestampdiff",
@@ -4403,14 +4509,38 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "timediff",
+      "frontmatter": {
+        "title": "timediff",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/timediff.html",
+      "relativePath": "en/sql-reference/sql-functions/date-time-functions/timediff.md",
+      "key": "v-9374b4ca",
+      "path": "/en/sql-reference/sql-functions/date-time-functions/timediff.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 3,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "to_days",
@@ -4437,25 +4567,20 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
-      "title": "utc_timestamp",
+      "title": "weekofyear",
       "frontmatter": {
-        "title": "utc_timestamp",
+        "title": "weekofyear",
         "language": "en"
       },
-      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/utc_timestamp.html",
-      "relativePath": "en/sql-reference/sql-functions/date-time-functions/utc_timestamp.md",
-      "key": "v-637bfada",
-      "path": "/en/sql-reference/sql-functions/date-time-functions/utc_timestamp.html",
+      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/workofyear.html",
+      "relativePath": "en/sql-reference/sql-functions/date-time-functions/workofyear.md",
+      "key": "v-45bc63fb",
+      "path": "/en/sql-reference/sql-functions/date-time-functions/workofyear.html",
       "headers": [
         {
           "level": 2,
@@ -4473,7 +4598,7 @@ export const siteData = {
           "slug": "example"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "unix_timestamp",
@@ -4507,41 +4632,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "weekofyear",
-      "frontmatter": {
-        "title": "weekofyear",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/workofyear.html",
-      "relativePath": "en/sql-reference/sql-functions/date-time-functions/workofyear.md",
-      "key": "v-45bc63fb",
-      "path": "/en/sql-reference/sql-functions/date-time-functions/workofyear.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "year",
@@ -4568,14 +4659,38 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "utc_timestamp",
+      "frontmatter": {
+        "title": "utc_timestamp",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/utc_timestamp.html",
+      "relativePath": "en/sql-reference/sql-functions/date-time-functions/utc_timestamp.md",
+      "key": "v-637bfada",
+      "path": "/en/sql-reference/sql-functions/date-time-functions/utc_timestamp.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "murmurhash332",
@@ -4609,41 +4724,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "ST_AsText,ST_AsWKT",
-      "frontmatter": {
-        "title": "`ST_AsText`,`ST_AsWKT`",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/spatial-functions/st_astext.html",
-      "relativePath": "en/sql-reference/sql-functions/spatial-functions/st_astext.md",
-      "key": "v-7a2caa1f",
-      "path": "/en/sql-reference/sql-functions/spatial-functions/st_astext.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "ST_Circle",
@@ -4670,14 +4751,38 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "ST_AsText,ST_AsWKT",
+      "frontmatter": {
+        "title": "`ST_AsText`,`ST_AsWKT`",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/spatial-functions/st_astext.html",
+      "relativePath": "en/sql-reference/sql-functions/spatial-functions/st_astext.md",
+      "key": "v-7a2caa1f",
+      "path": "/en/sql-reference/sql-functions/spatial-functions/st_astext.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "`ST_Contains'",
@@ -4704,14 +4809,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "ST_Distance_Sphere",
@@ -4738,14 +4838,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "ST_GeometryFromText,ST GeomFromText",
@@ -4772,14 +4867,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "ST_LineFromText,ST_LineStringFromText",
@@ -4806,48 +4896,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "St_Point'",
-      "frontmatter": {
-        "title": "St_Point'",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/spatial-functions/st_point.html",
-      "relativePath": "en/sql-reference/sql-functions/spatial-functions/st_point.md",
-      "key": "v-263c17db",
-      "path": "/en/sql-reference/sql-functions/spatial-functions/st_point.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "ST_Polygon,ST_PolyFromText,ST_PolygonFromText",
@@ -4874,14 +4925,38 @@ export const siteData = {
           "level": 3,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "St_Point'",
+      "frontmatter": {
+        "title": "St_Point'",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/spatial-functions/st_point.html",
+      "relativePath": "en/sql-reference/sql-functions/spatial-functions/st_point.md",
+      "key": "v-263c17db",
+      "path": "/en/sql-reference/sql-functions/spatial-functions/st_point.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "ST_X",
@@ -4908,14 +4983,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "ST_Y",
@@ -4942,116 +5012,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "second",
-      "frontmatter": {
-        "title": "second",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/date-time-functions/second.html",
-      "relativePath": "en/sql-reference/sql-functions/date-time-functions/second.md",
-      "key": "v-214fdd9b",
-      "path": "/en/sql-reference/sql-functions/date-time-functions/second.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "ASCII",
-      "frontmatter": {
-        "title": "ASCII",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/string-functions/ascii.html",
-      "relativePath": "en/sql-reference/sql-functions/string-functions/ascii.md",
-      "key": "v-f5c8ebca",
-      "path": "/en/sql-reference/sql-functions/string-functions/ascii.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "Concat_ws",
-      "frontmatter": {
-        "title": "Concat_ws",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/string-functions/concat_ws.html",
-      "relativePath": "en/sql-reference/sql-functions/string-functions/concat_ws.md",
-      "key": "v-ca92b24a",
-      "path": "/en/sql-reference/sql-functions/string-functions/concat_ws.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "concat",
@@ -5078,14 +5041,67 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "ASCII",
+      "frontmatter": {
+        "title": "ASCII",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/string-functions/ascii.html",
+      "relativePath": "en/sql-reference/sql-functions/string-functions/ascii.md",
+      "key": "v-f5c8ebca",
+      "path": "/en/sql-reference/sql-functions/string-functions/ascii.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "Concat_ws",
+      "frontmatter": {
+        "title": "Concat_ws",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/string-functions/concat_ws.html",
+      "relativePath": "en/sql-reference/sql-functions/string-functions/concat_ws.md",
+      "key": "v-ca92b24a",
+      "path": "/en/sql-reference/sql-functions/string-functions/concat_ws.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "ends_with",
@@ -5112,14 +5128,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "findinset",
@@ -5146,14 +5157,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "getjsondouble",
@@ -5180,14 +5186,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "getjsonint",
@@ -5214,14 +5215,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "getjsonstring",
@@ -5248,48 +5244,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "group_concat",
-      "frontmatter": {
-        "title": "group_concat",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/string-functions/group_concat.html",
-      "relativePath": "en/sql-reference/sql-functions/string-functions/group_concat.md",
-      "key": "v-a115bdd2",
-      "path": "/en/sql-reference/sql-functions/string-functions/group_concat.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "instr",
@@ -5316,14 +5273,38 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "group_concat",
+      "frontmatter": {
+        "title": "group_concat",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/string-functions/group_concat.html",
+      "relativePath": "en/sql-reference/sql-functions/string-functions/group_concat.md",
+      "key": "v-a115bdd2",
+      "path": "/en/sql-reference/sql-functions/string-functions/group_concat.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "lcase",
@@ -5345,14 +5326,9 @@ export const siteData = {
           "level": 3,
           "title": "Syntax",
           "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "left",
@@ -5379,14 +5355,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "length",
@@ -5413,14 +5384,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "locate",
@@ -5447,14 +5413,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "lower",
@@ -5481,14 +5442,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "lpad",
@@ -5515,14 +5471,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "ltrim",
@@ -5549,14 +5500,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "money_format",
@@ -5583,14 +5529,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "nullorempty",
@@ -5617,14 +5558,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "regexp_extract",
@@ -5651,14 +5587,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "regexp_replace",
@@ -5685,14 +5616,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "repeat",
@@ -5719,14 +5645,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "right",
@@ -5753,14 +5674,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "split_part",
@@ -5787,48 +5703,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "starts_with",
-      "frontmatter": {
-        "title": "starts_with",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-functions/string-functions/starts_with.html",
-      "relativePath": "en/sql-reference/sql-functions/string-functions/starts_with.md",
-      "key": "v-5c8c813b",
-      "path": "/en/sql-reference/sql-functions/string-functions/starts_with.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "strleft",
@@ -5855,14 +5732,38 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "starts_with",
+      "frontmatter": {
+        "title": "starts_with",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-functions/string-functions/starts_with.html",
+      "relativePath": "en/sql-reference/sql-functions/string-functions/starts_with.md",
+      "key": "v-5c8c813b",
+      "path": "/en/sql-reference/sql-functions/string-functions/starts_with.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "strright",
@@ -5889,6 +5790,94 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "Data export",
+      "frontmatter": {
+        "title": "Data export",
+        "language": "en"
+      },
+      "regularPath": "/en/administrator-guide/export_manual.html",
+      "relativePath": "en/administrator-guide/export_manual.md",
+      "key": "v-6bf9d777",
+      "path": "/en/administrator-guide/export_manual.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Noun Interpretation",
+          "slug": "noun-interpretation"
+        },
+        {
+          "level": 2,
+          "title": "Principle",
+          "slug": "principle"
+        },
+        {
+          "level": 3,
+          "title": "query plan splitting",
+          "slug": "query-plan-splitting"
+        },
+        {
+          "level": 3,
+          "title": "Query Plan Execution",
+          "slug": "query-plan-execution"
+        },
+        {
+          "level": 2,
+          "title": "Use examples",
+          "slug": "use-examples"
+        },
+        {
+          "level": 2,
+          "title": "Best Practices",
+          "slug": "best-practices"
+        },
+        {
+          "level": 3,
+          "title": "Splitting Query Plans",
+          "slug": "splitting-query-plans"
+        },
+        {
+          "level": 3,
+          "title": "exec_mem_limit",
+          "slug": "exec-mem-limit"
+        },
+        {
+          "level": 2,
+          "title": "Notes",
+          "slug": "notes"
+        },
+        {
+          "level": 2,
+          "title": "Relevant configuration",
+          "slug": "relevant-configuration"
+        },
+        {
+          "level": 3,
+          "title": "FE",
+          "slug": "fe"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "CREATE USER",
+      "frontmatter": {
+        "title": "CREATE USER",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Account%20Management/CREATE%20USER.html",
+      "relativePath": "en/sql-reference/sql-statements/Account Management/CREATE USER.md",
+      "key": "v-4687296f",
+      "path": "/en/sql-reference/sql-statements/Account%20Management/CREATE%20USER.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
         },
         {
           "level": 2,
@@ -5896,7 +5885,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "CREATE ROLE",
@@ -5925,65 +5914,76 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
-      "title": "CREATE USER",
+      "title": "Dynamic Partition",
       "frontmatter": {
-        "title": "CREATE USER",
+        "title": "Dynamic Partition",
         "language": "en"
       },
-      "regularPath": "/en/sql-reference/sql-statements/Account%20Management/CREATE%20USER.html",
-      "relativePath": "en/sql-reference/sql-statements/Account Management/CREATE USER.md",
-      "key": "v-4687296f",
-      "path": "/en/sql-reference/sql-statements/Account%20Management/CREATE%20USER.html",
+      "regularPath": "/en/administrator-guide/dynamic-partition.html",
+      "relativePath": "en/administrator-guide/dynamic-partition.md",
+      "key": "v-67792d3e",
+      "path": "/en/administrator-guide/dynamic-partition.html",
       "headers": [
         {
           "level": 2,
-          "title": "Description",
-          "slug": "description"
+          "title": "Noun Interpretation",
+          "slug": "noun-interpretation"
         },
         {
           "level": 2,
-          "title": "example",
-          "slug": "example"
+          "title": "Principle",
+          "slug": "principle"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "Usage",
+          "slug": "usage"
+        },
+        {
+          "level": 3,
+          "title": "Establishment of tables",
+          "slug": "establishment-of-tables"
+        },
+        {
+          "level": 3,
+          "title": "Enable Dynamic Partition Feature",
+          "slug": "enable-dynamic-partition-feature"
+        },
+        {
+          "level": 3,
+          "title": "Disable Dynamic Partition Feature",
+          "slug": "disable-dynamic-partition-feature"
+        },
+        {
+          "level": 3,
+          "title": "Modify Dynamic Partition Properties",
+          "slug": "modify-dynamic-partition-properties"
+        },
+        {
+          "level": 3,
+          "title": "Check Dynamic Partition Table Scheduling Status",
+          "slug": "check-dynamic-partition-table-scheduling-status"
+        },
+        {
+          "level": 2,
+          "title": "Advanced Operation",
+          "slug": "advanced-operation"
+        },
+        {
+          "level": 3,
+          "title": "FE Configuration Item",
+          "slug": "fe-configuration-item"
+        },
+        {
+          "level": 3,
+          "title": "HTTP Restful API",
+          "slug": "http-restful-api"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "DROP ROLE",
-      "frontmatter": {
-        "title": "DROP ROLE",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Account%20Management/DROP%20ROLE.html",
-      "relativePath": "en/sql-reference/sql-statements/Account Management/DROP ROLE.md",
-      "key": "v-613552ff",
-      "path": "/en/sql-reference/sql-statements/Account%20Management/DROP%20ROLE.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "DROP USER",
@@ -6012,7 +6012,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Grant",
@@ -6041,7 +6041,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "REVOKE",
@@ -6070,18 +6070,18 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
-      "title": "SET PASSWORD",
+      "title": "DROP ROLE",
       "frontmatter": {
-        "title": "SET PASSWORD",
+        "title": "DROP ROLE",
         "language": "en"
       },
-      "regularPath": "/en/sql-reference/sql-statements/Account%20Management/SET%20PASSWORD.html",
-      "relativePath": "en/sql-reference/sql-statements/Account Management/SET PASSWORD.md",
-      "key": "v-03775f3b",
-      "path": "/en/sql-reference/sql-statements/Account%20Management/SET%20PASSWORD.html",
+      "regularPath": "/en/sql-reference/sql-statements/Account%20Management/DROP%20ROLE.html",
+      "relativePath": "en/sql-reference/sql-statements/Account Management/DROP ROLE.md",
+      "key": "v-613552ff",
+      "path": "/en/sql-reference/sql-statements/Account%20Management/DROP%20ROLE.html",
       "headers": [
         {
           "level": 2,
@@ -6099,7 +6099,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SET PROPERTY",
@@ -6128,7 +6128,36 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "SET PASSWORD",
+      "frontmatter": {
+        "title": "SET PASSWORD",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Account%20Management/SET%20PASSWORD.html",
+      "relativePath": "en/sql-reference/sql-statements/Account Management/SET PASSWORD.md",
+      "key": "v-03775f3b",
+      "path": "/en/sql-reference/sql-statements/Account%20Management/SET%20PASSWORD.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW GRANTS",
@@ -6157,7 +6186,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW ROLES",
@@ -6186,36 +6215,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "ADMIN CHECK TABLET",
-      "frontmatter": {
-        "title": "ADMIN CHECK TABLET",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Administration/ADMIN%20CHECK%20TABLET.html",
-      "relativePath": "en/sql-reference/sql-statements/Administration/ADMIN CHECK TABLET.md",
-      "key": "v-5003aad5",
-      "path": "/en/sql-reference/sql-statements/Administration/ADMIN%20CHECK%20TABLET.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "ADMIN CANCEL REPAIR",
@@ -6244,36 +6244,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "ADMIN REPAIR",
-      "frontmatter": {
-        "title": "ADMIN REPAIR",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Administration/ADMIN%20REPAIR.html",
-      "relativePath": "en/sql-reference/sql-statements/Administration/ADMIN REPAIR.md",
-      "key": "v-698c8618",
-      "path": "/en/sql-reference/sql-statements/Administration/ADMIN%20REPAIR.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "ADMIN SET CONFIG",
@@ -6302,7 +6273,94 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "ADMIN REPAIR",
+      "frontmatter": {
+        "title": "ADMIN REPAIR",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Administration/ADMIN%20REPAIR.html",
+      "relativePath": "en/sql-reference/sql-statements/Administration/ADMIN REPAIR.md",
+      "key": "v-698c8618",
+      "path": "/en/sql-reference/sql-statements/Administration/ADMIN%20REPAIR.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "ADMIN CHECK TABLET",
+      "frontmatter": {
+        "title": "ADMIN CHECK TABLET",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Administration/ADMIN%20CHECK%20TABLET.html",
+      "relativePath": "en/sql-reference/sql-statements/Administration/ADMIN CHECK TABLET.md",
+      "key": "v-5003aad5",
+      "path": "/en/sql-reference/sql-statements/Administration/ADMIN%20CHECK%20TABLET.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 4:11:02 PM"
+    },
+    {
+      "title": "ADMIN SET REPLICA STATUS",
+      "frontmatter": {
+        "title": "ADMIN SET REPLICA STATUS",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Administration/ADMIN%20SET%20REPLICA%20STATUS.html",
+      "relativePath": "en/sql-reference/sql-statements/Administration/ADMIN SET REPLICA STATUS.md",
+      "key": "v-36cd2f32",
+      "path": "/en/sql-reference/sql-statements/Administration/ADMIN%20SET%20REPLICA%20STATUS.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 4:11:02 PM"
     },
     {
       "title": "ADMIN SHOW CONFIG",
@@ -6331,7 +6389,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "ADMIN SHOW REPLICA DISTRIBUTION",
@@ -6360,7 +6418,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "ADMIN SHOW REPLICA STATUS",
@@ -6389,7 +6447,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "ALTER CLUSTER",
@@ -6418,7 +6476,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "ALTER SYSTEM",
@@ -6447,7 +6505,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "CANCEL DECOMMISSION",
@@ -6476,7 +6534,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "CREATE CLUSTER",
@@ -6505,7 +6563,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "CREATE FILE",
@@ -6534,36 +6592,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "DROP CLUSTER",
-      "frontmatter": {
-        "title": "DROP CLUSTER",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Administration/DROP%20CLUSTER.html",
-      "relativePath": "en/sql-reference/sql-statements/Administration/DROP CLUSTER.md",
-      "key": "v-b13d74c4",
-      "path": "/en/sql-reference/sql-statements/Administration/DROP%20CLUSTER.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "DROP FILE",
@@ -6592,7 +6621,36 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "DROP CLUSTER",
+      "frontmatter": {
+        "title": "DROP CLUSTER",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Administration/DROP%20CLUSTER.html",
+      "relativePath": "en/sql-reference/sql-statements/Administration/DROP CLUSTER.md",
+      "key": "v-b13d74c4",
+      "path": "/en/sql-reference/sql-statements/Administration/DROP%20CLUSTER.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "ENTER",
@@ -6621,7 +6679,36 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "INSTALL PLUGIN",
+      "frontmatter": {
+        "title": "INSTALL PLUGIN",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Administration/INSTALL%20PLUGIN.html",
+      "relativePath": "en/sql-reference/sql-statements/Administration/INSTALL PLUGIN.md",
+      "key": "v-6c89f7d8",
+      "path": "/en/sql-reference/sql-statements/Administration/INSTALL%20PLUGIN.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "LINK DATABASE",
@@ -6650,7 +6737,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "MIGRATE DATABASE",
@@ -6679,31 +6766,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "SHOW BACKENDS",
-      "frontmatter": {
-        "title": "SHOW BACKENDS",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Administration/SHOW%20BACKENDS.html",
-      "relativePath": "en/sql-reference/sql-statements/Administration/SHOW BACKENDS.md",
-      "key": "v-027f709c",
-      "path": "/en/sql-reference/sql-statements/Administration/SHOW%20BACKENDS.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW BROKER",
@@ -6727,7 +6790,55 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "SHOW BACKENDS",
+      "frontmatter": {
+        "title": "SHOW BACKENDS",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Administration/SHOW%20BACKENDS.html",
+      "relativePath": "en/sql-reference/sql-statements/Administration/SHOW BACKENDS.md",
+      "key": "v-027f709c",
+      "path": "/en/sql-reference/sql-statements/Administration/SHOW%20BACKENDS.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "SHOW FRONTENDS",
+      "frontmatter": {
+        "title": "SHOW FRONTENDS",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Administration/SHOW%20FRONTENDS.html",
+      "relativePath": "en/sql-reference/sql-statements/Administration/SHOW FRONTENDS.md",
+      "key": "v-38719f84",
+      "path": "/en/sql-reference/sql-statements/Administration/SHOW%20FRONTENDS.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW FILE",
@@ -6756,31 +6867,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "SHOW FRONTENDS",
-      "frontmatter": {
-        "title": "SHOW FRONTENDS",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Administration/SHOW%20FRONTENDS.html",
-      "relativePath": "en/sql-reference/sql-statements/Administration/SHOW FRONTENDS.md",
-      "key": "v-38719f84",
-      "path": "/en/sql-reference/sql-statements/Administration/SHOW%20FRONTENDS.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW FULL COLUMNS",
@@ -6809,7 +6896,60 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "SHOW PLUGINS",
+      "frontmatter": {
+        "title": "SHOW PLUGINS",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Administration/SHOW%20PLUGINS.html",
+      "relativePath": "en/sql-reference/sql-statements/Administration/SHOW PLUGINS.md",
+      "key": "v-2a514ac4",
+      "path": "/en/sql-reference/sql-statements/Administration/SHOW%20PLUGINS.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "SHOW MIGRATIONS",
+      "frontmatter": {
+        "title": "SHOW MIGRATIONS",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Administration/SHOW%20MIGRATIONS.html",
+      "relativePath": "en/sql-reference/sql-statements/Administration/SHOW MIGRATIONS.md",
+      "key": "v-4fbca9d0",
+      "path": "/en/sql-reference/sql-statements/Administration/SHOW%20MIGRATIONS.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW INDEX",
@@ -6838,31 +6978,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 10:31:47 AM"
-    },
-    {
-      "title": "SHOW MIGRATIONS",
-      "frontmatter": {
-        "title": "SHOW MIGRATIONS",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Administration/SHOW%20MIGRATIONS.html",
-      "relativePath": "en/sql-reference/sql-statements/Administration/SHOW MIGRATIONS.md",
-      "key": "v-4fbca9d0",
-      "path": "/en/sql-reference/sql-statements/Administration/SHOW%20MIGRATIONS.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW TABLE STATUS",
@@ -6891,18 +7007,18 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
-      "title": "ALTER DATABASE",
+      "title": "UNINTALL PLUGIN",
       "frontmatter": {
-        "title": "ALTER DATABASE",
+        "title": "UNINTALL PLUGIN",
         "language": "en"
       },
-      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20DATABASE.html",
-      "relativePath": "en/sql-reference/sql-statements/Data Definition/ALTER DATABASE.md",
-      "key": "v-652e1faa",
-      "path": "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20DATABASE.html",
+      "regularPath": "/en/sql-reference/sql-statements/Administration/UNINTALL%20PLUGIN.html",
+      "relativePath": "en/sql-reference/sql-statements/Administration/UNINTALL PLUGIN.md",
+      "key": "v-3698f810",
+      "path": "/en/sql-reference/sql-statements/Administration/UNINTALL%20PLUGIN.html",
       "headers": [
         {
           "level": 2,
@@ -6920,60 +7036,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "ALTER TABLE",
-      "frontmatter": {
-        "title": "ALTER TABLE",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20TABLE.html",
-      "relativePath": "en/sql-reference/sql-statements/Data Definition/ALTER TABLE.md",
-      "key": "v-26bcc93b",
-      "path": "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20TABLE.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 10:31:47 AM"
-    },
-    {
-      "title": "ALTER VIEW",
-      "frontmatter": {
-        "title": "ALTER VIEW",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20VIEW.html",
-      "relativePath": "en/sql-reference/sql-statements/Data Definition/ALTER VIEW.md",
-      "key": "v-ebf9c452",
-      "path": "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20VIEW.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "BACKUP",
@@ -7002,7 +7065,65 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "ALTER TABLE",
+      "frontmatter": {
+        "title": "ALTER TABLE",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20TABLE.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Definition/ALTER TABLE.md",
+      "key": "v-26bcc93b",
+      "path": "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20TABLE.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "ALTER DATABASE",
+      "frontmatter": {
+        "title": "ALTER DATABASE",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20DATABASE.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Definition/ALTER DATABASE.md",
+      "key": "v-652e1faa",
+      "path": "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20DATABASE.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "CANCEL ALTER",
@@ -7031,7 +7152,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "CANCEL BACKUP",
@@ -7060,7 +7181,31 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "ALTER VIEW",
+      "frontmatter": {
+        "title": "ALTER VIEW",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20VIEW.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Definition/ALTER VIEW.md",
+      "key": "v-ebf9c452",
+      "path": "/en/sql-reference/sql-statements/Data%20Definition/ALTER%20VIEW.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 4:11:02 PM"
     },
     {
       "title": "CANCEL RESTORE",
@@ -7089,7 +7234,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "CREATE DATABASE",
@@ -7118,7 +7263,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "CREATE INDEX",
@@ -7147,7 +7292,31 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 10:31:47 AM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "CREATE MATERIALIZED VIEW",
+      "frontmatter": {
+        "title": "CREATE MATERIALIZED VIEW",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/CREATE%20MATERIALIZED%20VIEW.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Definition/CREATE MATERIALIZED VIEW.md",
+      "key": "v-352d5d64",
+      "path": "/en/sql-reference/sql-statements/Data%20Definition/CREATE%20MATERIALIZED%20VIEW.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "CREATE REPOSITORY",
@@ -7176,7 +7345,31 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "Colocate Join",
+      "frontmatter": {
+        "title": "Colocate Join",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/Colocate%20Join.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Definition/Colocate Join.md",
+      "key": "v-2ca6abd5",
+      "path": "/en/sql-reference/sql-statements/Data%20Definition/Colocate%20Join.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "CREATE TABLE",
@@ -7205,22 +7398,22 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
-      "title": "Colocate Join",
+      "title": "DROP INDEX",
       "frontmatter": {
-        "title": "Colocate Join",
+        "title": "DROP INDEX",
         "language": "en"
       },
-      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/Colocate%20Join.html",
-      "relativePath": "en/sql-reference/sql-statements/Data Definition/Colocate Join.md",
-      "key": "v-2ca6abd5",
-      "path": "/en/sql-reference/sql-statements/Data%20Definition/Colocate%20Join.html",
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/DROP%20INDEX.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Definition/DROP INDEX.md",
+      "key": "v-68c314ce",
+      "path": "/en/sql-reference/sql-statements/Data%20Definition/DROP%20INDEX.html",
       "headers": [
         {
           "level": 2,
-          "title": "Description",
+          "title": "description",
           "slug": "description"
         },
         {
@@ -7229,7 +7422,31 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "DROP DATABASE",
+      "frontmatter": {
+        "title": "DROP DATABASE",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/DROP%20DATABASE.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Definition/DROP DATABASE.md",
+      "key": "v-0bc03d15",
+      "path": "/en/sql-reference/sql-statements/Data%20Definition/DROP%20DATABASE.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "CREATE VIEW",
@@ -7258,60 +7475,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "DROP INDEX",
-      "frontmatter": {
-        "title": "DROP INDEX",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/DROP%20INDEX.html",
-      "relativePath": "en/sql-reference/sql-statements/Data Definition/DROP INDEX.md",
-      "key": "v-68c314ce",
-      "path": "/en/sql-reference/sql-statements/Data%20Definition/DROP%20INDEX.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 10:31:47 AM"
-    },
-    {
-      "title": "DROP DATABASE",
-      "frontmatter": {
-        "title": "DROP DATABASE",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/DROP%20DATABASE.html",
-      "relativePath": "en/sql-reference/sql-statements/Data Definition/DROP DATABASE.md",
-      "key": "v-0bc03d15",
-      "path": "/en/sql-reference/sql-statements/Data%20Definition/DROP%20DATABASE.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "DROP REPOSITORY",
@@ -7340,7 +7504,36 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "DROP MATERIALIZED VIEW",
+      "frontmatter": {
+        "title": "DROP MATERIALIZED VIEW",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/DROP%20MATERIALIZED%20VIEW.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Definition/DROP MATERIALIZED VIEW.md",
+      "key": "v-2451973e",
+      "path": "/en/sql-reference/sql-statements/Data%20Definition/DROP%20MATERIALIZED%20VIEW.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "DROP TABLE",
@@ -7369,65 +7562,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "DROP VIEW",
-      "frontmatter": {
-        "title": "DROP VIEW",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/DROP%20VIEW.html",
-      "relativePath": "en/sql-reference/sql-statements/Data Definition/DROP VIEW.md",
-      "key": "v-4af3c355",
-      "path": "/en/sql-reference/sql-statements/Data%20Definition/DROP%20VIEW.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "HLL",
-      "frontmatter": {
-        "title": "HLL",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/HLL.html",
-      "relativePath": "en/sql-reference/sql-statements/Data Definition/HLL.md",
-      "key": "v-3601e4b8",
-      "path": "/en/sql-reference/sql-statements/Data%20Definition/HLL.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "RECOVER",
@@ -7456,18 +7591,18 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
-      "title": "RESTORE",
+      "title": "DROP VIEW",
       "frontmatter": {
-        "title": "RESTORE",
+        "title": "DROP VIEW",
         "language": "en"
       },
-      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/RESTORE.html",
-      "relativePath": "en/sql-reference/sql-statements/Data Definition/RESTORE.md",
-      "key": "v-748a6ff8",
-      "path": "/en/sql-reference/sql-statements/Data%20Definition/RESTORE.html",
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/DROP%20VIEW.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Definition/DROP VIEW.md",
+      "key": "v-4af3c355",
+      "path": "/en/sql-reference/sql-statements/Data%20Definition/DROP%20VIEW.html",
       "headers": [
         {
           "level": 2,
@@ -7485,7 +7620,36 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "HLL",
+      "frontmatter": {
+        "title": "HLL",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/HLL.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Definition/HLL.md",
+      "key": "v-3601e4b8",
+      "path": "/en/sql-reference/sql-statements/Data%20Definition/HLL.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "TRUNCATE TABLES",
@@ -7514,7 +7678,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "DROP FUNCTION",
@@ -7528,11 +7692,6 @@ export const siteData = {
       "path": "/en/sql-reference/sql-statements/Data%20Definition/drop-function.html",
       "headers": [
         {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
           "level": 3,
           "title": "Syntax",
           "slug": "syntax"
@@ -7546,14 +7705,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "CREATE FUNCTION",
@@ -7567,11 +7721,6 @@ export const siteData = {
       "path": "/en/sql-reference/sql-statements/Data%20Definition/create-function.html",
       "headers": [
         {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
           "level": 3,
           "title": "Syntax",
           "slug": "syntax"
@@ -7585,14 +7734,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW FUNCTIONS",
@@ -7624,14 +7768,28 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "CANCEL DELETE",
+      "frontmatter": {
+        "title": "CANCEL DELETE",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Manipulation/CANCEL%20DELETE.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Manipulation/CANCEL DELETE.md",
+      "key": "v-e1685f16",
+      "path": "/en/sql-reference/sql-statements/Data%20Manipulation/CANCEL%20DELETE.html",
+      "headers": [
         {
           "level": 2,
           "title": "keyword",
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "BROKER LOAD",
@@ -7651,7 +7809,7 @@ export const siteData = {
         },
         {
           "level": 3,
-          "title": "Syntax",
+          "title": "Syntax:",
           "slug": "syntax"
         },
         {
@@ -7665,26 +7823,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "CANCEL DELETE",
-      "frontmatter": {
-        "title": "CANCEL DELETE",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Data%20Manipulation/CANCEL%20DELETE.html",
-      "relativePath": "en/sql-reference/sql-statements/Data Manipulation/CANCEL DELETE.md",
-      "key": "v-e1685f16",
-      "path": "/en/sql-reference/sql-statements/Data%20Manipulation/CANCEL%20DELETE.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Cancel Label",
@@ -7703,7 +7842,36 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "RESTORE",
+      "frontmatter": {
+        "title": "RESTORE",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Definition/RESTORE.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Definition/RESTORE.md",
+      "key": "v-748a6ff8",
+      "path": "/en/sql-reference/sql-statements/Data%20Definition/RESTORE.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "CANCEL LOAD",
@@ -7722,7 +7890,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "DELETE",
@@ -7741,26 +7909,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "EXPORT",
-      "frontmatter": {
-        "title": "EXPORT",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Data%20Manipulation/EXPORT.html",
-      "relativePath": "en/sql-reference/sql-statements/Data Manipulation/EXPORT.md",
-      "key": "v-77287e84",
-      "path": "/en/sql-reference/sql-statements/Data%20Manipulation/EXPORT.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "GET LABEL STATE",
@@ -7784,7 +7933,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "GROUP BY",
@@ -7828,7 +7977,26 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 10:31:47 AM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "EXPORT",
+      "frontmatter": {
+        "title": "EXPORT",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Manipulation/EXPORT.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Manipulation/EXPORT.md",
+      "key": "v-77287e84",
+      "path": "/en/sql-reference/sql-statements/Data%20Manipulation/EXPORT.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "LOAD",
@@ -7852,7 +8020,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "MINI LOAD",
@@ -7876,7 +8044,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "MULTI LOAD",
@@ -7900,7 +8068,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "PAUSE ROUTINE LOAD",
@@ -7924,7 +8092,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "RESTORE TABLET",
@@ -7936,14 +8104,7 @@ export const siteData = {
       "relativePath": "en/sql-reference/sql-statements/Data Manipulation/RESTORE TABLET.md",
       "key": "v-68cd3e19",
       "path": "/en/sql-reference/sql-statements/Data%20Manipulation/RESTORE%20TABLET.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "RESUME ROUTINE LOAD",
@@ -7967,7 +8128,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "ROUTINE LOAD",
@@ -7996,7 +8157,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW ALTER",
@@ -8025,7 +8186,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW BACKUP",
@@ -8054,36 +8215,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "SHOW DATA",
-      "frontmatter": {
-        "title": "SHOW DATA",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATA.html",
-      "relativePath": "en/sql-reference/sql-statements/Data Manipulation/SHOW DATA.md",
-      "key": "v-da78ae16",
-      "path": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATA.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW DATABASES",
@@ -8107,36 +8239,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "SHOW DELETE",
-      "frontmatter": {
-        "title": "SHOW DELETE",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DELETE.html",
-      "relativePath": "en/sql-reference/sql-statements/Data Manipulation/SHOW DELETE.md",
-      "key": "v-7820e856",
-      "path": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DELETE.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW DYNAMIC PARTITION TABLES",
@@ -8165,7 +8268,36 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "SHOW DELETE",
+      "frontmatter": {
+        "title": "SHOW DELETE",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DELETE.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Manipulation/SHOW DELETE.md",
+      "key": "v-7820e856",
+      "path": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DELETE.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW EXPORT",
@@ -8194,7 +8326,36 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "SHOW DATA",
+      "frontmatter": {
+        "title": "SHOW DATA",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATA.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Manipulation/SHOW DATA.md",
+      "key": "v-da78ae16",
+      "path": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATA.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW LOAD",
@@ -8223,7 +8384,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW PARTITIONS",
@@ -8252,7 +8413,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW PROPERTY",
@@ -8281,60 +8442,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "SHOW REPOSITORIES",
-      "frontmatter": {
-        "title": "SHOW REPOSITORIES",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20REPOSITORIES.html",
-      "relativePath": "en/sql-reference/sql-statements/Data Manipulation/SHOW REPOSITORIES.md",
-      "key": "v-08b9bc96",
-      "path": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20REPOSITORIES.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "SHOW ROUTINE LOAD TASK",
-      "frontmatter": {
-        "title": "SHOW ROUTINE LOAD TASK",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20ROUTINE%20LOAD%20TASK.html",
-      "relativePath": "en/sql-reference/sql-statements/Data Manipulation/SHOW ROUTINE LOAD TASK.md",
-      "key": "v-d8401162",
-      "path": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20ROUTINE%20LOAD%20TASK.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW RESTORE",
@@ -8363,7 +8471,31 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "SHOW ROUTINE LOAD TASK",
+      "frontmatter": {
+        "title": "SHOW ROUTINE LOAD TASK",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20ROUTINE%20LOAD%20TASK.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Manipulation/SHOW ROUTINE LOAD TASK.md",
+      "key": "v-d8401162",
+      "path": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20ROUTINE%20LOAD%20TASK.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW ROUTINE LOAD",
@@ -8387,7 +8519,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW SNAPSHOT",
@@ -8411,7 +8543,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW TABLES",
@@ -8435,36 +8567,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "SHOW TABLET",
-      "frontmatter": {
-        "title": "SHOW TABLET",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLET.html",
-      "relativePath": "en/sql-reference/sql-statements/Data Manipulation/SHOW TABLET.md",
-      "key": "v-43b002f5",
-      "path": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLET.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SHOW TRANSACTION",
@@ -8493,7 +8596,36 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "SHOW TABLET",
+      "frontmatter": {
+        "title": "SHOW TABLET",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLET.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Manipulation/SHOW TABLET.md",
+      "key": "v-43b002f5",
+      "path": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLET.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "STOP ROUTINE LOAD",
@@ -8517,7 +8649,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "STREAM LOAD",
@@ -8546,7 +8678,36 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "SHOW REPOSITORIES",
+      "frontmatter": {
+        "title": "SHOW REPOSITORIES",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20REPOSITORIES.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Manipulation/SHOW REPOSITORIES.md",
+      "key": "v-08b9bc96",
+      "path": "/en/sql-reference/sql-statements/Data%20Manipulation/SHOW%20REPOSITORIES.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "INSERT",
@@ -8583,14 +8744,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "BIGINT",
@@ -8607,14 +8763,9 @@ export const siteData = {
           "level": 2,
           "title": "Description",
           "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "BOOLEAN",
@@ -8631,14 +8782,9 @@ export const siteData = {
           "level": 2,
           "title": "Description",
           "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "CHAR",
@@ -8655,14 +8801,9 @@ export const siteData = {
           "level": 2,
           "title": "Description",
           "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "date",
@@ -8684,38 +8825,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
-    },
-    {
-      "title": "DATETIME",
-      "frontmatter": {
-        "title": "DATETIME",
-        "language": "en"
-      },
-      "regularPath": "/en/sql-reference/sql-statements/Data%20Types/DATETIME.html",
-      "relativePath": "en/sql-reference/sql-statements/Data Types/DATETIME.md",
-      "key": "v-76798d18",
-      "path": "/en/sql-reference/sql-statements/Data%20Types/DATETIME.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "DECIMAL",
@@ -8732,14 +8844,28 @@ export const siteData = {
           "level": 2,
           "title": "Description",
           "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
+    },
+    {
+      "title": "DATETIME",
+      "frontmatter": {
+        "title": "DATETIME",
+        "language": "en"
+      },
+      "regularPath": "/en/sql-reference/sql-statements/Data%20Types/DATETIME.html",
+      "relativePath": "en/sql-reference/sql-statements/Data Types/DATETIME.md",
+      "key": "v-76798d18",
+      "path": "/en/sql-reference/sql-statements/Data%20Types/DATETIME.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        }
+      ],
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Double",
@@ -8756,14 +8882,9 @@ export const siteData = {
           "level": 2,
           "title": "Description",
           "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "FLOAT",
@@ -8780,14 +8901,9 @@ export const siteData = {
           "level": 2,
           "title": "Description",
           "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "HLL (Hyloglog)",
@@ -8804,14 +8920,9 @@ export const siteData = {
           "level": 2,
           "title": "Description",
           "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "INT",
@@ -8828,14 +8939,9 @@ export const siteData = {
           "level": 2,
           "title": "Description",
           "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "SMALLINT",
@@ -8852,14 +8958,9 @@ export const siteData = {
           "level": 2,
           "title": "Description",
           "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "TINYINT",
@@ -8876,14 +8977,9 @@ export const siteData = {
           "level": 2,
           "title": "Description",
           "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "VARCHAR",
@@ -8900,14 +8996,9 @@ export const siteData = {
           "level": 2,
           "title": "Description",
           "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Describe",
@@ -8936,15 +9027,138 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "3/16/2020, 4:29:05 PM"
+      "lastUpdated": "4/28/2020, 8:58:13 PM"
     },
     {
       "title": "Home",
       "frontmatter": {
         "home": true,
-        "heroImage": "/images/logo.jpeg",
-        "heroText": "Apache Doris",
-        "tagline": "基于 MPP 的交互式 SQL 数据仓库，主要用于解决报表和多维分析。",
+        "heroImage": "/images/home/banner-stats1.png",
+        "heroBgImage": "/images/home/hero-bg1.png",
+        "heroText": [
+          "欢迎使用",
+          "Apache Doris"
+        ],
+        "tagline": "支持对海量大数据进行快速分析的MPP数据库",
+        "structure": {
+          "title": "Apache Doris",
+          "subTitle": null,
+          "descriptions": [
+            "Apache Doris是一个现代化MPP分析型数据库产品。Apache Doris能够提供亚秒级的查询延时，并且能有效地支持实时数据分析。它分布式架构非常简洁，易于运维，可以支撑10PB级别的数据规模。",
+            "Apache Doris可以满足您包括固定历史报表，实时数据分析，交互式数据分析，和探索式数据分析在内的多种数据分析需求。令您的数据分析工作更加简单！"
+          ],
+          "image": "/images/structure-fresh.png",
+          "actionText": "了解更多",
+          "actionLink": "/zh-CN/getting-started/basic-usage"
+        },
+        "features": {
+          "title": "Apache Doris 核心特性",
+          "subTitle": "Our Core Features",
+          "list": [
+            {
+              "title": "现代化MPP架构",
+              "icon": "/images/home/struct.png"
+            },
+            {
+              "title": "秒级查询返回延时",
+              "icon": "/images/home/clock.png"
+            },
+            {
+              "title": "支持标准SQL语言，兼容MySQL协议",
+              "icon": "/images/home/sql.png"
+            },
+            {
+              "title": "向量化执行器",
+              "icon": "/images/home/program.png"
+            },
+            {
+              "title": "高效的聚合表技术",
+              "icon": "/images/home/aggr.png"
+            },
+            {
+              "title": "新型预聚合技术Rollup",
+              "icon": "/images/home/rollup.png"
+            },
+            {
+              "title": "高性能、高可用、高可靠",
+              "icon": "/images/home/cpu.png"
+            },
+            {
+              "title": "极简运维，弹性伸缩",
+              "icon": "/images/home/dev.png"
+            }
+          ]
+        },
+        "cases": {
+          "title": "Apache Doris 用户",
+          "subTitle": "Our Users",
+          "list": [
+            {
+              "logo": "/images/home/logo-meituan1.png",
+              "alt": "美团"
+            },
+            {
+              "logo": "/images/home/logo-xiaomi1.png",
+              "alt": "小米"
+            },
+            {
+              "logo": "/images/home/logo-jd1.png",
+              "alt": "京东"
+            },
+            {
+              "logo": "/images/home/logo-huawei1.png",
+              "alt": "华为"
+            },
+            {
+              "logo": "/images/home/logo-baidu1.png",
+              "alt": "百度"
+            },
+            {
+              "logo": "/images/home/logo-weibo1.png",
+              "alt": "新浪微博"
+            },
+            {
+              "logo": "/images/home/logo-zuoyebang1.png",
+              "alt": "作业帮"
+            },
+            {
+              "logo": "/images/home/logo-vipkid1.png",
+              "alt": "Vipkid"
+            },
+            {
+              "logo": "/images/home/logo-3601.png",
+              "alt": 360
+            },
+            {
+              "logo": "/images/home/logo-shopee1.png",
+              "alt": "Shopee"
+            },
+            {
+              "logo": "/images/home/logo-tantan1.png",
+              "alt": "探探"
+            },
+            {
+              "logo": "/images/home/logo-kuaishou1.png",
+              "alt": "快手"
+            },
+            {
+              "logo": "/images/home/logo-sohu1.png",
+              "alt": "搜狐"
+            },
+            {
+              "logo": "/images/home/logo-yidian1.png",
+              "alt": "一点资讯"
+            },
+            {
+              "logo": "/images/home/logo-dingdong1.png",
+              "alt": "叮咚买菜"
+            },
+            {
+              "logo": "/images/home/logo-youdao1.png",
+              "alt": "有道"
+            }
+          ]
+        },
         "actionText": "快速上手 →",
         "actionLink": "/zh-CN/installing/compilation"
       },
@@ -8952,7 +9166,7 @@ export const siteData = {
       "relativePath": "zh-CN/README.md",
       "key": "v-3aab572c",
       "path": "/zh-CN/",
-      "lastUpdated": "2020-3-16 10:31:47"
+      "lastUpdated": "2020-6-30 18:33:37"
     },
     {
       "title": "Bitmap 索引",
@@ -9001,7 +9215,7 @@ export const siteData = {
           "slug": "注意事项"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "Rollup",
@@ -9065,76 +9279,7 @@ export const siteData = {
           "slug": "be-配置"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "Scheam Change",
-      "frontmatter": {
-        "title": "Scheam Change",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/administrator-guide/alter-table/alter-table-schema-change.html",
-      "relativePath": "zh-CN/administrator-guide/alter-table/alter-table-schema-change.md",
-      "key": "v-75d0e3fb",
-      "path": "/zh-CN/administrator-guide/alter-table/alter-table-schema-change.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "名词解释",
-          "slug": "名词解释"
-        },
-        {
-          "level": 2,
-          "title": "原理介绍",
-          "slug": "原理介绍"
-        },
-        {
-          "level": 2,
-          "title": "创建作业",
-          "slug": "创建作业"
-        },
-        {
-          "level": 2,
-          "title": "查看作业",
-          "slug": "查看作业"
-        },
-        {
-          "level": 2,
-          "title": "取消作业",
-          "slug": "取消作业"
-        },
-        {
-          "level": 2,
-          "title": "最佳实践",
-          "slug": "最佳实践"
-        },
-        {
-          "level": 2,
-          "title": "注意事项",
-          "slug": "注意事项"
-        },
-        {
-          "level": 2,
-          "title": "常见问题",
-          "slug": "常见问题"
-        },
-        {
-          "level": 2,
-          "title": "相关配置",
-          "slug": "相关配置"
-        },
-        {
-          "level": 3,
-          "title": "FE 配置",
-          "slug": "fe-配置"
-        },
-        {
-          "level": 3,
-          "title": "BE 配置",
-          "slug": "be-配置"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "临时分区",
@@ -9174,8 +9319,8 @@ export const siteData = {
         },
         {
           "level": 2,
-          "title": "临时分区的导入",
-          "slug": "临时分区的导入"
+          "title": "临时分区的导入和查询",
+          "slug": "临时分区的导入和查询"
         },
         {
           "level": 2,
@@ -9203,7 +9348,7 @@ export const siteData = {
           "slug": "最佳实践"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "备份与恢复",
@@ -9257,7 +9402,7 @@ export const siteData = {
           "slug": "相关命令"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "Broker",
@@ -9296,7 +9441,7 @@ export const siteData = {
           "slug": "认证信息"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "Colocation Join",
@@ -9385,31 +9530,7 @@ export const siteData = {
           "slug": "http-restful-api"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "基本配置",
-      "frontmatter": {
-        "title": "基本配置",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/administrator-guide/config/fe_config.html",
-      "relativePath": "zh-CN/administrator-guide/config/fe_config.md",
-      "key": "v-c17555e6",
-      "path": "/zh-CN/administrator-guide/config/fe_config.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "brpcmaxbody_size",
-          "slug": "brpc-max-body-size"
-        },
-        {
-          "level": 2,
-          "title": "maxrunningtxnnumper_db",
-          "slug": "max-running-txn-num-per-db"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "动态分区",
@@ -9436,6 +9557,11 @@ export const siteData = {
           "level": 2,
           "title": "使用方式",
           "slug": "使用方式"
+        },
+        {
+          "level": 3,
+          "title": "动态分区属性参数说明:",
+          "slug": "动态分区属性参数说明"
         },
         {
           "level": 3,
@@ -9478,7 +9604,31 @@ export const siteData = {
           "slug": "http-restful-api"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "基本配置",
+      "frontmatter": {
+        "title": "基本配置",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/administrator-guide/config/fe_config.html",
+      "relativePath": "zh-CN/administrator-guide/config/fe_config.md",
+      "key": "v-c17555e6",
+      "path": "/zh-CN/administrator-guide/config/fe_config.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "brpcmaxbody_size",
+          "slug": "brpc-max-body-size"
+        },
+        {
+          "level": 2,
+          "title": "maxrunningtxnnumper_db",
+          "slug": "max-running-txn-num-per-db"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "数据导出",
@@ -9552,7 +9702,76 @@ export const siteData = {
           "slug": "fe"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "Schema Change",
+      "frontmatter": {
+        "title": "Schema Change",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/administrator-guide/alter-table/alter-table-schema-change.html",
+      "relativePath": "zh-CN/administrator-guide/alter-table/alter-table-schema-change.md",
+      "key": "v-75d0e3fb",
+      "path": "/zh-CN/administrator-guide/alter-table/alter-table-schema-change.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "名词解释",
+          "slug": "名词解释"
+        },
+        {
+          "level": 2,
+          "title": "原理介绍",
+          "slug": "原理介绍"
+        },
+        {
+          "level": 2,
+          "title": "创建作业",
+          "slug": "创建作业"
+        },
+        {
+          "level": 2,
+          "title": "查看作业",
+          "slug": "查看作业"
+        },
+        {
+          "level": 2,
+          "title": "取消作业",
+          "slug": "取消作业"
+        },
+        {
+          "level": 2,
+          "title": "最佳实践",
+          "slug": "最佳实践"
+        },
+        {
+          "level": 2,
+          "title": "注意事项",
+          "slug": "注意事项"
+        },
+        {
+          "level": 2,
+          "title": "常见问题",
+          "slug": "常见问题"
+        },
+        {
+          "level": 2,
+          "title": "相关配置",
+          "slug": "相关配置"
+        },
+        {
+          "level": 3,
+          "title": "FE 配置",
+          "slug": "fe-配置"
+        },
+        {
+          "level": 3,
+          "title": "BE 配置",
+          "slug": "be-配置"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "CANCEL LABEL",
@@ -9581,7 +9800,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "Compaction Action",
@@ -9620,7 +9839,7 @@ export const siteData = {
           "slug": "手动触发-compaction"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "get_log_file",
@@ -9649,7 +9868,7 @@ export const siteData = {
           "slug": "接口说明"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "GET LABEL STATE",
@@ -9678,36 +9897,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "RESTORE TABLET",
-      "frontmatter": {
-        "title": "RESTORE TABLET",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/administrator-guide/http-actions/restore-tablet.html",
-      "relativePath": "zh-CN/administrator-guide/http-actions/restore-tablet.md",
-      "key": "v-559e943b",
-      "path": "/zh-CN/administrator-guide/http-actions/restore-tablet.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "Broker Load",
@@ -9791,7 +9981,75 @@ export const siteData = {
           "slug": "常见问题"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "Delete",
+      "frontmatter": {
+        "title": "Delete",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/administrator-guide/load-data/delete-manual.html",
+      "relativePath": "zh-CN/administrator-guide/load-data/delete-manual.md",
+      "key": "v-7d09ee7b",
+      "path": "/zh-CN/administrator-guide/load-data/delete-manual.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "语法",
+          "slug": "语法"
+        },
+        {
+          "level": 2,
+          "title": "返回结果",
+          "slug": "返回结果"
+        },
+        {
+          "level": 2,
+          "title": "可配置项",
+          "slug": "可配置项"
+        },
+        {
+          "level": 3,
+          "title": "FE配置",
+          "slug": "fe配置"
+        },
+        {
+          "level": 2,
+          "title": "查看历史记录",
+          "slug": "查看历史记录"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "RESTORE TABLET",
+      "frontmatter": {
+        "title": "RESTORE TABLET",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/administrator-guide/http-actions/restore-tablet.html",
+      "relativePath": "zh-CN/administrator-guide/http-actions/restore-tablet.md",
+      "key": "v-559e943b",
+      "path": "/zh-CN/administrator-guide/http-actions/restore-tablet.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "Insert Into",
@@ -9860,7 +10118,7 @@ export const siteData = {
           "slug": "常见问题"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "导入总览",
@@ -9944,7 +10202,7 @@ export const siteData = {
           "slug": "be-配置"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "Routine Load",
@@ -10003,7 +10261,7 @@ export const siteData = {
           "slug": "相关参数"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "Stream load",
@@ -10082,7 +10340,7 @@ export const siteData = {
           "slug": "常见问题"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "磁盘空间管理",
@@ -10121,7 +10379,51 @@ export const siteData = {
           "slug": "磁盘空间释放"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "Tablet 元数据管理工具",
+      "frontmatter": {
+        "title": "Tablet 元数据管理工具",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/administrator-guide/operation/tablet-meta-tool.html",
+      "relativePath": "zh-CN/administrator-guide/operation/tablet-meta-tool.md",
+      "key": "v-2b56a675",
+      "path": "/zh-CN/administrator-guide/operation/tablet-meta-tool.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "背景",
+          "slug": "背景"
+        },
+        {
+          "level": 2,
+          "title": "操作",
+          "slug": "操作"
+        },
+        {
+          "level": 3,
+          "title": "查看 Tablet Meta",
+          "slug": "查看-tablet-meta"
+        },
+        {
+          "level": 3,
+          "title": "加载 header",
+          "slug": "加载-header"
+        },
+        {
+          "level": 3,
+          "title": "删除 header",
+          "slug": "删除-header"
+        },
+        {
+          "level": 3,
+          "title": "展示 pb 格式的 TabletMeta",
+          "slug": "展示-pb-格式的-tabletmeta"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "元数据运维",
@@ -10205,7 +10507,7 @@ export const siteData = {
           "slug": "其他常见问题"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "监控和报警",
@@ -10259,7 +10561,7 @@ export const siteData = {
           "slug": "dashboard-更新"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "多租户(Experimental)",
@@ -10308,18 +10610,18 @@ export const siteData = {
           "slug": "详细设计"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "Tablet 元数据管理工具",
+      "title": "BE Tablet数据恢复工具",
       "frontmatter": {
-        "title": "Tablet 元数据管理工具",
+        "title": "BE Tablet数据恢复工具",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/administrator-guide/operation/tablet-meta-tool.html",
-      "relativePath": "zh-CN/administrator-guide/operation/tablet-meta-tool.md",
-      "key": "v-2b56a675",
-      "path": "/zh-CN/administrator-guide/operation/tablet-meta-tool.html",
+      "regularPath": "/zh-CN/administrator-guide/operation/tablet-restore-tool.html",
+      "relativePath": "zh-CN/administrator-guide/operation/tablet-restore-tool.md",
+      "key": "v-e284a60a",
+      "path": "/zh-CN/administrator-guide/operation/tablet-restore-tool.html",
       "headers": [
         {
           "level": 2,
@@ -10333,26 +10635,16 @@ export const siteData = {
         },
         {
           "level": 3,
-          "title": "查看 Tablet Meta",
-          "slug": "查看-tablet-meta"
+          "title": "single mode",
+          "slug": "single-mode"
         },
         {
           "level": 3,
-          "title": "加载 header",
-          "slug": "加载-header"
-        },
-        {
-          "level": 3,
-          "title": "删除 header",
-          "slug": "删除-header"
-        },
-        {
-          "level": 3,
-          "title": "展示 pb 格式的 TabletMeta",
-          "slug": "展示-pb-格式的-tabletmeta"
+          "title": "batch mode",
+          "slug": "batch-mode"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "数据副本管理",
@@ -10461,41 +10753,7 @@ export const siteData = {
           "slug": "相关问题"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "BE Tablet数据恢复工具",
-      "frontmatter": {
-        "title": "BE Tablet数据恢复工具",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/administrator-guide/operation/tablet-restore-tool.html",
-      "relativePath": "zh-CN/administrator-guide/operation/tablet-restore-tool.md",
-      "key": "v-e284a60a",
-      "path": "/zh-CN/administrator-guide/operation/tablet-restore-tool.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "背景",
-          "slug": "背景"
-        },
-        {
-          "level": 2,
-          "title": "操作",
-          "slug": "操作"
-        },
-        {
-          "level": 3,
-          "title": "single mode",
-          "slug": "single-mode"
-        },
-        {
-          "level": 3,
-          "title": "batch mode",
-          "slug": "batch-mode"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "权限管理",
@@ -10544,7 +10802,134 @@ export const siteData = {
           "slug": "最佳实践"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "Segment V2 升级手册",
+      "frontmatter": {
+        "title": "Segment V2 升级手册",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/administrator-guide/segment-v2-usage.html",
+      "relativePath": "zh-CN/administrator-guide/segment-v2-usage.md",
+      "key": "v-e60408ba",
+      "path": "/zh-CN/administrator-guide/segment-v2-usage.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "背景",
+          "slug": "背景"
+        },
+        {
+          "level": 2,
+          "title": "集群升级",
+          "slug": "集群升级"
+        },
+        {
+          "level": 2,
+          "title": "V2 格式转换",
+          "slug": "v2-格式转换"
+        },
+        {
+          "level": 3,
+          "title": "已有表数据转换成 V2",
+          "slug": "已有表数据转换成-v2"
+        },
+        {
+          "level": 3,
+          "title": "创建新的 V2 格式的表",
+          "slug": "创建新的-v2-格式的表"
+        },
+        {
+          "level": 3,
+          "title": "全量格式转换(试验功能)",
+          "slug": "全量格式转换-试验功能"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "SQL MODE",
+      "frontmatter": {
+        "title": "SQL MODE",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/administrator-guide/sql-mode.html",
+      "relativePath": "zh-CN/administrator-guide/sql-mode.md",
+      "key": "v-0230b81a",
+      "path": "/zh-CN/administrator-guide/sql-mode.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "sql mode 介绍",
+          "slug": "sql-mode-介绍"
+        },
+        {
+          "level": 2,
+          "title": "原理",
+          "slug": "原理"
+        },
+        {
+          "level": 2,
+          "title": "操作方式",
+          "slug": "操作方式"
+        },
+        {
+          "level": 2,
+          "title": "已支持mode",
+          "slug": "已支持mode"
+        },
+        {
+          "level": 2,
+          "title": "复合mode",
+          "slug": "复合mode"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "时区",
+      "frontmatter": {
+        "title": "时区",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/administrator-guide/time-zone.html",
+      "relativePath": "zh-CN/administrator-guide/time-zone.md",
+      "key": "v-742a548a",
+      "path": "/zh-CN/administrator-guide/time-zone.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "名词解释",
+          "slug": "名词解释"
+        },
+        {
+          "level": 2,
+          "title": "基本概念",
+          "slug": "基本概念"
+        },
+        {
+          "level": 2,
+          "title": "具体操作",
+          "slug": "具体操作"
+        },
+        {
+          "level": 3,
+          "title": "时区的影响",
+          "slug": "时区的影响"
+        },
+        {
+          "level": 2,
+          "title": "使用限制",
+          "slug": "使用限制"
+        },
+        {
+          "level": 2,
+          "title": "时区格式列表",
+          "slug": "时区格式列表"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "文件管理器",
@@ -10598,124 +10983,7 @@ export const siteData = {
           "slug": "相关配置"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "SQL MODE",
-      "frontmatter": {
-        "title": "SQL MODE",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/administrator-guide/sql-mode.html",
-      "relativePath": "zh-CN/administrator-guide/sql-mode.md",
-      "key": "v-0230b81a",
-      "path": "/zh-CN/administrator-guide/sql-mode.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "sql mode 介绍",
-          "slug": "sql-mode-介绍"
-        },
-        {
-          "level": 2,
-          "title": "原理",
-          "slug": "原理"
-        },
-        {
-          "level": 2,
-          "title": "操作方式",
-          "slug": "操作方式"
-        },
-        {
-          "level": 2,
-          "title": "已支持mode",
-          "slug": "已支持mode"
-        },
-        {
-          "level": 2,
-          "title": "复合mode",
-          "slug": "复合mode"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "时区",
-      "frontmatter": {
-        "title": "时区",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/administrator-guide/time-zone.html",
-      "relativePath": "zh-CN/administrator-guide/time-zone.md",
-      "key": "v-742a548a",
-      "path": "/zh-CN/administrator-guide/time-zone.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "名词解释",
-          "slug": "名词解释"
-        },
-        {
-          "level": 2,
-          "title": "基本概念",
-          "slug": "基本概念"
-        },
-        {
-          "level": 2,
-          "title": "具体操作",
-          "slug": "具体操作"
-        },
-        {
-          "level": 3,
-          "title": "时区的影响",
-          "slug": "时区的影响"
-        },
-        {
-          "level": 2,
-          "title": "使用限制",
-          "slug": "使用限制"
-        },
-        {
-          "level": 2,
-          "title": "时区格式列表",
-          "slug": "时区格式列表"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "变量",
-      "frontmatter": {
-        "title": "变量",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/administrator-guide/variables.html",
-      "relativePath": "zh-CN/administrator-guide/variables.md",
-      "key": "v-1c6d181b",
-      "path": "/zh-CN/administrator-guide/variables.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "变量设置与查看",
-          "slug": "变量设置与查看"
-        },
-        {
-          "level": 3,
-          "title": "查看",
-          "slug": "查看"
-        },
-        {
-          "level": 3,
-          "title": "设置",
-          "slug": "设置"
-        },
-        {
-          "level": 2,
-          "title": "支持的变量",
-          "slug": "支持的变量"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "Gitter 使用指南",
@@ -10749,7 +11017,70 @@ export const siteData = {
           "slug": "在-gitter-上搜索并加入-doris-社区聊天室"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "变量",
+      "frontmatter": {
+        "title": "变量",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/administrator-guide/variables.html",
+      "relativePath": "zh-CN/administrator-guide/variables.md",
+      "key": "v-1c6d181b",
+      "path": "/zh-CN/administrator-guide/variables.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "变量设置与查看",
+          "slug": "变量设置与查看"
+        },
+        {
+          "level": 3,
+          "title": "查看",
+          "slug": "查看"
+        },
+        {
+          "level": 3,
+          "title": "设置",
+          "slug": "设置"
+        },
+        {
+          "level": 2,
+          "title": "支持的变量",
+          "slug": "支持的变量"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "PMC Members & Committer",
+      "frontmatter": {
+        "title": "PMC Members & Committer",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/community/members.html",
+      "relativePath": "zh-CN/community/members.md",
+      "key": "v-9499ba0a",
+      "path": "/zh-CN/community/members.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Mentors (3)",
+          "slug": "mentors-3"
+        },
+        {
+          "level": 2,
+          "title": "PPMC (9)",
+          "slug": "ppmc-9"
+        },
+        {
+          "level": 2,
+          "title": "Committers (13)",
+          "slug": "committers-13"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "为 Doris 做贡献",
@@ -10788,36 +11119,7 @@ export const siteData = {
           "slug": "修改代码和提交pr（pull-request）"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "PMC Members & Committer",
-      "frontmatter": {
-        "title": "PMC Members & Committer",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/community/members.html",
-      "relativePath": "zh-CN/community/members.md",
-      "key": "v-9499ba0a",
-      "path": "/zh-CN/community/members.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Mentors (3)",
-          "slug": "mentors-3"
-        },
-        {
-          "level": 2,
-          "title": "PPMC (9)",
-          "slug": "ppmc-9"
-        },
-        {
-          "level": 2,
-          "title": "Committers (13)",
-          "slug": "committers-13"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "代码提交指南",
@@ -10856,7 +11158,46 @@ export const siteData = {
           "slug": "_5-一个例子"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "订阅邮件列表",
+      "frontmatter": {
+        "title": "订阅邮件列表",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/community/subscribe-mail-list.html",
+      "relativePath": "zh-CN/community/subscribe-mail-list.md",
+      "key": "v-1b691c0a",
+      "path": "/zh-CN/community/subscribe-mail-list.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1. 发送订阅邮件",
+          "slug": "_1-发送订阅邮件"
+        },
+        {
+          "level": 2,
+          "title": "2. 接收来自 dev-help@doris.apache.org 的确认邮件",
+          "slug": "_2-接收来自-dev-help-doris-apache-org-的确认邮件"
+        },
+        {
+          "level": 2,
+          "title": "3. 回复确认邮件",
+          "slug": "_3-回复确认邮件"
+        },
+        {
+          "level": 2,
+          "title": "4. 接收欢迎邮件",
+          "slug": "_4-接收欢迎邮件"
+        },
+        {
+          "level": 2,
+          "title": "5. 发起邮件讨论（可选）",
+          "slug": "_5-发起邮件讨论（可选）"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "Apache Doris 发布流程",
@@ -10960,80 +11301,56 @@ export const siteData = {
           "slug": "在-doris-官网和-github-发布链接"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "订阅邮件列表",
+      "title": "代码格式化",
       "frontmatter": {
-        "title": "订阅邮件列表",
+        "title": "代码格式化",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/community/subscribe-mail-list.html",
-      "relativePath": "zh-CN/community/subscribe-mail-list.md",
-      "key": "v-1b691c0a",
-      "path": "/zh-CN/community/subscribe-mail-list.html",
+      "regularPath": "/zh-CN/developer-guide/format-code.html",
+      "relativePath": "zh-CN/developer-guide/format-code.md",
+      "key": "v-1b572cbb",
+      "path": "/zh-CN/developer-guide/format-code.html",
       "headers": [
         {
           "level": 2,
-          "title": "1. 发送订阅邮件",
-          "slug": "_1-发送订阅邮件"
+          "title": "代码风格定制",
+          "slug": "代码风格定制"
         },
         {
           "level": 2,
-          "title": "2. 接收来自 dev-help@doris.apache.org 的确认邮件",
-          "slug": "_2-接收来自-dev-help-doris-apache-org-的确认邮件"
+          "title": "环境准备",
+          "slug": "环境准备"
+        },
+        {
+          "level": 3,
+          "title": "下载安装clang-format",
+          "slug": "下载安装clang-format"
+        },
+        {
+          "level": 3,
+          "title": "clang-format插件",
+          "slug": "clang-format插件"
         },
         {
           "level": 2,
-          "title": "3. 回复确认邮件",
-          "slug": "_3-回复确认邮件"
+          "title": "使用方式",
+          "slug": "使用方式"
         },
         {
-          "level": 2,
-          "title": "4. 接收欢迎邮件",
-          "slug": "_4-接收欢迎邮件"
+          "level": 3,
+          "title": "命令行运行",
+          "slug": "命令行运行"
         },
         {
-          "level": 2,
-          "title": "5. 发起邮件讨论（可选）",
-          "slug": "_5-发起邮件讨论（可选）"
+          "level": 3,
+          "title": "在IDE或Editor中使用clang-format",
+          "slug": "在ide或editor中使用clang-format"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "验证 Apache 发布版本",
-      "frontmatter": {
-        "title": "验证 Apache 发布版本",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/community/verify-apache-release.html",
-      "relativePath": "zh-CN/community/verify-apache-release.md",
-      "key": "v-15ad919b",
-      "path": "/zh-CN/community/verify-apache-release.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1. 下载源码包、签名文件、校验值文件和 KEYS",
-          "slug": "_1-下载源码包、签名文件、校验值文件和-keys"
-        },
-        {
-          "level": 2,
-          "title": "2. 检查签名和校验值",
-          "slug": "_2-检查签名和校验值"
-        },
-        {
-          "level": 2,
-          "title": "3. 验证源码协议头",
-          "slug": "_3-验证源码协议头"
-        },
-        {
-          "level": 2,
-          "title": "4. 验证编译",
-          "slug": "_4-验证编译"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "调试工具",
@@ -11097,56 +11414,7 @@ export const siteData = {
           "slug": "perf-flamegragh"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "代码格式化",
-      "frontmatter": {
-        "title": "代码格式化",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/developer-guide/format-code.html",
-      "relativePath": "zh-CN/developer-guide/format-code.md",
-      "key": "v-1b572cbb",
-      "path": "/zh-CN/developer-guide/format-code.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "代码风格定制",
-          "slug": "代码风格定制"
-        },
-        {
-          "level": 2,
-          "title": "环境准备",
-          "slug": "环境准备"
-        },
-        {
-          "level": 3,
-          "title": "下载安装clang-format",
-          "slug": "下载安装clang-format"
-        },
-        {
-          "level": 3,
-          "title": "clang-format插件",
-          "slug": "clang-format插件"
-        },
-        {
-          "level": 2,
-          "title": "使用方式",
-          "slug": "使用方式"
-        },
-        {
-          "level": 3,
-          "title": "命令行运行",
-          "slug": "命令行运行"
-        },
-        {
-          "level": 3,
-          "title": "在IDE或Editor中使用clang-format",
-          "slug": "在ide或editor中使用clang-format"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "下载",
@@ -11158,7 +11426,198 @@ export const siteData = {
       "relativePath": "zh-CN/downloads/downloads.md",
       "key": "v-95db4f0a",
       "path": "/zh-CN/downloads/downloads.html",
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "Doris On ES",
+      "frontmatter": {
+        "title": "Doris On ES",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/extending-doris/doris-on-es.html",
+      "relativePath": "zh-CN/extending-doris/doris-on-es.md",
+      "key": "v-72617ebb",
+      "path": "/zh-CN/extending-doris/doris-on-es.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "名词解释",
+          "slug": "名词解释"
+        },
+        {
+          "level": 2,
+          "title": "如何使用",
+          "slug": "如何使用"
+        },
+        {
+          "level": 3,
+          "title": "创建外表",
+          "slug": "创建外表"
+        },
+        {
+          "level": 3,
+          "title": "查询",
+          "slug": "查询"
+        },
+        {
+          "level": 2,
+          "title": "原理",
+          "slug": "原理"
+        },
+        {
+          "level": 2,
+          "title": "Push-Down operations",
+          "slug": "push-down-operations"
+        },
+        {
+          "level": 2,
+          "title": "其他说明",
+          "slug": "其他说明"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "审计日志插件",
+      "frontmatter": {
+        "title": "审计日志插件",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/extending-doris/audit-plugin.html",
+      "relativePath": "zh-CN/extending-doris/audit-plugin.md",
+      "key": "v-e1ace5e6",
+      "path": "/zh-CN/extending-doris/audit-plugin.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "编译、配置和部署",
+          "slug": "编译、配置和部署"
+        },
+        {
+          "level": 3,
+          "title": "编译",
+          "slug": "编译"
+        },
+        {
+          "level": 3,
+          "title": "配置",
+          "slug": "配置"
+        },
+        {
+          "level": 3,
+          "title": "部署",
+          "slug": "部署"
+        },
+        {
+          "level": 3,
+          "title": "安装",
+          "slug": "安装"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "验证 Apache 发布版本",
+      "frontmatter": {
+        "title": "验证 Apache 发布版本",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/community/verify-apache-release.html",
+      "relativePath": "zh-CN/community/verify-apache-release.md",
+      "key": "v-15ad919b",
+      "path": "/zh-CN/community/verify-apache-release.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1. 下载源码包、签名文件、校验值文件和 KEYS",
+          "slug": "_1-下载源码包、签名文件、校验值文件和-keys"
+        },
+        {
+          "level": 2,
+          "title": "2. 检查签名和校验值",
+          "slug": "_2-检查签名和校验值"
+        },
+        {
+          "level": 2,
+          "title": "3. 验证源码协议头",
+          "slug": "_3-验证源码协议头"
+        },
+        {
+          "level": 2,
+          "title": "4. 验证编译",
+          "slug": "_4-验证编译"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "插件开发手册",
+      "frontmatter": {
+        "title": "插件开发手册",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/extending-doris/plugin-development-manual.html",
+      "relativePath": "zh-CN/extending-doris/plugin-development-manual.md",
+      "key": "v-7865e07b",
+      "path": "/zh-CN/extending-doris/plugin-development-manual.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "介绍",
+          "slug": "介绍"
+        },
+        {
+          "level": 2,
+          "title": "插件组成",
+          "slug": "插件组成"
+        },
+        {
+          "level": 2,
+          "title": "编写一个插件",
+          "slug": "编写一个插件"
+        },
+        {
+          "level": 3,
+          "title": "创建一个模块",
+          "slug": "创建一个模块"
+        },
+        {
+          "level": 3,
+          "title": "添加 zip.xml",
+          "slug": "添加-zip-xml"
+        },
+        {
+          "level": 3,
+          "title": "更新 pom.xml",
+          "slug": "更新-pom-xml"
+        },
+        {
+          "level": 3,
+          "title": "实现插件",
+          "slug": "实现插件"
+        },
+        {
+          "level": 3,
+          "title": "编译",
+          "slug": "编译"
+        },
+        {
+          "level": 3,
+          "title": "另一种开发方式",
+          "slug": "另一种开发方式"
+        },
+        {
+          "level": 2,
+          "title": "部署",
+          "slug": "部署"
+        },
+        {
+          "level": 2,
+          "title": "安装和卸载插件",
+          "slug": "安装和卸载插件"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "User Define Function",
@@ -11217,105 +11676,56 @@ export const siteData = {
           "slug": "删除udf函数"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "Doris On ES",
+      "title": "高级使用指南",
       "frontmatter": {
-        "title": "Doris On ES",
+        "title": "高级使用指南",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/extending-doris/doris-on-es.html",
-      "relativePath": "zh-CN/extending-doris/doris-on-es.md",
-      "key": "v-72617ebb",
-      "path": "/zh-CN/extending-doris/doris-on-es.html",
+      "regularPath": "/zh-CN/getting-started/advance-usage.html",
+      "relativePath": "zh-CN/getting-started/advance-usage.md",
+      "key": "v-35bc770a",
+      "path": "/zh-CN/getting-started/advance-usage.html",
       "headers": [
         {
           "level": 2,
-          "title": "名词解释",
-          "slug": "名词解释"
+          "title": "1 表结构变更",
+          "slug": "_1-表结构变更"
         },
         {
           "level": 2,
-          "title": "如何使用",
-          "slug": "如何使用"
+          "title": "2 Rollup",
+          "slug": "_2-rollup"
+        },
+        {
+          "level": 2,
+          "title": "2 数据表的查询",
+          "slug": "_2-数据表的查询"
         },
         {
           "level": 3,
-          "title": "创建外表",
-          "slug": "创建外表"
+          "title": "2.1 内存限制",
+          "slug": "_2-1-内存限制"
         },
         {
           "level": 3,
-          "title": "查询",
-          "slug": "查询"
+          "title": "2.2 查询超时",
+          "slug": "_2-2-查询超时"
         },
         {
-          "level": 2,
-          "title": "原理",
-          "slug": "原理"
+          "level": 3,
+          "title": "2.3 Broadcast/Shuffle Join",
+          "slug": "_2-3-broadcast-shuffle-join"
         },
         {
-          "level": 2,
-          "title": "Push-Down operations",
-          "slug": "push-down-operations"
-        },
-        {
-          "level": 2,
-          "title": "其他说明",
-          "slug": "其他说明"
+          "level": 3,
+          "title": "2.4 查询重试和高可用",
+          "slug": "_2-4-查询重试和高可用"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "最佳实践",
-      "frontmatter": {
-        "title": "最佳实践",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/getting-started/best-practice.html",
-      "relativePath": "zh-CN/getting-started/best-practice.md",
-      "key": "v-4e57a78a",
-      "path": "/zh-CN/getting-started/best-practice.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1 建表",
-          "slug": "_1-建表"
-        },
-        {
-          "level": 3,
-          "title": "1.1 数据模型选择",
-          "slug": "_1-1-数据模型选择"
-        },
-        {
-          "level": 3,
-          "title": "1.2 大宽表与 Star Schema",
-          "slug": "_1-2-大宽表与-star-schema"
-        },
-        {
-          "level": 3,
-          "title": "1.3 分区和分桶",
-          "slug": "_1-3-分区和分桶"
-        },
-        {
-          "level": 3,
-          "title": "1.4 稀疏索引和 Bloom Filter",
-          "slug": "_1-4-稀疏索引和-bloom-filter"
-        },
-        {
-          "level": 3,
-          "title": "1.5 物化视图(rollup)",
-          "slug": "_1-5-物化视图-rollup"
-        },
-        {
-          "level": 2,
-          "title": "2 Schema Change",
-          "slug": "_2-schema-change"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "基础使用指南",
@@ -11389,7 +11799,56 @@ export const siteData = {
           "slug": "_3-4-子查询"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "最佳实践",
+      "frontmatter": {
+        "title": "最佳实践",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/getting-started/best-practice.html",
+      "relativePath": "zh-CN/getting-started/best-practice.md",
+      "key": "v-4e57a78a",
+      "path": "/zh-CN/getting-started/best-practice.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1 建表",
+          "slug": "_1-建表"
+        },
+        {
+          "level": 3,
+          "title": "1.1 数据模型选择",
+          "slug": "_1-1-数据模型选择"
+        },
+        {
+          "level": 3,
+          "title": "1.2 大宽表与 Star Schema",
+          "slug": "_1-2-大宽表与-star-schema"
+        },
+        {
+          "level": 3,
+          "title": "1.3 分区和分桶",
+          "slug": "_1-3-分区和分桶"
+        },
+        {
+          "level": 3,
+          "title": "1.4 稀疏索引和 Bloom Filter",
+          "slug": "_1-4-稀疏索引和-bloom-filter"
+        },
+        {
+          "level": 3,
+          "title": "1.5 物化视图(rollup)",
+          "slug": "_1-5-物化视图-rollup"
+        },
+        {
+          "level": 2,
+          "title": "2 Schema Change",
+          "slug": "_2-schema-change"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "数据模型、ROLLUP 及前缀索引",
@@ -11473,7 +11932,7 @@ export const siteData = {
           "slug": "数据模型的选择建议"
         }
       ],
-      "lastUpdated": "2020-3-16 10:31:47"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "数据划分",
@@ -11542,56 +12001,7 @@ export const siteData = {
           "slug": "建表操作常见问题"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "高级使用指南",
-      "frontmatter": {
-        "title": "高级使用指南",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/getting-started/advance-usage.html",
-      "relativePath": "zh-CN/getting-started/advance-usage.md",
-      "key": "v-35bc770a",
-      "path": "/zh-CN/getting-started/advance-usage.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "1 表结构变更",
-          "slug": "_1-表结构变更"
-        },
-        {
-          "level": 2,
-          "title": "2 Rollup",
-          "slug": "_2-rollup"
-        },
-        {
-          "level": 2,
-          "title": "2 数据表的查询",
-          "slug": "_2-数据表的查询"
-        },
-        {
-          "level": 3,
-          "title": "2.1 内存限制",
-          "slug": "_2-1-内存限制"
-        },
-        {
-          "level": 3,
-          "title": "2.2 查询超时",
-          "slug": "_2-2-查询超时"
-        },
-        {
-          "level": 3,
-          "title": "2.3 Broadcast/Shuffle Join",
-          "slug": "_2-3-broadcast-shuffle-join"
-        },
-        {
-          "level": 3,
-          "title": "2.4 查询重试和高可用",
-          "slug": "_2-4-查询重试和高可用"
-        }
-      ],
-      "lastUpdated": "2020-3-16 10:31:47"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "Rollup 与查询",
@@ -11620,41 +12030,41 @@ export const siteData = {
           "slug": "聚合数据"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "编译",
+      "title": "集群升级",
       "frontmatter": {
-        "title": "编译",
+        "title": "集群升级",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/installing/compilation.html",
-      "relativePath": "zh-CN/installing/compilation.md",
-      "key": "v-84856ab2",
-      "path": "/zh-CN/installing/compilation.html",
+      "regularPath": "/zh-CN/installing/upgrade.html",
+      "relativePath": "zh-CN/installing/upgrade.md",
+      "key": "v-1a46b6b5",
+      "path": "/zh-CN/installing/upgrade.html",
       "headers": [
         {
           "level": 2,
-          "title": "使用 Docker 开发镜像编译（推荐）",
-          "slug": "使用-docker-开发镜像编译（推荐）"
-        },
-        {
-          "level": 3,
-          "title": "使用现成的镜像",
-          "slug": "使用现成的镜像"
-        },
-        {
-          "level": 3,
-          "title": "自行编译开发环境镜像",
-          "slug": "自行编译开发环境镜像"
+          "title": "测试 BE 升级正确性",
+          "slug": "测试-be-升级正确性"
         },
         {
           "level": 2,
-          "title": "直接编译（CentOS/Ubuntu）",
-          "slug": "直接编译（centos-ubuntu）"
+          "title": "测试 FE 元数据兼容性",
+          "slug": "测试-fe-元数据兼容性"
+        },
+        {
+          "level": 2,
+          "title": "升级准备",
+          "slug": "升级准备"
+        },
+        {
+          "level": 2,
+          "title": "滚动升级",
+          "slug": "滚动升级"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "安装与部署",
@@ -11718,41 +12128,41 @@ export const siteData = {
           "slug": "进程相关"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "集群升级",
+      "title": "编译",
       "frontmatter": {
-        "title": "集群升级",
+        "title": "编译",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/installing/upgrade.html",
-      "relativePath": "zh-CN/installing/upgrade.md",
-      "key": "v-1a46b6b5",
-      "path": "/zh-CN/installing/upgrade.html",
+      "regularPath": "/zh-CN/installing/compilation.html",
+      "relativePath": "zh-CN/installing/compilation.md",
+      "key": "v-84856ab2",
+      "path": "/zh-CN/installing/compilation.html",
       "headers": [
         {
           "level": 2,
-          "title": "测试 BE 升级正确性",
-          "slug": "测试-be-升级正确性"
+          "title": "使用 Docker 开发镜像编译（推荐）",
+          "slug": "使用-docker-开发镜像编译（推荐）"
+        },
+        {
+          "level": 3,
+          "title": "使用现成的镜像",
+          "slug": "使用现成的镜像"
+        },
+        {
+          "level": 3,
+          "title": "自行编译开发环境镜像",
+          "slug": "自行编译开发环境镜像"
         },
         {
           "level": 2,
-          "title": "测试 FE 元数据兼容性",
-          "slug": "测试-fe-元数据兼容性"
-        },
-        {
-          "level": 2,
-          "title": "升级准备",
-          "slug": "升级准备"
-        },
-        {
-          "level": 2,
-          "title": "滚动升级",
-          "slug": "滚动升级"
+          "title": "直接编译（CentOS/Ubuntu）",
+          "slug": "直接编译（centos-ubuntu）"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "Doris存储文件格式优化",
@@ -11831,7 +12241,61 @@ export const siteData = {
           "slug": "todo"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "元数据设计文档",
+      "frontmatter": {
+        "title": "元数据设计文档",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/internal/metadata-design.html",
+      "relativePath": "zh-CN/internal/metadata-design.md",
+      "key": "v-f304666e",
+      "path": "/zh-CN/internal/metadata-design.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "名词解释",
+          "slug": "名词解释"
+        },
+        {
+          "level": 2,
+          "title": "整体架构",
+          "slug": "整体架构"
+        },
+        {
+          "level": 2,
+          "title": "元数据结构",
+          "slug": "元数据结构"
+        },
+        {
+          "level": 2,
+          "title": "数据流",
+          "slug": "数据流"
+        },
+        {
+          "level": 2,
+          "title": "实现细节",
+          "slug": "实现细节"
+        },
+        {
+          "level": 3,
+          "title": "元数据目录",
+          "slug": "元数据目录"
+        },
+        {
+          "level": 3,
+          "title": "启动流程",
+          "slug": "启动流程"
+        },
+        {
+          "level": 3,
+          "title": "宕机恢复",
+          "slug": "宕机恢复"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "GROUPING SETS 设计文档",
@@ -11920,61 +12384,36 @@ export const siteData = {
           "slug": "_3-4-be-查询执行阶段"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "元数据设计文档",
+      "title": "AVG",
       "frontmatter": {
-        "title": "元数据设计文档",
+        "title": "AVG",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/internal/metadata-design.html",
-      "relativePath": "zh-CN/internal/metadata-design.md",
-      "key": "v-f304666e",
-      "path": "/zh-CN/internal/metadata-design.html",
+      "regularPath": "/zh-CN/sql-reference/sql-functions/aggregate-functions/avg.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/aggregate-functions/avg.md",
+      "key": "v-23edbb9b",
+      "path": "/zh-CN/sql-reference/sql-functions/aggregate-functions/avg.html",
       "headers": [
         {
           "level": 2,
-          "title": "名词解释",
-          "slug": "名词解释"
-        },
-        {
-          "level": 2,
-          "title": "整体架构",
-          "slug": "整体架构"
-        },
-        {
-          "level": 2,
-          "title": "元数据结构",
-          "slug": "元数据结构"
-        },
-        {
-          "level": 2,
-          "title": "数据流",
-          "slug": "数据流"
-        },
-        {
-          "level": 2,
-          "title": "实现细节",
-          "slug": "实现细节"
+          "title": "description",
+          "slug": "description"
         },
         {
           "level": 3,
-          "title": "元数据目录",
-          "slug": "元数据目录"
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
-          "level": 3,
-          "title": "启动流程",
-          "slug": "启动流程"
-        },
-        {
-          "level": 3,
-          "title": "宕机恢复",
-          "slug": "宕机恢复"
+          "level": 2,
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "Doris支持spark导入设计文档",
@@ -12018,41 +12457,7 @@ export const siteData = {
           "slug": "总结"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "AVG",
-      "frontmatter": {
-        "title": "AVG",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/aggregate-functions/avg.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/aggregate-functions/avg.md",
-      "key": "v-23edbb9b",
-      "path": "/zh-CN/sql-reference/sql-functions/aggregate-functions/avg.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "BITMAP",
@@ -12106,7 +12511,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "COUNT",
@@ -12133,14 +12538,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "HLLUNIONAGG",
@@ -12167,14 +12567,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "MAX",
@@ -12201,14 +12596,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "MIN",
@@ -12235,14 +12625,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "NDV",
@@ -12269,77 +12654,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "STDDEV,STDDEV_POP",
-      "frontmatter": {
-        "title": "STDDEV,STDDEV_POP",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/aggregate-functions/stddev.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/aggregate-functions/stddev.md",
-      "key": "v-4b7b7889",
-      "path": "/zh-CN/sql-reference/sql-functions/aggregate-functions/stddev.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "PERCENTILE_APPROX",
-      "frontmatter": {
-        "title": "PERCENTILE_APPROX",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/aggregate-functions/percentile_approx.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/aggregate-functions/percentile_approx.md",
-      "key": "v-4b99b79b",
-      "path": "/zh-CN/sql-reference/sql-functions/aggregate-functions/percentile_approx.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "STDDEV_SAMP",
@@ -12366,59 +12683,20 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "SUM",
+      "title": "STDDEV,STDDEV_POP",
       "frontmatter": {
-        "title": "SUM",
+        "title": "STDDEV,STDDEV_POP",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/aggregate-functions/sum.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/aggregate-functions/sum.md",
-      "key": "v-6e1e860a",
-      "path": "/zh-CN/sql-reference/sql-functions/aggregate-functions/sum.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "VARIANCE,VARPOP,VARIANCEPOP",
-      "frontmatter": {
-        "title": "VARIANCE,VAR_POP,VARIANCE_POP",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/aggregate-functions/variance.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/aggregate-functions/variance.md",
-      "key": "v-1d7f910b",
-      "path": "/zh-CN/sql-reference/sql-functions/aggregate-functions/variance.html",
+      "regularPath": "/zh-CN/sql-reference/sql-functions/aggregate-functions/stddev.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/aggregate-functions/stddev.md",
+      "key": "v-4b7b7889",
+      "path": "/zh-CN/sql-reference/sql-functions/aggregate-functions/stddev.html",
       "headers": [
         {
           "level": 2,
@@ -12436,41 +12714,7 @@ export const siteData = {
           "slug": "example"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "bitmap_and",
-      "frontmatter": {
-        "title": "bitmap_and",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_and.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_and.md",
-      "key": "v-1bed6efb",
-      "path": "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_and.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "VARSAMP,VARIANCESAMP",
@@ -12499,18 +12743,18 @@ export const siteData = {
           "slug": "example"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "bitmap_empty",
+      "title": "PERCENTILE_APPROX",
       "frontmatter": {
-        "title": "bitmap_empty",
+        "title": "PERCENTILE_APPROX",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_empty.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_empty.md",
-      "key": "v-20ef868a",
-      "path": "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_empty.html",
+      "regularPath": "/zh-CN/sql-reference/sql-functions/aggregate-functions/percentile_approx.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/aggregate-functions/percentile_approx.md",
+      "key": "v-4b99b79b",
+      "path": "/zh-CN/sql-reference/sql-functions/aggregate-functions/percentile_approx.html",
       "headers": [
         {
           "level": 2,
@@ -12526,14 +12770,67 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "SUM",
+      "frontmatter": {
+        "title": "SUM",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/aggregate-functions/sum.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/aggregate-functions/sum.md",
+      "key": "v-6e1e860a",
+      "path": "/zh-CN/sql-reference/sql-functions/aggregate-functions/sum.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "VARIANCE,VARPOP,VARIANCEPOP",
+      "frontmatter": {
+        "title": "VARIANCE,VAR_POP,VARIANCE_POP",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/aggregate-functions/variance.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/aggregate-functions/variance.md",
+      "key": "v-1d7f910b",
+      "path": "/zh-CN/sql-reference/sql-functions/aggregate-functions/variance.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "bitmap_contains",
@@ -12567,7 +12864,41 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "bitmap_and",
+      "frontmatter": {
+        "title": "bitmap_and",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_and.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_and.md",
+      "key": "v-1bed6efb",
+      "path": "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_and.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "bitmapfromstring",
@@ -12601,18 +12932,18 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "bitmap_hash",
+      "title": "bitmap_empty",
       "frontmatter": {
-        "title": "bitmap_hash",
+        "title": "bitmap_empty",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_hash.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_hash.md",
-      "key": "v-5c8f244e",
-      "path": "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_hash.html",
+      "regularPath": "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_empty.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_empty.md",
+      "key": "v-20ef868a",
+      "path": "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_empty.html",
       "headers": [
         {
           "level": 2,
@@ -12635,7 +12966,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "bitmaphasany",
@@ -12669,18 +13000,18 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "bitmap_or",
+      "title": "bitmap_hash",
       "frontmatter": {
-        "title": "bitmap_or",
+        "title": "bitmap_hash",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_or.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_or.md",
-      "key": "v-8ac894a2",
-      "path": "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_or.html",
+      "regularPath": "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_hash.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_hash.md",
+      "key": "v-5c8f244e",
+      "path": "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_hash.html",
       "headers": [
         {
           "level": 2,
@@ -12703,7 +13034,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "bitmaptostring",
@@ -12737,7 +13068,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "to_bitmap",
@@ -12771,7 +13102,41 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "convert_tz",
+      "frontmatter": {
+        "title": "convert_tz",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/date-time-functions/convert_tz.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/date-time-functions/convert_tz.md",
+      "key": "v-4cee8ba3",
+      "path": "/zh-CN/sql-reference/sql-functions/date-time-functions/convert_tz.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "Description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "Examples",
+          "slug": "examples"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "CAST",
@@ -12808,48 +13173,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "convert_tz",
-      "frontmatter": {
-        "title": "convert_tz",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/date-time-functions/convert_tz.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/date-time-functions/convert_tz.md",
-      "key": "v-4cee8ba3",
-      "path": "/zh-CN/sql-reference/sql-functions/date-time-functions/convert_tz.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "Description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "Examples",
-          "slug": "examples"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 10:31:47"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "curdate",
@@ -12876,6 +13202,35 @@ export const siteData = {
           "level": 2,
           "title": "Examples",
           "slug": "examples"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "bitmap_or",
+      "frontmatter": {
+        "title": "bitmap_or",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_or.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_or.md",
+      "key": "v-8ac894a2",
+      "path": "/zh-CN/sql-reference/sql-functions/bitmap-functions/bitmap_or.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
         },
         {
           "level": 2,
@@ -12883,7 +13238,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "current_timestamp",
@@ -12917,7 +13272,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "curtime,current_time",
@@ -12951,7 +13306,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 10:31:47"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "date_add",
@@ -12985,7 +13340,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "date_format",
@@ -13019,41 +13374,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "date_sub",
-      "frontmatter": {
-        "title": "date_sub",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/date-time-functions/date_sub.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/date-time-functions/date_sub.md",
-      "key": "v-35b318e9",
-      "path": "/zh-CN/sql-reference/sql-functions/date-time-functions/date_sub.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "datediff",
@@ -13080,14 +13401,38 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "date_sub",
+      "frontmatter": {
+        "title": "date_sub",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/date-time-functions/date_sub.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/date-time-functions/date_sub.md",
+      "key": "v-35b318e9",
+      "path": "/zh-CN/sql-reference/sql-functions/date-time-functions/date_sub.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "day",
@@ -13114,14 +13459,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "dayname",
@@ -13148,14 +13488,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "dayofmonth",
@@ -13182,14 +13517,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "dayofweek",
@@ -13216,48 +13546,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "dayofyear",
-      "frontmatter": {
-        "title": "dayofyear",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/date-time-functions/dayofyear.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/date-time-functions/dayofyear.md",
-      "key": "v-f3cf178a",
-      "path": "/zh-CN/sql-reference/sql-functions/date-time-functions/dayofyear.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "from_days",
@@ -13284,25 +13575,20 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "hour",
+      "title": "dayofyear",
       "frontmatter": {
-        "title": "hour",
+        "title": "dayofyear",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/date-time-functions/hour.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/date-time-functions/hour.md",
-      "key": "v-2339c402",
-      "path": "/zh-CN/sql-reference/sql-functions/date-time-functions/hour.html",
+      "regularPath": "/zh-CN/sql-reference/sql-functions/date-time-functions/dayofyear.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/date-time-functions/dayofyear.md",
+      "key": "v-f3cf178a",
+      "path": "/zh-CN/sql-reference/sql-functions/date-time-functions/dayofyear.html",
       "headers": [
         {
           "level": 2,
@@ -13318,14 +13604,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "from_unixtime",
@@ -13352,14 +13633,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "minute",
@@ -13386,14 +13662,38 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "hour",
+      "frontmatter": {
+        "title": "hour",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/date-time-functions/hour.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/date-time-functions/hour.md",
+      "key": "v-2339c402",
+      "path": "/zh-CN/sql-reference/sql-functions/date-time-functions/hour.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "month",
@@ -13420,82 +13720,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "now",
-      "frontmatter": {
-        "title": "now",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/date-time-functions/now.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/date-time-functions/now.md",
-      "key": "v-07ccb5fb",
-      "path": "/zh-CN/sql-reference/sql-functions/date-time-functions/now.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "second",
-      "frontmatter": {
-        "title": "second",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/date-time-functions/second.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/date-time-functions/second.md",
-      "key": "v-26e7485f",
-      "path": "/zh-CN/sql-reference/sql-functions/date-time-functions/second.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "monthname",
@@ -13522,14 +13749,67 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "second",
+      "frontmatter": {
+        "title": "second",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/date-time-functions/second.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/date-time-functions/second.md",
+      "key": "v-26e7485f",
+      "path": "/zh-CN/sql-reference/sql-functions/date-time-functions/second.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "now",
+      "frontmatter": {
+        "title": "now",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/date-time-functions/now.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/date-time-functions/now.md",
+      "key": "v-07ccb5fb",
+      "path": "/zh-CN/sql-reference/sql-functions/date-time-functions/now.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "strtodate",
@@ -13556,48 +13836,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "timediff",
-      "frontmatter": {
-        "title": "timediff",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/date-time-functions/timediff.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/date-time-functions/timediff.md",
-      "key": "v-c90e85ba",
-      "path": "/zh-CN/sql-reference/sql-functions/date-time-functions/timediff.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "timestampadd",
@@ -13624,14 +13865,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "timestampdiff",
@@ -13658,14 +13894,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "to_days",
@@ -13692,14 +13923,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "unix_timestamp",
@@ -13726,14 +13952,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "utc_timestamp",
@@ -13760,14 +13981,38 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "timediff",
+      "frontmatter": {
+        "title": "timediff",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/date-time-functions/timediff.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/date-time-functions/timediff.md",
+      "key": "v-c90e85ba",
+      "path": "/zh-CN/sql-reference/sql-functions/date-time-functions/timediff.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "weekofyear",
@@ -13794,14 +14039,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "year",
@@ -13828,14 +14068,38 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "ST_Circle",
+      "frontmatter": {
+        "title": "`ST_Circle`",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/spatial-functions/st_circle.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/spatial-functions/st_circle.md",
+      "key": "v-bf04280a",
+      "path": "/zh-CN/sql-reference/sql-functions/spatial-functions/st_circle.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "murmurhash332",
@@ -13869,7 +14133,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "ST_AsText,ST_AsWKT",
@@ -13896,48 +14160,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "ST_Circle",
-      "frontmatter": {
-        "title": "`ST_Circle`",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/spatial-functions/st_circle.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/spatial-functions/st_circle.md",
-      "key": "v-bf04280a",
-      "path": "/zh-CN/sql-reference/sql-functions/spatial-functions/st_circle.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "ST_Contains",
@@ -13964,82 +14189,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "ST_Distance_Sphere",
-      "frontmatter": {
-        "title": "`ST_Distance_Sphere`",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/spatial-functions/st_distance_sphere.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/spatial-functions/st_distance_sphere.md",
-      "key": "v-5d740bc5",
-      "path": "/zh-CN/sql-reference/sql-functions/spatial-functions/st_distance_sphere.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "ST_GeometryFromText,ST_GeomFromText",
-      "frontmatter": {
-        "title": "`ST_GeometryFromText`,`ST_GeomFromText`",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/spatial-functions/st_geometryfromtext.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/spatial-functions/st_geometryfromtext.md",
-      "key": "v-27bb219b",
-      "path": "/zh-CN/sql-reference/sql-functions/spatial-functions/st_geometryfromtext.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "ST_LineFromText,ST_LineStringFromText",
@@ -14066,14 +14218,38 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "ST_GeometryFromText,ST_GeomFromText",
+      "frontmatter": {
+        "title": "`ST_GeometryFromText`,`ST_GeomFromText`",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/spatial-functions/st_geometryfromtext.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/spatial-functions/st_geometryfromtext.md",
+      "key": "v-27bb219b",
+      "path": "/zh-CN/sql-reference/sql-functions/spatial-functions/st_geometryfromtext.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "ST_Point",
@@ -14100,14 +14276,38 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "ST_Distance_Sphere",
+      "frontmatter": {
+        "title": "`ST_Distance_Sphere`",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/spatial-functions/st_distance_sphere.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/spatial-functions/st_distance_sphere.md",
+      "key": "v-5d740bc5",
+      "path": "/zh-CN/sql-reference/sql-functions/spatial-functions/st_distance_sphere.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "ST_Polygon,ST_PolyFromText,ST_PolygonFromText",
@@ -14134,48 +14334,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "ST_X",
-      "frontmatter": {
-        "title": "`ST_X`",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/spatial-functions/st_x.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/spatial-functions/st_x.md",
-      "key": "v-ffe6fffa",
-      "path": "/zh-CN/sql-reference/sql-functions/spatial-functions/st_x.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "ST_Y",
@@ -14202,14 +14363,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "ascii",
@@ -14236,14 +14392,38 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "ST_X",
+      "frontmatter": {
+        "title": "`ST_X`",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/spatial-functions/st_x.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/spatial-functions/st_x.md",
+      "key": "v-ffe6fffa",
+      "path": "/zh-CN/sql-reference/sql-functions/spatial-functions/st_x.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "concat",
@@ -14270,48 +14450,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "concat_ws",
-      "frontmatter": {
-        "title": "concat_ws",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/string-functions/concat_ws.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/string-functions/concat_ws.md",
-      "key": "v-417bd383",
-      "path": "/zh-CN/sql-reference/sql-functions/string-functions/concat_ws.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "ends_with",
@@ -14338,48 +14479,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "findinset",
-      "frontmatter": {
-        "title": "find_in_set",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/string-functions/find_in_set.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/string-functions/find_in_set.md",
-      "key": "v-72838335",
-      "path": "/zh-CN/sql-reference/sql-functions/string-functions/find_in_set.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "getjsondouble",
@@ -14406,14 +14508,38 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "concat_ws",
+      "frontmatter": {
+        "title": "concat_ws",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/string-functions/concat_ws.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/string-functions/concat_ws.md",
+      "key": "v-417bd383",
+      "path": "/zh-CN/sql-reference/sql-functions/string-functions/concat_ws.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "getjsonint",
@@ -14440,48 +14566,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "getjsonstring",
-      "frontmatter": {
-        "title": "get_json_string",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/string-functions/get_json_string.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/string-functions/get_json_string.md",
-      "key": "v-7874bd13",
-      "path": "/zh-CN/sql-reference/sql-functions/string-functions/get_json_string.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "group_concat",
@@ -14508,14 +14595,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "instr",
@@ -14542,14 +14624,67 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "findinset",
+      "frontmatter": {
+        "title": "find_in_set",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/string-functions/find_in_set.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/string-functions/find_in_set.md",
+      "key": "v-72838335",
+      "path": "/zh-CN/sql-reference/sql-functions/string-functions/find_in_set.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "getjsonstring",
+      "frontmatter": {
+        "title": "get_json_string",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/string-functions/get_json_string.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/string-functions/get_json_string.md",
+      "key": "v-7874bd13",
+      "path": "/zh-CN/sql-reference/sql-functions/string-functions/get_json_string.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "lcase",
@@ -14571,14 +14706,9 @@ export const siteData = {
           "level": 3,
           "title": "Syntax",
           "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "left",
@@ -14605,14 +14735,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "length",
@@ -14639,14 +14764,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "locate",
@@ -14673,14 +14793,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "lower",
@@ -14707,14 +14822,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "lpad",
@@ -14741,82 +14851,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "ltrim",
-      "frontmatter": {
-        "title": "ltrim",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/string-functions/ltrim.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/string-functions/ltrim.md",
-      "key": "v-73784b16",
-      "path": "/zh-CN/sql-reference/sql-functions/string-functions/ltrim.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "money_format",
-      "frontmatter": {
-        "title": "money_format",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/string-functions/money_format.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/string-functions/money_format.md",
-      "key": "v-2d75a01b",
-      "path": "/zh-CN/sql-reference/sql-functions/string-functions/money_format.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "nullorempty",
@@ -14843,48 +14880,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "regexp_extract",
-      "frontmatter": {
-        "title": "regexp_extract",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/string-functions/regexp_extract.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/string-functions/regexp_extract.md",
-      "key": "v-0e8f1dbb",
-      "path": "/zh-CN/sql-reference/sql-functions/string-functions/regexp_extract.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "regexp_replace",
@@ -14911,14 +14909,67 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "money_format",
+      "frontmatter": {
+        "title": "money_format",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/string-functions/money_format.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/string-functions/money_format.md",
+      "key": "v-2d75a01b",
+      "path": "/zh-CN/sql-reference/sql-functions/string-functions/money_format.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "regexp_extract",
+      "frontmatter": {
+        "title": "regexp_extract",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/string-functions/regexp_extract.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/string-functions/regexp_extract.md",
+      "key": "v-0e8f1dbb",
+      "path": "/zh-CN/sql-reference/sql-functions/string-functions/regexp_extract.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "repeat",
@@ -14945,14 +14996,38 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "ltrim",
+      "frontmatter": {
+        "title": "ltrim",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/string-functions/ltrim.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/string-functions/ltrim.md",
+      "key": "v-73784b16",
+      "path": "/zh-CN/sql-reference/sql-functions/string-functions/ltrim.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
         },
         {
           "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
+          "title": "example",
+          "slug": "example"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "right",
@@ -14979,14 +15054,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "split_part",
@@ -15013,14 +15083,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "starts_with",
@@ -15047,82 +15112,9 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "strleft",
-      "frontmatter": {
-        "title": "strleft",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/string-functions/strleft.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/string-functions/strleft.md",
-      "key": "v-16d80461",
-      "path": "/zh-CN/sql-reference/sql-functions/string-functions/strleft.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "strright",
-      "frontmatter": {
-        "title": "strright",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-functions/string-functions/strright.html",
-      "relativePath": "zh-CN/sql-reference/sql-functions/string-functions/strright.md",
-      "key": "v-6e6ab93b",
-      "path": "/zh-CN/sql-reference/sql-functions/string-functions/strright.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "CREATE ROLE",
@@ -15151,7 +15143,36 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "strleft",
+      "frontmatter": {
+        "title": "strleft",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/string-functions/strleft.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/string-functions/strleft.md",
+      "key": "v-16d80461",
+      "path": "/zh-CN/sql-reference/sql-functions/string-functions/strleft.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "CREATE USER",
@@ -15180,7 +15201,36 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "strright",
+      "frontmatter": {
+        "title": "strright",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-functions/string-functions/strright.html",
+      "relativePath": "zh-CN/sql-reference/sql-functions/string-functions/strright.md",
+      "key": "v-6e6ab93b",
+      "path": "/zh-CN/sql-reference/sql-functions/string-functions/strright.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "DROP ROLE",
@@ -15209,7 +15259,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "DROP USER",
@@ -15238,36 +15288,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "GRANT",
-      "frontmatter": {
-        "title": "GRANT",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Account%20Management/GRANT.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Account Management/GRANT.md",
-      "key": "v-0509bc78",
-      "path": "/zh-CN/sql-reference/sql-statements/Account%20Management/GRANT.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "REVOKE",
@@ -15296,7 +15317,36 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "GRANT",
+      "frontmatter": {
+        "title": "GRANT",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Account%20Management/GRANT.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Account Management/GRANT.md",
+      "key": "v-0509bc78",
+      "path": "/zh-CN/sql-reference/sql-statements/Account%20Management/GRANT.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SET PASSWORD",
@@ -15325,65 +15375,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "SET PROPERTY",
-      "frontmatter": {
-        "title": "SET PROPERTY",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Account%20Management/SET%20PROPERTY.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Account Management/SET PROPERTY.md",
-      "key": "v-1811c837",
-      "path": "/zh-CN/sql-reference/sql-statements/Account%20Management/SET%20PROPERTY.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "SHOW GRANTS",
-      "frontmatter": {
-        "title": "SHOW GRANTS",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Account%20Management/SHOW%20GRANTS.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Account Management/SHOW GRANTS.md",
-      "key": "v-2e1d9555",
-      "path": "/zh-CN/sql-reference/sql-statements/Account%20Management/SHOW%20GRANTS.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW ROLES",
@@ -15412,18 +15404,18 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "ADMIN CANCEL REPAIR",
+      "title": "SET PROPERTY",
       "frontmatter": {
-        "title": "ADMIN CANCEL REPAIR",
+        "title": "SET PROPERTY",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20CANCEL%20REPAIR.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/ADMIN CANCEL REPAIR.md",
-      "key": "v-049740bb",
-      "path": "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20CANCEL%20REPAIR.html",
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Account%20Management/SET%20PROPERTY.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Account Management/SET PROPERTY.md",
+      "key": "v-1811c837",
+      "path": "/zh-CN/sql-reference/sql-statements/Account%20Management/SET%20PROPERTY.html",
       "headers": [
         {
           "level": 2,
@@ -15441,18 +15433,18 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "ADMIN CHECK TABLET",
+      "title": "SHOW GRANTS",
       "frontmatter": {
-        "title": "ADMIN CHECK TABLET",
+        "title": "SHOW GRANTS",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20CHECK%20TABLET.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/ADMIN CHECK TABLET.md",
-      "key": "v-5f7d0b29",
-      "path": "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20CHECK%20TABLET.html",
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Account%20Management/SHOW%20GRANTS.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Account Management/SHOW GRANTS.md",
+      "key": "v-2e1d9555",
+      "path": "/zh-CN/sql-reference/sql-statements/Account%20Management/SHOW%20GRANTS.html",
       "headers": [
         {
           "level": 2,
@@ -15470,36 +15462,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "ADMIN SET CONFIG",
-      "frontmatter": {
-        "title": "ADMIN SET CONFIG",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SET%20CONFIG.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/ADMIN SET CONFIG.md",
-      "key": "v-91d42036",
-      "path": "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SET%20CONFIG.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "ADMIN REPAIR",
@@ -15528,7 +15491,36 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "ADMIN CANCEL REPAIR",
+      "frontmatter": {
+        "title": "ADMIN CANCEL REPAIR",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20CANCEL%20REPAIR.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/ADMIN CANCEL REPAIR.md",
+      "key": "v-049740bb",
+      "path": "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20CANCEL%20REPAIR.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "ADMIN SHOW CONFIG",
@@ -15557,18 +15549,18 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "ADMIN SHOW REPLICA DISTRIBUTION",
+      "title": "ADMIN SET CONFIG",
       "frontmatter": {
-        "title": "ADMIN SHOW REPLICA DISTRIBUTION",
+        "title": "ADMIN SET CONFIG",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SHOW%20REPLICA%20DISTRIBUTION.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/ADMIN SHOW REPLICA DISTRIBUTION.md",
-      "key": "v-3aa59698",
-      "path": "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SHOW%20REPLICA%20DISTRIBUTION.html",
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SET%20CONFIG.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/ADMIN SET CONFIG.md",
+      "key": "v-91d42036",
+      "path": "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SET%20CONFIG.html",
       "headers": [
         {
           "level": 2,
@@ -15586,94 +15578,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "ALTER CLUSTER",
-      "frontmatter": {
-        "title": "ALTER CLUSTER",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/ALTER%20CLUSTER.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/ALTER CLUSTER.md",
-      "key": "v-098f5c9e",
-      "path": "/zh-CN/sql-reference/sql-statements/Administration/ALTER%20CLUSTER.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "ALTER SYSTEM",
-      "frontmatter": {
-        "title": "ALTER SYSTEM",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/ALTER%20SYSTEM.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/ALTER SYSTEM.md",
-      "key": "v-59122878",
-      "path": "/zh-CN/sql-reference/sql-statements/Administration/ALTER%20SYSTEM.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "CANCEL DECOMMISSION",
-      "frontmatter": {
-        "title": "CANCEL DECOMMISSION",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/CANCEL%20DECOMMISSION.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/CANCEL DECOMMISSION.md",
-      "key": "v-4bd63e10",
-      "path": "/zh-CN/sql-reference/sql-statements/Administration/CANCEL%20DECOMMISSION.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "ADMIN SHOW REPLICA STATUS",
@@ -15702,7 +15607,152 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "ADMIN SHOW REPLICA DISTRIBUTION",
+      "frontmatter": {
+        "title": "ADMIN SHOW REPLICA DISTRIBUTION",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SHOW%20REPLICA%20DISTRIBUTION.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/ADMIN SHOW REPLICA DISTRIBUTION.md",
+      "key": "v-3aa59698",
+      "path": "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SHOW%20REPLICA%20DISTRIBUTION.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "ADMIN CHECK TABLET",
+      "frontmatter": {
+        "title": "ADMIN CHECK TABLET",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20CHECK%20TABLET.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/ADMIN CHECK TABLET.md",
+      "key": "v-5f7d0b29",
+      "path": "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20CHECK%20TABLET.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 16:11:02"
+    },
+    {
+      "title": "ADMIN SET REPLICA STATUS",
+      "frontmatter": {
+        "title": "ADMIN SET REPLICA STATUS",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SET%20REPLICA%20STATUS.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/ADMIN SET REPLICA STATUS.md",
+      "key": "v-3d1d2b12",
+      "path": "/zh-CN/sql-reference/sql-statements/Administration/ADMIN%20SET%20REPLICA%20STATUS.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 16:11:02"
+    },
+    {
+      "title": "ALTER CLUSTER",
+      "frontmatter": {
+        "title": "ALTER CLUSTER",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/ALTER%20CLUSTER.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/ALTER CLUSTER.md",
+      "key": "v-098f5c9e",
+      "path": "/zh-CN/sql-reference/sql-statements/Administration/ALTER%20CLUSTER.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "ALTER SYSTEM",
+      "frontmatter": {
+        "title": "ALTER SYSTEM",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/ALTER%20SYSTEM.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/ALTER SYSTEM.md",
+      "key": "v-59122878",
+      "path": "/zh-CN/sql-reference/sql-statements/Administration/ALTER%20SYSTEM.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "CREATE CLUSTER",
@@ -15731,18 +15781,18 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "CREATE FILE",
+      "title": "CANCEL DECOMMISSION",
       "frontmatter": {
-        "title": "CREATE FILE",
+        "title": "CANCEL DECOMMISSION",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/CREATE%20FILE.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/CREATE FILE.md",
-      "key": "v-228fff38",
-      "path": "/zh-CN/sql-reference/sql-statements/Administration/CREATE%20FILE.html",
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/CANCEL%20DECOMMISSION.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/CANCEL DECOMMISSION.md",
+      "key": "v-4bd63e10",
+      "path": "/zh-CN/sql-reference/sql-statements/Administration/CANCEL%20DECOMMISSION.html",
       "headers": [
         {
           "level": 2,
@@ -15760,7 +15810,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "DROP CLUSTER",
@@ -15789,7 +15839,36 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "CREATE FILE",
+      "frontmatter": {
+        "title": "CREATE FILE",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/CREATE%20FILE.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/CREATE FILE.md",
+      "key": "v-228fff38",
+      "path": "/zh-CN/sql-reference/sql-statements/Administration/CREATE%20FILE.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "DROP FILE",
@@ -15818,7 +15897,60 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "INSTALL PLUGIN",
+      "frontmatter": {
+        "title": "INSTALL PLUGIN",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/INSTALL%20PLUGIN.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/INSTALL PLUGIN.md",
+      "key": "v-98df480c",
+      "path": "/zh-CN/sql-reference/sql-statements/Administration/INSTALL%20PLUGIN.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "SHOW BACKENDS",
+      "frontmatter": {
+        "title": "SHOW BACKENDS",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20BACKENDS.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/SHOW BACKENDS.md",
+      "key": "v-b5c8d810",
+      "path": "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20BACKENDS.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "ENTER",
@@ -15847,7 +15979,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "LINK DATABASE",
@@ -15876,7 +16008,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "MIGRATE DATABASE",
@@ -15905,31 +16037,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "SHOW BACKENDS",
-      "frontmatter": {
-        "title": "SHOW BACKENDS",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20BACKENDS.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/SHOW BACKENDS.md",
-      "key": "v-b5c8d810",
-      "path": "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20BACKENDS.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW FILE",
@@ -15958,7 +16066,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW BROKER",
@@ -15982,31 +16090,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "SHOW FRONTENDS",
-      "frontmatter": {
-        "title": "SHOW FRONTENDS",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20FRONTENDS.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/SHOW FRONTENDS.md",
-      "key": "v-3c5a3958",
-      "path": "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20FRONTENDS.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW FULL COLUMNS",
@@ -16035,7 +16119,55 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "SHOW FRONTENDS",
+      "frontmatter": {
+        "title": "SHOW FRONTENDS",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20FRONTENDS.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/SHOW FRONTENDS.md",
+      "key": "v-3c5a3958",
+      "path": "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20FRONTENDS.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "SHOW MIGRATIONS",
+      "frontmatter": {
+        "title": "SHOW MIGRATIONS",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20MIGRATIONS.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/SHOW MIGRATIONS.md",
+      "key": "v-60f13bb8",
+      "path": "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20MIGRATIONS.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW INDEX",
@@ -16064,18 +16196,18 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 10:31:47"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "SHOW MIGRATIONS",
+      "title": "SHOW PLUGINS",
       "frontmatter": {
-        "title": "SHOW MIGRATIONS",
+        "title": "SHOW PLUGINS",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20MIGRATIONS.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/SHOW MIGRATIONS.md",
-      "key": "v-60f13bb8",
-      "path": "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20MIGRATIONS.html",
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20PLUGINS.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/SHOW PLUGINS.md",
+      "key": "v-158fe3d4",
+      "path": "/zh-CN/sql-reference/sql-statements/Administration/SHOW%20PLUGINS.html",
       "headers": [
         {
           "level": 2,
@@ -16084,11 +16216,16 @@ export const siteData = {
         },
         {
           "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
           "title": "keyword",
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW TABLE STATUS",
@@ -16117,7 +16254,36 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "UNINTALL PLUGIN",
+      "frontmatter": {
+        "title": "UNINTALL PLUGIN",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Administration/UNINSTALL%20PLUGIN.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Administration/UNINSTALL PLUGIN.md",
+      "key": "v-71f28308",
+      "path": "/zh-CN/sql-reference/sql-statements/Administration/UNINSTALL%20PLUGIN.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "ALTER DATABASE",
@@ -16146,60 +16312,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "ALTER TABLE",
-      "frontmatter": {
-        "title": "ALTER TABLE",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Definition/ALTER%20TABLE.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Definition/ALTER TABLE.md",
-      "key": "v-28df275a",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Definition/ALTER%20TABLE.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 10:31:47"
-    },
-    {
-      "title": "ALTER VIEW",
-      "frontmatter": {
-        "title": "ALTER VIEW",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Definition/ALTER%20VIEW.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Definition/ALTER VIEW.md",
-      "key": "v-496f710a",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Definition/ALTER%20VIEW.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "CANCEL ALTER",
@@ -16228,7 +16341,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "BACKUP",
@@ -16257,18 +16370,18 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "CANCEL BACKUP",
+      "title": "ALTER TABLE",
       "frontmatter": {
-        "title": "CANCEL BACKUP",
+        "title": "ALTER TABLE",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Definition/CANCEL%20BACKUP.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Definition/CANCEL BACKUP.md",
-      "key": "v-2f21f4b6",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Definition/CANCEL%20BACKUP.html",
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Definition/ALTER%20TABLE.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Definition/ALTER TABLE.md",
+      "key": "v-28df275a",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Definition/ALTER%20TABLE.html",
       "headers": [
         {
           "level": 2,
@@ -16286,7 +16399,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "CANCEL RESTORE",
@@ -16315,7 +16428,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "CREATE DATABASE",
@@ -16344,7 +16457,60 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "CANCEL BACKUP",
+      "frontmatter": {
+        "title": "CANCEL BACKUP",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Definition/CANCEL%20BACKUP.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Definition/CANCEL BACKUP.md",
+      "key": "v-2f21f4b6",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Definition/CANCEL%20BACKUP.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "ALTER VIEW",
+      "frontmatter": {
+        "title": "ALTER VIEW",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Definition/ALTER%20VIEW.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Definition/ALTER VIEW.md",
+      "key": "v-496f710a",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Definition/ALTER%20VIEW.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 16:11:02"
     },
     {
       "title": "CREATE INDEX",
@@ -16373,7 +16539,31 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 10:31:47"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "CREATE TABLE",
+      "frontmatter": {
+        "title": "CREATE TABLE",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Definition/CREATE%20TABLE.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Definition/CREATE TABLE.md",
+      "key": "v-163369c1",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Definition/CREATE%20TABLE.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "CREATE REPOSITORY",
@@ -16402,18 +16592,18 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "CREATE TABLE",
+      "title": "CREATE MATERIALIZED VIEW",
       "frontmatter": {
-        "title": "CREATE TABLE",
+        "title": "CREATE MATERIALIZED VIEW",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Definition/CREATE%20TABLE.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Definition/CREATE TABLE.md",
-      "key": "v-163369c1",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Definition/CREATE%20TABLE.html",
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Definition/CREATE%20MATERIALIZED%20VIEW.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Definition/CREATE MATERIALIZED VIEW.md",
+      "key": "v-5036d244",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Definition/CREATE%20MATERIALIZED%20VIEW.html",
       "headers": [
         {
           "level": 2,
@@ -16424,9 +16614,43 @@ export const siteData = {
           "level": 2,
           "title": "example",
           "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "DROP MATERIALIZED VIEW",
+      "frontmatter": {
+        "title": "DROP MATERIALIZED VIEW",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20MATERIALIZED%20VIEW.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Definition/DROP MATERIALIZED VIEW.md",
+      "key": "v-2f537104",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20MATERIALIZED%20VIEW.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "CREATE VIEW",
@@ -16455,31 +16679,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "DROP INDEX",
-      "frontmatter": {
-        "title": "DROP INDEX",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20INDEX.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Definition/DROP INDEX.md",
-      "key": "v-3ebd6461",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20INDEX.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 10:31:47"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "DROP DATABASE",
@@ -16508,18 +16708,18 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "DROP REPOSITORY",
+      "title": "DROP INDEX",
       "frontmatter": {
-        "title": "DROP REPOSITORY",
+        "title": "DROP INDEX",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20REPOSITORY.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Definition/DROP REPOSITORY.md",
-      "key": "v-5922313f",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20REPOSITORY.html",
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20INDEX.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Definition/DROP INDEX.md",
+      "key": "v-3ebd6461",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20INDEX.html",
       "headers": [
         {
           "level": 2,
@@ -16528,16 +16728,11 @@ export const siteData = {
         },
         {
           "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
           "title": "keyword",
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "DROP TABLE",
@@ -16566,7 +16761,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "DROP VIEW",
@@ -16595,7 +16790,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "HLL",
@@ -16624,7 +16819,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "RECOVER",
@@ -16653,7 +16848,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "RESTORE",
@@ -16682,7 +16877,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "TRUNCATE TABLE",
@@ -16711,33 +16906,23 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "DROP FUNCTION",
+      "title": "DROP REPOSITORY",
       "frontmatter": {
-        "title": "DROP FUNCTION",
+        "title": "DROP REPOSITORY",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Definition/drop-function.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Definition/drop-function.md",
-      "key": "v-947c55a8",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Definition/drop-function.html",
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20REPOSITORY.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Definition/DROP REPOSITORY.md",
+      "key": "v-5922313f",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Definition/DROP%20REPOSITORY.html",
       "headers": [
         {
           "level": 2,
           "title": "description",
           "slug": "description"
-        },
-        {
-          "level": 3,
-          "title": "Syntax",
-          "slug": "syntax"
-        },
-        {
-          "level": 3,
-          "title": "Parameters",
-          "slug": "parameters"
         },
         {
           "level": 2,
@@ -16750,7 +16935,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "CREATE FUNCTION",
@@ -16789,7 +16974,46 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "DROP FUNCTION",
+      "frontmatter": {
+        "title": "DROP FUNCTION",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Definition/drop-function.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Definition/drop-function.md",
+      "key": "v-947c55a8",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Definition/drop-function.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 3,
+          "title": "Syntax",
+          "slug": "syntax"
+        },
+        {
+          "level": 3,
+          "title": "Parameters",
+          "slug": "parameters"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW FUNCTIONS",
@@ -16828,36 +17052,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "BROKER LOAD",
-      "frontmatter": {
-        "title": "BROKER LOAD",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/BROKER%20LOAD.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/BROKER LOAD.md",
-      "key": "v-6945bb87",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/BROKER%20LOAD.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "CANCEL LOAD",
@@ -16886,18 +17081,18 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "EXPORT",
+      "title": "BROKER LOAD",
       "frontmatter": {
-        "title": "EXPORT",
+        "title": "BROKER LOAD",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/EXPORT.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/EXPORT.md",
-      "key": "v-e250e484",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/EXPORT.html",
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/BROKER%20LOAD.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/BROKER LOAD.md",
+      "key": "v-6945bb87",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/BROKER%20LOAD.html",
       "headers": [
         {
           "level": 2,
@@ -16915,7 +17110,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "DELETE",
@@ -16944,7 +17139,94 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "EXPORT",
+      "frontmatter": {
+        "title": "EXPORT",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/EXPORT.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/EXPORT.md",
+      "key": "v-e250e484",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/EXPORT.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "LOAD",
+      "frontmatter": {
+        "title": "LOAD",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/LOAD.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/LOAD.md",
+      "key": "v-59f8343e",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/LOAD.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "MINI LOAD",
+      "frontmatter": {
+        "title": "MINI LOAD",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/MINI%20LOAD.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/MINI LOAD.md",
+      "key": "v-4a6ed903",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/MINI%20LOAD.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "GROUP BY",
@@ -16988,171 +17270,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 10:31:47"
-    },
-    {
-      "title": "LOAD",
-      "frontmatter": {
-        "title": "LOAD",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/LOAD.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/LOAD.md",
-      "key": "v-59f8343e",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/LOAD.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "MINI LOAD",
-      "frontmatter": {
-        "title": "MINI LOAD",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/MINI%20LOAD.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/MINI LOAD.md",
-      "key": "v-4a6ed903",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/MINI%20LOAD.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "PAUSE ROUTINE LOAD",
-      "frontmatter": {
-        "title": "PAUSE ROUTINE LOAD",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/PAUSE%20ROUTINE%20LOAD.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/PAUSE ROUTINE LOAD.md",
-      "key": "v-73f69938",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/PAUSE%20ROUTINE%20LOAD.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "RESUME ROUTINE LOAD",
-      "frontmatter": {
-        "title": "RESUME ROUTINE LOAD",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/RESUME%20ROUTINE%20LOAD.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/RESUME ROUTINE LOAD.md",
-      "key": "v-02aaaed8",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/RESUME%20ROUTINE%20LOAD.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "ROUTINE LOAD",
-      "frontmatter": {
-        "title": "ROUTINE LOAD",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/ROUTINE%20LOAD.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/ROUTINE LOAD.md",
-      "key": "v-9484af4a",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/ROUTINE%20LOAD.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "SHOW ALTER",
-      "frontmatter": {
-        "title": "SHOW ALTER",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20ALTER.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW ALTER.md",
-      "key": "v-c89ee73e",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20ALTER.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "MULTI LOAD",
@@ -17181,7 +17299,113 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "PAUSE ROUTINE LOAD",
+      "frontmatter": {
+        "title": "PAUSE ROUTINE LOAD",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/PAUSE%20ROUTINE%20LOAD.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/PAUSE ROUTINE LOAD.md",
+      "key": "v-73f69938",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/PAUSE%20ROUTINE%20LOAD.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "RESUME ROUTINE LOAD",
+      "frontmatter": {
+        "title": "RESUME ROUTINE LOAD",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/RESUME%20ROUTINE%20LOAD.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/RESUME ROUTINE LOAD.md",
+      "key": "v-02aaaed8",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/RESUME%20ROUTINE%20LOAD.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "ROUTINE LOAD",
+      "frontmatter": {
+        "title": "ROUTINE LOAD",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/ROUTINE%20LOAD.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/ROUTINE LOAD.md",
+      "key": "v-9484af4a",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/ROUTINE%20LOAD.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "SHOW ALTER",
+      "frontmatter": {
+        "title": "SHOW ALTER",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20ALTER.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW ALTER.md",
+      "key": "v-c89ee73e",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20ALTER.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW BACKUP",
@@ -17210,36 +17434,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "SHOW DATA",
-      "frontmatter": {
-        "title": "SHOW DATA",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATA.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW DATA.md",
-      "key": "v-23d8f872",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATA.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW DATABASES",
@@ -17263,36 +17458,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "SHOW DELETE",
-      "frontmatter": {
-        "title": "SHOW DELETE",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DELETE.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW DELETE.md",
-      "key": "v-2b9762c5",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DELETE.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW DYNAMIC PARTITION TABLES",
@@ -17321,7 +17487,65 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "SHOW DATA",
+      "frontmatter": {
+        "title": "SHOW DATA",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATA.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW DATA.md",
+      "key": "v-23d8f872",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DATA.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "SHOW DELETE",
+      "frontmatter": {
+        "title": "SHOW DELETE",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DELETE.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW DELETE.md",
+      "key": "v-2b9762c5",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20DELETE.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW EXPORT",
@@ -17350,7 +17574,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW LOAD",
@@ -17379,7 +17603,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW PARTITIONS",
@@ -17408,7 +17632,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW PROPERTY",
@@ -17437,7 +17661,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW REPOSITORIES",
@@ -17466,7 +17690,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW RESTORE",
@@ -17495,7 +17719,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW ROUTINE LOAD TASK",
@@ -17519,7 +17743,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW ROUTINE LOAD",
@@ -17543,7 +17767,55 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "SHOW TABLES",
+      "frontmatter": {
+        "title": "SHOW TABLES",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLES.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW TABLES.md",
+      "key": "v-9fa2b85e",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLES.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "STOP ROUTINE LOAD",
+      "frontmatter": {
+        "title": "STOP ROUTINE LOAD",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/STOP%20ROUTINE%20LOAD.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/STOP ROUTINE LOAD.md",
+      "key": "v-f72afe84",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/STOP%20ROUTINE%20LOAD.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW SNAPSHOT",
@@ -17572,31 +17844,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "SHOW TABLES",
-      "frontmatter": {
-        "title": "SHOW TABLES",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLES.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW TABLES.md",
-      "key": "v-9fa2b85e",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TABLES.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "SHOW TABLET",
@@ -17625,60 +17873,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "SHOW TRANSACTION",
-      "frontmatter": {
-        "title": "SHOW TRANSACTION",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TRANSACTION.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW TRANSACTION.md",
-      "key": "v-21ad4d21",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TRANSACTION.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "STOP ROUTINE LOAD",
-      "frontmatter": {
-        "title": "STOP ROUTINE LOAD",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/STOP%20ROUTINE%20LOAD.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/STOP ROUTINE LOAD.md",
-      "key": "v-f72afe84",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/STOP%20ROUTINE%20LOAD.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "example",
-          "slug": "example"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "STREAM LOAD",
@@ -17707,7 +17902,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "INSERT",
@@ -17751,7 +17946,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "BIGINT",
@@ -17775,7 +17970,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "BOOLEAN",
@@ -17799,7 +17994,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "CHAR",
@@ -17823,7 +18018,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "DATE",
@@ -17852,7 +18047,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "DATETIME",
@@ -17876,31 +18071,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "DECIMAL",
-      "frontmatter": {
-        "title": "DECIMAL",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Types/DECIMAL.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Types/DECIMAL.md",
-      "key": "v-cb72a0c4",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Types/DECIMAL.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "DOUBLE",
@@ -17924,7 +18095,60 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "DECIMAL",
+      "frontmatter": {
+        "title": "DECIMAL",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Types/DECIMAL.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Types/DECIMAL.md",
+      "key": "v-cb72a0c4",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Types/DECIMAL.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "SHOW TRANSACTION",
+      "frontmatter": {
+        "title": "SHOW TRANSACTION",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TRANSACTION.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW TRANSACTION.md",
+      "key": "v-21ad4d21",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Manipulation/SHOW%20TRANSACTION.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "example",
+          "slug": "example"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 16:11:02"
     },
     {
       "title": "FLOAT",
@@ -17948,7 +18172,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "HLL(HyperLogLog)",
@@ -17972,31 +18196,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
-    },
-    {
-      "title": "INT",
-      "frontmatter": {
-        "title": "INT",
-        "language": "zh-CN"
-      },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Types/INT.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Types/INT.md",
-      "key": "v-4062645e",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Types/INT.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "description",
-          "slug": "description"
-        },
-        {
-          "level": 2,
-          "title": "keyword",
-          "slug": "keyword"
-        }
-      ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "LARGEINT",
@@ -18020,18 +18220,18 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
-      "title": "SMALLINT",
+      "title": "INT",
       "frontmatter": {
-        "title": "SMALLINT",
+        "title": "INT",
         "language": "zh-CN"
       },
-      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Types/SMALLINT.html",
-      "relativePath": "zh-CN/sql-reference/sql-statements/Data Types/SMALLINT.md",
-      "key": "v-65a899a4",
-      "path": "/zh-CN/sql-reference/sql-statements/Data%20Types/SMALLINT.html",
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Types/INT.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Types/INT.md",
+      "key": "v-4062645e",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Types/INT.html",
       "headers": [
         {
           "level": 2,
@@ -18044,7 +18244,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "TINYINT",
@@ -18068,7 +18268,31 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
+    },
+    {
+      "title": "SMALLINT",
+      "frontmatter": {
+        "title": "SMALLINT",
+        "language": "zh-CN"
+      },
+      "regularPath": "/zh-CN/sql-reference/sql-statements/Data%20Types/SMALLINT.html",
+      "relativePath": "zh-CN/sql-reference/sql-statements/Data Types/SMALLINT.md",
+      "key": "v-65a899a4",
+      "path": "/zh-CN/sql-reference/sql-statements/Data%20Types/SMALLINT.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "description",
+          "slug": "description"
+        },
+        {
+          "level": 2,
+          "title": "keyword",
+          "slug": "keyword"
+        }
+      ],
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "VARCHAR",
@@ -18092,7 +18316,7 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     },
     {
       "title": "DESCRIBE",
@@ -18121,14 +18345,14 @@ export const siteData = {
           "slug": "keyword"
         }
       ],
-      "lastUpdated": "2020-3-16 16:29:05"
+      "lastUpdated": "2020-4-28 20:58:13"
     }
   ],
   "themeConfig": {
     "title": "Doris",
-    "logo": "/images/logo.jpeg",
-    "search": true,
+    "logo": "/images/doris-logo-only.png",
     "smoothScroll": true,
+    "search": true,
     "searchMaxSuggestions": 10,
     "nextLinks": true,
     "prevLinks": true,
@@ -18140,28 +18364,25 @@ export const siteData = {
     "docsBranch": "",
     "locales": {
       "/en/": {
+        "algolia": {
+          "apiKey": "",
+          "indexName": "",
+          "algoliaOptions": {
+            "facetFilters": [
+              "lang:en",
+              "version:"
+            ]
+          }
+        },
         "selectText": "Languages",
         "label": "English",
         "ariaLabel": "Languages",
         "editLinkText": "Edit this page on GitHub",
-        "algolia": {},
+        "searchPlaceholder": "search",
         "nav": [
-          {
-            "text": "Home",
-            "link": "/en/"
-          },
-          {
-            "text": "Docs",
-            "link": "/en/installing/compilation"
-          },
           {
             "text": "Download",
             "link": "/en/downloads/downloads"
-          },
-          {
-            "text": "Apache",
-            "link": "https://www.apache.org/",
-            "target": "_blank"
           }
         ],
         "sidebar": [
@@ -18201,7 +18422,8 @@ export const siteData = {
                   "/en/administrator-guide/load-data/broker-load-manual",
                   "/en/administrator-guide/load-data/stream-load-manual",
                   "/en/administrator-guide/load-data/routine-load-manual",
-                  "/en/administrator-guide/load-data/insert-into-manual"
+                  "/en/administrator-guide/load-data/insert-into-manual",
+                  "/en/administrator-guide/load-data/delete-manual"
                 ],
                 "sidebarDepth": 2
               },
@@ -18210,7 +18432,8 @@ export const siteData = {
                 "children": [
                   "/en/administrator-guide/alter-table/alter-table-bitmap-index",
                   "/en/administrator-guide/alter-table/alter-table-rollup",
-                  "/en/administrator-guide/alter-table/alter-table-schema-change"
+                  "/en/administrator-guide/alter-table/alter-table-schema-change",
+                  "/en/administrator-guide/alter-table/alter-table-temp-partition"
                 ],
                 "sidebarDepth": 2
               },
@@ -18259,7 +18482,9 @@ export const siteData = {
           {
             "title": "Extending Ability",
             "children": [
+              "/en/extending-doris/audit-plugin",
               "/en/extending-doris/doris-on-es",
+              "/en/extending-doris/plugin-development-manual",
               "/en/extending-doris/user-defined-function"
             ]
           },
@@ -18423,6 +18648,7 @@ export const siteData = {
                       "/en/sql-reference/sql-statements/Administration/ADMIN CHECK TABLET",
                       "/en/sql-reference/sql-statements/Administration/ADMIN REPAIR",
                       "/en/sql-reference/sql-statements/Administration/ADMIN SET CONFIG",
+                      "/en/sql-reference/sql-statements/Administration/ADMIN SET REPLICA STATUS",
                       "/en/sql-reference/sql-statements/Administration/ADMIN SHOW CONFIG",
                       "/en/sql-reference/sql-statements/Administration/ADMIN SHOW REPLICA DISTRIBUTION",
                       "/en/sql-reference/sql-statements/Administration/ADMIN SHOW REPLICA STATUS",
@@ -18434,6 +18660,7 @@ export const siteData = {
                       "/en/sql-reference/sql-statements/Administration/DROP CLUSTER",
                       "/en/sql-reference/sql-statements/Administration/DROP FILE",
                       "/en/sql-reference/sql-statements/Administration/ENTER",
+                      "/en/sql-reference/sql-statements/Administration/INSTALL PLUGIN",
                       "/en/sql-reference/sql-statements/Administration/LINK DATABASE",
                       "/en/sql-reference/sql-statements/Administration/MIGRATE DATABASE",
                       "/en/sql-reference/sql-statements/Administration/SHOW BACKENDS",
@@ -18443,7 +18670,9 @@ export const siteData = {
                       "/en/sql-reference/sql-statements/Administration/SHOW FULL COLUMNS",
                       "/en/sql-reference/sql-statements/Administration/SHOW INDEX",
                       "/en/sql-reference/sql-statements/Administration/SHOW MIGRATIONS",
-                      "/en/sql-reference/sql-statements/Administration/SHOW TABLE STATUS"
+                      "/en/sql-reference/sql-statements/Administration/SHOW PLUGINS",
+                      "/en/sql-reference/sql-statements/Administration/SHOW TABLE STATUS",
+                      "/en/sql-reference/sql-statements/Administration/UNINTALL PLUGIN"
                     ]
                   },
                   {
@@ -18459,12 +18688,14 @@ export const siteData = {
                       "/en/sql-reference/sql-statements/Data Definition/Colocate Join",
                       "/en/sql-reference/sql-statements/Data Definition/CREATE DATABASE",
                       "/en/sql-reference/sql-statements/Data Definition/CREATE INDEX",
+                      "/en/sql-reference/sql-statements/Data Definition/CREATE MATERIALIZED VIEW",
                       "/en/sql-reference/sql-statements/Data Definition/CREATE REPOSITORY",
                       "/en/sql-reference/sql-statements/Data Definition/CREATE TABLE",
                       "/en/sql-reference/sql-statements/Data Definition/CREATE VIEW",
                       "/en/sql-reference/sql-statements/Data Definition/create-function",
                       "/en/sql-reference/sql-statements/Data Definition/DROP DATABASE",
                       "/en/sql-reference/sql-statements/Data Definition/DROP INDEX",
+                      "/en/sql-reference/sql-statements/Data Definition/DROP MATERIALIZED VIEW",
                       "/en/sql-reference/sql-statements/Data Definition/DROP REPOSITORY",
                       "/en/sql-reference/sql-statements/Data Definition/DROP TABLE",
                       "/en/sql-reference/sql-statements/Data Definition/DROP VIEW",
@@ -18567,29 +18798,26 @@ export const siteData = {
         ]
       },
       "/zh-CN/": {
+        "algolia": {
+          "apiKey": "",
+          "indexName": "",
+          "algoliaOptions": {
+            "facetFilters": [
+              "lang:zh-CN",
+              "version:"
+            ]
+          }
+        },
         "selectText": "选择语言",
         "label": "简体中文",
         "editLinkText": "在 GitHub 上编辑此页",
+        "searchPlaceholder": "搜索",
         "nav": [
-          {
-            "text": "主页",
-            "link": "/zh-CN/"
-          },
-          {
-            "text": "文档",
-            "link": "/zh-CN/installing/compilation"
-          },
           {
             "text": "下载",
             "link": "/zh-CN/downloads/downloads"
-          },
-          {
-            "text": "Apache",
-            "link": "https://www.apache.org/",
-            "target": "_blank"
           }
         ],
-        "algolia": {},
         "sidebar": {
           "/zh-CN/": [
             {
@@ -18628,7 +18856,8 @@ export const siteData = {
                     "/zh-CN/administrator-guide/load-data/broker-load-manual",
                     "/zh-CN/administrator-guide/load-data/stream-load-manual",
                     "/zh-CN/administrator-guide/load-data/routine-load-manual",
-                    "/zh-CN/administrator-guide/load-data/insert-into-manual"
+                    "/zh-CN/administrator-guide/load-data/insert-into-manual",
+                    "/zh-CN/administrator-guide/load-data/delete-manual"
                   ],
                   "sidebarDepth": 2
                 },
@@ -18640,6 +18869,11 @@ export const siteData = {
                     "/zh-CN/administrator-guide/alter-table/alter-table-schema-change",
                     "/zh-CN/administrator-guide/alter-table/alter-table-temp-partition"
                   ],
+                  "sidebarDepth": 2
+                },
+                {
+                  "title": "物化视图",
+                  "children": [],
                   "sidebarDepth": 2
                 },
                 {
@@ -18679,6 +18913,7 @@ export const siteData = {
                 "/zh-CN/administrator-guide/dynamic-partition",
                 "/zh-CN/administrator-guide/export-manual",
                 "/zh-CN/administrator-guide/privilege",
+                "/zh-CN/administrator-guide/segment-v2-usage",
                 "/zh-CN/administrator-guide/small-file-mgr",
                 "/zh-CN/administrator-guide/sql-mode",
                 "/zh-CN/administrator-guide/time-zone",
@@ -18689,7 +18924,9 @@ export const siteData = {
             {
               "title": "扩展功能",
               "children": [
+                "/zh-CN/extending-doris/audit-plugin",
                 "/zh-CN/extending-doris/doris-on-es",
+                "/zh-CN/extending-doris/plugin-development-manual",
                 "/zh-CN/extending-doris/user-defined-function"
               ]
             },
@@ -18856,6 +19093,7 @@ export const siteData = {
                         "/zh-CN/sql-reference/sql-statements/Administration/ADMIN CHECK TABLET",
                         "/zh-CN/sql-reference/sql-statements/Administration/ADMIN REPAIR",
                         "/zh-CN/sql-reference/sql-statements/Administration/ADMIN SET CONFIG",
+                        "/zh-CN/sql-reference/sql-statements/Administration/ADMIN SET REPLICA STATUS",
                         "/zh-CN/sql-reference/sql-statements/Administration/ADMIN SHOW CONFIG",
                         "/zh-CN/sql-reference/sql-statements/Administration/ADMIN SHOW REPLICA DISTRIBUTION",
                         "/zh-CN/sql-reference/sql-statements/Administration/ADMIN SHOW REPLICA STATUS",
@@ -18867,6 +19105,7 @@ export const siteData = {
                         "/zh-CN/sql-reference/sql-statements/Administration/DROP CLUSTER",
                         "/zh-CN/sql-reference/sql-statements/Administration/DROP FILE",
                         "/zh-CN/sql-reference/sql-statements/Administration/ENTER",
+                        "/zh-CN/sql-reference/sql-statements/Administration/INSTALL PLUGIN",
                         "/zh-CN/sql-reference/sql-statements/Administration/LINK DATABASE",
                         "/zh-CN/sql-reference/sql-statements/Administration/MIGRATE DATABASE",
                         "/zh-CN/sql-reference/sql-statements/Administration/SHOW BACKENDS",
@@ -18876,7 +19115,9 @@ export const siteData = {
                         "/zh-CN/sql-reference/sql-statements/Administration/SHOW FULL COLUMNS",
                         "/zh-CN/sql-reference/sql-statements/Administration/SHOW INDEX",
                         "/zh-CN/sql-reference/sql-statements/Administration/SHOW MIGRATIONS",
-                        "/zh-CN/sql-reference/sql-statements/Administration/SHOW TABLE STATUS"
+                        "/zh-CN/sql-reference/sql-statements/Administration/SHOW PLUGINS",
+                        "/zh-CN/sql-reference/sql-statements/Administration/SHOW TABLE STATUS",
+                        "/zh-CN/sql-reference/sql-statements/Administration/UNINSTALL PLUGIN"
                       ]
                     },
                     {
@@ -18891,12 +19132,14 @@ export const siteData = {
                         "/zh-CN/sql-reference/sql-statements/Data Definition/CANCEL RESTORE",
                         "/zh-CN/sql-reference/sql-statements/Data Definition/CREATE DATABASE",
                         "/zh-CN/sql-reference/sql-statements/Data Definition/CREATE INDEX",
+                        "/zh-CN/sql-reference/sql-statements/Data Definition/CREATE MATERIALIZED VIEW",
                         "/zh-CN/sql-reference/sql-statements/Data Definition/CREATE REPOSITORY",
                         "/zh-CN/sql-reference/sql-statements/Data Definition/CREATE TABLE",
                         "/zh-CN/sql-reference/sql-statements/Data Definition/CREATE VIEW",
                         "/zh-CN/sql-reference/sql-statements/Data Definition/create-function",
                         "/zh-CN/sql-reference/sql-statements/Data Definition/DROP DATABASE",
                         "/zh-CN/sql-reference/sql-statements/Data Definition/DROP INDEX",
+                        "/zh-CN/sql-reference/sql-statements/Data Definition/DROP MATERIALIZED VIEW",
                         "/zh-CN/sql-reference/sql-statements/Data Definition/DROP REPOSITORY",
                         "/zh-CN/sql-reference/sql-statements/Data Definition/DROP TABLE",
                         "/zh-CN/sql-reference/sql-statements/Data Definition/DROP VIEW",

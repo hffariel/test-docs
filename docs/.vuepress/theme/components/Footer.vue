@@ -30,9 +30,9 @@ under the License.
       <a href="https://www.apache.org/licenses/">License</a> | <a href="https://www.apache.org/security/">Security</a> | <a href="https://www.apache.org/foundation/thanks.html">Thanks</a> | <a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
     </p>
     <p>
-      <br />
+      <br>
         <span class="footer-text">© Copyright {{ thisYear }}, Apache Doris(Incubating) </span>
-      <br />
+      <br>
       <span
         class="footer-text"
       >
@@ -50,6 +50,7 @@ export default {
 </script>
 <style lang="stylus">
 .footer-wrapper
+  font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
   max-width $contentWidth
   text-align center
   margin 0 auto
@@ -62,11 +63,14 @@ export default {
     flex-direction row
     justify-content space-between
     align-items center
-    margin-bottom 1em
+    margin-bottom 1rem
     width 100%
     font-size .75em
     border-collapse collapse
     overflow-x auto
+  .footer-text
+    display inline-block
+    line-height 1.2em
 
 @media (min-width: $MQMobile)
   .footer-wrapper 
