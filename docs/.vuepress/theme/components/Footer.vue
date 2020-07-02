@@ -30,9 +30,9 @@ under the License.
       <a href="https://www.apache.org/licenses/">License</a> | <a href="https://www.apache.org/security/">Security</a> | <a href="https://www.apache.org/foundation/thanks.html">Thanks</a> | <a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
     </p>
     <p>
-      <br>
+      <br />
         <span class="footer-text">© Copyright {{ thisYear }}, Apache Doris(Incubating) </span>
-      <br>
+      <br />
       <span
         class="footer-text"
       >
